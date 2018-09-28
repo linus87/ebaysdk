@@ -17,7 +17,7 @@ Find the latest version of the project in the [Maven Central Repository](https:/
  - [eBay Shopping API](https://github.com/tonicsoft/ebay-shopping-api) - JAX-WS classes for the eBay Shopping API.
 
 # versioning
-Major versions are maintained in a one to one correspondance with the versions of releases made available on the eBay Developer Program website. For example, version `981.0.0` of this project would be a build of Version 981 of the eBay release. Subsequent minor or patch versions of this projects (`981.0.1`, `981.1.0` etc) represent builds from the same eBay source code. eBay maintains a one to one correspondence between versions of the SDK and versions of the Trading API.
+Major versions are maintained in a one to one correspondance with the versions of releases made available on the eBay Developer Program website. For example, version `1065` of this project would be a build of Version 1065 of the eBay release. Subsequent minor or patch versions of this projects (`1065`, `1065.1.0` etc) represent builds from the same eBay source code. eBay maintains a one to one correspondence between versions of the SDK and versions of the Trading API.
 
 # monkey patches
 ~~A small number of changes are maintained in order to make the artifacts more suitable for distribution via Maven:~~
