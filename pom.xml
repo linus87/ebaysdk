@@ -1,23 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
 
-  <groupId>io.github.linus87</groupId>
-  <artifactId>ebaysdk</artifactId>
-  <version>1065-SNAPSHOT</version>
-  <packaging>pom</packaging>
+	<groupId>io.github.linus87</groupId>
+	<artifactId>ebaysdk</artifactId>
+	<version>1065-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-  <name>ebaysdk</name>
-  <url>http://maven.apache.org</url>
+	<name>ebaysdk</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
-  <modules>
-  	<module>ebaysdkcore</module>
-  	<module>ebaycalls</module>
-  	<module>helper</module>
-  </modules>
-  
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>ebaysdkcore</module>
+		<module>ebaycalls</module>
+		<module>helper</module>
+	</modules>
+
+	<licenses>
+		<license>
+			<name>COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) VERSION 1.0</name>
+			<url>https://github.com/linus87/ebaysdk/eBaySDKLicense</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<tag>master</tag>
+		<url>git@github.com:linus87/ebaysdk.git</url>
+		<connection>scm:git@github.com:linus87/ebaysdk.git</connection>
+		<developerConnection>scm:git@github.com:linus87/ebaysdk.git</developerConnection>
+	</scm>
+	<developers>
+		<developer>
+			<name>linus87</name>
+			<email>linus.yan@hotmail.com</email>
+			<organization>linus87</organization>
+		</developer>
+	</developers>
+
 </project>
