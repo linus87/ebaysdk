@@ -1,5 +1,5 @@
 # ebaysdkcore
-[![Build Status](https://travis-ci.org/linus87/ebaysdkcore.svg?branch=master)](https://travis-ci.org/linus87/ebaysdkcore)
+[![Build Status](https://travis-ci.org/linus87/ebaysdk.svg?branch=master)](https://travis-ci.org/linus87/ebaysdk)
 
 `ebaysdkcore`, also known as the "eBay SDK for Java" provides convenient access to the eBay Trading API. It contains code generated from the Trading API WSDL and a thin wrapper which simplify common tasks like providing credentials or setting commonly used parameters.
 
