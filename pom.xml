@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
 
 	<groupId>io.github.linus87</groupId>
 	<artifactId>ebaysdk</artifactId>
-	<version>1065-SNAPSHOT</version>
+	<version>1065</version>
 	<packaging>pom</packaging>
 
 	<name>ebaysdk</name>
@@ -41,10 +41,38 @@
 	</scm>
 	<developers>
 		<developer>
-			<name>linus87</name>
+			<name>linus_yan</name>
 			<email>linus.yan@hotmail.com</email>
 			<organization>linus87</organization>
 		</developer>
 	</developers>
+	
+	<profiles>
+		<profile>
+			<id>sonatype-oss-release</id>
+			<properties>
+            		<additionalparam>-Xdoclint:none</additionalparam>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

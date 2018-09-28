@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>io.github.linus87</groupId>
 		<artifactId>ebaysdk</artifactId>
-		<version>1065-SNAPSHOT</version>
+		<version>1065</version>
 	</parent>
 	<artifactId>ebaycalls</artifactId>
 	<name>ebaycalls</name>
@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>io.github.linus87</groupId>
 			<artifactId>ebaysdkcore</artifactId>
-			<version>1065-SNAPSHOT</version>
+			<version>1065</version>
 		</dependency>
 	</dependencies>
 </project>
