@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.linus87</groupId>
     <artifactId>ebaysdk</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1065-SNAPSHOT</version>
   </parent>
   <artifactId>helper</artifactId>
   <name>helper</name>
@@ -17,18 +17,12 @@
   	<dependency>
   		<groupId>com.linus87</groupId>
   		<artifactId>ebaysdkcore</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
+  		<version>1065-SNAPSHOT</version>
   	</dependency>
   	<dependency>
   		<groupId>com.linus87</groupId>
   		<artifactId>ebaycalls</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
+  		<version>1065-SNAPSHOT</version>
   	</dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>
