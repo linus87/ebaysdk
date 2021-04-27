@@ -31,7 +31,7 @@ public enum PictureSetCodeType {
 
     /**
      * 
-     *             Indicates to generate the "Standard" set of images, which is a set of 7 images of various sizes, for each <b>ExternalPictureURL</b> submitted in the request. 
+     *             Indicates to generate the "Standard" set of images, which is a set of 7 images of various sizes, for each <b>ExternalPictureURL</b> submitted in the request.
      *             This is the default. <b>Note:</b> This field is used only for images that will be used in a listing.
      *           
      * 
@@ -41,7 +41,7 @@ public enum PictureSetCodeType {
 
     /**
      * 
-     *             Indicates to generate the "Standard" set <i>plus</i> a super-sized image for each <b>ExternalPictureURL</b> submitted in the request. 
+     *             Indicates to generate the "Standard" set <i>plus</i> a super-sized image for each <b>ExternalPictureURL</b> submitted in the request.
      *             In order to include the super-sized image in the Add Item calls, you must also specify <b>Item.PictureDetails.PhotoDisplay.Supersize</b> or <b>Item.PictureDetails.PhotoDisplay.PicturePack</b>.
      *              <b>Note:</b> This field is used only for images that will be used in a listing.
      *           

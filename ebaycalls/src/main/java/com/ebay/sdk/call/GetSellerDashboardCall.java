@@ -43,6 +43,8 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <tr>  <td>PL</td> <td>212</td>  </tr>
  * </table>
  * <br> <B>Output property:</B> <code>ReturnedSellerFeeDiscount</code> - This container provides the percentage discount that the seller is eligible to receive on the Final Value Fee for each order line item. Top-Rated Sellers may be eligible for Final Value Fee discounts if their listings meet all requirements for the discount.
+ * <br><br>
+ * This container is still returned even if the seller is not receiving a Final Value Fee discount (returned as <code>0.0</code>)
  * <br> <B>Output property:</B> <code>ReturnedPowerSellerStatus</code> - This container provides the seller's PowerSeller status, as well as any informational alerts related to the seller's PowerSeller status. If the seller has not achieved Power Seller status, a value of <code>None</code> will be returned in the <b>PowerSellerStatus.Level</b> field. A <b>PowerSellerStatus.Alert</b> container will only be returned if there is an alert/message related to the seller's PowerSeller status.
  * <br><br>
  * For eBay Germany and France, you must be a registered business seller to

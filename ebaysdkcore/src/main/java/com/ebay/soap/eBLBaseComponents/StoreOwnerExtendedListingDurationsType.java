@@ -17,10 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 			Defines the extended listing durations available to store owners. If the field is
- * 			present, the corresponding feature applies to the category. The field is returned as
- * 			an	empty element (e.g., a boolean value is not returned). Applies to Fixed Price
- * 			Listings.
+ * 			This type is used to specify the additional listing durations that are available to sellers who have eBay Store subscriptions. The <b>StoreOwnerExtendedListingDurations</b> container is only returned under the <b>SiteDefaults</b> node if the eBay marketplace supports additional listing durations for eBay Store owners, and this container is only returned under a <b>Category</b> node if this eBay category supports additional listing durations for eBay Store owners (other than the durations that are already supported for the category).
  * 		
  * 
  * <p>Java class for StoreOwnerExtendedListingDurationsType complex type.

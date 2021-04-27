@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
  * 				<br><br>
  * 				At this time, this feature is only supported for motorcycle and scooter listings on the Germany and UK sites.
  * 				<br><br>
- * 				To verify if a specific category supports specifying parts compatibility through an ePID, pass in a <b>EpidSupported</b> value in the request, and then look for a <code>true</code> value in the <b>EpidSupported</b> field of the corresponding <b>Category</b> node (match up the <b>CategoryID<b> values if more than one category ID was passed in the request).
+ * 				To verify if a specific category supports specifying parts compatibility through an ePID, pass in a <b>EpidSupported</b> value in the request, and then look for a <code>true</code> value in the <b>EpidSupported</b> field of the corresponding <b>Category</b> node (match up the <b>CategoryID</b> values if more than one category ID was passed in the request).
  * 			
  * 
  * <p>Java class for EpidSupportedDefinitionType complex type.

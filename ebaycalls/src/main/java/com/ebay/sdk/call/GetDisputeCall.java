@@ -22,7 +22,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br> <B>Input property:</B> <code>DisputeID</code> - The unique identifier of an seller-initiated dispute. The caller passes in this value to retrieve detailed information on a specific dispute.
  * <br/><br/>
  * <span class="tablenote"><strong>Note:</strong>
- * Buyer-initiated Money Back Guarantee cases are not supported with this call. To retrieve and manage eBay Money Back Guarantee cases, the Case Management calls of the <a href="http://developer.ebay.com/Devzone/post-order/index.html" target="_blank">Post-Order API</a> can be used instead.
+ * Buyer-initiated Money Back Guarantee cases are not supported with this call. To retrieve and manage eBay Money Back Guarantee cases, the Case Management calls of the <a href="https://developer.ebay.com/Devzone/post-order/index.html" target="_blank">Post-Order API</a> can be used instead.
  * </span>
  * <br> <B>Output property:</B> <code>ReturnedDispute</code> - If the dispute that is specified in the call request is found, this <b>Dispute</b> container is returned in the response. This container includes detailed information about the dispute, the buyer and seller user IDs, and information on the listing that is associated with the dispute.
  * 

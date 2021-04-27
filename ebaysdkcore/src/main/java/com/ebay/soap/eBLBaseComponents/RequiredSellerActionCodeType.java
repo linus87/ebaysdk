@@ -43,7 +43,7 @@ public enum RequiredSellerActionCodeType {
      * 						involving the seller and the item. The seller must address and get
      * 						the case resolved before the funds can be scheduled for release to the
      * 						seller's account. See the
-     * 						<a href="http://developer.ebay.com/Devzone/guides/ebayfeatures/Development/Post-Order.html">Resolving Order Issues</a>
+     * 						<a href="http://developer.ebay.com/Devzone/guides/features-guide/default.html#development/Post-Order.html">Resolving Order Issues</a>
      * 						page for information about retrieving and managing eBay Money Back Guarantee cases.
      * 					
      * 

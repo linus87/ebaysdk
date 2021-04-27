@@ -35,9 +35,9 @@ public enum DisputeReasonCodeType {
     /**
      * 
      * 						The seller has opened a case against the buyer because the buyer has not paid for
-     * 						the order line item. A seller can open an <i>Unpaid Item</i> case as early as two days after 
-     * 						the end of the auction listing. An exception to this rule occurs when the seller 
-     * 						allows combined payment orders. If the seller does allow the buyer to combine orders 
+     * 						the order line item. A seller can open an <i>Unpaid Item</i> case as early as two days after
+     * 						the end of the auction listing. An exception to this rule occurs when the seller
+     * 						allows combined payment orders. If the seller does allow the buyer to combine orders
      * 						and make one payment for those orders, the seller would not be able to open an Unpaid
      * 						Item case until after the time period to combine orders expires.
      * 						<br>
@@ -58,10 +58,10 @@ public enum DisputeReasonCodeType {
 
     /**
      * 
-     * 						The buyer has opened a case against the seller because the item has not been 
-     * 						received by the buyer. A buyer can open an <i>Item Not Received</i> case after the 
-     * 						Estimated Delivery Date of the item has passed, or 7 days after payment if the 
-     * 						Estimated Delivery Date wasn't given by the seller. This value cannot be used in 
+     * 						The buyer has opened a case against the seller because the item has not been
+     * 						received by the buyer. A buyer can open an <i>Item Not Received</i> case after the
+     * 						Estimated Delivery Date of the item has passed, or 7 days after payment if the
+     * 						Estimated Delivery Date wasn't given by the seller. This value cannot be used in
      * 						<b>AddDispute</b>.
      * 					
      * 
@@ -93,7 +93,7 @@ public enum DisputeReasonCodeType {
 
     /**
      * 
-     * 						Item was returned and seller was not paid. This value cannot be used in 
+     * 						Item was returned and seller was not paid. This value cannot be used in
      * 						<b>AddDispute</b>.
      * 					
      * 

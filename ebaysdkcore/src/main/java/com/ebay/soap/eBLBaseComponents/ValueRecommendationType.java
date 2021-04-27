@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 			Type used by the <b>ValueRecommendation<b> container to provide recommended names for recommended item specifics.
+ * 			Type used by the <b>ValueRecommendation</b> container to provide recommended names for recommended item specifics.
  * 		
  * 
  * <p>Java class for ValueRecommendationType complex type.

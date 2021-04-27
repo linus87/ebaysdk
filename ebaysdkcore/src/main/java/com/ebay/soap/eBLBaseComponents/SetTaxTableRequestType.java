@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 				This call allows you to add or modify sales tax rates for one or more tax jurisdictions within the specified site. Any additions or modifications made with this call is saved in the seller's Sales Tax Table in My eBay.
  * 				<br/><br/>
- * 				Sales Tax Tables are only supported on the US, Canada (English  and French versions), and India sites, so this call is only applicable to those sites. To view their current Sales Tax Table, a seller may go to the Sales Tax Table in My eBay, or they can make a <b>GetTaxTable</b> call.
+ * 				Sales Tax Tables are only supported on the US and Canada (English and French versions) sites, so this call is only applicable to those sites. To view their current Sales Tax Table, a seller may go to the Sales Tax Table in My eBay, or they can make a <b>GetTaxTable</b> call.
  * 			
  * 
  * <p>Java class for SetTaxTableRequestType complex type.

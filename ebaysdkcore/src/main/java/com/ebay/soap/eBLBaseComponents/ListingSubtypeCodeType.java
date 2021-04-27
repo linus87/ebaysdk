@@ -30,11 +30,7 @@ public enum ListingSubtypeCodeType {
 
     /**
      * 
-     * 					General classified ad listing subtype.
-     *                <br/><br/>
-     *                <span class="tablenote">
-     *                <strong>Note:</strong> This value indicates a classified ad (or digital download) listing on <strong>ebay.com</strong> websites, not on <strong>ebayclassifieds.com</strong>. The ebayclassifieds.com site is not supported by the Trading API. For information about other differences between these two sites, see <a href="http://pages.ebay.com/help/sell/classified.html">Advertising with classified ads on eBay and eBay Classifieds</a>.
-     *                </span>
+     * 					This value indicates that the lead generation listing is a classifed ad. Note that only some eBay categories support classified ad listings. Use the <strong>GetCategoryFeatures</strong> call (with <strong>FeatureID</strong> value set to <code>AdFormatEnabled</code>) to see which categories support classified ad listings.
      * 				
      * 
      */
@@ -43,7 +39,7 @@ public enum ListingSubtypeCodeType {
 
     /**
      * 
-     * 					General LocalMarketBestOfferOnly listing subtype.
+     * 					This value indicates that the lead generation listing is a US Motors Local Market listing. Note that only some eBay Motors categories support Motors Local Market listings. Use the <strong>GetCategoryFeatures</strong> call (with the <strong>SITEID</strong> header set to <code>100</code> and the <strong>FeatureID</strong> value set to <code>LocalMarketAdFormatEnabled</code>) to see which eBay Motors categories support Motors Local Market listings.
      * 				
      * 
      */

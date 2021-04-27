@@ -12,10 +12,9 @@ import org.w3c.dom.Element;
 
 
 /**
- *  
- * 				Defines the escrow workflow version applicable for the given category on the India site, if the category
- * 				supports PaisaPayFullEscrow. If this field is present, the corresponding feature applies to the category. 
- * 				The field	is returned as an empty element. 
+ * 
+ * 				<span class="tablenote"><b>Note:</b>
+ * 				This type is deprecated since it is only applicable to the eBay India site, and this marketplace is no longer available.</span>
  * 			
  * 
  * <p>Java class for INEscrowWorkflowTimelineDefinitionType complex type.

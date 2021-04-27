@@ -21,13 +21,9 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>UserID</code> - eBay user ID for the seller whose events are to be returned.
- * If not specified, retrieves events for the user identified by
- * the authentication token passed in the request.
- * <br/><br/>
- * <b>Note:</b> Since user information is anonymous to everyone except the bidder and the seller (during an active auction), only sellers looking for information about
- * their own listings and bidders who know the user IDs of their sellers
- * will be able to make this API call successfully.
+ * <br> <B>Input property:</B> <code>UserID</code> - <span class="tablenote"><strong>Note:</strong>
+ * This field should no longer be used, and will be ignored if it is included in a <b>GetSellerEvents</b> request. There are plans to remove this field from the public WSDL. The only eBay user ID that can be used is the one associated with the authentication token.
+ * </span>
  * <br> <B>Input property:</B> <code>StartTimeFilter</code> - Helper wrapper to set GetSellerEventsRequestType StartTimeFrom, StartTimeTo:
  * TimeFrom sets GetSellerEventsRequestType.StartTimeFrom: 
  * Describes the earliest (oldest) time to use in a time range filter based
@@ -183,9 +179,9 @@ public class GetSellerEventsCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * Retrieves price changes, item revisions, description revisions,
-   * and other changes that have occurred within the last 48 hours
-   * related to a seller's eBay listings.
+   * This call is used by a seller to retrieve changes to their own listings that have occurred within the last 48 hours, including price changes, available quantity, and other revisions to listing.
+   * <br/><br/>
+   * One of the available date range filters must be used with this call.
    * 
    * <br>
    * @throws ApiException

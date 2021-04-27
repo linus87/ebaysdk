@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Basic"/>
  *     &lt;enumeration value="Featured"/>
  *     &lt;enumeration value="Anchor"/>
+ *     &lt;enumeration value="Starter"/>
+ *     &lt;enumeration value="Enterprise"/>
  *     &lt;enumeration value="CustomCode"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
@@ -32,11 +34,7 @@ public enum StoreSubscriptionLevelCodeType {
 
     /**
      * 
-     * 					   This closes your eBay Store and cancels your eBay Store subscription.
-     * 					   All of your current Online Auction and Fixed Price items will remain active
-     * 					   until their ending date is reached or they are sold. All your Store pictures
-     * 					   hosted on eBay will be deleted unless you have a Picture Manager
-     * 					   subscription.
+     * 					   This value is passed into the <b>Store.SubscriptionLevel</b> field of a <b>SetStore</b> call to cancel your current eBay Store subscription. Despite its name, this action does not close your store immediately. Any active listings will remain available through your eBay Store until those listings have ended (either through a sale or when listing end time has been reached).
      * 					
      * 
      */
@@ -45,7 +43,7 @@ public enum StoreSubscriptionLevelCodeType {
 
     /**
      * 
-     * 					   Basic level subscription.
+     * 					   This enumeration value indicates that the eBay user has a Basic eBay Store subscription.
      * 					
      * 
      */
@@ -54,7 +52,7 @@ public enum StoreSubscriptionLevelCodeType {
 
     /**
      * 
-     * 					   Featured level subscription.
+     * 					   This enumeration value indicates that the eBay user has a Premium eBay Store subscription.
      * 					
      * 
      */
@@ -63,12 +61,30 @@ public enum StoreSubscriptionLevelCodeType {
 
     /**
      * 
-     * 					   Anchor level subscription.
+     * 					   This enumeration value indicates that the eBay user has an Anchor eBay Store subscription.
      * 					
      * 
      */
     @XmlEnumValue("Anchor")
     ANCHOR("Anchor"),
+
+    /**
+     * 
+     * 						 This enumeration value indicates that the eBay user has a Starter eBay Store subscription.
+     * 					
+     * 
+     */
+    @XmlEnumValue("Starter")
+    STARTER("Starter"),
+
+    /**
+     * 
+     * 						 This enumeration value indicates that the eBay user has an Enterprise eBay Store subscription.
+     * 					
+     * 
+     */
+    @XmlEnumValue("Enterprise")
+    ENTERPRISE("Enterprise"),
 
     /**
      * 

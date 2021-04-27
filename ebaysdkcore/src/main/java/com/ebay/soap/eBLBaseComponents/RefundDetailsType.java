@@ -17,10 +17,10 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>ReturnPolicyDetails.Refund</b> container that is
- * 				returned in <b>GeteBayDetails</b>. All of the values (along with descriptions
- * 				for each value) that can be used as a Refund Option when listing an item is returned
- * 				under the <b>ReturnPolicyDetails.Refund</b> container.
+ * 				Type defining the <b>ReturnPolicyDetails.Refund</b> container that is returned in <b>GeteBayDetails</b>. All of the values (along with descriptions for each value) that can be used as a Refund Option when listing an item is returned under the <b>ReturnPolicyDetails.Refund</b> container.
+ * 				<br><br>
+ * 				<span class="tablenote"><b>Note:</b> The <b>GeteBayDetails</b> call returns site-default Return Policy settings. For most categories within a given eBay site, the supported Return Policy options/values are the same, but there a few exceptions. To discover what refund options that a particular category supports, call <b>GetCategoryFeatures</b> and include <code>DomesticRefundMethodValues</code> and/or <code>InternationalRefundMethodValues</code> as <b>FeatureID</b> values to see the refund options available for domestic and international returns, respectively.
+ * 				</span>
  * 			
  * 
  * <p>Java class for RefundDetailsType complex type.

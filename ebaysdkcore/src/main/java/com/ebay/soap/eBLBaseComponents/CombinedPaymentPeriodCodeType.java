@@ -34,7 +34,7 @@ public enum CombinedPaymentPeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that an unpaid order can be combined into a Combined Invoice 
+     * 						This value indicates that an unpaid order can be combined into a Combined Invoice
      * 						order within three days after purchase (creation of order).
      * 					
      * 
@@ -44,7 +44,7 @@ public enum CombinedPaymentPeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that an unpaid order can be combined into a Combined Invoice 
+     * 						This value indicates that an unpaid order can be combined into a Combined Invoice
      * 						order within five days after purchase (creation of order).
      * 					
      * 
@@ -54,7 +54,7 @@ public enum CombinedPaymentPeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that an unpaid order can be combined into a Combined Invoice 
+     * 						This value indicates that an unpaid order can be combined into a Combined Invoice
      * 						order within seven days after purchase (creation of order).
      * 					
      * 
@@ -64,7 +64,7 @@ public enum CombinedPaymentPeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that an unpaid order can be combined into a Combined Invoice 
+     * 						This value indicates that an unpaid order can be combined into a Combined Invoice
      * 						order within 14 days after purchase (creation of order).
      * 					
      * 
@@ -74,7 +74,7 @@ public enum CombinedPaymentPeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that an unpaid order can be combined into a Combined Invoice 
+     * 						This value indicates that an unpaid order can be combined into a Combined Invoice
      * 						order within 30 days after purchase (creation of order).
      * 					
      * 

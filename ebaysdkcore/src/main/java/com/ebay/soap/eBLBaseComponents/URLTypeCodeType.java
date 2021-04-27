@@ -142,20 +142,11 @@ public enum URLTypeCodeType {
     /**
      * 
      * 						This value indicates that the URL in the corresponding <b>URL</b> field is the base URL that a seller needs to enter the UI flow to make a request that a missing product be added to the eBay Catalog.
-     * 						<br/>
-     * 						<br/>
-     * 						The seller will also have to use a valid OAuth token, and will pass in this OAuth token through an <b>id_token</b> query parameter. So, for the US site (the base URL will vary by site), the HTTPS Sandbox endpoint might look like the following:
-     * 						<br/>
-     * 						<br/>
-     * 						<code>https://www.sandbox.ebay.com/slr/prd?id_token</code>=<em>Oauth_token</em>
-     * 						<br/>
-     * 						<br/>
-     * 						Different base URLs will be returned depending on whether you call <b>GeteBayDetails</b> in Sandbox or Production environment. As of April 2018, this URL and the create catalog product flow is only available in the Sandbox environment. This URL and the create catalog product flow will become available in the Production environment in August 2018 with the launch of Product-Based Shopping Experience Phase 2. See the <a href="
-     *             https://developer.ebay.com/pbse" target="_blank">Product-Based Shopping Experience landing page</a> for more information.
-     * 						<br/>
-     * 						<br/>
-     * 						For more information on getting OAuth access tokens, see our <a href="
-     *             https://developer.ebay.com/api-docs/static/oauth-tokens.html" target="_blank">OAuth access tokens</a> help topic.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 							Catalog change requests through the UI flow are currently not available, so this URL will not be returned in <b>GeteBayDetails</b>.
+     * 						</span>
      * 					
      * 
      */
@@ -165,20 +156,11 @@ public enum URLTypeCodeType {
     /**
      * 
      * 						This value indicates that the URL in the corresponding <b>URL</b> field is the base URL that a seller needs to enter the UI flow to make a request that an existing eBay Catalog product be revised. The seller will have to append the ePID value of the catalog product to the end of the URL.
-     * 						<br/>
-     * 						<br/>
-     * 						The seller will also have to use a valid OAuth token, and will pass in this OAuth token through an <b>id_token</b> query parameter. So, for the US site (the base URL will vary by site), the HTTPS Sandbox endpoint might look like the following:
-     * 						<br/>
-     * 						<br/>
-     * 						<code>https://www.sandbox.ebay.com/slr/prd/149167716?id_token</code>=<em>Oauth_token</em>, where '149167716' is the ePID of the catalog product.
-     * 						<br/>
-     * 						<br/>
-     * 						Different base URLs will be returned depending on whether you call <b>GeteBayDetails</b> in Sandbox or Production environment. As of April 2018, this URL and the appeal catalog product flow is only available in the Sandbox environment. This URL and the create catalog product flow will become available in the Production environment in August 2018 with the launch of Product-Based Shopping Experience Phase 2. See the <a href="
-     *             https://developer.ebay.com/pbse" target="_blank">Product-Based Shopping Experience landing page</a> for more information.
-     * 						<br/>
-     * 						<br/>
-     * 						For more information on getting OAuth access tokens, see our <a href="
-     *             https://developer.ebay.com/api-docs/static/oauth-tokens.html" target="_blank">OAuth access tokens</a> help topic.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 							Catalog change requests through the UI flow are currently not available, so this URL will not be returned in <b>GeteBayDetails</b>.
+     * 						</span>
      * 					
      * 
      */
@@ -188,19 +170,11 @@ public enum URLTypeCodeType {
     /**
      * 
      * 						This value indicates that the URL in the corresponding <b>URL</b> field is the base URL that a seller needs to enter the UI flow to get the status of a catalog change request (request for a new catalog product or request to revise an existing product). The seller will have to append the identifier of the catalog change request to the end of the URL.
-     * 						<br/>
-     * 						<br/>
-     * 						The seller will also have to use a valid token, and will pass in this token through an <b>id_token</b> query parameter. The authentication tokens are not yet available, but eBay will be sharing detailed instructions on how to authenticate and invoke these pages soon.
-     * 						<br/>
-     * 						<br/>
-     * 						For the US site (the base URL will vary by site), the HTTPS Sandbox endpoint might look like the following:
-     * 						<br/>
-     * 						<br/>
-     * 						<code>https://www.sandbox.ebay.com/slr/prd/status/5ac3cf22ca4c591b0c324749?id_token</code>=<em>token_value</em>, where '5ac3cf22ca4c591b0c324749' is the identifier of the catalog change request.
-     * 						<br/>
-     * 						<br/>
-     * 						Different base URLs will be returned depending on whether you call <b>GeteBayDetails</b> in Sandbox or Production environment. Currently, this URL and the manage catalog change request flow is only available in the Sandbox environment. This URL and the create catalog product flow will become available in the Production environment in August 2018 with the launch of Phase 2 of the Product-Based Shopping Experience. See the <a href="
-     *             https://developer.ebay.com/pbse" target="_blank">Product-Based Shopping Experience landing page</a> for more information.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 							Catalog change requests through the UI flow are currently not available, so this URL will not be returned in <b>GeteBayDetails</b>.
+     * 						</span>
      * 					
      * 
      */

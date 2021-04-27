@@ -29,7 +29,7 @@ public enum MeasurementSystemCodeType {
 
     /**
      * 
-     * 						English system of measurement.
+     * 						This enumeration value indicates that the English system of measurement is being used. Also known as the Imperial System of Measurement. Weights in this system are expressed as pounds and ounces, and package dimensions are expressed as feet or inches.
      * 					
      * 
      */
@@ -38,7 +38,7 @@ public enum MeasurementSystemCodeType {
 
     /**
      * 
-     * 						Metric system of measurement.
+     * 						This enumeration value indicates that the English system of measurement is being used. Weights in this system are expressed as kilograms and grams, and package dimensions are expressed as meters or centimeters.
      * 					
      * 
      */

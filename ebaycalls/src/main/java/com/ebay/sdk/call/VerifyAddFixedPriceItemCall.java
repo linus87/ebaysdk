@@ -23,8 +23,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Company: eBay Inc.</p>
  * <br> <B>Input property:</B> <code>Item</code> - Root container holding all values that define a new
  * fixed-price listing.
- * <br> <B>Output property:</B> <code>ReturnedItemID</code> - Represents the item ID for the new fixed-price listing. VerifyAddFixedPriceItem does not
- * actually list an item, so 0 is returned instead of a normal item ID.
+ * <br> <B>Output property:</B> <code>ReturnedItemID</code> - With a successful <b>VerifyAddFixedPriceItem</b> call, this field is always returned, but the returned value is always <code>0</code>, since this call only validates the data passed in through the request payload and does not actually create an active listing.
  * <br> <B>Output property:</B> <code>ReturnedSKU</code> - Item-level SKU for the new listing, if the seller specified
  * tem.SKU in the request. Variation SKUs are not returned
  * (see GetItem instead).

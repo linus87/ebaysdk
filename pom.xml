@@ -10,7 +10,7 @@
 
 	<groupId>io.github.linus87</groupId>
 	<artifactId>ebaysdk</artifactId>
-	<version>1065</version>
+	<version>1131</version>
 	<packaging>pom</packaging>
 
 	<name>ebaysdk</name>

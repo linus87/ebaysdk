@@ -21,17 +21,17 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>Operation</code> - Indicates the type of operation to perform on a
- * specified My Messages folder. Operations include creating,
- * renaming, removing, and restoring folders. Operations
- * cannot be performed on the Inbox and Sent folders.
- * <br> <B>Input property:</B> <code>FolderID</code> - An eBay-generated unique identifier for a user's My Messages folder. The <b>FolderID</b> value for the folder to perform the operation on in passed into this field. <b>FolderID</b> values can be retrieved by calling <b>GetMyMessages</b> with a <b>DetailLevel</b> value set to <code>ReturnSummary</code>.
- * <br> <B>Input property:</B> <code>FolderName</code> - The name of a specified My Messages folder. Depending
- * on the specified Operation, the value is an existing
- * folder name or a new folder name. Retrieve existing
- * FolderNames by calling GetMyMessages with a DetailLevel
- * of ReturnSummary. Inbox is FolderID = 0, and Sent is
- * FolderID = 1.
+ * <br> <B>Input property:</B> <code>Operation</code> - This required field is used to indicate the type of operation to perform (add, remove, or rename a folder). See the enumeration descriptions below for more information on the usage, requirements, and limitations on each operation.
+ * <br> <B>Input property:</B> <code>FolderID</code> - The eBay-generated unique identifier for a custom folder in <b>My eBay Messages</b>. The <b>FolderID</b> value is required for the 'Rename' and 'Remove' operations, but not for the 'Display' (add) operation. <b>FolderID</b> values can be retrieved by calling <b>GetMyMessages</b> with a <b>DetailLevel</b> value set to <code>ReturnSummary</code>, or the <b>FolderID</b> value for a <b>My eBay Messages</b> folder can be seen at the end of the browser's URL field when you navigate to that folder in <b>My eBay Messages</b>.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b> If multiple folders will be renamed with one call, the user must pay close attention to the order of the <b>FolderID</b> and <b>FolderName</b> fields, as eBay will process these requests in order according to the placement of the the <b>FolderID</b> and <b>FolderName</b> fields. So, the existing folder identified by the first <b>FolderID</b> field in the request payload will get renamed to the folder name passed into the first <b>FolderName</b> field in the request payload, and so on.
+ * </span>
+ * <br> <B>Input property:</B> <code>FolderName</code> - The user-specified name of the <b>My eBay Messages</b> folder. The <b>FolderName</b> value is required for the 'Display' (add) and 'Rename' operations, but not for the 'Remove' operation. In a 'Display' (add) operation, the name passed into the <b>FolderName</b> field is the name of the new folder. In a 'Rename' operation, the name passed into the <b>FolderName</b> field will be the new name of the existing folder that is specified through the corresponding <b>FolderID</b> field.
+ * <br/><br/>
+ * <b>FolderName</b> values can be retrieved by calling <b>GetMyMessages</b> with a <b>DetailLevel</b> value set to <code>ReturnSummary</code>, or the <b>FolderName</b> value for a <b>My eBay Messages</b> folder can be seen when you navigate to <b>My eBay Messages</b>.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b> If multiple folders will be renamed with one call, the user must pay close attention to the order of the <b>FolderID</b> and <b>FolderName</b> fields, as eBay will process these requests in order according to the placement of the the <b>FolderID</b> and <b>FolderName</b> fields. So, the existing folder identified by the first <b>FolderID</b> field in the request payload will get renamed to the folder name passed into the first <b>FolderName</b> field in the request payload, and so on.
+ * </span>
  * 
  * @author Ron Murphy
  * @version 1.0
@@ -62,8 +62,9 @@ public class ReviseMyMessagesFoldersCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * This call can rename, remove, or restore My Messages folders for
-   * a given user.
+   * This call can be used to add, remove, or rename a custom folder in <b>My eBay Messages</b>. Note that the Inbox and Sent folders cannot be removed or renamed in <b>My eBay Messages</b>.
+   * <br/><br/>
+   * A user can have up to 10 custom folders in <b>My eBay Messages</b>, and it is possible to add, remove, or rename up to 10 custom folders with one <b>ReviseMyMessagesFolders</b> call
    * 
    * <br>
    * @throws ApiException

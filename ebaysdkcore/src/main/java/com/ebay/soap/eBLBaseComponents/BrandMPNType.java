@@ -14,11 +14,11 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>BrandMPN</b> container which is used to identify a product (through unique product brand and Manufacturer Part Number combination).
+ * 				Type defining the <b>BrandMPN</b> container which is used to identify a product (through a unique product brand and Manufacturer Part Number combination).
  * 				<br>
  * 				<br>
  * 				<span class="tablenote"><b>Note:</b>
- * 				If a Brand/MPN pair is required for the category/brand, these values must still be input through the <b>BrandMPN</b> container, but a catalog product match is only possible with an ePID or one of the GTINs.
+ * 				If a brand and/or MPN value is required for a category, it is highly recommended that the brand and MPN name/value pair is also passed in through an <b>ItemSpecifics.NameValueList</b> container, since brand and MPN values may be dropped from the listing if eBay is not able to find a eBay catalog product match based on the provided Brand/MPN pair.
  * 				</span>
  * 			
  * 

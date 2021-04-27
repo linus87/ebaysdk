@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				A means of limiting unpaying or low feedback bidders.
+ * 				This type is used by the <b>MaximumItemRequirements</b> container that is returned under the <b>BuyerRequirementDetails</b> in the <b>GeteBayDetails</b>. The Maximum Item Requirement settings of Buyer Requirements allow a seller to restrict the quantity of a line item that may be purchased during a consecutive 10-day period.
  * 			
  * 
  * <p>Java class for MaximumItemRequirementsDetailsType complex type.

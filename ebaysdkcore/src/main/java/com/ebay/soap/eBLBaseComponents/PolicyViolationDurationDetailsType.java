@@ -14,7 +14,9 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type used by the <b>PolicyViolationDuration</b> container. A <b>PolicyViolationDuration</b> container is returned for each supported period that a seller may specify through the <b>BuyerRequirementDetails.MaximumBuyerPolicyViolations</b> container in an add/revise/relist call. The <b>BuyerRequirementDetails.MaximumBuyerPolicyViolations</b> container can be used by the seller to limit the number of buyer policy violations a buyer may have during a set period before being restricted from buying an item.
+ * 				This type is deprecated, as the maximum number of policy violations for a buyer is no longer a valid Buyer Requirement at the account or listing level.
+ * 
+ * 				
  * 			
  * 
  * <p>Java class for PolicyViolationDurationDetailsType complex type.

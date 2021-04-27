@@ -35,10 +35,23 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br> <B>Input property:</B> <code>LastUpdateTime</code> - This dateTime filter can be included and used if the user only wants to check for recently-added Item Specifics names and values for one or more categories. If this filter is used, the Item Specifics recommendation engine will only check for Item Specifics names and values that have been added/changed since the date that was passed in to this field. If this field is used, the call will not return any Item Specifics data; it will only return the <b>Recommendations.Updated</b> boolean field for each specified eBay category. A <code>true</code> value in this field will indicate that the recommended Item Specifics names/values for the eBay category have changed since the timestamp passed in the <b>LastUpdateTime</b> field, and a <code>false</code> value in this field will indicate that the recommended Item Specifics names/values for the eBay category have not changed since the timestamp passed in the <b>LastUpdateTime</b> field.
  * <br><br>
  * Typically, you will pass in the timestamp value that was returned the last time you refreshed the list of Item Specifics names and values for the same categories. If the <b>Recommendations.Updated</b> flag returns <code>true</code> for any eBay categories in the response, you will want to call <b>GetCategorySpecifics</b> again for those eBay categories to get the latest names and values. As downloading all the data may affect your application's performance, it may help to only download Item Specifics data for an eBay category if the data has changed since you last checked.
- * <br> <B>Input property:</B> <code>MaxNames</code> - This field can be used if you want to limit the number of Item Specifics names that are returned for each eBay category. If you only wanted to retrieve the three most popular Item Specifics names per category, you would include this field and set its value to <code>3</code>.
- * <br> <B>Input property:</B> <code>MaxValuesPerName</code> - This field can be used if you want to limit the number of Item Specifics values (for each Item Specifics name) that are returned for each eBay category. If you only wanted to retrieve the 10 most popular Item Specifics values per Item Specifics name per category, you would include this field and set its value to <code>10</code>.
+ * <br> <B>Input property:</B> <code>MaxNames</code> - This field can be used if you want to control the number of Item Specifics that are returned for each specified eBay category. If you only wanted to retrieve the 10 most popular Item Specifics per category, you would include this field and set its value to <code>10</code>. Note that mandatory Item Specifics are always returned first in the response. If this field is omitted, all available Item Specifics names for each specified category are returned. If this field's value is set to a value that is higher than the number of Item Specific names available, all Item Specific names are still returned.
+ * <br>
+ * <br>
+ * <span class="tablenote"><b>Note:</b>
+ * In October 2019, eBay has updated the <b>GetCategorySpecifics</b> call to retrieve all available Item Specifics name-value pairs for each specified category by default. Previously, 30 Item Specifics names would be returned by default (if the <b>MaxNames</b> filter wasn't used) and 25 corresponding Item Specifics values would be returned by default (if the <b>MaxValuesPerName</b> filter wasn't used). However, if a user wants to limit the number of Item Specifics names and corresponding values that are returned, they can still use the <b>MaxNames</b> and/or <b>MaxValuesPerName</b> filters to do this.
+ * </span>
+ * <br>
+ * <br> <B>Input property:</B> <code>MaxValuesPerName</code> - This field can be used if you want to control the number of corresponding values that are returned for each returned Item Specific name in each specified eBay category. If you only wanted to retrieve the 10 most popular values/options for each returned Item Specific name in each category, you would include this field and set its value to <code>10</code>. If this field is omitted, all available values for the corresponding Item Specifics name for each category are returned. If this field's value is set to a value that is higher than the number of Item Specific values available for any Item Specific name, all Item Specific values are still returned.
+ * <br>
+ * <br>
+ * <span class="tablenote"><b>Note:</b>
+ * In October 2019, eBay has updated the <b>GetCategorySpecifics</b> call to retrieve all available Item Specifics name-value pairs for each specified category by default. Previously, 30 Item Specifics names would be returned by default (if the <b>MaxNames</b> filter wasn't used) and 25 corresponding Item Specifics values would be returned by default (if the <b>MaxValuesPerName</b> filter wasn't used). However, if a user wants to limit the number of Item Specifics names and corresponding values that are returned, they can still use the <b>MaxNames</b> and/or <b>MaxValuesPerName</b> filters to do this.
+ * </span>
+ * <br>
  * <br> <B>Input property:</B> <code>Name</code> - This field can be used if you already have an Item Specific name in mind, and you only want the recommended values for this Item Specifics name.
  * If you specify multiple eBay categories in the request, the recommendation engine may find a matching Item Specifics name for some categories, but not for others. For eBay categories where the Item Specifics name is not found, recommended Item Specifics names and values will be returned. The Item Specifics name passed in this field is case-sensitive, and wildcards are not supported.
+ * <br><br>
  * <br> <B>Input property:</B> <code>CategorySpecific</code> - This container can be used instead of, or in conjunction with <b>CategoryID</b> values specified at the call request root level. The <b>CategorySpecific</b> container can actually be more powerful since you can pass in multiple Category ID and Item Specifics name combinations, and if you specify <b>CategoryID</b> values at the root level, only one (Item Specifics) <b>Name</b> value can be used.
  * <br><br>
  * A <b>GetCategorySpecifics</b> call request requires at least one of the following: a <b>CategoryID</b> value, a <b>CategorySpecifics.CategoryID</b> value, or the
@@ -77,14 +90,11 @@ import com.ebay.soap.eBLBaseComponents.*;
  * about the Bulk Data Exchange API or other
  * Large Merchant Services APIs.
  * </span>
- * <br> <B>Output property:</B> <code>ReturnedRecommendations</code> - This container provide details about recommended Item Specifics and Product Identifier types.
- * Contains the most popular Item Specifics and supported/required Product Identifier types, if any, for a category
- * specified in the request, or contains information about whether
- * the recommendations have changed for that category since
- * the <b>LastUpdateTime</b> you requested. <br>
+ * <br> <B>Output property:</B> <code>ReturnedRecommendations</code> - This container provide details about relevant Item Specifics for the specified category. Required Item Specifics are generally returned at the top of the response payload, followed by the other most common/popular Item Specifics for the category. If an Item Specific is required, a  <b>MinValues</b> field will be returned with a value of <code>1</code>, and the corresponding <b>UsageConstraint</b> field will show a value of <code>Required</code>. Optional Item Specifics are returned after required and recommended Item Specifics, but sellers should still provide any optional Item Specific name-value pairs if known and relevant for the product.
  * <br>
- * The most relevant Item Specifics are returned first. If a name
- * has multiple values, the first value is more popular.<br>
+ * <br>
+ * As mentioned above, the most relevant Item Specifics are returned first, and similarly, if an Item Specific
+ * has multiple suggested values, these values are sorted according to popularity (most popular to less popular/common).<br>
  * <br>
  * This node returns empty (or it's not returned) for a category if
  * there is no applicable data (such as when you request a parent category, a category that has no popular Item Specifics yet,
@@ -93,14 +103,10 @@ import com.ebay.soap.eBLBaseComponents.*;
  * matching values are found for the name, eBay returns the name
  * with no values (even if the name is not recommended).<br>
  * <br>
- * If <b>GetCategoryFeatures</b> indicates that custom Item Specifics are
+ * If <b>GetCategoryFeatures</b> indicates that Item Specifics are
  * enabled for a leaf category, but <b>GetCategorySpecifics</b> doesn't
  * return any recommendations for that category, the seller can still
- * specify their own custom Item Specifics in that category.
- * <br>
- * <br>
- * <span class="tablenote"><b>Note:</b>
- * The <b>ProductIdentifiers</b> container is for future use, and is not currently returned in the <b>GetCategorySpecifics</b> call. Until the <b>ProductIdentifiers</b> container is wired on and returned, an alternative way to see if a Product Identifier type is required for a category is to identify the Product Identifier type through the <b>Recommendations.NameRecommendation.Name</b> field in the <b>GetCategorySpecifics</b> response, and then look at the corresponding  <b>Recommendations.NameRecommendation.ValidationRules.MinValues</b> field. The <b>GetCategoryFeatures</b> call can also be used, and the seller will look for the values returned for that category under the <b>EANEnabled</b>, <b>ISBNEnabled</b>, <b>UPCEnabled</b>, and <b>EANEnabled</b>, <b>ISBNEnabled</b>, <b>BrandMPNIdentifierEnabled</b> fields that indicate the Product Identifier types that are supported/required for the category.
+ * specify their own Item Specifics in that category.
  * <br> <B>Output property:</B> <code>ReturnedTaskReferenceID</code> - A <b>TaskReferenceID</b> and a <b>FileReferenceID</b> value are returned if the <b>CategorySpecificsFileInfo</b> field is included in the call request and set to <code>true</code>. These values will be used as inputs in the <b>downloadFile</b> call of the File Transfer API. That API lets you retrieve a single (bulk) <b>GetCategorySpecifics</b> response with all the Item Specifics recommendations available for the requested site ID. (The <b>downloadFile</b> call downloads a .zip file as an attachment.)
  * <br> <B>Output property:</B> <code>ReturnedFileReferenceID</code> - A <b>TaskReferenceID</b> and a <b>FileReferenceID</b> value are returned if the <b>CategorySpecificsFileInfo</b> field is included in the call request and set to <code>true</code>. These values will be used as inputs in the <b>downloadFile</b> call of the File Transfer API. That API lets you retrieve a single (bulk) <b>GetCategorySpecifics</b> response with all the Item Specifics recommendations available for the requested site ID. (The <b>downloadFile</b> call downloads a .zip file as an attachment.)
  * 

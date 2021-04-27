@@ -33,7 +33,7 @@ public enum SellingManagerAlertTypeCodeType {
 
     /**
      * 
-     * 						Indicates that an alert related to a sold listing has been issued.
+     * 						This enumeration value indicates that the alert is related to a sales transaction. See the corresponding <b>Alert.SoldAlert</b> value for more information on the alert.
      * 					
      * 
      */
@@ -42,7 +42,7 @@ public enum SellingManagerAlertTypeCodeType {
 
     /**
      * 
-     * 						Indicates that an alert related to inventory has been issued.
+     * 						This enumeration value indicates that the alert is related to the seller's inventory. See the corresponding <b>Alert.InventoryAlert</b> value for more information on the alert.
      * 					
      * 
      */
@@ -51,8 +51,7 @@ public enum SellingManagerAlertTypeCodeType {
 
     /**
      * 
-     * 						Indicates that an automation alert has been sent because a listing did
-     * 						not conform to listing automation rules.
+     * 						This enumeration value indicates that the alert is related to an Selling Manager automation alert. See the corresponding <b>Alert.AutomationAlert</b> value for more information on the alert.
      * 					
      * 
      */
@@ -61,8 +60,7 @@ public enum SellingManagerAlertTypeCodeType {
 
     /**
      * 
-     * 						Indicates that an alert related to PaisaPay, a payment method used for eBay
-     * 						India, has been issued.
+     * 						This enumeration value is no longer applicable, so should not get returned.
      * 					
      * 
      */
@@ -71,8 +69,7 @@ public enum SellingManagerAlertTypeCodeType {
 
     /**
      * 
-     * 						Indicates that an alert has been issued for negative feedback received, bad
-     * 						email, or an unpaid item dispute.
+     * 						This enumeration value indicates that the alert is related to either one of the following: negative feedback received; a bad email template, or an unpaid item dispute requires attention. See the corresponding <b>Alert.GeneralAlert</b> value for more information on the alert.
      * 					
      * 
      */

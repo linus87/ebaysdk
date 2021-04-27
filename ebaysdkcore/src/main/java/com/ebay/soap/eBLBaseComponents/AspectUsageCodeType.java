@@ -30,10 +30,7 @@ public enum AspectUsageCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that the aspect in the corresponding <b>NameRecommendation.Name</b> field is a product aspect. Product aspects are defined through an eBay Catalog product, and sellers cannot change these product aspects unless they find that the particular product aspect is inaccurate or missing from the eBay Catalog product, in which case, they could use the <b>Catalog API</b> to make a request to eBay to revise an existing eBay Catalog product.
-     * 						<br/><br/>
-     * 						<span class="tablenote"><b>Note: </b> Currently, the <b>AspectUsage</b> field will only be returned in the Sandbox environment, and only for category/brands that are a part of the Product-Based Shopping Experience mandate. See the <a href="https://developer.ebay.com/api-docs/sell/static/inventory/pbse_product_vs_item_aspects.html" target="_blank">Product aspects vs. item specifics</a> page for more information about product aspects and instance aspects.
-     * 						</span>
+     * 						This enumeration value indicates that the Item Specific in the corresponding <b>NameRecommendation.Name</b> field is defined/derived from an eBay catalog product. 'Product' Item Specifics are also referred to as Product Aspects in Web flows and other APIs. Generally, catalog product-based Item Specifics should not be modified if the seller created/revise/relisted the item based on an eBay catalog product.
      * 					
      * 
      */
@@ -42,10 +39,7 @@ public enum AspectUsageCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that the aspect in the corresponding <b>NameRecommendation.Name</b> field is an instance aspect, which is an aspect whose value will vary based on a particular instance of the product. When creating a listing, the seller should pass in the name-value pair for this aspect through the <b>Item.ItemSpecifics.NameValueList</b> container of an <b>AddItem</b> call.
-     * 						<br/><br/>
-     * 						<span class="tablenote"><b>Note: </b> Currently, the <b>AspectUsage</b> field will only be returned in the Sandbox environment, and only for category/brands that are a part of the Product-Based Shopping Experience mandate. See the <a href="https://developer.ebay.com/api-docs/sell/static/inventory/pbse_product_vs_item_aspects.html" target="_blank">Product aspects vs. item specifics</a> page for more information about product aspects and instance aspects.
-     * 						</span>
+     * 						This enumeration value indicates that the Item Specific in the corresponding <b>NameRecommendation.Name</b> field is an 'instance aspect', which is an Item Specific whose value will vary based on a particular instance of the product. When creating a listing, the seller should pass in the name-value pair for this Item Specific through the <b>Item.ItemSpecifics.NameValueList</b> container of an <b>AddItem</b> call.
      * 					
      * 
      */

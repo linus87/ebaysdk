@@ -35,8 +35,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br> <B>Input property:</B> <code>Duration</code> - Specifies the length of time the Second Chance Offer listing will be
  * active. The recipient bidder has that much time to purchase the item or
  * the listing expires.
- * <br> <B>Input property:</B> <code>ItemID</code> - Specifies the item ID for the original, ended listing from which the
- * second chance offer item comes. A new <b>ItemID</b> is returned for the Second Chance Offer item.
+ * <br> <B>Input property:</B> <code>ItemID</code> - This field is used to identify the recently-ended auction listing for which a Second Chance Offer will be made to one of the non-winning bidders on the recently-ended auction listing.
  * <br> <B>Input property:</B> <code>SellerMessage</code> - Message content. Cannot contain HTML, asterisks, or quotes. This content
  * is included in the Second Chance Offer email sent to the recipient, which
  * can be retrieved with <b>GetMyMessages</b>.

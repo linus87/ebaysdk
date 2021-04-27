@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Specifies whether the Global Shipping Program (GSP) is enabled are not. The field is
+ * 				Specifies whether the Global Shipping Program (GSP) is enabled or not. The field is
  * 				returned as an empty element (i.e., a boolean value is not returned).
  * 			
  * 

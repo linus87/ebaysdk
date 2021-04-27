@@ -52,10 +52,12 @@ public enum ListingEnhancementsCodeType {
 
     /**
      * 
-     * 						If specified, the seller wants the title for the item's listing to
-     * 						be in boldface type. Applicable listing fees apply.
-     * 						Does not affect the item subtitle (Item.SubTitle), if any.
-     * 						Not applicable to eBay Motors.
+     * 						This value is used if the seller wants the listing title to
+     * 						be in boldface type. This feature will incur a listing fee.
+     * 						Note that this enhancement will not put the listing subtitle in boldface type (if a subtitle is used).
+     * 						<br>
+     * 						<br>
+     * 						Currently, Bold Titles are only supported on eBay US, both Canada sites, eBay Netherlands, and eBay Poland.
      * 					
      * 
      */
@@ -67,6 +69,7 @@ public enum ListingEnhancementsCodeType {
      * 						<span class="tablenote"><b>Note:</b>
      * 						The Featured listing feature is no longer available on any eBay Marketplace sites, so this value should not be used in Add/Revise/Relist calls, and will not be returned in 'Get' calls.
      * 						</span>
+     * 						<br>
      * 						Listing is a "Featured Plus" item. The item will display
      * 						prominently in the Featured Items section of its category list, and it will
      * 						stand out on search results pages. It will also display in the regular, non-
@@ -83,6 +86,7 @@ public enum ListingEnhancementsCodeType {
      * 						<span class="tablenote"><b>Note:</b>
      * 						The Highlighted listing feature is no longer available on any eBay Marketplace sites, so this value should not be used in Add/Revise/Relist calls, and will not be returned in 'Get' calls.
      * 						</span>
+     * 						<br>
      * 						Listing is highlighted in a different color in lists.
      * 					
      * 
@@ -92,14 +96,14 @@ public enum ListingEnhancementsCodeType {
 
     /**
      * 
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						The Featured Gallery listing feature is no longer available on any eBay sites, so this value should not be used in Add/Revise/Relist calls, and will not be returned in 'Get' calls.
+     * 						</span>
+     * 						<br>
      * 						Listing will have a chance to rotate into a special display
      * 						on eBay's Home page. Your item is very likely to show up on the Home page,
      * 						although eBay does not guarantee that your item will be highlighted
      * 						in this way. This is the highest level of visibility on eBay.
-     * 						<br><br>
-     * 						Not applicable for eBay Motors. In order to feature the listing
-     * 						on eBay Motors home page, use PictureDetails.GalleryType.Featured instead. See
-     * 						GalleryTypeCodeType for more information.
      * 					
      * 
      */
@@ -111,6 +115,7 @@ public enum ListingEnhancementsCodeType {
      * 						<span class="tablenote"><b>Note:</b>
      * 						The Pro Pack Bundle is no longer available on any eBay Marketplace sites, so this value should not be used in Add/Revise/Relist calls, and will not be returned in 'Get' calls.
      * 						</span>
+     * 						<br>
      * 						Listing is using ProPackBundle (a feature pack).
      * 						Applies only to vehicle listings on eBay Motors (US and Canada), and
      * 						to the Parts and Accessories category in the eBay Motors US site.
@@ -134,15 +139,7 @@ public enum ListingEnhancementsCodeType {
 
     /**
      * 
-     * 						Listing is using ValuePack bundle (a feature pack),
-     * 						which combines the features Gallery, Subtitle, and Listing Designer for a discounted price. Support for this feature varies by site and category.
-     * 						<br><br>
-     * 						Whenever ValuePackBundle is
-     * 						selected in a request, the Value Pack bundle is
-     * 						automatically upgraded to the Gallery Plus feature at no extra cost (see
-     * 						Item.PictureDetails.GalleryType.Plus for more information on Gallery Plus).
-     * 						The Gallery Plus upgrade will display on all
-     * 						sites and categories that support ValuePackBundle.
+     * 						If this value is specified in an Add/Revise/Relist call, a Value Pack bundle is applied to the listing. The Value Pack bundle includes the Gallery Plus feature, a listing subtitle, and use of a Listing Designer template for a discounted price. Support for this feature varies by site and category.
      * 					
      * 
      */
@@ -154,6 +151,7 @@ public enum ListingEnhancementsCodeType {
      * 						<span class="tablenote"><b>Note:</b>
      * 						The Pro Pack Plus Bundle is no longer available on any eBay Marketplace sites, so this value should not be used in Add/Revise/Relist calls, and will not be returned in 'Get' calls.
      * 						</span>
+     * 						<br>
      * 						Support for this feature varies by site and category.
      * 						A ProPackPlusBundle listing is using ProPackPlus bundle (a feature pack),
      * 						which combines the features of BoldTitle, Border, Highlight, Featured (which

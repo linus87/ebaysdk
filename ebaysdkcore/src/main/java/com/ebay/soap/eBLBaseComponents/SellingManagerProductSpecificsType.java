@@ -13,7 +13,10 @@ import org.w3c.dom.Element;
 
 
 /**
- * Describes a Selling Manager Template
+ * 
+ * 				This type is used by the <b>AddSellingManagerProduct</b> and <b>ReviseSellingManagerProduct</b> calls to add/revise listing-level Item Specifics and/or to define multiple variations for a new or existing Selling Manager Product record.
+ * 				<br><br>
+ * 				This type is also used by the respone of the <b>GetSellingManagerInventory</b> call.
  * 			
  * 
  * <p>Java class for SellingManagerProductSpecificsType complex type.

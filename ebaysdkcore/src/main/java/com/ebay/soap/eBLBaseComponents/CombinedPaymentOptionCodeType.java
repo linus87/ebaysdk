@@ -31,9 +31,9 @@ public enum CombinedPaymentOptionCodeType {
 
     /**
      * 
-     * 					This value indicates that the seller does not allow Combined Invoice orders. In 
-     * 					other words, the buyer must pay for each order line item separately, and cannot 
-     * 					combine multiple single line item orders into one Combined Invoice order and make 
+     * 					This value indicates that the seller does not allow Combined Invoice orders. In
+     * 					other words, the buyer must pay for each order line item separately, and cannot
+     * 					combine multiple single line item orders into one Combined Invoice order and make
      * 					one payment for that order.
      * 				
      * 
@@ -43,8 +43,8 @@ public enum CombinedPaymentOptionCodeType {
 
     /**
      * 
-     * 					This value indicates that the seller allows Combined Invoice orders, and that the 
-     * 					seller has one or more shipping discount rules (Flat, Calculated, or Promotional) 
+     * 					This value indicates that the seller allows Combined Invoice orders, and that the
+     * 					seller has one or more shipping discount rules (Flat, Calculated, or Promotional)
      * 					that can be applied at the listing level.
      * 				
      * 
@@ -54,8 +54,8 @@ public enum CombinedPaymentOptionCodeType {
 
     /**
      * 
-     * 					This value indicates that the seller allows Combined Invoice orders, and that the 
-     * 					seller will apply any shipping discounts after the creation of the Combined Invoice 
+     * 					This value indicates that the seller allows Combined Invoice orders, and that the
+     * 					seller will apply any shipping discounts after the creation of the Combined Invoice
      * 					order.
      * 				
      * 

@@ -10,8 +10,6 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.w3c.dom.Element;
 
 
@@ -33,7 +31,6 @@ import org.w3c.dom.Element;
  *         &lt;element name="PhotoDisplay" type="{urn:ebay:apis:eBLBaseComponents}PhotoDisplayCodeType" minOccurs="0"/>
  *         &lt;element name="PictureURL" type="{http://www.w3.org/2001/XMLSchema}anyURI" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="PictureSource" type="{urn:ebay:apis:eBLBaseComponents}PictureSourceCodeType" minOccurs="0"/>
- *         &lt;element name="GalleryDuration" type="{http://www.w3.org/2001/XMLSchema}token" minOccurs="0"/>
  *         &lt;element name="GalleryStatus" type="{urn:ebay:apis:eBLBaseComponents}GalleryStatusCodeType" minOccurs="0"/>
  *         &lt;element name="GalleryErrorInfo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ExternalPictureURL" type="{http://www.w3.org/2001/XMLSchema}anyURI" maxOccurs="unbounded" minOccurs="0"/>
@@ -53,7 +50,6 @@ import org.w3c.dom.Element;
     "photoDisplay",
     "pictureURL",
     "pictureSource",
-    "galleryDuration",
     "galleryStatus",
     "galleryErrorInfo",
     "externalPictureURL",
@@ -74,10 +70,6 @@ public class PictureDetailsType
     protected List<String> pictureURL;
     @XmlElement(name = "PictureSource")
     protected PictureSourceCodeType pictureSource;
-    @XmlElement(name = "GalleryDuration")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "token")
-    protected String galleryDuration;
     @XmlElement(name = "GalleryStatus")
     protected GalleryStatusCodeType galleryStatus;
     @XmlElement(name = "GalleryErrorInfo")
@@ -232,30 +224,6 @@ public class PictureDetailsType
      */
     public void setPictureSource(PictureSourceCodeType value) {
         this.pictureSource = value;
-    }
-
-    /**
-     * Gets the value of the galleryDuration property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getGalleryDuration() {
-        return galleryDuration;
-    }
-
-    /**
-     * Sets the value of the galleryDuration property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setGalleryDuration(String value) {
-        this.galleryDuration = value;
     }
 
     /**

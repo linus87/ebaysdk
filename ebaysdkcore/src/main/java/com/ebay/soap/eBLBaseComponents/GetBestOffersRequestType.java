@@ -11,6 +11,10 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * 
  * 				This is the base request type of the <b>GetBestOffers</b> call. Depending on the input parameters that are used, this call can be used by a seller to retrieve all active Best Offers, all Best Offers on a specific listing, a specific Best Offer for a specific listing, or Best Offers in a specific state.
+ * 				<br/><br/>
+ * 				<span class="tablenote"><b>Note: </b>
+ * 				The Best Offer feature is now available for auction listings on the following sites: US, Canada, UK, Germany, Australia, France, Italy, and Spain. However, sellers must choose between offering Best Offer or Buy It Now on an auction listing, as both features cannot be enabled on the same auction listing.
+ * 				</span>
  * 			
  * 
  * <p>Java class for GetBestOffersRequestType complex type.

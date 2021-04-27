@@ -19,9 +19,9 @@ import org.w3c.dom.Element;
  * 
  * 				Type used to express the details of the return policy for an item.
  * 				<br><br>
- * 				To get the metadata on the values you can use for specific marketplaces, call <b>GeteBayDetails</b> with <b>DetailName</b> set to <code>ReturnPolicyDetails</code>, review the <b>ReturnPolicyDetails</b> fields in the response.
+ * 				To get the metadata on the values you can use for specific marketplaces, call <b>GeteBayDetails</b> with <b>DetailName</b> set to <code>ReturnPolicyDetails</code>, and then review the <b>ReturnPolicyDetails</b> fields in the response.
  * 				<br><br>
- * 				<span class="tablenote"><b>Note:</b> In version 1061, the options for this field were reduced. eBay will throw an error if you attempt to list an item with this field set to a value that is not accepted by the target marketplace. See the <a href="/devzone/xml/docs/releasenotes.html#1061">Release Notes</a> for details.</span>
+ * 				<span class="tablenote"><b>Note:</b> Historically, the <b>GeteBayDetails</b> call has been used to retrieve return policy metadata. However, the <b>GetCategoryFeatures</b> call now returns category-level metadata for both domestic and international return policies, and developers should make plans to use that call for this metadata.</span>
  * 			
  * 
  * <p>Java class for ReturnPolicyType complex type.

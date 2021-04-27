@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type contains information about the way a buyer payment is allocated for a specified order.
+ * 				This type contains information about one or more payments made by the buyer to pay for an order.
  * 			
  * 
  * <p>Java class for PaymentInformationType complex type.

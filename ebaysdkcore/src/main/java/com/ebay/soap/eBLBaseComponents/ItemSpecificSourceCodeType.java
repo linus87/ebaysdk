@@ -31,10 +31,7 @@ public enum ItemSpecificSourceCodeType {
 
     /**
      * 
-     * 						The Item Specific was originally stored with custom
-     * 						Item Specifics fields. (For example, the seller used
-     * 						the ItemSpecifics node in AddItem.)
-     * 						This is the default setting if Source isn't returned.
+     * 						This enumeration value indicates that the corresponding Item Specific was specified by the seller in Add/Revise/Relist call or flow. In an Add/Revise/Relist API call, Item Specifics for a listing are specified through the <b>ItemSpecifics.NameValueList</b> or <b>VariationSpecifics.NameValueList</b> (for a variation in a multiple-variation listing) containers.
      * 					
      * 
      */
@@ -43,10 +40,7 @@ public enum ItemSpecificSourceCodeType {
 
     /**
      * 
-     * 						The Item Specific was originally stored with eBay's
-     * 						system-defined (ID-based) attributes format. (For example,
-     * 						the seller used the AttributeSetArray node in AddItem 
-     * 						at a time when the category supported Attributes.)
+     * 						This value is no longer applicable and should not be returned.
      * 					
      * 
      */
@@ -55,8 +49,7 @@ public enum ItemSpecificSourceCodeType {
 
     /**
      * 
-     * 						The Item Specific is prefilled from a product catalog. (For example,
-     * 						the seller used ExternalProductID or ProductID in AddItem.)
+     * 						This enumeration value indicates that the corresponding Item Specific was derived from a product in the eBay Catalog, and was automatically picked up by the listing when the seller created, revised, or relisted an item referencing and matching an eBay catalog product through the use of an ePID or GTIN value in the <b>ProductListingDetails</b> container.
      * 					
      * 
      */

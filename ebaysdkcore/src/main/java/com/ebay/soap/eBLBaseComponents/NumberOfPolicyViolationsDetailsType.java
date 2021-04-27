@@ -14,16 +14,8 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>NumberOfPolicyViolations</b> container that is returned 
- * 				in the <b>GeteBayDetails</b> response. The <b>NumberOfPolicyViolations</b> 
- * 				container consists of multiple <b>Count</b> fields with values that can be 
- * 				used in the <b>BuyerRequirementDetails.MaximumBuyerPolicyViolations.Count</b> 
- * 				field when using the Trading API to add, revise, or relist an item.
- * 				<br><br>
- * 				The <b>Item.MaximumBuyerPolicyViolations</b> container in Add/Revise/Relist 
- * 				API calls is used to block buyers with buyer policy violations equal to or exceeding
- * 				the specified <b>Count</b> value during the specified <b>Period</b> 
- * 				value from buying/bidding on the item.
+ * 				This type is deprecated, as the maximum number of policy violations for a buyer is no longer a valid Buyer Requirement at the account or listing level.
+ * 				
  * 			
  * 
  * <p>Java class for NumberOfPolicyViolationsDetailsType complex type.

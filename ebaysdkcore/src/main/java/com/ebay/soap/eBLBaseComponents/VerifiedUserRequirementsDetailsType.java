@@ -14,11 +14,8 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 			 Type defining the <b>BuyerRequirementDetails.VerifiedUserRequirements</b> 
- * 			 container that is returned in <b>GeteBayDetails</b>. The
- * 			 <b>VerifiedUserRequirements</b> container provides the <b>VerifiedUser</b> 
- * 			 and <b>FeedbackScore</b> values that may be used in listing calls to restrict
- * 			 unverified users who have Feedback scores below the minimum threshold.
+ * 			 The Verified User Buyer Requirement has been deprecated, so this type is no longer applicable.
+ * 			 
  * 			
  * 
  * <p>Java class for VerifiedUserRequirementsDetailsType complex type.

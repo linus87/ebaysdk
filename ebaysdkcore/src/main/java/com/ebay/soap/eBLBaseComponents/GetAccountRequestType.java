@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="AccountEntrySortType" type="{urn:ebay:apis:eBLBaseComponents}AccountEntrySortTypeCodeType" minOccurs="0"/>
  *         &lt;element name="Currency" type="{urn:ebay:apis:eBLBaseComponents}CurrencyCodeType" minOccurs="0"/>
  *         &lt;element name="ItemID" type="{urn:ebay:apis:eBLBaseComponents}ItemIDType" minOccurs="0"/>
+ *         &lt;element name="OrderID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -57,7 +58,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "includeConversionRate",
     "accountEntrySortType",
     "currency",
-    "itemID"
+    "itemID",
+    "orderID"
 })
 public class GetAccountRequestType
     extends AbstractRequestType
@@ -93,6 +95,8 @@ public class GetAccountRequestType
     protected CurrencyCodeType currency;
     @XmlElement(name = "ItemID")
     protected String itemID;
+    @XmlElement(name = "OrderID")
+    protected String orderID;
 
     /**
      * Gets the value of the accountHistorySelection property.
@@ -356,6 +360,30 @@ public class GetAccountRequestType
      */
     public void setItemID(String value) {
         this.itemID = value;
+    }
+
+    /**
+     * Gets the value of the orderID property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOrderID() {
+        return orderID;
+    }
+
+    /**
+     * Sets the value of the orderID property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOrderID(String value) {
+        this.orderID = value;
     }
 
 }

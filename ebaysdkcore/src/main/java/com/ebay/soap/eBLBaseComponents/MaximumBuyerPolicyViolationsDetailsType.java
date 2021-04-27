@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				The maximum number of policy violations and the durations that can be designated by sellers at this site. This is applicable only to sellers.
+ * 				Although the <b>MaximumBuyerPolicyViolations</b> container is still returned in <b>GeteBayDetails</b>, a Maximum Buyer Policy Violations threshold value can no longer be set at the account or listing level, so this type is no longer applicable.
  * 			
  * 
  * <p>Java class for MaximumBuyerPolicyViolationsDetailsType complex type.

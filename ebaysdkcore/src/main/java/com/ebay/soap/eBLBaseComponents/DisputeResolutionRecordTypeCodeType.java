@@ -49,7 +49,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer received an Unpaid Item Strike.
+     * 						This enumeration value indicates that the buyer received an Unpaid Item Strike.
      * 					
      * 
      */
@@ -58,7 +58,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer is suspended and unable to use the eBay site.
+     * 						This enumeration value indicates that the buyer's account has been suspended, and buyer will be unable to use the eBay site.
      * 					
      * 
      */
@@ -67,7 +67,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer is restricted and unable to bid or purchase items.
+     * 						This enumeration value indicates that the buyer's activity is restricted and will be unable to bid on or purchase items.
      * 					
      * 
      */
@@ -76,7 +76,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The seller received a Final Value Fee credit.
+     * 						This enumeration value indicates that the seller received a Final Value Fee credit.
      * 					
      * 
      */
@@ -85,7 +85,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The seller's listing fee was credited.
+     * 						This enumeration value indicates that the seller's listing fees were credited.
      * 					
      * 
      */
@@ -94,7 +94,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer's Unpaid Item Strike was appealed.
+     * 						This enumeration value indicates that the buyer has appealed the Unpaid Item Strike against their account.
      * 					
      * 
      */
@@ -103,7 +103,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The restriction on the buyer was lifted.
+     * 						This enumeration value indicates that the buyer's account has been reinstated.
      * 					
      * 
      */
@@ -112,7 +112,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The restriction on the buyer was lifted.
+     * 						This enumeration value indicates that all restrictions on the buyer's account have ended.
      * 					
      * 
      */
@@ -121,7 +121,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The seller's Final Value Fee credit was reversed.
+     * 						This enumeration value indicates that the seller's Final Value Fee credit was reversed.
      * 					
      * 
      */
@@ -130,7 +130,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The seller's listing fee was reversed.
+     * 						This enumeration value indicates that the seller's listing fees credit was reversed.
      * 					
      * 
      */
@@ -139,7 +139,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer is given a ticket.
+     * 						This enumeration value indicates that a customer service ticket to suspend The buyer's account has been created.
      * 					
      * 
      */
@@ -148,7 +148,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The seller did not receive a Final Value Fee credit.
+     * 						This enumeration value indicates that the seller requested, but did not receive a Final Value Fee credit.
      * 					
      * 
      */
@@ -157,7 +157,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						The buyer did not received the item, and the buyer filed a claim.
+     * 						This enumeration value indicates that the buyer did not receive the item, and filed a claim against the seller.
      * 					
      * 
      */
@@ -166,8 +166,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 					
-     * 					Reserved for future use.
+     * 						This enumeration value indicates that an Unpaid Item was automatically relisted by the Unpaid Item Assistant mechanism.
      * 					
      * 
      */
@@ -176,8 +175,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 					
-     * 					Reserved for future use.
+     * 						This enumeration value indicates that an Unpaid Item was automatically revised by the Unpaid Item Assistant mechanism.
      * 					
      * 
      */
@@ -216,7 +214,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						Credit amount for feature fees.
+     * 						This enumeration value indicates that the seller received a credit for feature fees.
      * 					
      * 
      */
@@ -225,7 +223,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						Amount not returned or credited for feature fees. Item price.
+     * 						This enumeration value indicates that the seller did not receive a credit for feature fees.
      * 					
      * 
      */
@@ -234,7 +232,7 @@ public enum DisputeResolutionRecordTypeCodeType {
 
     /**
      * 
-     * 						Amount reversed on credit card for feature fees.
+     * 						This enumeration value indicates that the seller's feature fees credit was reversed.
      * 					
      * 
      */

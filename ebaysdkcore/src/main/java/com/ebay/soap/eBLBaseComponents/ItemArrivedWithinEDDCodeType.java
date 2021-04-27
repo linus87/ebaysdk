@@ -32,7 +32,8 @@ public enum ItemArrivedWithinEDDCodeType {
 
     /**
      * 
-     * 						This value indicates that the question about the order line item arriving within the estimated delivery time was never surfaced to the buyer when the buyer left feedback for the transaction.
+     * 						<b>This value is for internal use only.<b>
+     * 						
      * 					
      * 
      */
@@ -41,7 +42,8 @@ public enum ItemArrivedWithinEDDCodeType {
 
     /**
      * 
-     * 						This value indicates that the question about the order line item arriving within the estimated delivery time was surfaced to the buyer, but the buyer did not answer this question when they left feedback for the transaction.
+     * 						<b>This value is for internal use only.<b>
+     * 						
      * 					
      * 
      */
@@ -60,9 +62,6 @@ public enum ItemArrivedWithinEDDCodeType {
     /**
      * 
      * 						This value indicates that the buyer indicated that the order line item did not arrive within the estimated delivery date when they left feedback for the transaction.
-     * 						<br>
-     * 						<br>
-     * 						<span class="tablenote"><b>Note:</b> A new "on-time shipping metric" will be a new component of Seller Standards beginning in February of 2016. On-time shipping will mean that the seller shipped the item before the "handling time" expired and/or the item was received by the buyer within the estimated delivery window, which is established once the buyer purchases or commits to buy the item. Previously, a seller's account could be dinged just for getting a low rating for the "shippping time" Detailed Seller Rating. </span>
      * 					
      * 
      */
@@ -71,7 +70,7 @@ public enum ItemArrivedWithinEDDCodeType {
 
     /**
      * 
-     * 						(out) Reserved for internal or future use.
+     * 						Reserved for internal or future use.
      * 					
      * 
      */

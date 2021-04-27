@@ -24,13 +24,9 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>UserID</code> - Specifies the seller whose items will be returned. <b>UserID</b> is an optional
- * input. If not specified, retrieves listings for the user identified by the
- * authentication token passed in the request. Note that since user
- * information is anonymous to everyone except the bidder and the seller
- * (during an active auction), only sellers looking for information about
- * their own listings and bidders who know the user IDs of their sellers will
- * be able to make this API call successfully.
+ * <br> <B>Input property:</B> <code>UserID</code> - <span class="tablenote"><strong>Note:</strong>
+ * This field should no longer be used, and will be ignored if it is included in a <b>GetSellerList</b> request. There are plans to remove this field from the public WSDL. The only eBay user ID that can be used is the one associated with the authentication token.
+ * </span>
  * <br> <B>Input property:</B> <code>MotorsDealerUsers</code> - Specifies the list of Motors Dealer sellers for which a special set of
  * metrics can be requested. Applies to eBay Motors Pro applications only.
  * <br> <B>Input property:</B> <code>EndTimeFilter</code> - Helper wrapper to set GetSellerListRequestType EndTimeFrom, EndTimeTo:
@@ -41,12 +37,11 @@ import com.ebay.soap.eBLBaseComponents.*;
  * 120 days.
  * TimeTo sets GetSellerListRequestType.EndTimeTo: 
  * Specifies the latest (most recent) date to use in a date range filter based on item end time. Must be specified if <b>EndTimeFrom</b> is specified.
- * <br> <B>Input property:</B> <code>Sort</code> - Specifies the order in which returned items are sorted (based on the end
- * dates of the item listings). Valid values:
- * <br>
- * 0 = No sorting<br>
- * 1 = Sort in descending order<br>
- * 2 = Sort in ascending order<br>
+ * <br> <B>Input property:</B> <code>Sort</code> - This field can be used to control the order in which returned listings are sorted (based on the listings' actual/scheduled end dates). Valid values are as follows:
+ * <ul>
+ * <li><code>1</code> (descending order)</li>
+ * <li>code>2</code> (ascending order)</li>
+ * </ul>
  * <br> <B>Input property:</B> <code>StartTimeFilter</code> - Helper wrapper to set GetSellerListRequestType StartTimeFrom, StartTimeTo:
  * TimeFrom sets GetSellerListRequestType.StartTimeFrom: 
  * Specifies the earliest (oldest) date to use in a date range filter based on
@@ -56,36 +51,34 @@ import com.ebay.soap.eBLBaseComponents.*;
  * in every request).
  * TimeTo sets GetSellerListRequestType.StartTimeTo: 
  * Specifies the latest (most recent) date to use in a date range filter based on item start time. Must be specified if <b>StartTimeFrom</b> is specified.
- * <br> <B>Input property:</B> <code>Pagination</code> - Contains the data controlling the pagination of the returned values. If you set a <b>DetailLevel</b> in this call, you must set pagination values. The <b>Pagination</b> field contains the number of items to be returned per page of data (per call), and the page number to return with the current call.
- * <br> <B>Input property:</B> <code>GranularityLevel</code> - Specifies the subset of item and user fields to return. See <b>GetSellerList</b> for a list of the fields that are returned for each granularity level. For <b>GetSellerLis</b>t, use <b>DetailLevel</b> or <b>GranularityLevel</b> in a request, but not both. For <b>GetSellerList</b>, if <b>GranularityLevel</b> is specified, <b>DetailLevel</b> is ignored.
- * <br> <B>Input property:</B> <code>SKUArray</code> - Container for a set of SKUs.
- * Filters (reduces) the response to only include active listings
- * that the seller listed with any of the specified SKUs.
- * If multiple listings include the same SKU, they are
- * all returned (assuming they also match the other criteria
- * in the GetSellerList request).<br>
+ * <br> <B>Input property:</B> <code>Pagination</code> - This container controls the maximum number of listings that can appear on one page of the result set, as well as the page number of the result to return.
+ * <br><br>
+ * The <b>GetSellerList</b> call requires that the <b>EntriesPerPage</b> value be set. The <b>PageNumber</b> field is not required but will default to <code>1</code> if not included.
+ * <br> <B>Input property:</B> <code>GranularityLevel</code> - This field allows the user to control the amount of data that is returned in the response. See the <a href="#GranularityLevel">Granularity Level</a> table on this page for a list of the fields that are returned for each granularity level. Either <b>GranularityLevel</b> or  <b>DetailLevel</b> can be used in a <b>GetSellerList</b> call, but not both. If both are specified, <b>DetailLevel</b> is ignored. If neither are used, the response fields will be the ones shown for 'Coarse' granularity.
+ * <br> <B>Input property:</B> <code>SKUArray</code> - This container can be used to specify one or multiple SKUs, and only listings associated with these SKUs are retrieved. Note that all other request criteria are also considered when one or more SKU values are specified.
  * <br>
- * SKUArray can be used to retrieve items listed by the user
- * identified in AuthToken or in UserID.<br>
  * <br>
  * <span class="tablenote"><b>Note:</b>
  * Listings with matching SKUs are returned regardless of their
- * Item.InventoryTrackingMethod settings.
+ * <b>Item.InventoryTrackingMethod</b> setting.
  * </span>
- * <br> <B>Input property:</B> <code>IncludeWatchCount</code> - Specifies whether to include <b>WatchCount</b> in Item nodes returned. <b>WatchCount</b> is only returned with <b>DetailLevel ReturnAll</b>.
- * <br> <B>Input property:</B> <code>AdminEndedItemsOnly</code> - Specifies whether to return only items that were administratively ended
- * based on a policy violation.
- * <br> <B>Input property:</B> <code>CategoryID</code> - The category ID for the items retrieved. If you specify <b>CategoryID</b> in a <b>GetSellerList</b> call, the response contains only items in the category you specify.
- * <br> <B>Input property:</B> <code>IncludeVariations</code> - If true, the <b>Variations</b> node is returned for all multi-variation listings in the response.<br> <br> <b>Note:</b> If the seller includes a large number of variations in many listings, using this flag may degrade the call's performance. Therefore, when you use this flag, you may need to reduce the total number of items you're requesting at once. <br/><br/> For example, you may need to use shorter time ranges in the <b>EndTime</b> or <b>StartTime</b> filters, fewer entries per page in <b>Pagination</b>, and/or <b>SKUArray</b>.
- * <br> <B>Output property:</B> <code>PaginationResult</code> - Contains information regarding the pagination of data (if pagination is
- * used), including total number of pages and total number of entries.
- * <br> <B>Output property:</B> <code>HasMoreItems</code> - If true, there are more items yet to be retrieved. Additional <b>GetSellerList</b> calls with higher page numbers or more items per page must be made to retrieve these items. Not returned if no items match the request.
- * <br> <B>Output property:</B> <code>ReturnedItems</code> - Contains the list of the seller's items, one <b>ItemType</b> object per item. Returns empty if no items are available that match the request.
- * <br> <B>Output property:</B> <code>ReturnedItemsPerPage</code> - Indicates the number of items that are being returned per page of data (i.e., per call). Will be the same as the value specified in the <b>Pagination.EntriesPerPage</b> input. Only returned if items are returned.
- * <br> <B>Output property:</B> <code>ReturnedPageNumber</code> - Indicates which page of data was just returned. Will be the same as the value specified in the <b>Pagination.PageNumber</b> input. (If the input is higher than the total number of pages, the call fails with an error.) Only returned if items are returned.
- * <br> <B>Output property:</B> <code>ReturnedItemCountActual</code> - Indicates the total number of items returned (i.e., the number of
- * ItemType objects in ItemArray).
- * <br> <B>Output property:</B> <code>Seller</code> - Indicates the seller whose items are returned. The seller is the eBay member whose <b>UserID</b> was passed in the request. If <b>UserID</b> was not specified, the seller is the user who made the request (identified by eBayAuthToken).
+ * <br> <B>Input property:</B> <code>IncludeWatchCount</code> - This field may be included and set to <code>true</code> if the seller wishes to see the number of eBay users that are watching each listing.
+ * <br> <B>Input property:</B> <code>AdminEndedItemsOnly</code> - This boolean field can be included and set to <code>true</code> if the seller would like to retrieve any listings that were administratively ended by eBay due to a listing policy violation.
+ * <br> <B>Input property:</B> <code>CategoryID</code> - If you specify a <b>CategoryID</b> value, the response will only contain listings in the category you specify.
+ * <br> <B>Input property:</B> <code>IncludeVariations</code> - If this field is included and set to <code>true</code>, the <b>Variations</b> node is returned for all multi-variation listings in the response.
+ * <br>
+ * <br>
+ * <span class="tablenote"><b>Note: </b> If the seller has many multiple-variation listings, that seller may not want to include variations in the <b>GetSellerList</b> response.  Or, a seller can include variations data, but possibly limit the response by specifying shorter date ranges with the date range filters, or by reducing the number of listings returned per results (decreasing the <b>Pagination.EntriesPerPage</b> value).
+ * </span>
+ * <br> <B>Output property:</B> <code>PaginationResult</code> - This container shows the total number or pages in the result set, as well as the total number of listings that match the current input criteria.
+ * <br> <B>Output property:</B> <code>HasMoreItems</code> - This field's value is returned as <code>true</code> if there are more pages in the current result set to view, or <code>false</code> if the current page being viewed is the last (or only) page of the result set.
+ * <br/><br/>
+ * If there are more listings to view in the result set, additional <b>GetSellerList</b> calls can be made but with changes to the <b>Pagination</b> values in the request. For example, if the <b>Pagination.PageNumber</b> value in the request for the last call was <code>1</code>, you can make another <b>GetSellerList</b> call, keeping everything the same except changing the value of the <b>Pagination.PageNumber</b> field from <code>1</code> to <code>2</code>.
+ * <br> <B>Output property:</B> <code>ReturnedItems</code> - This container is an array of one or more listings that match the input criteria. If none of the seller's listings match the input criteria, this container is returned as an empty tag.
+ * <br> <B>Output property:</B> <code>ReturnedItemsPerPage</code> - This value reflects the value that was set in the <b>Pagination.EntriesPerPage</b> field in the request. This is the maximum number of listings that may be returned per page of the result set. Note that this value is only the maximum threshold and does not necessarily reflect the number of listings appearing on the current page of data.
+ * <br> <B>Output property:</B> <code>ReturnedPageNumber</code> - This value indicates the current page of data in the result set that is being displayed. This value reflects the value specified in the <b>Pagination.PageNumber</b> field in the request. Note that page number defaults to <code>1</code> if the <b>Pagination.PageNumber</b> field was not included in the request.
+ * <br> <B>Output property:</B> <code>ReturnedItemCountActual</code> - This value indicates the total number of listings being shown on the current page of the results set.
+ * <br> <B>Output property:</B> <code>Seller</code> - This container consists of detailed information about the seller and the seller's account. This container is only returned if the <b>GranularityLevel</b> field is included in the request and set to <code>Fine</code>.
  * 
  * @author Ron Murphy
  * @version 1.0
@@ -133,8 +126,11 @@ public class GetSellerListCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * Retrieves a list of the items posted by the authenticated user, including
-   * the related item data.
+   * This call is used to retrieve an array of listings for the seller. The seller must be associated with the user/application token being used to make the call.
+   * <br/><br/>
+   * This call requires that either the 'Start Time' or 'End Time' date range filters be used. The date range specified by either of these filters can not exceed 120 days or an error will occur.
+   * <br/><br/>
+   * This call also requires that pagination be used.
    * 
    * <br>
    * @throws ApiException

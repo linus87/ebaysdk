@@ -10,14 +10,14 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Defines and lists a new fixed-price listing.
+ * 				This call allows a seller to create and publish a fixed-price listing.
  * 				The main difference between <b>AddFixedPriceItem</b> and <b>AddItem</b> is that
  * 				<b>AddFixedPriceItem</b> supports the creation of fixed-price listings only,
  * 				whereas <b>AddItem</b> supports all listing formats.
  * 				<br>
  * 				<br>
- * 				Also, only <b>AddFixedPriceItem</b> supports multi-variation listings
- * 				and tracking inventory by SKU. <b>AddItem</b> does not support
+ * 				Also, only <b>AddFixedPriceItem</b> supports multipl-variation listings
+ * 				and tracking inventory by a seller-defined SKU value. <b>AddItem</b> does not support
  * 				Variations or the <b>InventoryTrackingMethod</b> field.
  * 			
  * 

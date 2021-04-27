@@ -10,10 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Contains a list of the items listed by the seller specified as input. The list of
- * 				items is returned in an ItemArrayType object, in which are returned zero, one, or
- * 				multiple ItemType objects. Each ItemType object contains the detail data for one
- * 				item listing.
+ * 				This is the base response type of the <b>GetSellerList</b> call. The <b>GetSellerList</b> response includes an array of one or more listings that matched the input criteria, as well as pagination data.
  * 			
  * 
  * <p>Java class for GetSellerListResponseType complex type.

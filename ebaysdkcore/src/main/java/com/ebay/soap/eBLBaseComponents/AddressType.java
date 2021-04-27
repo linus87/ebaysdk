@@ -42,10 +42,6 @@ import org.w3c.dom.Element;
  *         &lt;element name="PhoneCountryPrefix" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PhoneAreaOrCityCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PhoneLocalNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Phone2CountryCode" type="{urn:ebay:apis:eBLBaseComponents}CountryCodeType" minOccurs="0"/>
- *         &lt;element name="Phone2CountryPrefix" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Phone2AreaOrCityCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="Phone2LocalNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PostalCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="AddressID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="AddressOwner" type="{urn:ebay:apis:eBLBaseComponents}AddressOwnerCodeType" minOccurs="0"/>
@@ -87,10 +83,6 @@ import org.w3c.dom.Element;
     "phoneCountryPrefix",
     "phoneAreaOrCityCode",
     "phoneLocalNumber",
-    "phone2CountryCode",
-    "phone2CountryPrefix",
-    "phone2AreaOrCityCode",
-    "phone2LocalNumber",
     "postalCode",
     "addressID",
     "addressOwner",
@@ -142,14 +134,6 @@ public class AddressType
     protected String phoneAreaOrCityCode;
     @XmlElement(name = "PhoneLocalNumber")
     protected String phoneLocalNumber;
-    @XmlElement(name = "Phone2CountryCode")
-    protected CountryCodeType phone2CountryCode;
-    @XmlElement(name = "Phone2CountryPrefix")
-    protected String phone2CountryPrefix;
-    @XmlElement(name = "Phone2AreaOrCityCode")
-    protected String phone2AreaOrCityCode;
-    @XmlElement(name = "Phone2LocalNumber")
-    protected String phone2LocalNumber;
     @XmlElement(name = "PostalCode")
     protected String postalCode;
     @XmlElement(name = "AddressID")
@@ -519,102 +503,6 @@ public class AddressType
      */
     public void setPhoneLocalNumber(String value) {
         this.phoneLocalNumber = value;
-    }
-
-    /**
-     * Gets the value of the phone2CountryCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CountryCodeType }
-     *     
-     */
-    public CountryCodeType getPhone2CountryCode() {
-        return phone2CountryCode;
-    }
-
-    /**
-     * Sets the value of the phone2CountryCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CountryCodeType }
-     *     
-     */
-    public void setPhone2CountryCode(CountryCodeType value) {
-        this.phone2CountryCode = value;
-    }
-
-    /**
-     * Gets the value of the phone2CountryPrefix property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPhone2CountryPrefix() {
-        return phone2CountryPrefix;
-    }
-
-    /**
-     * Sets the value of the phone2CountryPrefix property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPhone2CountryPrefix(String value) {
-        this.phone2CountryPrefix = value;
-    }
-
-    /**
-     * Gets the value of the phone2AreaOrCityCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPhone2AreaOrCityCode() {
-        return phone2AreaOrCityCode;
-    }
-
-    /**
-     * Sets the value of the phone2AreaOrCityCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPhone2AreaOrCityCode(String value) {
-        this.phone2AreaOrCityCode = value;
-    }
-
-    /**
-     * Gets the value of the phone2LocalNumber property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPhone2LocalNumber() {
-        return phone2LocalNumber;
-    }
-
-    /**
-     * Sets the value of the phone2LocalNumber property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPhone2LocalNumber(String value) {
-        this.phone2LocalNumber = value;
     }
 
     /**

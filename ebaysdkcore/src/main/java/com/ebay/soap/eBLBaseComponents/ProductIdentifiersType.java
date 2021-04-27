@@ -12,12 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				This type is used to provide details about recommended Product Identifier types. The <b>ProductIdentifiers</b>  container will consist of one or more Product Identifier types that can be, or possibly required to be used when listing a product.
- * 				<br>
- * 				<br>
- * 				<span class="tablenote"><b>Note:</b>
- * 				The <b>ProductIdentifiers</b> container will only be returned in the Sandbox environment for the time being. This container has not been wired on in production. An alternative way to see if a Product Identifier type is required for a category is to use the <b>GetCategoryFeatures</b> call and look for the values returned under the <b>EANEnabled</b>, <b>ISBNEnabled</b>, <b>UPCEnabled</b>, and other fields that indicate the Product Identifier types that are supported/required for the category.<br>
- * 				<br>
+ * 				<span class="tablenote"><strong>Note:</strong>
+ * 					This type and the <b>ProductIdentifiers</b> container were originally introduced into the Trading schema with the intention of separating Global Trade Item Numbers (GTINs) and other descriptive item specifics, but the <b>ProductIdentifiers</b> container was never wired on/returned in <b>GetCategorySpecifics</b>. Instead, users will still find one or more relevant GTIN types under a <b>Recommendations.NameRecommendation.Name</b> field in the <b>GetCategorySpecifics</b> response.
+ * 				</span>
  * 			
  * 
  * <p>Java class for ProductIdentifiersType complex type.

@@ -96,8 +96,11 @@ public enum DisputeFilterTypeCodeType {
 
     /**
      * 
-     * 						If used, this filter returns all open and closed <i>Item Not Received</i> disputes
-     * 						that involve the caller as a buyer or seller.
+     * 						If used, this filter returns all open and closed <i>Item Not Received</i> disputes that involve the caller as a buyer or seller.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><strong>Note:</strong>
+     * 							This filter is only used to retrieve any 'Item Not Received' or 'Significantly Not As Described' disputes that a buyer initiated through their PayPal account. As noted above, the <b>GetUserDisputes</b> call will not return any eBay Money Back Guarantee cases.
+     * 						</span>
      * 					
      * 
      */

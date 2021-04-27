@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type used by the <b>ReturnPolicyDetails.WarrantyType</b> container, which is returned in <b>GeteBayDetails</b> response to indicate which warranty types may be offered by the seller to the buyer in a listing.
+ * 				This type is deprecated, as product warranties are no longer applicable or supported in eBay APIs.
  * 			
  * 
  * <p>Java class for WarrantyTypeDetailsType complex type.

@@ -41,7 +41,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The dispute was not resolved.
+     * 						This enumeration value indicates that the dispute has not been resolved.
      * 					
      * 
      */
@@ -50,7 +50,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer provided proof of payment in feedback.
+     * 						This enumeration value indicates that the buyer was able to provide proof of payment for an Unpaid Item case.
      * 					
      * 
      */
@@ -59,7 +59,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer or seller had a technical problem with a computer.
+     * 						This enumeration value indicates that the buyer or seller had a technical problem with a computer.
      * 					
      * 
      */
@@ -68,7 +68,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer and seller have not made contact.
+     * 						This enumeration value indicates that the buyer and seller have not made any contact with one another.
      * 					
      * 
      */
@@ -77,7 +77,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer or seller had a family emergency.
+     * 						This enumeration value indicates that the buyer or seller had a family emergency.
      * 					
      * 
      */
@@ -86,7 +86,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer provided proof of payment in feedback.
+     * 						This enumeration value indicates that the buyer was able to provide proof of payment for an Unpaid Item case through the Feedback system.
      * 					
      * 
      */
@@ -95,7 +95,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The dispute was the buyer's first infraction.
+     * 						This enumeration value indicates that the dispute was the buyer's first infraction, and thus resolved.
      * 					
      * 
      */
@@ -104,7 +104,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer and seller came to agreement.
+     * 						This enumeration value indicates that the buyer and seller came to an agreement.
      * 					
      * 
      */
@@ -113,7 +113,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The buyer returned the item.
+     * 						This enumeration value indicates that the buyer successfully returned the item, and thus an Unpaid Item case was closed.
      * 					
      * 
      */
@@ -122,7 +122,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     *  						The buyer reimbursed the seller's auction fees.
+     *  						This enumeration value indicates that the buyer reimbursed the seller's listing fees.
      * 					
      * 
      */
@@ -131,7 +131,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						The seller received payment.
+     * 						This enumeration value indicates that the seller received payment for the item, and thus an Unpaid Item case was closed.
      * 					
      * 
      */
@@ -140,7 +140,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						Some other resolution occurred.
+     * 						This enumeration value indicates that an undefined resolution occurred.
      * 					
      * 
      */
@@ -149,7 +149,7 @@ public enum DisputeResolutionReasonCodeType {
 
     /**
      * 
-     * 						After eBay approved payment of the claim, the claim was paid.
+     * 						This enumeration value indicates that the claim was paid.
      * 					
      * 
      */

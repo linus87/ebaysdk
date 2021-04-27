@@ -56,8 +56,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The dispute is locked and cannot be updated. For any type of
-     * 						dispute. No values of DisputeActivity are valid.
+     * 						This enumeration value indicates that the dispute is currently in a locked state, and cannot be updated by any user.
      * 					
      * 
      */
@@ -66,9 +65,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The dispute is closed. In some cases, it can be reversed with
-     * 						SellerReverseDispute. For any type of dispute. No values of
-     * 						DisputeActivity are valid.
+     * 						This enumeration value indicates that the dispute is closed. In some cases, a closed case can be reversed with the <b>SellerReverseDispute</b> call.
      * 					
      * 
      */
@@ -77,10 +74,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						eBay sent the buyer an Unpaid Item Reminder with a Pay Now
-     * 						option. Waiting for the buyer's first response. It is within the 7-day
-     * 						grace period. For Unpaid Item Disputes. DisputeActivity can be
-     * 						SellerAddInformation or SellerCompletedTransaction.
+     * 						This enumeration value indicates that eBay sent the buyer an Unpaid Item Reminder with a Pay Now option, and is waiting for the buyer's first response.
      * 					
      * 
      */
@@ -89,10 +83,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						eBay sent the buyer an Unpaid Item Reminder with no Pay Now
-     * 						option. Waiting for the buyer's first response. It is within the 7-day
-     * 						grace period. For Unpaid Item Disputes. DisputeActivity can be
-     * 						SellerAddInformation or SellerCompletedTransaction.
+     * 						This enumeration value indicates that eBay sent the buyer an Unpaid Item Reminder, but without a Pay Now option, and is waiting for the buyer's first response.
      * 					
      * 
      */
@@ -101,11 +92,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						eBay sent the buyer an Unpaid Item Reminder with a Pay Now
-     * 						option. Waiting for the buyer's first response. The 7-day grace
-     * 						period has expired. For Unpaid Item Disputes. DisputeActivity can be
-     * 						SellerAddInformation, SellerCompletedTransaction, or
-     * 						SellerEndCommunication.
+     * 						This enumeration value indicates that eBay sent the buyer an Unpaid Item Reminder with a Pay Now option, was waiting for the buyer's first response, but the buyer has failed to respond to this reminder within the 7-day grace period.
      * 					
      * 
      */
@@ -114,11 +101,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						eBay sent the buyer an Unpaid Item Reminder with no Pay Now
-     * 						option. Waiting for the buyer's first response. The 7-day grace
-     * 						period has expired. For Unpaid Item Disputes. DisputeActivity can be
-     * 						SellerAddInformation, SellerCompletedTransaction, or
-     * 						SellerEndCommunication.
+     * 						This enumeration value indicates that eBay sent the buyer an Unpaid Item Reminder without a Pay Now option, was waiting for the buyer's first response, but the buyer has failed to respond to this reminder within the 7-day grace period.
      * 					
      * 
      */
@@ -127,10 +110,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer and seller have communicated, and eBay offered the buyer
-     * 						a Pay Now option. For Unpaid Item Disputes. DisputeActivity
-     * 						can be SellerAddInformation, SellerCompletedTransaction,
-     * 						SellerEndCommunication, or CameToAgreementNeedFVFCredit.
+     * 						This enumeration value indicates that the buyer and seller have communicated, and eBay offered the buyer a Pay Now option.
      * 					
      * 
      */
@@ -139,10 +119,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 				    The buyer and seller have communicated. eBay did not offer
-     * 				    the buyer a Pay Now option. For Unpaid Item Disputes. DisputeActivity can
-     * 						be SellerAddInformation, SellerCompletedTransaction,
-     * 						SellerEndCommunication, or CameToAgreementNeedFVFCredit.
+     * 				    This enumeration value indicates that the buyer and seller have communicated, but eBay has not offered the buyer a Pay Now option.
      * 					
      * 
      */
@@ -151,9 +128,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The dispute is pending resolution. A dispute cannot be closed
-     * 						when it is in this state. For Unpaid Item Disputes.
-     * 						No values of DisputeActivity are valid.
+     * 						This enumeration value indicates that the dispute is pending resolution. A dispute cannot be closed by the buyer or seller when it is in this state.
      * 					
      * 
      */
@@ -162,9 +137,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer and seller have agreed within the grace period not
-     * 						to complete the transaction. For Unpaid Item Disputes.
-     * 						DisputeActivity can be SellerAddInformation.
+     * 						This enumeration value indicates that the buyer and seller have mutually agreed to cancel the transaction within the grace period.
      * 					
      * 
      */
@@ -173,10 +146,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer and seller have agreed not to complete the
-     * 						transaction, after the grace period. For Unpaid Item Disputes.
-     * 						DisputeActivity can be SellerAddInformation,
-     * 						SellerCompletedTransaction, or SellerEndCommunication.
+     * 						This enumeration value indicates that the buyer and seller have mutually agreed to cancel the transaction, but the grace period has expired.
      * 					
      * 
      */
@@ -185,9 +155,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer filed an Item Not Received dispute, and the seller
-     * 						has not responded. For Item Not Received disputes. DisputeActivity
-     * 						can be SellerOffersRefund, SellerShippedItem, or SellerComment.
+     * 						This enumeration value indicates that the buyer filed an Item Not Received dispute through PayPal account, and the seller has not yet responded. A seller may respond to a case in this state by using the <b>AddDisputeResponse</b> call and setting the <b>DisputeActivity</b> value to <code>SellerOffersRefund</code>, <code>SellerShippedItem</code>, or <code>SellerComment</code>.
      * 					
      * 
      */
@@ -196,9 +164,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer filed an Item Not Received dispute for an item
-     * 						significantly not as described, and the seller has not responded.
-     * 						DisputeActivity can be SellerOffersRefund or SellerComment.
+     * 						This enumeration value indicates that the buyer filed an Item Not As Described dispute through PayPal account, and the seller has not yet responded. A seller may respond to a case in this state by using the <b>AddDisputeResponse</b> call and setting the <b>DisputeActivity</b> value to <code>SellerOffersRefund</code> or <code>SellerComment</code>.
      * 					
      * 
      */
@@ -207,9 +173,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer filed an Item Not Received dispute and is
-     * 						communicating with the seller. DisputeActivity can be
-     * 						SellerOffersRefund, SellerShippedItem, or SellerComment.
+     * 						This enumeration value indicates that the buyer filed an Item Not Received dispute through PayPal account, and the buyer and seller have communicated about the issue. A seller may respond to a case in this state by using the <b>AddDisputeResponse</b> call and setting the <b>DisputeActivity</b> value to <code>SellerOffersRefund</code>, <code>SellerShippedItem</code>, or <code>SellerComment</code>.
      * 					
      * 
      */
@@ -218,9 +182,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer filed an Item Not Received dispute for an item
-     * 						significantly not as described and is communicating with the seller.
-     * 						DisputeActivity can be SellerOffersRefund.
+     * 						This enumeration value indicates that the buyer filed an Item Not As Described dispute through PayPal account, and the buyer and seller have communicated about the issue. A seller may respond to a case in this state by using the <b>AddDisputeResponse</b> call and setting the <b>DisputeActivity</b> value to <code>SellerOffersRefund</code>.
      * 					
      * 
      */
@@ -229,10 +191,9 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The seller says mutual agreement has been reached and is
+     * 						This enumeration value indicates that the seller filed an Unpaid Item dispute, and the seller says mutual agreement has been reached and is
      * 						waiting for the buyer to confirm, or the buyer is returning the item
-     * 						to the seller. DisputeActivity can be SellerAddInformation.
-     * 						For Unpaid Item Disputes.
+     * 						to the seller.
      * 					
      * 
      */
@@ -241,7 +202,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The claim was assigned to an adjuster.
+     * 						This enumeration value indicates that the claim was assigned to an adjuster.
      * 					
      * 
      */
@@ -250,8 +211,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer was contacted by eBay and asked to submit paperwork to
-     * 						support the claim.
+     * 						This enumeration value indicates that the buyer was contacted by eBay and asked to submit paperwork to support the claim.
      * 					
      * 
      */
@@ -260,7 +220,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer did not respond to verification or was missing paperwork.
+     * 						This enumeration value indicates that the claim was closed due to buyer not responding to verification, or was missing paperwork.
      * 					
      * 
      */
@@ -269,7 +229,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer is not eligible for reimbursement.
+     * 						This enumeration value indicates that the buyer's claim was denied.
      * 					
      * 
      */
@@ -278,7 +238,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						Paperwork was received from the buyer and the claim is being investigated.
+     * 						This enumeration value indicates that paperwork was received from the buyer and the claim is being investigated.
      * 					
      * 
      */
@@ -287,8 +247,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer's claim was approved for reimbursement and was
-     * 						sent to accounts payable for payment.
+     * 						This enumeration value indicates that the buyer's claim was approved for reimbursement and was sent to accounts payable for payment.
      * 					
      * 
      */
@@ -297,7 +256,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The buyer was reimbursed.
+     * 						This enumeration value indicates that the buyer was reimbursed for the claim.
      * 					
      * 
      */
@@ -306,7 +265,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The issue has been resolved: the seller sent the item or a refund.
+     * 						This enumeration value indicates that the issue has been resolved due to the seller sending the item or refunding the buyer.
      * 					
      * 
      */
@@ -315,7 +274,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						A claim was submitted (via Web).
+     * 						This enumeration value indicates that the claim was submitted via Web.
      * 					
      * 
      */
@@ -324,7 +283,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						The unpaid item dispute is open.
+     * 						This enumeration value indicates that the Unpaid Item dispute is open.
      * 					
      * 
      */
@@ -333,9 +292,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						An unpaid item dispute filed by the Unpaid Item Assistance mechanism was
-     * 						disabled by eBay (for example, eBay detected that payment was initiated
-     * 						and the seller needs to manually handle this dispute).
+     * 						This enumeration value indicates that the Unpaid Item dispute filed by the Unpaid Item Assistance mechanism was disabled by eBay (for example, eBay detected that payment was initiated and the seller needs to manually handle this dispute).
      * 					
      * 
      */
@@ -344,11 +301,7 @@ public enum DisputeStateCodeType {
 
     /**
      * 
-     * 						An unpaid item dispute filed by the Unpaid Item Assistance mechanism was
-     * 						disabled by the seller (e.g. the buyer and seller have communicated
-     * 						about payment and the seller wishes to extend the time for payment
-     * 						and not let the automatic process close the dispute 4 days after the
-     * 						dispute was automatically opened).
+     * 						This enumeration value indicates that the Unpaid Item dispute filed by the Unpaid Item Assistance mechanism was disabled by the seller (e.g. the buyer and seller have communicated about payment and the seller wishes to extend the time for payment and not let the automatic process close the dispute automatically).
      * 					
      * 
      */

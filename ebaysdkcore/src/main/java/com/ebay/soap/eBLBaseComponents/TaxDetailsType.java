@@ -14,11 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the TaxDetails container, which consists of detailed sales tax
- * 			 information for an order line item, including the tax type and description, sales tax
- * 			 on the item cost, and sales tax related to shipping and handling. The information in
- * 			 this container supercedes/overrides the sales tax information in the
- * 			 ShippingDetails.SalesTax container.
+ * 				Type used by the <b>TaxDetails</b> container, which consists of detailed tax information for an order line item, including the tax type and description, tax on the item cost, and tax related to shipping and handling. The information in this container supercedes/overrides the sales tax information in the <b>ShippingDetails.SalesTax</b> container (if returned).
  * 			
  * 
  * <p>Java class for TaxDetailsType complex type.
@@ -37,6 +33,7 @@ import org.w3c.dom.Element;
  *         &lt;element name="TaxOnShippingAmount" type="{urn:ebay:apis:eBLBaseComponents}AmountType" minOccurs="0"/>
  *         &lt;element name="TaxOnHandlingAmount" type="{urn:ebay:apis:eBLBaseComponents}AmountType" minOccurs="0"/>
  *         &lt;element name="TaxCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="CollectionMethod" type="{urn:ebay:apis:eBLBaseComponents}CollectionMethodCodeType" minOccurs="0"/>
  *         &lt;any/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -55,6 +52,7 @@ import org.w3c.dom.Element;
     "taxOnShippingAmount",
     "taxOnHandlingAmount",
     "taxCode",
+    "collectionMethod",
     "any"
 })
 public class TaxDetailsType
@@ -76,6 +74,8 @@ public class TaxDetailsType
     protected AmountType taxOnHandlingAmount;
     @XmlElement(name = "TaxCode")
     protected String taxCode;
+    @XmlElement(name = "CollectionMethod")
+    protected CollectionMethodCodeType collectionMethod;
     @XmlAnyElement(lax = true)
     protected List<Object> any;
 
@@ -245,6 +245,30 @@ public class TaxDetailsType
      */
     public void setTaxCode(String value) {
         this.taxCode = value;
+    }
+
+    /**
+     * Gets the value of the collectionMethod property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CollectionMethodCodeType }
+     *     
+     */
+    public CollectionMethodCodeType getCollectionMethod() {
+        return collectionMethod;
+    }
+
+    /**
+     * Sets the value of the collectionMethod property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CollectionMethodCodeType }
+     *     
+     */
+    public void setCollectionMethod(CollectionMethodCodeType value) {
+        this.collectionMethod = value;
     }
 
     /**

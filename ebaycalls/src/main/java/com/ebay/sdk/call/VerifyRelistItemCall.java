@@ -32,11 +32,15 @@ import com.ebay.soap.eBLBaseComponents.*;
  * For example, item.picturedetails.galleryUrl is not allowed.<br><br>
  * To delete a listing enhancement like 'BoldTitle', specify the value you are deleting;
  * for example, Item.ListingEnhancement[BoldTitle].
- * <br> <B>Output property:</B> <code>ReturnedItemID</code> - Unique identifier for the new listing. As <b>VerifyRelistItem</b> does not
- * actually relist an item, a <code>0</code> is returned instead of a normal item ID.
+ * <br> <B>Output property:</B> <code>ReturnedItemID</code> - With a successful <b>VerifyRelistItem</b> call, this field is always returned, but the returned value is always <code>0</code>, since this call only validates the data passed in through the request payload and does not actually relist an item.
  * <br> <B>Output property:</B> <code>ReturnedFees</code> - This container consists of the estimated listing fees for the item that is to be relisted. Each type of fee is returned even if it is not appplicable (has a value of <code>0.0</code>. The Final Value Fee (FVF) is not in this container, as this value cannot be determined until a sale is made.
  * <br> <B>Output property:</B> <code>ReturnedStartTime</code> - This timestamp indicates the date and time when the item to be relisted became active on the eBay site.
  * <br> <B>Output property:</B> <code>ReturnedEndTime</code> - This timestamp indicates the date and time when the item to be relisted is scheduled to end on the eBay site. This date/time is calculated by using the <b>StartTime</b> and the the listing duration.
+ * <br><br>
+ * <span class="tablenote"><b>Note: </b>
+ * Starting July 1, 2019, the Good 'Til Cancelled renewal schedule will be modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+ * <a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedDiscountReason</code> - This field is returned if an eBay special offer or promotion is applicable to the listing.
  * <br> <B>Output property:</B> <code>ReturnedProductSuggestions</code> - Provides a list of products recommended by eBay which match the item information provided by the seller.
  * <br> <B>Output property:</B> <code>ReturnedListingRecommendations</code> - Container consisting of one or more <b>Recommendation</b> containers. Each <b>Recommendation</b> container provides a message to the seller on how a listing can be improved or brought up to standard in regards to top-rated seller/listing requirements, mandated or recommended Item Specifics, picture quality requirements, pricing and/or listing format recommendations, recommended keywords and/or Item Specifics in a Title, and/or a recommendation to offer fast handling (same-day handling or handling time of 1 day) and/or a free shipping option in order to qualify the listing for a Fast 'N Free badge.

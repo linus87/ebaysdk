@@ -42,14 +42,15 @@ public enum GalleryTypeCodeType {
     /**
      * 
      * 						Highlights the listing by randomly placing it at the top of the search results.
-     * 						When Featured is included in an item listing, the listing also automatically gets the
+     * 						When the Featured First listing upgrade is selected for an item listing, the listing also automatically gets the
      * 						Gallery and Plus functionality at no extra cost.
      * 						<br><br>
-     * 						<span class="tablenote"><b>Sites That Support Featured:</b>
-     * 						You can check if a site supports Featured by using the
-     * 						<b>GeteBayDetails</b> call and passing in <b>ListingFeatureDetails</b>
-     * 						in the <b>DetailName</b> field. In the response, check the
-     * 						<b>ListingFeatureDetails</b> container for <b>FeaturedFirst</b>.
+     * 						A user can see if a site supports the Featured First listing upgrade by using the <b>GeteBayDetails</b> call and passing in <code>ListingFeatureDetails</code> in the <b>DetailName</b> field. In the response, the value of the <b>ListingFeatureDetails.FeaturedFirst</b> field will show a value other than <code>Disabled</code> if the eBay site supports the Featured First listing upgrade.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><strong>Note:</strong>
+     * 							Beginning in mid-August 2019, the Featured First listing upgrade can no longer be added for new listings in any eBay marketplace. Existing listings enabled with this feature will still be honored until mid-September 2019, at which time the feature will be fully disabled.
+     * 							<br/><br/>
+     * 							After August 1, 2019, if this value is used in an Add/Revise/Relist call, sellers will get a warning message about this value/feature being deprecated. In mid-August 2019, sellers will no longer be able to use this value for new listings or for revising existing listings.
      * 						</span>
      * 					
      * 
@@ -61,7 +62,7 @@ public enum GalleryTypeCodeType {
      * 
      * 						 This feature, which is free on all sites, adds a Gallery image in the search results. A Gallery image is an image that was uploaded and copied to EPS (eBay Picture Service). This copy is stored  for 30 days or until the image is associated with a listing. Once the image is associated with a listing, the period is extended to 90 days after the item's sale_end date  and is extended again if the item is relisted or used in subsequent listings.  As part of storing a copy, EPS also makes additional sizes available (thumbnail,  main image, supersize,  popup, etc.), which are used by the various Gallery enhancements.
      * 						 <br/><br/>
-     * 						 All images must comply to the <a href="http://developer.ebay.com/DevZone/guides/ebayfeatures/Development/Pictures-Intro.html">Picture Requirements.</a>
+     * 						 All images must comply to the <a href="http://developer.ebay.com/DevZone/guides/features-guide/default.html#development/Pictures-Intro.html">Picture Requirements.</a>
      * 					
      * 
      */

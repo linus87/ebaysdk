@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
  *     &lt;enumeration value="SalesTax"/>
  *     &lt;enumeration value="WasteRecyclingFee"/>
+ *     &lt;enumeration value="GST"/>
  *     &lt;enumeration value="CustomCode"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
@@ -30,7 +31,7 @@ public enum TaxTypeCodeType {
 
     /**
      * 
-     *             A standard sales tax charge.
+     *             This enumeration value indicates that standard sales tax was charged to the buyer against the order line item.
      *           
      * 
      */
@@ -39,7 +40,7 @@ public enum TaxTypeCodeType {
 
     /**
      * 
-     *             A charge for an electronic waste recycling fee.
+     *             This enumeration value indicates that an electronic waste recycling fee was charged to the buyer against the order line item.
      *            
      * 
      */
@@ -48,8 +49,18 @@ public enum TaxTypeCodeType {
 
     /**
      * 
-     *             Reserved for internal or future use.
-     *           
+     * 						This enumeration value indicates that a Goods and Services import tax was charged to the buyer against the order line item.
+     * 						<br/><br/>
+     * 						This tax type is only applicable for items being sold by Australian or New Zealand sellers.
+     * 					
+     * 
+     */
+    GST("GST"),
+
+    /**
+     * 
+     * 						Reserved for internal or future use.
+     * 					
      * 
      */
     @XmlEnumValue("CustomCode")

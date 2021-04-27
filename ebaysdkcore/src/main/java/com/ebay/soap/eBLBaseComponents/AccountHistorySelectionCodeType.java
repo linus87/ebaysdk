@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="LastInvoice"/>
  *     &lt;enumeration value="SpecifiedInvoice"/>
  *     &lt;enumeration value="BetweenSpecifiedDates"/>
+ *     &lt;enumeration value="OrderId"/>
  *     &lt;enumeration value="CustomCode"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
@@ -55,6 +56,18 @@ public enum AccountHistorySelectionCodeType {
      */
     @XmlEnumValue("BetweenSpecifiedDates")
     BETWEEN_SPECIFIED_DATES("BetweenSpecifiedDates"),
+
+    /**
+     * 
+     * 						This value should be used if the eBay user wants to see the account entries related to a specific eBay order. If this value is used, the user must also include the <b>OrderID</b> field and sets its value to the identifier of the order for which they wish to retrieve account entries.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b> In June 2019, eBay introduced a new order ID format to both legacy (including Trading API) and REST-based APIs. At this time, both old and new format order IDs will be accepted in legacy API request payloads to identify orders. In legacy API response payloads, order IDs will appear in the new format if the user is using a Trading WSDL version of '1113' (or newer), or if the user sets the <code>X-EBAY-API-COMPATIBILITY-LEVEL</code> HTTP header to a value of '1113' (or newer). If the Trading WSDL version or compatibility level is less/older than '1113', old format order IDs will be returned in legacy API response payloads. Beginning as soon as March 2020, only new format order IDs will be returned regardless of version number.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("OrderId")
+    ORDER_ID("OrderId"),
 
     /**
      * 

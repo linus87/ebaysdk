@@ -79,7 +79,7 @@ public enum ReturnsWithinOptionsCodeType {
      * 						The seller specifies this value to enable a 30-day return policy. A buyer must
      * 						return an item within 30 days after purchase in order to receive a refund or
      * 						an exchange/replacement item.
-     * 						<br/>
+     * 						<br/><br/>
      * 						<span class="tablenote"><b>Note: </b> To qualify as a Top-Rated Plus listing, a 30-day (or longer) return period must be set.
      * 						</span>
      * 					
@@ -103,7 +103,7 @@ public enum ReturnsWithinOptionsCodeType {
      * 
      * 					 The seller specifies this value to enable a one-month return policy. A buyer must return an item within one month after purchase in order to receive a refund or an exchange.
      * 					 <br/>
-     * 					<span class="tablenote"><b>Note: </b> This value is scheduled to be deprecated. Use <code>Days_30</code> instead.
+     * 					<span class="tablenote"><b>Note: </b> This value, historically only supported on the DE and AT sites, is scheduled to be deprecated, and DE and AT sellers may be blocked if they do use this value. Use <code>Days_30</code> instead.
      * 					</span>
      * 					
      * 

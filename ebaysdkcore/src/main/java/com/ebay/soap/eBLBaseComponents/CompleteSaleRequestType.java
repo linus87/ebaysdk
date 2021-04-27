@@ -10,12 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Enables a seller to do various tasks after the creation of a single line item or
- * 				multiple line item (Combined Invoice) order. Typically, this call is used after the order has been paid
- * 				by the buyer, but it can be called by the seller beforehand. Typical post-
- * 				payment tasks available to this call include marking the order as paid, marking
- * 				the order as shipped, providing shipment tracking details, and leaving feedback
- * 				for the buyer.
+ * 				Enables a seller to perform various tasks with a single or multiple line item order. Tasks available with this call include marking the order as paid, marking the order as shipped, providing shipment tracking details to the buyer, and leaving feedback for the buyer.
  * 			
  * 
  * <p>Java class for CompleteSaleRequestType complex type.

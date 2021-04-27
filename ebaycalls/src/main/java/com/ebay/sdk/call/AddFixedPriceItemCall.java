@@ -28,9 +28,20 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br> <B>Output property:</B> <code>ReturnedSKU</code> - The SKU value for an item is returned if the seller specified a SKU value through the <b>Item.SKU</b> field in the request. In the case of a multi-variation listing, variation-level SKU values are not returned in the response. To get this data, a <b>GetItem</b> call would have to be made by the seller.
  * <br> <B>Output property:</B> <code>ReturnedStartTime</code> - Starting date and time for the new listing. This value is based on the time the listing was received and processed, or the time the item will be listed if the seller included the <b>Item.ScheduleTime</b> field in the request and set a custom start time of the listing (in the future).
  * <br> <B>Output property:</B> <code>ReturnedEndTime</code> - Date and time when the new listing is scheduled to end based on the start time and the listing duration value that was set in the <b>ListingDuration</b> field at listing time. If the value of <b>ListingDuration</b> was set to <code>GTC</code> (Good 'Til Cancelled) this value will be set 30 days ahead of the start time, although this value will be updated if the GTC listing is still alive and automatically renewed 30 days after start time.
+ * <br><br>
+ * <span class="tablenote"><b>Note: </b>
+ * As of July 1, 2019, the Good 'Til Cancelled renewal schedule has been modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+ * <a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedFees</code> - This container is an array of fees associated with the creation of the listing. The fees do not include the Final Value Fee (FVF), which cannot be determined until an item is sold.
- * <br> <B>Output property:</B> <code>ReturnedCategoryID</code> - The unique identifier of the primary category in which the item was listed. This field is only returned if the <b>Item.CategoryMappingAllowed</b> boolean field is included and set to <code>true</code> in the request and the Category ID passed in as the primary listing category was mapped to a new Category ID by eBay. If the primary category has not changed, or if it has expired with no replacement, this field is not returned.
- * <br> <B>Output property:</B> <code>ReturnedCategory2ID</code> - Unique identifier of the secondary category in which the item was listed. This field is only returned if a secondary category was used, the <b>Item.CategoryMappingAllowed</b> boolean field is included and set to <code>true</code> in the request, and the Category ID passed in as the secondary listing category was mapped to a new Category ID by eBay. If the secondary category has not changed or it has expired with no replacement, this field is not returned.
+ * <br> <B>Output property:</B> <code>ReturnedCategoryID</code> - The unique identifier of the primary category in which the item was listed. This field is only returned if the <b>Item.CategoryMappingAllowed</b> boolean field is set to <code>true</code> in the request (or omitted) and the Category ID passed in as the primary listing category was automatically mapped to a new Category ID by eBay. If the primary category ID passed in the request is still active/valid, this field is not returned.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b> The <b>Item.CategoryMappingAllowed</b> field value in the request now defaults to <code>true</code> if omitted. Previously, the default value was <code>false</code>, so a user had to include this field and set it to <code>true</code> in order for eBay to map an outdated Primary or Secondary Category ID to the updated Category ID.
+ * </span>
+ * <br> <B>Output property:</B> <code>ReturnedCategory2ID</code> - Unique identifier of the secondary category in which the item was listed. This field is only returned if the <b>Item.CategoryMappingAllowed</b> boolean field is set to <code>true</code> in the request (or omitted) and the Category ID passed in as the secondary listing category was automatically mapped to a new Category ID by eBay. If the secondary category ID passed in the request is still active/valid, this field is not returned.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b> The <b>Item.CategoryMappingAllowed</b> field value in the request now defaults to <code>true</code> if omitted. Previously, the default value was <code>false</code>, so a user had to include this field and set it to <code>true</code> in order for eBay to map an outdated Primary or Secondary Category ID to the updated Category ID.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedDiscountReason</code> - This container is an array of one or more listing fee/upgrade discount types being offered by eBay to the seller.
  * <br> <B>Output property:</B> <code>ReturnedProductSuggestions</code> - This container holds an array of one or more products in the eBay product catalog that appear to match the product being listed, just based on the information in the listing. This container will not be returned if no similar products were found in the eBay product catalog.
  * <br> <B>Output property:</B> <code>ReturnedListingRecommendations</code> - Container consisting of one or more <b>Recommendation</b> containers. Each <b>Recommendation</b> container provides a message to the seller on how a listing can be improved or brought up to standard in regards to top-rated seller/listing requirements, mandated or recommended Item Specifics, picture quality requirements, pricing and/or listing format recommendations, recommended keywords and/or Item Specifics in a Title, and/or a recommendation to offer fast handling (same-day handling or handling time of 1 day) and/or a free shipping option in order to qualify the listing for a Fast 'N Free badge.
@@ -79,14 +90,14 @@ public class AddFixedPriceItemCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * Defines and lists a new fixed-price listing.
+   * This call allows a seller to create and publish a fixed-price listing.
    * The main difference between <b>AddFixedPriceItem</b> and <b>AddItem</b> is that
    * <b>AddFixedPriceItem</b> supports the creation of fixed-price listings only,
    * whereas <b>AddItem</b> supports all listing formats.
    * <br>
    * <br>
-   * Also, only <b>AddFixedPriceItem</b> supports multi-variation listings
-   * and tracking inventory by SKU. <b>AddItem</b> does not support
+   * Also, only <b>AddFixedPriceItem</b> supports multipl-variation listings
+   * and tracking inventory by a seller-defined SKU value. <b>AddItem</b> does not support
    * Variations or the <b>InventoryTrackingMethod</b> field.
    * 
    * <br>

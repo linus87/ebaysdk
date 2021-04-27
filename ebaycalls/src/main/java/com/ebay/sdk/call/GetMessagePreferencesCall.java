@@ -20,12 +20,8 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>SellerID</code> - The ID of the user to retrieve ASQ subjects for. This
- * value must be specified in the request, but does not
- * need to be the same user as the user making the
- * request.
- * <br> <B>Input property:</B> <code>IncludeASQPreferences</code> - If true, indicates that the ASQ subjects for the
- * specified user should be returned.
+ * <br> <B>Input property:</B> <code>SellerID</code> - The eBay user ID of the seller to retrieve ASQ subjects for. A user can retrieve their own ASQ subjects or those of another eBay user with a seller account.
+ * <br> <B>Input property:</B> <code>IncludeASQPreferences</code> - This field must be included and set to <code>true</code> to retrieve the ASQ subjects for the specified eBay user.
  * <br> <B>Output property:</B> <code>ReturnedASQPreferences</code> - Returns a seller's ASQ subjects, each in its own Subject
  * node. If the seller has not customized the ASQ subjects
  * using SetMessagePreferences, the call will return the
@@ -63,7 +59,7 @@ public class GetMessagePreferencesCall extends com.ebay.sdk.ApiCall
 
   /**
    * Returns a seller's Ask Seller a Question (ASQ) subjects, each in
-   * its own Subject node.
+   * its own <b>Subject</b> field.
    * 
    * <br>
    * @throws ApiException

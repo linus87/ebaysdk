@@ -21,7 +21,7 @@ import org.w3c.dom.Element;
  * 				with the data for an item's transaction.
  * 				<br><br>
  * 				<span class="tablenote"><strong>Note:</strong>
- * 					The <strong>CalculatedShippingRate</strong> container should only be used to specify values for the <strong>InternationalPackagingHandlingCosts</strong>, <strong>OriginatingPostalCode</strong>, and/or <strong>PackagingHandlingCosts</strong> fields. The rest of the fields in the <strong>CalculatedShippingRate</strong> container should now be specified in the <strong>ShipPackageDetails</strong> container instead.
+ * 					The <strong>CalculatedShippingRate</strong> container should only be used to specify values for the <strong>InternationalPackagingHandlingCosts</strong>, <strong>OriginatingPostalCode</strong>, and/or <strong>PackagingHandlingCosts</strong> fields. The rest of the fields in the <strong>CalculatedShippingRate</strong> container should now be specified in the <strong>ShippingPackageDetails</strong> container instead.
  * 				</span>
  * 			
  * 

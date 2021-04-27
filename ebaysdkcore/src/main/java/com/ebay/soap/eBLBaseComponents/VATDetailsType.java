@@ -14,11 +14,12 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Container for eBay's Business User features. A business seller can choose
- * 				to offer an item exclusively to bidders and buyers that also represent businesses.
- * 				Only applicable when the item is listed in a B2B-enabled category.
- * 				Currently, the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites support
- * 				B2B business features.
+ * 				This type is used to set/display details related to VAT (Value-Added Tax) and Business Seller features.
+ * 				<br>
+ * 				<br>
+ * 				<span class="tablenote"><b>Note:</b>
+ * 					VAT is not applicable to all countries, including the US. Sellers must be registered as Business Sellers on the site they are selling on in order to use the Business Seller-related fields.
+ * 				</span>
  * 			
  * 
  * <p>Java class for VATDetailsType complex type.

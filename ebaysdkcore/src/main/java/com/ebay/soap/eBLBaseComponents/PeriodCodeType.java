@@ -33,7 +33,7 @@ public enum PeriodCodeType {
 
     /**
      * 
-     * 						This value is no longer used.
+     * 						This value is no longer applicable.
      * 					
      * 
      */
@@ -42,7 +42,7 @@ public enum PeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that the evaluation period is set back 30 days from the 
+     * 						This value indicates that the evaluation period is set back 30 days from the
      * 						present date.
      * 					
      * 
@@ -52,8 +52,7 @@ public enum PeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that the evaluation period is set back 180 days from the
-     * 						present date.
+     * 						This value indicates that the evaluation period is set back 180 days (approximately 6 months) from the present date.
      * 					
      * 
      */
@@ -62,8 +61,7 @@ public enum PeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that the evaluation period is set back 360 days from the
-     * 						present date.
+     * 						This value indicates that the evaluation period is set back 360 days (approximately 12 months) from the present date.
      * 					
      * 
      */
@@ -72,8 +70,7 @@ public enum PeriodCodeType {
 
     /**
      * 
-     * 						This value indicates that the evaluation period is set back 540 days from the
-     * 						present date.
+     * 						This value is no longer applicable.
      * 					
      * 
      */

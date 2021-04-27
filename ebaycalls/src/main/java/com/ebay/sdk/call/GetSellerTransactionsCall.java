@@ -28,17 +28,11 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Company: eBay Inc.</p>
  * <br> <B>Input property:</B> <code>ModifiedTimeFilter</code> - Helper wrapper to set GetSellerTransactionsRequestType ModTimeFrom, ModTimeTo:
  * TimeFrom sets GetSellerTransactionsRequestType.ModTimeFrom: 
- * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving order line items associated with the seller. The <b>ModTimeFrom</b> field is the starting date range. All of the seller's order line items that were last modified within this date range are returned in the output.  The maximum date range that may be specified is 30 days. This value cannot be set back more than 90 days in the past, as this call cannot retrieve sales older than 90 days old. This field is not applicable if the <b>NumberOfDays</b> date filter is used.
+ * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields are used to specify a date range for retrieving order line items associated with the seller. The <b>ModTimeFrom</b> field is the starting date range. All of the seller's order line items that were created (or last modified) within this date range are returned in the output.  The maximum date range that may be specified is 30 days. This value cannot be set back more than 90 days in the past, as this call cannot retrieve sales older than 90 days. This field is not applicable if the <b>NumberOfDays</b> date filter is used.
  * <br><br>
  * If you don't specify a <b>ModTimeFrom</b>/<b>ModTimeTo</b> filter, the <b>NumberOfDays</b> time filter is used and it defaults to 30 (days).
  * TimeTo sets GetSellerTransactionsRequestType.ModTimeTo: 
- * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving
- * order line items associated with the seller. The <b>ModTimeTo</b>
- * field is the ending date range. All of the seller's order line items that were last
- * modified within this date range are returned in the output.
- * <br/><br/>
- * The maximum
- * date range that may be specified is 30 days.
+ * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields are used to specify a date range for retrieving order line items associated with the seller. The <b>ModTimeTo</b> field is the ending date range. All of the seller's order line items that were created (or last modified) within this date range are returned in the output. The maximum date range that may be specified is 30 days.
  * <br/><br/>
  * If the <b>ModTimeFrom</b> field is
  * used and the <b>ModTimeTo</b> field is omitted, the <b>ModTimeTo</b> value defaults to
@@ -48,45 +42,31 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br><br>
  * If you don't specify a <b>ModTimeFrom</b>/<b>ModTimeTo</b> filter, the <b>NumberOfDays</b>
  * time filter is used and it defaults to 30 (days).
- * <br> <B>Input property:</B> <code>Pagination</code> - Child elements control pagination of the output. Use <b>EntriesPerPage</b> property to
- * control the number of transactions to return per call and <b>PageNumber</b> property to
- * specify the page of data to return.
- * <br> <B>Input property:</B> <code>IncludeFinalValueFee</code> - Indicates whether to include Final Value Fee (FVF) in the response. For most listing types, the Final Value Fee is returned in <b>Transaction.FinalValueFee</b>. The Final Value Fee is returned for each order line item.
- * <br>
- * <br> <B>Input property:</B> <code>IncludeContainingOrder</code> - Include this field and set it to <code>true</code> if you want the <b>ContainingOrder</b> container to be returned in the response under each <b>Transaction</b> node. For single line item orders, the <b>ContainingOrder.OrderID</b> value takes the value of the <b>OrderLineItemID</b> value for the order line item. For Combined Invoice orders, the <b>ContainingOrder.OrderID</b> value will be shared by at least two order line items (transactions) that are part of the same order.
- * <br> <B>Input property:</B> <code>SKUArray</code> - Container for a set of SKUs. Filters (reduces) the response to only include order line items for listings that include any of the specified SKUs. If multiple listings include the same SKU, order line items for all of them are returned (assuming they also match the other criteria in the <b>GetSellerTransactions</b> request).<br> <br> You can combine SKUArray with <b>InventoryTrackingMethod</b>. For example, if you also pass in <code>InventoryTrackingMethod=SKU</code>, the response only includes order line items for listings that include <code>InventoryTrackingMethod=SKU</code> and one of the requested SKUs.
- * <br> <B>Input property:</B> <code>Platform</code> - <span class="tablenote"><b>Note: </b> This field's purpose is to allow the seller to retrieve only eBay listings or only Half.com listings instead of both order types. Since the Half.com site has been shut down, this field is no longer necessary to use since eBay orders will be the only orders that are retrieved.
+ * <br> <B>Input property:</B> <code>Pagination</code> - If many order line items are	available to retrieve, you may need to call <b>GetSellerTransactions</b> multiple times to retrieve all the data. Each result set is returned as a page of order line items. Use the <b>Pagination</b> filters to control the maximum number of order line items to retrieve per page (i.e., per call), and the page number to retrieve.
+ * <br> <B>Input property:</B> <code>IncludeFinalValueFee</code> - This field is included and set to <code>true</code> if the user wants to view the Final Value Fee (FVF) for all order line items in the response. The Final Value Fee is returned in the <b>Transaction.FinalValueFee</b> field. The Final Value Fee is assessed right after the creation of an order line item.
+ * <br/>
+ * <br> <B>Input property:</B> <code>IncludeContainingOrder</code> - This field is included and set to <code>true</code> if the user wants to view order-level details, including the unique identifier of the order and the status of the order. The order-level details will be shown in the <b>ContainingOrder</b> container in the response.
+ * <br/>
+ * <br> <B>Input property:</B> <code>SKUArray</code> - This container is used to search for order line items generated from one or more product SKU values. The response will only include order line items for the seller's product(s) that are represented by the specified SKU value(s).
+ * <br> <br>
+ * If a user wants to retrieve order line items based on SKUs, the
+ * <b>InventoryTrackingMethod</b> must be set to <code>SKU</code>. The <b>InventoryTrackingMethod</b> value can be set when the seller lists the item through an <b>AddFixedPriceItem</b> call, or it can be set by including the <b>InventoryTrackingMethod</b> field in a <b>GetSellerTransactions</b> call and setting its value to <code>SKU</code>.
+ * <br> <br>
+ * <span class="tablenote"><b>Note: </b> SKU values must be defined for products in listings for this container to be applicable.
  * </span>
- * The default behavior of <b>GetSellerTransactions</b> is to retrieve all order line items originating from eBay.com and Half.com. If the user wants to retrieve only eBay.com order line items or Half.com order line items, this filter can be used to perform that function. Inserting 'eBay' into this field will restrict retrieved order line items to those originating on eBay.com, and inserting 'Half' into this field will restrict retrieved order line items to those originating on Half.com.
- * <br> <B>Input property:</B> <code>NumberOfDays</code> - Enables you to specify the number of days' worth of new and modified
- * order line items that you want to retrieve. The maximum value for this field is <code>30</code>
- * <br/><br/>
- * The call response contains the order line items whose status was modified within the specified number of days since the API call was made. <b>NumberOfDays</b> is often preferable to using the <b>ModTimeFrom</b> and <b>ModTimeTo</b> filters because you only need to specify one value. If you use <b>NumberOfDays</b>, then <b>ModTimeFrom</b> and <b>ModTimeTo</b> are ignored.
- * <br/><br/>
- * For this field, one day is defined as 24 hours.
- * <br> <B>Input property:</B> <code>InventoryTrackingMethod</code> - Filters the response to only include order line items for listings
- * that match this <b>InventoryTrackingMethod</b> setting. <br>
- * <br>
- * For example,
- * <b></b>
- * <ul>
- * <li>If you set this to <b>SKU</b>, the call returns order line items for your listings that are tracked by SKU.</li>
- * <li>If you set this to <b>ItemID</b>, the call omits order line items for your listings that are tracked by SKU.</li>
- * <li>If you don't pass this in, the call returns all order line items, regardless of whether they are tracked by <b>SKU</b>, or <b>ItemID</b>.</li>
- * </ul>
- * <br>
- * <span class="tablenote"><b>Note:</b>
- * To specify the <b>InventoryTrackingMethod</b> when you create a listing, use <b>AddFixedPriceItem</b> or <b>RelistFixedPriceItem</b>.
- * <b>AddFixedPriceItem</b> and <b>RelistFixedPriceItem</b> are defined in
- * the Merchant Data API (part of Large Merchant Services).
+ * <br> <B>Input property:</B> <code>Platform</code> - <span class="tablenote"><b>Note: </b> This field should no longer be used since its sole purpose was to allow the seller to filter between eBay orders and Half.com orders, and the Half.com site no longer exists.
  * </span>
- * <br>
- * You can combine <b>SKUArray</b> with <b>InventoryTrackingMethod</b>.
- * For example, if you set this to SKU and you also pass in
- * <b>SKUArray</b>, the response only includes order line items for listings
- * that include <code>InventoryTrackingMethod</code> = <code>SKU</code> and one of the
- * requested SKUs.
- * <br> <B>Input property:</B> <code>IncludeCodiceFiscale</code> - If this field is included in the call request and set to <code>true</code>, taxpayer identification information for the buyer is returned under the <b>BuyerTaxIdentifier</b> <br><br>
+ * <br> <B>Input property:</B> <code>NumberOfDays</code> - This field is used to specify how many days (24-hour periods) back in the past you wish to retrieve order line items. All order line items created (or last modified) within this period are retrieved. This value can be set between 1 (day) and 30 (days), and defaults to 30 (days) if omitted from the call.
+ * <br/><br/>
+ * If the <b>NumberOfDays</b> filter is used, <b>ModTimeFrom</b> and <b>ModTimeTo</b> date range filters are ignored (if included in the same request).
+ * <br/>
+ * <br> <B>Input property:</B> <code>InventoryTrackingMethod</code> - This filter is used if the seller wishes to set/change the inventory tracking method. When creating a listing with the <b>AddFixedPriceItem</b> call (or relisting with <b>RelistFixedPriceItem</b> call), sellers can decide whether to track their inventory by Item ID (generated by eBay at listing time) or by seller-defined SKU value.
+ * <br><br>
+ * This field is needed (and its value must be set to <code>SKU</code>) if the seller wishes to retrieve order line items based on specified SKU values (specified through <b>SKUArray</b> container) and the current inventory tracking method is set to Item ID.
+ * <br><br>
+ * A seller can use a <b>GetItem</b> call for a listing (and look for the <b>Item.InventoryTrackingMethod</b> in the response) to see which inventory tracking method is used for the listing/product.
+ * <br> <B>Input property:</B> <code>IncludeCodiceFiscale</code> - If this field is included in the call request and set to <code>true</code>, taxpayer identification information for the buyer is returned under the <b>BuyerTaxIdentifier</b> container.
+ * <br><br>
  * Codice Fiscale is only applicable to buyers on the Italy and Spain sites. It is required that buyers on the Italy site provide their Codice Fiscale ID before buying an item, and sellers on the Spain site have the option of requiring buyers on the Spain site to provide their taxpayer ID.
  * <br> <B>Output property:</B> <code>PaginationResult</code> - Container consisting of the total number of order line items that match the input criteria and the total number of pages that must be scrolled through to view all order line items. To scroll through each page of order line item data, make subsequent <b>GetSellerTransactions</b> calls, incrementing the <b>Pagination.PageNumber</b> field by a value of '1' each time.
  * <br> <B>Output property:</B> <code>HasMoreTransactions</code> - This flag indicates whether there are additional pages of order line items to view. This field will be returned as <code>true</code> if there are additional pages or order line items to <code>view</code>, or <code>false</code> if the current page of order line item data is the last page of data.

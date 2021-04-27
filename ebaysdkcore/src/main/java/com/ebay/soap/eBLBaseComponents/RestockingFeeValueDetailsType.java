@@ -17,9 +17,9 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>RestockingFeeValue</b> container, which contains the
- * 				allowed values (and a text description of each value) that may be specified in the
- * 				<b>RestockingFeeValueOption</b> field of an Add/Revise/Relist API call.
+ * 				This type is deprecated, as sellers are no longer allowed to set a restocking fee through a listings's return policy.
+ * 
+ * 				
  * 			
  * 
  * <p>Java class for RestockingFeeValueDetailsType complex type.

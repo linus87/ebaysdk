@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
  * 				This type defines the <b>VariationProductListingDetails</b> container that is used to specify an EAN, an ISBN, a UPC value, or an ePID to identify a specific product variation in a multiple-variation listing. For multiple-variation listings, the same GTIN type(s) must be used for all product variations within the listing. For instance, if one product variation uses ISBNs, all product variations must use ISBN values.
  * 				<br/><br/>
  * 				<span class="tablenote"><b>Note: </b>
- * 				The <b>ProductReferenceID</b> value was just added in Version 1057, but this field can only be used in the Sandbox environment to specify an ePID for an eBay Catalog product that is part of the Product-Based Shopping Experience mandate. For more information about PBSE, see the  <a href="https://developer.ebay.com/pbse/" target="_blank">Product-Based Shopping Experience</a> page.
+ * 				The <b>ProductReferenceID</b> field can only be used when listing in categories that are enabled with the Product-Based Shopping Experience. If this field is provided when listing in a category that doesn't support PBSE, the listing will be blocked.
  * 				</span>
  * 			
  * 

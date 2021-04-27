@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 			Type used by the <b>Membership</b> container that is returned in the response of the <b>GetUser</b> call if the seller is enrolled in one or more eBay membership programs such as eBay Plus.
  * 			<br/><br/>
- * 			<span class="tablenote"><b>Note:</b> Currently, eBay Plus is available only to buyers in Germany (DE), but this program is scheduled to come to the Austria and Australia marketplaces in the near future.
+ * 			<span class="tablenote"><b>Note:</b> Currently, eBay Plus is available only to buyers in Germany, Austria, and Australia marketplaces in the near future.
  * 			</span>
  * 		
  * 

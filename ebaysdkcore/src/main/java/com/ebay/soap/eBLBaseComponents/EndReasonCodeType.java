@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="CustomCode"/>
  *     &lt;enumeration value="SellToHighBidder"/>
  *     &lt;enumeration value="Sold"/>
+ *     &lt;enumeration value="ProductDeleted"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -34,7 +35,7 @@ public enum EndReasonCodeType {
 
     /**
      * 
-     * 						The seller will use this enumeration value in an End listing call if that seller is ending a listing because the item was lost or is broken.
+     * 						Use this enumeration value in an End listing call if the seller is ending a listing because the item was lost or is broken.
      * 					
      * 
      */
@@ -43,7 +44,7 @@ public enum EndReasonCodeType {
 
     /**
      * 
-     * 						The seller will use this enumeration value in an End listing call if that seller is ending a listing because the item is no longer available for sale.
+     * 						Use this enumeration value in an End listing call if the seller is ending a listing because the item is no longer available for sale.
      * 					
      * 
      */
@@ -52,7 +53,7 @@ public enum EndReasonCodeType {
 
     /**
      * 
-     * 						The seller will use this enumeration value in an End listing call if that seller is ending a listing because the start price or reserve price is incorrect.
+     * 						Use this enumeration value in an End listing call if the seller is ending a listing because the start price or reserve price is incorrect.
      * 					
      * 
      */
@@ -61,7 +62,7 @@ public enum EndReasonCodeType {
 
     /**
      * 
-     * 						The seller will use this enumeration value in an End listing call if that seller is ending a listing because the listing contained an error (other than start price or reserve price).
+     * 						Use this enumeration value in an End listing call if the seller is ending a listing because the listing contained an error (other than start price or reserve price).
      * 					
      * 
      */
@@ -79,14 +80,10 @@ public enum EndReasonCodeType {
 
     /**
      * 
-     * 					  The seller will use this enumeration value in an End listing call if that seller is ending a listing because the seller wants to sell an auction item to the current high bidder. A seller can end a listing
-     * 					  in order to sell to the current high bidder when
-     * 					  the listing has qualifying bids (i.e., there is a current high bid that,
-     * 					  when applicable, meets the minimum reserve price) and there is more
-     * 					  than 12 hours before the listing ends.
+     * 					  Use this enumeration value in an End listing call if the seller is ending a listing because they want to sell an auction item to the current high bidder. A seller can end a listing early in order to sell to the current high bidder when the listing has qualifying bids (i.e., there is a current high bid that,
+     * 					  when applicable, meets the minimum reserve price) and there is more than 12 hours before the listing ends.
      * 					  <br>
-     * 					  <b>Note</b>: In the last 12 hours of an item listing, you cannot end an item early
-     * 					  if it has bids.
+     * 					  <b>Note</b>: In the last 12 hours of an item listing, you cannot end an item early if it has bids.
      * 					
      * 
      */
@@ -100,7 +97,16 @@ public enum EndReasonCodeType {
      * 
      */
     @XmlEnumValue("Sold")
-    SOLD("Sold");
+    SOLD("Sold"),
+
+    /**
+     * 
+     * 						For internal use only. This enumeration value cannot be used by the seller in an End listing call, but it will get returned in <b>GetItem</b> if a listing was administratively ended by eBay if the item in a listing becomes unpurchasable due to the eBay Catalog product associated with the listing being removed from the catalog.
+     * 					
+     * 
+     */
+    @XmlEnumValue("ProductDeleted")
+    PRODUCT_DELETED("ProductDeleted");
     private final String value;
 
     EndReasonCodeType(String v) {

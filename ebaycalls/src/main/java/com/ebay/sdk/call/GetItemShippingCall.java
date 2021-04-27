@@ -21,23 +21,19 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - The unique identifier of the listing for which to retrieve estimated shipping costs for all offered shipping service options. The <b>ItemID</b> value passed into this field should be for an listing that offers at least one calculated shipping service option, and for an item that has yet to be shipped.
+ * <br> <B>Input property:</B> <code>ItemID</code> - The unique identifier of the eBay listing for which to retrieve estimated shipping costs for all offered shipping service options. The <b>ItemID</b> value passed into this field should be for an listing that offers at least one calculated shipping service option, and for an item that has yet to be shipped.
  * <br> <B>Input property:</B> <code>QuantitySold</code> - This field is used to specify the quantity of the item. The <b>QuantitySold</b> value defaults to <code>1</code> if not specified. If a value greater than <code>1</code> is specified in this field, the shipping service costs returned in the response will reflect the expense to ship multiple quantity of an item.
+ * <br>
  * <br> <B>Input property:</B> <code>DestinationPostalCode</code> - The destination postal code (or zip code for US) is supplied in this field. <b>GetItemShipping</b> requires the destination of the shipment. Some countries will require both the <b>DestinationPostalCode</b> and the lt;b>DestinationCountryCode</b>, and some countries will accept either one or the other.
  * <br> <B>Input property:</B> <code>DestinationCountryCode</code> - The destination country code is supplied in this field. <b>GetItemShipping</b> requires the destination of the shipment. Some countries will require both the <b>DestinationPostalCode</b> and the lt;b>DestinationCountryCode</b>, and some countries will accept either one or the other.
  * <br><br>
  * Two-digit country codes can be found in <a href="types/CountryCodeType.html">CountryCodeType</a>.
+ * <br>
  * <br> <B>Output property:</B> <code>ReturnedShippingDetails</code> - This container will be returned if at least one domestic or international shipping service option is available for the item. A <b>ShippingServiceOptions</b> (for domestic shipping) and/or an <b>InternationalShippingServiceOptions</b> container (for international shipping) is returned for each available calculated shipping service option. These shipping service option containers consists of estimated shipping cost and estimated shipping times.
  * <br>
  * <br>
  * Any error about shipping services (returned by a vendor of eBay's who calculates shipping costs) is returned in <b>ShippingRateErrorMessage</b>. Errors from a shipping service are likely to be related to issues with shipping specifications, such as package size and the selected shipping method not supported by a particular shipping service.
- * <br> <B>Output property:</B> <code>ReturnedPickUpInStoreDetails</code> - This container is returned in <b>GetItemShipping</b> if In-Store Pickup or Click and Collect is enabled for the listing.
- * <br/><br/>
- * In a future release, a fulfillment duration element will be added to this container and will be used to determine when the item will be ready for pickup in a store (immediately, two hours after sale, two days after sale, etc.).
- * <br/><br/>
- * <span class="tablenote">
- * <strong>Note:</strong> At this time, the In-Store Pickup and Click and Collect features are generally only available to large retail merchants in the US, and can only be applied to multiple-quantity, fixed-price listings. In-Store Pickup is only available in the US, and Click and Collect is only available on eBay UK, Australia, and Germany sites.
- * </span>
+ * <br> <B>Output property:</B> <code>ReturnedPickUpInStoreDetails</code> - This container is only returned in <b>GetItemShipping</b> if the In-Store Pickup feature is enabled for the listing. In-Store Pickup as a fulfillment method is only available to a limited number of large retail merchants in the US, Canada, UK, Germany, and Australia marketplaces. The In-Store Pickup feature can only be applied to multiple-quantity, fixed-price listings, and the merchant must have quantity of the item available in a store that is near the prospective buyer, in order for In-Store Pickup to be an available fulfillment option for that buyer.
  * 
  * @author Ron Murphy
  * @version 1.0

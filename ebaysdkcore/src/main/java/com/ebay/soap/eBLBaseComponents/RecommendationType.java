@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type is reserved for future or internal use.
+ * 				This type was replaced by <b>ListingRecommendationType</b>
  * 			
  * 
  * <p>Java class for RecommendationType complex type.

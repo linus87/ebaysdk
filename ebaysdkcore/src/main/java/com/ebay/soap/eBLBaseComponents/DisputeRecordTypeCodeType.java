@@ -31,7 +31,7 @@ public enum DisputeRecordTypeCodeType {
 
     /**
      * 
-     * 							An Unpaid Item dispute.
+     * 						This enumeration value indicates that the dispute is an Unpaid Item case created by the seller against the buyer. A seller should always try to resolve an Unpaid Item issue with the buyer before opening up a case with eBay. Sometimes, just sending payment reminders to the buyer or messaging the buyer through the Messaging platform can be helpful. The <a href="https://www.ebay.com/help/selling/getting-paid/resolving-unpaid-items-buyers?id=4137">Resolving unpaid items with buyers</a> help topic provides more details and tips on trying to work Unpaid Item issues out with the buyer.
      * 					
      * 
      */
@@ -40,7 +40,11 @@ public enum DisputeRecordTypeCodeType {
 
     /**
      * 
-     * 						An Item Not Received dispute.
+     * 						This enumeration value indicates that the dispute is an Item Not Received case created by the buyer against the seller through PayPal's platform.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><strong>Note:</strong>
+     * 							As noted above, the <b>GetDispute</b> or <b>GetUserDisputes</b> calls will not return any eBay Money Back Guarantee cases.
+     * 						</span>
      * 					
      * 
      */
@@ -49,7 +53,7 @@ public enum DisputeRecordTypeCodeType {
 
     /**
      * 
-     * 						A Half.com dispute.
+     * 						This enumeration value is no longer applicable as the Half.com marketplace is shut down.
      * 					
      * 
      */

@@ -31,7 +31,7 @@ public enum VariationPictureRuleCodeType {
 
     /**
      * 
-     * 						This value indicates that the corresponding Item Specific variation name must be specified in the <b>Variations.Pictures.VariationSpecificName</b> field in an Add/Revise/Relist call.
+     * 						This value indicates that the corresponding Item Specific name must be used in the <b>Variations.Pictures.VariationSpecificName</b> field if the   seller is providing picture URLs through the <b>Variations.Pictures.VariationSpecificPictureSet</b> container in a 'FixedPriceItem' call when creating, revising, or relisting an item.
      * 					
      * 
      */
@@ -40,7 +40,7 @@ public enum VariationPictureRuleCodeType {
 
     /**
      * 
-     * 						This value indicates that the corresponding Item Specific variation name may be specified in the <b>Variations.Pictures.VariationSpecificName</b> field in an Add/Revise/Relist call.
+     * 						This value indicates that the corresponding Item Specific name can be used in the <b>Variations.Pictures.VariationSpecificName</b> field if the   seller is providing picture URLs through the <b>Variations.Pictures.VariationSpecificPictureSet</b> container in a 'FixedPriceItem' call when creating, revising, or relisting an item. Unlike the 'Required' value, 'Enabled' indicates that corresponding Item Specific name is just one option, and they may be other options to use as a <b>VariationSpecificName</b> value.
      * 					
      * 
      */
@@ -49,7 +49,7 @@ public enum VariationPictureRuleCodeType {
 
     /**
      * 
-     * 						This value indicates that the corresponding Item Specific variation name may not be specified in the <b>Variations.Pictures.VariationSpecificName</b> field in an Add/Revise/Relist call.
+     * 						This value indicates that the corresponding Item Specific name cannot be used in the <b>Variations.Pictures.VariationSpecificName</b> field if the seller is providing picture URLs through the <b>Variations.Pictures.VariationSpecificPictureSet</b> container in a 'FixedPriceItem' call when creating, revising, or relisting an item. The seller will have to find an Item Specific that is either 'Enabled' or 'Required'  to use as a <b>VariationSpecificName</b> value.
      * 					
      * 
      */

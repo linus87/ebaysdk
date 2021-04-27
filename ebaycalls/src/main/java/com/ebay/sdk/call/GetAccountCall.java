@@ -55,6 +55,12 @@ import com.ebay.soap.eBLBaseComponents.*;
  * used, all other filters in the request are ignored. If the specified item
  * does not exist or if the requesting user is not the seller of the item, an
  * error is returned.
+ * <br> <B>Input property:</B> <code>OrderID</code> - The unique identifier of an eBay order. This field must be included if the value of the <b>AccountHistorySelection</b> filter is set to <code>OrderId</code>. A user can filter by order ID to see if there specific account entries related to a specific eBay order.
+ * <br><br>
+ * It is possible that no account entries will be found directly related to the specified order ID, and if this is the case, no <b>AccountEntries</b> container will be returned, and the <b>ack</b> value will still be <code>Success</code>.
+ * <br><br>
+ * <span class="tablenote"><b>Note: </b> In June 2019, eBay introduced a new order ID format to both legacy (including Trading API) and REST-based APIs. At this time, both old and new format order IDs will be accepted in legacy API request payloads to identify orders. In legacy API response payloads, order IDs will appear in the new format if the user is using a Trading WSDL version of '1113' (or newer), or if the user sets the <code>X-EBAY-API-COMPATIBILITY-LEVEL</code> HTTP header to a value of '1113' (or newer). If the Trading WSDL version or compatibility level is less/older than '1113', old format order IDs will be returned in legacy API response payloads. Beginning as soon as March 2020, only new format order IDs will be returned regardless of version number.
+ * </span>
  * <br> <B>Output property:</B> <code>AccountID</code> - Specifies the seller's unique account number.
  * <br> <B>Output property:</B> <code>AccountSummary</code> - Contains summary data for the seller's account, such as the overall
  * balance, bank account and credit card information, and amount and
@@ -85,6 +91,7 @@ public class GetAccountCall extends com.ebay.sdk.ApiCall
   private AccountEntrySortTypeCodeType accountEntrySortType = null;
   private CurrencyCodeType currency = null;
   private String itemID = null;
+  private String orderID = null;
   private String accountID=null;
   private AccountSummaryType accountSummary=null;
   private CurrencyCodeType returnedCurrency=null;
@@ -165,6 +172,8 @@ public class GetAccountCall extends com.ebay.sdk.ApiCall
       req.setCurrency(this.currency);
     if (this.itemID != null)
       req.setItemID(this.itemID);
+    if (this.orderID != null)
+      req.setOrderID(this.orderID);
 
     GetAccountResponseType resp = (GetAccountResponseType) execute(req);
 
@@ -303,6 +312,24 @@ public class GetAccountCall extends com.ebay.sdk.ApiCall
   public void setItemID(String itemID)
   {
     this.itemID = itemID;
+  }
+
+  /**
+   * Gets the GetAccountRequestType.orderID.
+   * @return String
+   */
+  public String getOrderID()
+  {
+    return this.orderID;
+  }
+
+  /**
+   * Sets the GetAccountRequestType.orderID.
+   * @param orderID String
+   */
+  public void setOrderID(String orderID)
+  {
+    this.orderID = orderID;
   }
 
   /**

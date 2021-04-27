@@ -65,7 +65,6 @@ import org.w3c.dom.Element;
  *         &lt;element name="eBayWikiReadOnly" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="TUVLevel" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="VATID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="MotorsDealer" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="SellerPaymentMethod" type="{urn:ebay:apis:eBLBaseComponents}SellerPaymentMethodCodeType" minOccurs="0"/>
  *         &lt;element name="BiddingSummary" type="{urn:ebay:apis:eBLBaseComponents}BiddingSummaryType" minOccurs="0"/>
  *         &lt;element name="UserAnonymized" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
@@ -122,7 +121,6 @@ import org.w3c.dom.Element;
     "eBayWikiReadOnly",
     "tuvLevel",
     "vatid",
-    "motorsDealer",
     "sellerPaymentMethod",
     "biddingSummary",
     "userAnonymized",
@@ -210,8 +208,6 @@ public class UserType
     protected Integer tuvLevel;
     @XmlElement(name = "VATID")
     protected String vatid;
-    @XmlElement(name = "MotorsDealer")
-    protected Boolean motorsDealer;
     @XmlElement(name = "SellerPaymentMethod")
     protected SellerPaymentMethodCodeType sellerPaymentMethod;
     @XmlElement(name = "BiddingSummary")
@@ -1125,30 +1121,6 @@ public class UserType
      */
     public void setVATID(String value) {
         this.vatid = value;
-    }
-
-    /**
-     * Gets the value of the motorsDealer property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isMotorsDealer() {
-        return motorsDealer;
-    }
-
-    /**
-     * Sets the value of the motorsDealer property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setMotorsDealer(Boolean value) {
-        this.motorsDealer = value;
     }
 
     /**

@@ -25,8 +25,8 @@ import com.ebay.soap.eBLBaseComponents.*;
  * more keywords to search for in listing titles and descriptions.
  * The words "and" and "or" are treated like any other
  * word.
- * <br> <B>Output property:</B> <code>ReturnedSuggestedCategoryArray</code> - This container consists of an array of suggested listing categories for an item based on the keywords that were specified in the <b>Query</b> field of the call request. Up to 10 suggested  categories may be returned. This container will not returned if no eBay categories match the query in the call request.
- * <br> <B>Output property:</B> <code>ReturnedCategoryCount</code> - This integer value Indicates the number of suggested categories that were found that matched the keywords.
+ * <br> <B>Output property:</B> <code>ReturnedSuggestedCategoryArray</code> - This container consists of an array of suggested listing categories for an item based on the keywords that were specified in the <b>Query</b> field of the call request. Up to 10 suggested  categories may be returned. This container will always be returned unless the query in the request exceeds the maximum allowed characters. The quality/accuracy of the results may depend on the quality of the query string.
+ * <br> <B>Output property:</B> <code>ReturnedCategoryCount</code> - This integer value indicates the number of suggested categories that were found that matched the keywords.
  * 
  * @author Ron Murphy
  * @version 1.0

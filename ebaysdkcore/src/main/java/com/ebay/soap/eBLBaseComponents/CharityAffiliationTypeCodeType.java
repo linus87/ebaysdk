@@ -31,7 +31,7 @@ public enum CharityAffiliationTypeCodeType {
 
     /**
      * 
-     * 					  The specified nonprofit charity organization has a community affiliation.
+     * 					  This enumeration value indicates that the seller is selling to benefit  a nonprofit charity organization identified through the <b>CharityID</b> field.
      * 					
      * 
      */
@@ -40,7 +40,7 @@ public enum CharityAffiliationTypeCodeType {
 
     /**
      * 
-     * 					  The specified nonprofit charity organization has direct affiliation.
+     * 					  This enumeration value indicates that the seller is a direct, non-profit organization registered with the PayPal Giving Fund, and selling to directly benefit their association.
      * 					
      * 
      */
@@ -49,7 +49,7 @@ public enum CharityAffiliationTypeCodeType {
 
     /**
      * 
-     * 					  The specified nonprofit charity organization is no longer affiliated.
+     * 					  This enumeration value may be returned if a direct, non-profit organization has recently unregistered with the PayPal Giving Fund, or if a Community Seller has recently removed the charity feature from a listing.
      * 					
      * 
      */

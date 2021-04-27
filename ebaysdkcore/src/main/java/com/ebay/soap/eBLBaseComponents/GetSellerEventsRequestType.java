@@ -13,9 +13,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
- * 				Retrieves price changes, item revisions, description revisions,
- * 				and other changes that have occurred within the last 48 hours
- * 				related to a seller's eBay listings.
+ * 				This call is used by a seller to retrieve changes to their own listings that have occurred within the last 48 hours, including price changes, available quantity, and other revisions to listing.
+ * 				<br/><br/>
+ * 				One of the available date range filters must be used with this call.
  * 			
  * 
  * <p>Java class for GetSellerEventsRequestType complex type.

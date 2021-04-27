@@ -62,10 +62,10 @@ import com.ebay.soap.eBLBaseComponents.*;
  * The <strong>eBayPLUSPreference</strong> container is returned in the response with information about each country where the seller is eligible to offer eBay Plus on listings (one <strong>eBayPLUSPreference</strong> container per country), as well as the seller's opt-in status and listing preference for each country.
  * <br/><br/>
  * <span class="tablenote">
- * <strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany (DE).
+ * <strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany, Austria, and Australia.
  * </span>
  * <br> <B>Output property:</B> <code>ReturnedBidderNoticePreferences</code> - Container consisting of the seller's preference for receiving contact information for unsuccessful bidders. This container is returned when <b>ShowBidderNoticePreferences</b> is included and set to <code>true</code> in the request. This preference is only applicable for auction listings.
- * <br> <B>Output property:</B> <code>ReturnedCombinedPaymentPreferences</code> - ../../../../guides/ebayfeatures/Development/Listing-AnItem.html#CombinedInvoice
+ * <br> <B>Output property:</B> <code>ReturnedCombinedPaymentPreferences</code> - Container consisting of the seller's Combined Invoice preferences. These preferences are used to allow Combined Invoice orders. This container is returned when <b>ShowCombinedPaymentPreferences</b> is included and set to <code>true</code> in the request.
  * <br> <B>Output property:</B> <code>ReturnedCrossPromotionPreferences</code> - This container is deprecated.
  * <br> <B>Output property:</B> <code>ReturnedSellerPaymentPreferences</code> - Container consisting of the seller's payment preferences. This container is returned when <b>ShowSellerPaymentPreferences</b> is included and set to <code>true</code> in the request.
  * <br> <B>Output property:</B> <code>ReturnedSellerFavoriteItemPreferences</code> - Container consisting of the seller's preferences for displaying items on a buyer's Favorite Sellers' Items page or Favorite Sellers' Items digest. This container is returned when <b>ShowSellerFavoriteItemPreferences</b> is included and set to <code>true</code> in the request.
@@ -106,7 +106,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top Rated eBay sellers must opt in to eBay Plus to offer the program on a per-listing basis.
  * <br/><br/>
  * <span class="tablenote">
- * <strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany (DE).
+ * <strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany, Austria, and Australia.
  * </span>
  * 
  * @author Ron Murphy

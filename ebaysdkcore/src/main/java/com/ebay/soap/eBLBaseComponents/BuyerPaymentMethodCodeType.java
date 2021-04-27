@@ -65,8 +65,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						No payment method specified.
-     * 						For example, no payment methods would be specified for Ad format listings.
+     * 						This enumeration value indicates that no payment method has been specified for the listing. This may be the case for a classified ad listing, since payment happens outside of the eBay platform.
      * 					
      * 
      */
@@ -75,8 +74,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Money order/cashiers check.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value indicates that a money order or cashiers check is accepted for payment.
      * 					
      * 
      */
@@ -84,8 +82,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						American Express.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value indicates that American Express is accepted for payment.
      * 					
      * 
      */
@@ -94,7 +91,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Payment instructions are contained in the item's description.
+     * 						This enumeration value indicates that buyers should check the listing description for more details on payment. This may be the case for a classified ad listing, since payment happens outside of the eBay platform.
      * 					
      * 
      */
@@ -103,8 +100,11 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Credit card.
-     * 						Not applicable to Real Estate or US/CA eBay Motors listings.
+     * 						This enumeration value indicates that credit cards are accepted for payment.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							This enumeration value is also returned in the response of order management calls if the seller is opted in to eBay Managed Payments, and the buyer used an eBay gift card to pay the full or partial balance of the order.
+     * 						</span>
      * 					
      * 
      */
@@ -113,7 +113,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Personal check.
+     * 						This enumeration value indicates that a personal check is accepted for payment.
      * 					
      * 
      */
@@ -122,11 +122,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Cash on delivery.
-     * 						This payment method is obsolete (ignored) for the US, US eBay Motors, UK, and Canada sites.
-     * 						See "Field Differences for eBay Sites" in the eBay Web Services Guide for a list of sites
-     * 						that accept COD as a payment method. Not applicable to Real Estate listings.
-     * 						When revising an item (on sites that still support COD), you can add or change its value.
+     * 						This enumeration value indicates that cash on delivery of item is accepted for payment.
      * 					
      * 
      */
@@ -134,8 +130,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Visa/Mastercard. These qualify as safe payment methods.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value indicates that Visa or MasterCard are accepted for payment.
      * 					
      * 
      */
@@ -144,7 +139,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						PaisaPay (for India site only). This qualifies as a safe payment method and is required for all categories on the IN site.
+     * 						This enumeration value indicates that PaisaPay is accepted for payment. This form of payment is only available to buyers in India.
      * 					
      * 
      */
@@ -153,10 +148,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Other forms of payment. Some custom methods are accepted by seller
-     * 						as the payment method in the transaction.
-     * 						Not applicable to US/CA eBay Motors listings
-     * 						(see PaymentSeeDescription instead).
+     * 						This enumeration value may be returned if the payment method is unknown.
      * 					
      * 
      */
@@ -165,25 +157,14 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						PayPal is accepted as a payment method. This qualifies as a safe payment method. If true in listing
-     * 						requests, Item.PayPalEmailAddress must also be specified.<br>
+     * 						This enumeration value indicates that PayPal is accepted as a payment method. If PayPal is set by the seller as an accepted payment method, the seller must also supply their PayPal email address through the <b>Item.PayPalEmailAddress</b> field in an Add/Revise/Relist call. <br>
      * 						<br>
      * 						If you don't pass PayPal in the listing request but the seller's eBay
      * 						preferences are set to accept PayPal on all listings,
      * 						eBay will add PayPal as a payment method for you in most cases,
      * 						and we may return a warning. <br>
      * 						<br>
-     * 						PayPal must be accepted when the seller requires immediate payment
-     * 						(Item.AutoPay) or offers other PayPal-based features, such as a
-     * 						finance offer (Item.FinanceOfferID).
-     * 						PayPal must be accepted for charity listings.
-     * 						PayPal must be accepted for event ticket listings when the venue is in
-     * 						New York state or Illinois, so that eBay can offer buyer protection
-     * 						(per state law). (For some applications, it may be
-     * 						simplest to use errors returned from VerifyAddItem to flag the PayPal
-     * 						requirement for New York and Illinois ticket listings.)
-     * 						PayPal must be accepted for US eBay Motors listings that require a deposit (and it will not be set automatically based on the
-     * 						seller's preferences). Conversely, if PayPal is specified for US eBay Motors listings, deposit attributes must be specified.<br>
+     * 						Except for sellers opted in to eBay Managed Payments, PayPal must be the only accepted payment method to enable the immediate payment feature (Item.AutoPay). PayPal must be accepted for charity listings. PayPal must be accepted for event ticket listings when the venue is in New York state or Illinois, so that eBay can offer buyer protection (per state law). (For some applications, it may be simplest to use errors returned from VerifyAddItem to flag the PayPal requirement for New York and Illinois ticket listings.) PayPal must be accepted for US eBay Motors listings that require a deposit (and it will not be set automatically based on the seller's preferences). Conversely, if PayPal is specified for US eBay Motors listings, deposit attributes must be specified.<br>
      * 					
      * 
      */
@@ -192,8 +173,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Discover card.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value indicates that Discover Card is accepted for payment.
      * 					
      * 
      */
@@ -202,8 +182,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Payment on delivery.
-     * 						Not applicable to Real Estate or US/CA eBay Motors listings.
+     * 						This enumeration value indicates that cash on pickup is accepted for payment.
      * 					
      * 
      */
@@ -212,8 +191,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Direct transfer of money.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value indicates that a direct transfer of money is accepted for payment.
      * 					
      * 
      */
@@ -222,10 +200,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						If the seller has bank account information on file, and
-     * 						MoneyXferAcceptedInCheckout = true, then the bank account information will
-     * 						be displayed in Checkout. Applicable only to certain global eBay sites. See
-     * 						the "International Differences Overview" in the eBay Web Services Guide.
+     * 						This enumeration value indicates that a direct transfer of money during checkout is accepted for payment.
      * 					
      * 
      */
@@ -234,8 +209,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						All other online payments.
-     * 						Not applicable to US/CA eBay Motors listings.
+     * 						This enumeration value may be returned if the payment method is unknown.
      * 					
      * 
      */
@@ -289,8 +263,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Loan check option (applicable only to the US eBay Motors site,
-     * 						except in the Parts and Accessories category, and the eBay Canada site for motors).
+     * 						This enumeration value indicates that a loan check is accepted for payment. This option is generally only applicable to motor vehicle listings.
      * 					
      * 
      */
@@ -299,8 +272,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						Cash-in-person option. Applicable only to US and Canada eBay Motors vehicles,
-     * 						(not the Parts and Accessories category).
+     * 						This enumeration value indicates that cash is accepted for payment. This option is generally only applicable to motor vehicle listings on the US and Canada sites.
      * 					
      * 
      */
@@ -318,7 +290,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						PaisaPayEscrow payment option. Applicable on selected categories on the India site only.
+     * 						This payment type is no longer applicable since eBay India is no longer a functioning site.
      * 					
      * 
      */
@@ -327,8 +299,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						PaisaPayEscrowEMI (Equal Monthly Installments) Payment option.
-     * 						Must be specified with PaisaPayEscrow. Applicable only to India site.
+     * 						This payment type is no longer applicable since eBay India is no longer a functioning site.
      * 					
      * 
      */
@@ -337,17 +308,9 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						This payment method can be added only if
-     * 						a seller has a payment gateway account.
-     * 						You can use GetUser.User.SellerInfo.IntegratedMerchantCreditCardInfo
-     * 						to determine if a seller has a payment gateway account.
-     * 						If a seller successfully uses AddItem with IntegratedMerchantCreditCard,
-     * 						then for the resulting item,
-     * 						the IntegratedMerchantCreditCard value is a replacement
-     * 						for a credit-card payment method such as VisaMC.
-     * 						In such a case, the listing displays (to potential buyers) the credit cards that the
-     * 						seller specified in the seller's preferences for their payment gateway account (in My eBay).
-     * 						Additionally, a buyer's credit-card payment is integrated into eBay checkout.
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							This enumeration value should no longer be passed in as an accepted payment method on any eBay marketplace. If this value is specified in an Add/Revise/Relist call, it will be ignored and dropped. eBay no longer supports electronic payments through Integrated Merchant Credit Card accounts. To accept online credit card payments from buyers, a seller must use specify 'PayPal' as a payment method, and the buyer can pay by credit card through their PayPal account, or the seller must opt in to eBay Managed Payments program, and eBay will process credit card payments.
+     * 						</span>
      * 					
      * 
      */
@@ -412,9 +375,7 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						This payment method can be added only if
-     * 						a seller has a IMCC payment gateway account and Diners Club card is selected in credit card preference.
-     * 						Currently Dines card is enabled for CyberSource Gateway sellers.
+     * 						This enumeration value indicates that the Diners Club credit card is accepted for payment.
      * 					
      * 
      */
@@ -441,7 +402,9 @@ public enum BuyerPaymentMethodCodeType {
 
     /**
      * 
-     * 						This value indicates that a credit card can be used/was used to pay for the order. This payment method value must be passed in one of the <b>Item.PaymentMethods</b> fields if the seller is making the item available for eBay Now delivery. For eBay Now orders, the eBay Now valet accepts credit cards as a form of payment. This value is only applicable for eBay Now orders.
+     * 						This enumeration value is returned in the response of order management calls if the seller is opted in to eBay Managed Payments, and the buyer has paid for the order with any accepted payment method except an eBay gift card. If the buyer used an eBay gift card to pay the full or partial balance of the order, the <code>CCAccepted</code> value will be returned instead.
+     * 						<br/><br/>
+     * 						This is not an enumeration value that a seller would pass in as an accepted payment method.
      * 					
      * 
      */

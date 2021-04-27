@@ -19,22 +19,25 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>Sort</code> - This field allows the user to control how the order line items are returned in the response.
- * Valid values are:
- * <br/><br/>
- * <br/><b>EndTime</b>
- * <br/><b>EndTimeDescending</b>
- * <br/><b>FeedbackLeft</b>
- * <br/><b>FeedbackLeftDescending</b>
- * <br/><b>FeedbackReceived</b>
- * <br/><b>FeedbackReceivedDescending</b>
- * <br/><b>Title</b>
- * <br/><b>TitleDescending</b>
- * <br/><b>UserID</b>
- * <br/><b>UserIDDescending</b>
- * <br/><br/>
- * The user can read the <a href="types/ItemSortTypeCodeType.html">ItemSortTypeCodeType</a> definition for more information on these sort values.
+ * <br> <B>Input property:</B> <code>Sort</code> - This field allows the user to control how the order line items are returned in the response. If this field is not used, order line items are returned based on end time (from most recent to oldest).
+ * Valid values for this field are:
+ * <ul>
+ * <li><code>EndTime</code></li>
+ * <li><code>EndTimeDescending</code> (default value)</li>
+ * <li><code>FeedbackLeft</code></li>
+ * <li><code>FeedbackLeftDescending</code></li>
+ * <li><code>FeedbackReceived</code></li>
+ * <li><code>FeedbackReceivedDescending</code></li>
+ * <li><code>Title</code></li>
+ * <li><code>TitleDescending</code></li>
+ * <li><code>UserID</code></li>
+ * <li><code>UserIDDescending</code></li>
+ * </ul>
+ * Reference the <a href="types/ItemSortTypeCodeType.html">ItemSortTypeCodeType</a> definition for more information on these sort values.
+ * <br/>
  * <br> <B>Input property:</B> <code>Pagination</code> - This container can be used if the user only wants to see a subset of order line item results. In this container, the user will specify the number of order line items to return per page of data, and will specify the specific page of data they want to view with each call.
+ * <br/><br/>
+ * With the <b>GetItemsAwaitingFeedback</b> call, the maximum allowed value for <b>EntriesPerPage</b> is 200.
  * <br> <B>Output property:</B> <code>ReturnedItemsAwaitingFeedback</code> - This container consists of one or more order line items that are awaiting Feedback from the user that made the call. Each order line item is returned in its own <b>TransactionArray.Transaction</b> container.
  * <br><br>
  * This container will not be returned if no order line items are awaiting Feedback from the user who made the call.

@@ -31,7 +31,7 @@ public enum CostGroupFlatCodeType {
 
     /**
      * 
-     * 						This value is not used.
+     * 						This enumeration value indicates that the shipping service option belongs to flat-rate shipping cost group 1.
      * 					
      * 
      */
@@ -40,7 +40,7 @@ public enum CostGroupFlatCodeType {
 
     /**
      * 
-     * 						This value is not used.
+     * 						This enumeration value indicates that the shipping service option belongs to flat-rate shipping cost group 2.
      * 					
      * 
      */
@@ -49,7 +49,7 @@ public enum CostGroupFlatCodeType {
 
     /**
      * 
-     * 						This value is not used.
+     * 						This enumeration value indicates that the shipping service option belongs to flat-rate shipping cost group 3.
      * 					
      * 
      */

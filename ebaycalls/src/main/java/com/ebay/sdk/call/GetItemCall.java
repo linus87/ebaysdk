@@ -21,8 +21,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - Specifies the <b>ItemID</b> that uniquely identifies the item listing for which
- * to retrieve the data.
+ * <br> <B>Input property:</B> <code>ItemID</code> - This field is used to identify the eBay listing by Item ID value.
  * <br><br>
  * <b>ItemID</b> is a required input in most cases. <b>SKU</b> can be used instead in certain
  * cases (see the description of SKU). If both <b>ItemID</b> and <b>SKU</b> are specified for
@@ -38,11 +37,11 @@ import com.ebay.soap.eBLBaseComponents.*;
  * An Item Specific is any aspect that helps define/classify the item. Many eBay categories mandate including specific Item Specifics, so it is always a good idea to make a call to <b>GetCategorySpecifics</b> to see what Item Specifics are required and which ones are recommended.<br>
  * <br>
  * Including this field and setting it to <code>true</code> will also return the <strong>UnitInfo</strong> container if applicable. The <strong>UnitInfo</strong> container will provide information about the weight, volume or other quantity measurement of a listed item. The European Union requires listings for certain types of products to include the price per unit so buyers can accurately compare prices. eBay uses the <strong>UnitType</strong> and <strong>UnitQuantity</strong> values and the item's listed price to calculate and display the per-unit price on eBay EU sites.
- * <br> <B>Input property:</B> <code>IncludeTaxTable</code> - The seller will include this field and set its value to <code>true<code> if the seller wishes to view the defined sales tax rates for the various jurisdictions in the country (generally, states and provinces). Information for each defined sales tax rate will be returned in the <b>TaxTable</b> container in the response.
+ * <br> <B>Input property:</B> <code>IncludeTaxTable</code> - The seller will include this field and set its value to <code>true</code> if the seller wishes to view the defined sales tax rates for the various jurisdictions in the country (generally, states and provinces). Information for each defined sales tax rate will be returned in the <b>TaxTable</b> container in the response.
  * <br/><br/>
  * Even if this field is included and set to <code>true</code>, no <b>TaxTable</b> container will be returned If no sales tax rates are defined for any tax jurisdiction in the seller's sales tax table.
  * <br/><br/>
- * Sales tax tables are only available for eBay US, eBay Canada, and eBay India. Sales tax rates can be added/modified in My eBay, through the <b>SetTaxTable</b> and <b>GetTaxTable</b> calls of the Trading API, or through the Sales Tax calls of the Account API.
+ * Sales tax tables are only available for eBay US and Canada marketplaces. Sales tax rates can be added/modified in My eBay, through the <b>SetTaxTable</b> and <b>GetTaxTable</b> calls of the Trading API, or through the Sales Tax calls of the Account API.
  * <br> <B>Input property:</B> <code>SKU</code> - Retrieves an item that was listed by the user identified
  * in AuthToken and that is being tracked by this SKU.<br>
  * <br>

@@ -47,12 +47,7 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has not completed checkout, but has not paid through PayPal or
-     * 						PaisaPay (but please also see the documentation for PaymentHoldStatus and its applicable values).
-     * 						The buyer might have paid using another method, but the payment
-     * 						might not have been received or cleared.
-     * 						Important: Please see the documentation for PaymentHoldStatus and its applicable values.
-     * 						PaymentHoldStatus contains the current status of a hold on a PayPal payment.
+     * 						The buyer has completed checkout, but eBay has not recognized that the buyer has paid for the order. It is possible that the buyer has paid with an 'offline' payment method, but the order has not been marked as paid.
      * 					
      * 
      */
@@ -99,7 +94,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has made an escrow payment, but the seller has not yet received it.
+     * 						No longer an applicable value.
+     * 						
      * 					
      * 
      */
@@ -108,7 +104,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has made an escrow payment, and the seller has received payment.
+     * 						No longer an applicable value.
+     * 						
      * 					
      * 
      */
@@ -117,7 +114,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has made an escrow payment, but has cancelled the payment.
+     * 						No longer an applicable value.
+     * 						
      * 					
      * 
      */
@@ -126,8 +124,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has paid with PaisaPay, but the payment is still being processed.
-     * 						The seller has not yet received payment. PaisaPay is only available on the India site.
+     * 						PaisaPay is a deprecated payment method, so this value is no longer applicable.
+     * 						
      * 					
      * 
      */
@@ -136,7 +134,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has paid with PaisaPay, and the payment is complete. PaisaPay is only available on the India site.
+     * 						PaisaPay is a deprecated payment method, so this value is no longer applicable.
+     * 						
      * 					
      * 
      */
@@ -145,7 +144,7 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has made a payment other than PayPal, escrow, or PaisaPay, but the
+     * 						The buyer has made a payment other than PayPal, but the
      * 						payment is still being processed.
      * 					
      * 
@@ -155,8 +154,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has paid with PaisaPay Escrow, but the payment is still being processed.
-     * 						The seller has not yet received payment. PaisaPay Escrow is only available on the India site.
+     * 						PaisaPay is a deprecated payment method, so this value is no longer applicable.
+     * 						
      * 					
      * 
      */
@@ -165,7 +164,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The buyer has paid with PaisaPay Escrow, and the payment is complete. This payment method is only available on the India site.
+     * 						PaisaPay is a deprecated payment method, so this value is no longer applicable.
+     * 						
      * 					
      * 
      */
@@ -174,7 +174,8 @@ public enum PaidStatusCodeType {
 
     /**
      * 
-     * 						The selected payment method is PaisaPay, but the buyer has not made the payment. PaisaPay is only available on the India site.
+     * 						PaisaPay is a deprecated payment method, so this value is no longer applicable.
+     * 						
      * 					
      * 
      */

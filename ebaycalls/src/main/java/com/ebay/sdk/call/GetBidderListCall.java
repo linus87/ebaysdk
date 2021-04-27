@@ -37,8 +37,14 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <code>true</code>. Note that for GTC items, whose end times automatically increment by 30
  * days every 30 days, an <b>EndTimeTo</b> value within the first 30 days of a listing will
  * refer to the listing's initial end time.
- * <br> <B>Input property:</B> <code>UserID</code> - The user for whom information should be returned. If
- * provided, overrides any user ID specified through the <b>RequesterCredentials</b> header.
+ * <br><br>
+ * <span class="tablenote"><b>Note: </b>
+ * Starting July 1, 2019, the Good 'Til Cancelled renewal schedule will be modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+ * <a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+ * </span>
+ * <br> <B>Input property:</B> <code>UserID</code> - The unique identifier of an eBay user.
+ * <br><br>
+ * This field is generally not required unless there are multiple User IDs tied to the requester credentials that are specified through the <b>RequesterCredentials</b> header. If there are multiple User IDs tied to the requester credentials, this field allows you to specify the User ID for which you wish to retrieves bids and purchases.
  * <br> <B>Input property:</B> <code>granularityLevel</code> - You can control some of the fields returned in the response by specifying one of two values in the <b>GranularityLevel</b> field: <code>Fine</code> or <code>Medium</code>. <code>Fine</code> returns more fields than the default, while setting this field to <code>Medium</code> returns an abbreviated set of results.
  * <br> <B>Output property:</B> <code>ReturnedBidder</code> - Data for one eBay bidder.
  * <br> <B>Output property:</B> <code>ReturnedBidItemArray</code> - Array of items the bidder has bid on, has won or has lost.
@@ -76,8 +82,7 @@ public class GetBidderListCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * Retrieves all items the user is currently bidding on, and the ones they have won
-   * or purchased.
+   * Retrieves all items that the user is currently bidding on, and the ones they have won or purchased.
    * 
    * <br>
    * @throws ApiException

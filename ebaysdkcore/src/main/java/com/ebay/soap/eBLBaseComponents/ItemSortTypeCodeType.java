@@ -104,7 +104,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by Item ID (ascending).
+     * 						This enumeration value is used to sort listings and orders according to Item ID value in ascending order.
      * 					
      * 
      */
@@ -113,7 +113,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by price (ascending).
+     * 						This enumeration value is used to sort listings according to item price value in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -122,7 +124,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by start price (ascending).
+     * 						This enumeration value is used to sort listings or orders according to the starting price value in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -131,7 +135,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by item title (ascending).
+     * 						This enumeration value is used to sort listings or orders according to listing title in ascending (alphabetical) order.
      * 					
      * 
      */
@@ -140,7 +144,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by number of bids on the item (ascending).
+     * 						This enumeration value is used to sort auction listings according to the number of bids received in ascending order. This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -149,7 +153,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by quantity (ascending).
+     * 						This enumeration value is used to sort fixed-price listings and orders according to item quantity in ascending order. This enumeration value is only applicable to fixed-price listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -158,7 +162,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing start time (ascending).
+     * 						This enumeration value is used to sort listings and orders according to start time in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -167,7 +173,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing end time (ascending).
+     * 						This enumeration value is used to sort listings and orders according to end time in ascending order.
      * 					
      * 
      */
@@ -176,7 +182,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the seller's user ID, in alphabetical order.
+     * 						This enumeration value is used to sort listings and orders according to the seller's user ID in ascending (alphabetical) order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -185,9 +193,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the time left for the item's listing,
-     * 						in ascending order: active items, good-til-cancelled items,
-     * 						and completed items.
+     * 						This enumeration value is used to sort active listings and orders according to the time left before listing ends (in ascending order).
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -196,7 +204,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing duration (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the listing duration in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -205,7 +215,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing type (ascending).
+     * 						This enumeration value is used to sort listings and orders according to the listing type in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -214,7 +226,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by current price (ascending).
+     * 						This enumeration value is used to sort listings and orders according to the current/final price in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -223,7 +237,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by reserve price (ascending).
+     * 						This enumeration value is used to sort auction listings and orders according to the reserve price in ascending order. This enumeration value is only applicable when a seller wants to retrieve information on their own auction listings that have reserve prices set on them. This enumeration is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -232,7 +246,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by maximum bid price (ascending).
+     * 						This enumeration value is used by a buyer to sort auction listings and orders according to the maximum bid price that they placed on an auction listing in ascending order. This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -241,7 +255,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by number of bidders (ascending).
+     * 						This enumeration value is used to sort auction listings according to the number of unique bidders in ascending order. This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -250,7 +264,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the user ID of the highest bidder (ascending).
+     * 						This enumeration value is used to sort auction listings according to the user ID of the highest bidder in ascending order. This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -259,7 +273,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the user ID of the buyer (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's user ID in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -268,7 +284,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the buyer's postal code (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's location in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -277,7 +295,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the buyer's email address, in alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's email address in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls, and a buyer's email address will only be exposed to the seller within two weeks of order purchase.
      * 					
      * 
      */
@@ -286,7 +306,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the seller's email address, in alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBayBuying</b> call to sort listings and orders according to the seller's email address in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -295,7 +317,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by total price (ascending).
+     * 						This enumeration value is used to sort orders according to item price value in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -304,7 +328,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of items being watched (ascending). The WatchCount of an item is the number of watches that buyers have placed on an item using their eBay accounts.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings and orders according to the number of users watching the listing in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -313,7 +339,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of Best Offers (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort active listings according to the number of Best Offers that the listing has received in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -322,7 +350,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of questions (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings and orders according to the number of questions that the listing has received in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -331,7 +361,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the cost indicated for shipping (ascending).
+     * 						This enumeration value is used to sort orders according to the cost to ship one unit of the order line item in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -340,8 +372,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by type of feedback received, positive, negative, or neutral.
-     * 						In ascending order - negative, neutral, positive.
+     * 						This enumeration value is used to sort orders according to the type of feedback that a user received in ascending order. The Feedback ratings are defined in <b>CommentTypeCodeType</b>.
      * 					
      * 
      */
@@ -350,8 +381,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by type of feedback received, positive, negative, or neutral.
-     * 						In ascending order - negative, neutral, positive.
+     * 						This enumeration value is used to sort orders according to the type of feedback that a user left for another user in ascending order. The Feedback ratings are defined in <b>CommentTypeCodeType</b>.
      * 					
      * 
      */
@@ -360,7 +390,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by user ID, in alphabetical order.
+     * 						This enumeration value is used to sort listings and orders according to the eBay user ID of the order partner/owner of listing in ascending order.
      * 					
      * 
      */
@@ -369,7 +399,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of items sold (ascending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort order line items according to the quantity sold in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -378,7 +410,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort items with Best Offers first.
+     * 						This enumeration value is used by the buyer in a <b>GetMyeBayBuying</b> call to sort all Best Offers made in ascending order according to the dollar amount of the Best Offer. This sort  option is only applicable if the buyer has at least one pending Best Offer on an order line item.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -387,7 +421,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of items available (ascending).
+     * 						This enumeration value is used to sort order line items according to quantity available for purchase in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call, and it is only relevant to the <b>WatchList</b> container of the <b>GetMyeBayBuying</b> call.
      * 					
      * 
      */
@@ -396,7 +432,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of items purchased (ascending).
+     * 						This enumeration value is used to sort purchased line items according to the quantity purchased by the buyer in ascending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -405,7 +443,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the platform on which the item was won (eBay items last).
+     * 						This enumeration value is no longer applicable as Half.com has been shut down, and eBay marketplace is the only remaining platform.
      * 					
      * 
      */
@@ -414,7 +452,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the platform on which the item was sold (eBay items last).
+     * 						This enumeration value is no longer applicable as Half.com has been shut down, and eBay marketplace is the only remaining platform.
      * 					
      * 
      */
@@ -423,7 +461,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the duration of the listing (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the listing duration in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -432,7 +472,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the listing type (descending).
+     * 						This enumeration value is used to sort listings and orders according to the listing type in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -441,7 +483,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the current price of the listed item (descending).
+     * 						This enumeration value is used to sort listings and orders according to the current/final price in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -450,7 +494,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the listing's reserve price (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort auction listings and orders according to the reserve price in descending order. This enumeration value is only applicable when a seller wants to retrieve information on their own auction listings that have reserve prices set on them.
+     * 						<br/><br/>
+     * 						This enumeration is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -459,7 +505,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the highest bid on the item (descending).
+     * 						This enumeration value is used by the <b>GetMyeBayBuying</b> call to sort auction listings and orders according to the maximum bid price that a buyer placed on an auction listing in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -468,7 +516,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by number of bidders (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort auction listings according to the number of unique bidders in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -477,7 +527,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the user ID of the highest bidder (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort auction listings according to the user ID of the highest bidder in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -486,8 +538,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the user ID of the buyer, in reverse
-     * 					alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's user ID in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -496,8 +549,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the buyer's postal code, in descending
-     * 						order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's location in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -506,8 +560,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the buyer's email address, in
-     * 						reverse alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings according to the buyer's email address in descending order. A buyer's actual email address will only be exposed to the seller within two weeks of order purchase.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -516,8 +571,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the seller's email address,
-     * 						in reverse alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBayBuying</b> call to sort listings and orders according to the seller's email address in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -526,7 +582,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the total price of the order, (descending).
+     * 						This enumeration value is used to sort orders according to item price value in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -535,7 +593,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by watch count (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings and orders according to the number of users watching the listing in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -544,7 +604,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by number of questions (descending).
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort listings and orders according to the number of questions that the listing has received in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -553,7 +615,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the cost of shipping (descending).
+     * 						This enumeration value is used to sort orders according to the cost to ship one unit of the order line item in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -562,8 +626,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by type of feedback received, positive, negative, or neutral.
-     * 						In descending order - positive, neutral, negative.
+     * 						This enumeration value is used to sort orders according to the type of feedback that a user received in descending order. The Feedback ratings are defined in <b>CommentTypeCodeType</b>.
      * 					
      * 
      */
@@ -572,8 +635,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by type of feedback received, positive, negative, or neutral.
-     * 						In descending order - positive, neutral, negative.
+     * 						This enumeration value is used to sort orders according to the type of feedback that a user left for another user in descending order. The Feedback ratings are defined in <b>CommentTypeCodeType</b>.
      * 					
      * 
      */
@@ -582,7 +644,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by user ID, in descending order.
+     * 						This enumeration value is used to sort listings and orders according to the eBay user ID of the order partner/owner of listing in descending order.
      * 					
      * 
      */
@@ -591,7 +653,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the number of items sold, in descending order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort order line items according to the quantity sold in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -600,7 +664,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort items by the number of Best Offers on an item, in descending order.
+     * 						This enumeration value is used by the <b>GetMyeBaySelling</b> call to sort active listings according to the number of Best Offers that the listing has received in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -609,7 +675,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort items by the number there are available, in descending order.
+     * 						This enumeration value is used to sort order line items according to quantity available for purchase in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call, and it is only relevant to the <b>WatchList</b> container of the <b>GetMyeBayBuying</b> call.
      * 					
      * 
      */
@@ -618,7 +686,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort items by the number that have been purchased, in descending order.
+     * 						This enumeration value is used to sort purchased line items according to the quantity purchased by the buyer in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -627,7 +697,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort items with Best Offers last.
+     * 						This enumeration value is used by the <b>GetMyeBayBuying</b> call to sort all Best Offers made in descending order according to the dollar amount of the Best Offer. This sort option is only applicable if the buyer has at least one pending Best Offer on an order line item.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -636,7 +708,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by Item ID (descending).
+     * 						This enumeration value is used to sort listings and orders according to Item ID value in descending order.
      * 					
      * 
      */
@@ -645,7 +717,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by price (descending).
+     * 						This enumeration value is used to sort listings according to item price value in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -654,7 +728,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by start price (descending).
+     * 						This enumeration value is used to sort listings or orders according to the starting price value in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -663,7 +739,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by item title (descending).
+     * 						This enumeration value is used to sort listings or orders according to listing title in descending (alphabetical) order.
      * 					
      * 
      */
@@ -672,7 +748,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by number of bids on the item (descending).
+     * 						This enumeration value is used to sort auction listings according to the number of bids received in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is only applicable to auction listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -681,7 +759,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the quantity of items sold (descending).
+     * 						This enumeration value is used to sort fixed-price listings and orders according to item quantity in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is only applicable to fixed-price listings, and is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -690,7 +770,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing start time (descending).
+     * 						This enumeration value is used to sort listings and orders according to start time in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -699,7 +781,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by listing end time (descending).
+     * 						This enumeration value is used to sort listings and orders according to end time in descending order.
      * 					
      * 
      */
@@ -708,7 +790,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by seller user ID, in reverse alphabetical order.
+     * 						This enumeration value is used by the <b>GetMyeBayBuying</b> call to sort listings and orders according to the seller's user ID in descending order.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBaySelling</b> calls.
      * 					
      * 
      */
@@ -717,9 +801,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by time left on the listing, in descending
-     * 						order: completed items, good-til-cancelled items,
-     * 						and active items.
+     * 						This enumeration value is used to sort active listings and orders according to the time left before listing ends (in descending order).
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> call.
      * 					
      * 
      */
@@ -728,7 +812,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the platform on which the item was won.
+     * 						This enumeration value is no longer applicable as Half.com has been shut down, and eBay marketplace is the only remaining platform.
      * 					
      * 
      */
@@ -737,7 +821,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the platform on which the item was sold.
+     * 						This enumeration value is no longer applicable as Half.com has been shut down, and eBay marketplace is the only remaining platform.
      * 					
      * 
      */
@@ -746,7 +830,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the lead (emails) count (ascending).
+     * 						This enumeration value is used by the seller of a classified ad listing in a <b>GetMyeBaySelling</b> call to sort classified ad listings according to the total number of leads (prospective buyer inquiries) in ascending order. Each lead involves an email to the buyer, and the <b>LeadCount</b> value includes read and unread emails.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -755,7 +841,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the new lead (new emails) count (ascending).
+     * 						This enumeration value is used by the seller of a classified ad listing in a <b>GetMyeBaySelling</b> call to sort classified ad listings according to the number of new leads (prospective buyer inquiries) in ascending order. Each lead involves an email to the buyer, and the <b>NewLeadCount</b> value only includes unread emails.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -764,7 +852,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the lead count (descending).
+     * 						This enumeration value is used by the seller of a classified ad listing in a <b>GetMyeBaySelling</b> call to sort classified ad listings according to the total number of leads (prospective buyer inquiries) in descending order. Each lead involves an email to the buyer, and the <b>LeadCount</b> value includes read and unread emails.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -773,7 +863,9 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						Sort by the new contact count (descending).
+     * 						This enumeration value is used by the seller of a classified ad listing in a <b>GetMyeBaySelling</b> call to sort classified ad listings according to the number of new leads (prospective buyer inquiries) in descending order. Each lead involves an email to the buyer, and the <b>NewLeadCount</b> value only includes unread emails.
+     * 						<br/><br/>
+     * 						This enumeration value is not applicable to the <b>GetItemsAwaitingFeedback</b> or <b>GetMyeBayBuying</b> calls.
      * 					
      * 
      */
@@ -782,7 +874,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						The pay-per-lead feature is no longer available, so this value is no longer 
+     * 						The pay-per-lead feature is no longer available, so this value is no longer
      * 						applicable.
      * 					
      * 
@@ -792,7 +884,7 @@ public enum ItemSortTypeCodeType {
 
     /**
      * 
-     * 						The pay-per-lead feature is no longer available, so this value is no longer 
+     * 						The pay-per-lead feature is no longer available, so this value is no longer
      * 						applicable.
      * 					
      * 

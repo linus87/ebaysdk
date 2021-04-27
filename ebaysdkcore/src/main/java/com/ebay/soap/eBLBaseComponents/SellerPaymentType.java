@@ -17,11 +17,8 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				<span class="tablenote"><b>Note: </b> This type is only applicable to the <b>GetSellerPayments</b> call, and since the Half.com site was shut down, this type is also being deprecated.
+ * 				<span class="tablenote"><b>Note: </b> This type is deprecated since it was only applicable to the Half.com, and the Half.com site was shut down.
  * 				</span>
- * 				A payment between Half.com and a seller. The financial value of a payment is
- * 				typically based on an amount that a buyer paid to Half.com for one order line
- * 				item, plus the buyer's shipping cost, minus Half.com's commission.
  * 			
  * 
  * <p>Java class for SellerPaymentType complex type.

@@ -22,7 +22,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
  * <br> <B>Input property:</B> <code>ItemID</code> - Unique item ID that identifies the listing that you want to end.
- * <br> <B>Input property:</B> <code>EndingReason</code> - The seller's reason for ending the listing early is input into this required field.
+ * <br> <B>Input property:</B> <code>EndingReason</code> - The seller's reason for ending the listing early is input into this required field. The seller is not allowed to use the <code>ProductDeleted</code> value, as this ending reason can only be used internally by eBay to administratively end a listing due to the associated Catalog product being removed from the eBay Catalog.
  * <br> <B>Input property:</B> <code>SellerInventoryID</code> - This field was previously only used to identify and end Half.com listings, and since the Half.com site has been shut down, this element is no longer applicable.
  * <br> <B>Output property:</B> <code>ReturnedEndTime</code> - This timestamp indicates the date and time (returned in GMT) when the specified eBay listing was ended.
  * 

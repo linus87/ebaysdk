@@ -55,7 +55,7 @@ public enum BuyerPaymentInstrumentCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that a credit card was used to pay for the order. 
+     * 						This enumeration value indicates that a credit card was used to pay for the order.
      * 					
      * 
      */
@@ -64,7 +64,7 @@ public enum BuyerPaymentInstrumentCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that a bank debit card was used to pay for the order. 
+     * 						This enumeration value indicates that a bank debit card was used to pay for the order.
      * 					
      * 
      */
@@ -73,7 +73,7 @@ public enum BuyerPaymentInstrumentCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that PayPal was used to pay for the order. 
+     * 						This enumeration value indicates that PayPal was used to pay for the order.
      * 					
      * 
      */
@@ -90,7 +90,7 @@ public enum BuyerPaymentInstrumentCodeType {
 
     /**
      * 
-     * 						This enumeration value indicates that an unknown credit card was used to pay for the order. 
+     * 						This enumeration value indicates that an unknown credit card was used to pay for the order.
      * 					
      * 
      */

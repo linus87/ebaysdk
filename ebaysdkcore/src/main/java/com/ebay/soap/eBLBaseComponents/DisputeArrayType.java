@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * 				Type used by the <b>DisputeArray</b> container that is returned in the response of the <b>GetUserDisputes</b> call. The <b>DisputeArray</b> container holds an array of one or more disputes that match the filter criteria in the call request.
  * 				<br/><br/>
  * 				<span class="tablenote"><strong>Note:</strong>
- * 					These are not eBay Money Back Guarantee cases.
+ * 					'Item Not Received' or 'Significantly Not As Described' cases, initiated by buyers through the eBay Money Back Guarantee program, are not returned with <b>GetUserDisputes</b>. The <a href="https://developer.ebay.com/Devzone/post-order/post-order_v2_casemanagement-caseId__get.html#overview">getCase</a> method of the <a href="https://developer.ebay.com/Devzone/post-order/concepts/UsageGuide.html">Post-Order API</a> is used to retrieve Money Back Guarantee cases programmatically.
  * 				</span>
  * 			
  * 

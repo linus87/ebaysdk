@@ -30,10 +30,7 @@ public enum VariationSpecificsRuleCodeType {
 
     /**
      * 
-     * 						The recommended name (and values, if any) can be used
-     * 						either in the Item Specifics or Variation Specifics context
-     * 						in listing calls.
-     * 						This is the default for variation-enabled categories.
+     * 						This value indicates that the corresponding Item Specific can be specified at the variation level. In the <b>AddFixedPriceItem</b> call, variation-specific name-value pairs are specified under the <b>Variation.VariationSpecifics.NameValueList</b> container.
      * 					
      * 
      */
@@ -42,11 +39,7 @@ public enum VariationSpecificsRuleCodeType {
 
     /**
      * 
-     * 						The recommended name/values can't be used in Variation Specifics
-     * 						(but they can be used in Item Specifics). Typically, this occurs
-     * 						when the category doesn't support variations, or if the category
-     * 						requires the name to be the same for all variations
-     * 						in the listing.
+     * 						This value indicates that the corresponding Item Specific cannot be specified at the variation level. If an Item Specific cannot be used at the variation level, it usually indicates that the particular Item Specific should only be specified at the listing-level, as it is a product aspect that should be shared by all variations in the multiple-variation listing.
      * 					
      * 
      */

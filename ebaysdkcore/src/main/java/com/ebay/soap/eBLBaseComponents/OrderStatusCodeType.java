@@ -39,7 +39,9 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the cart is active. The 'Active' state is the only order state in which order line items can still be added, removed, or updated in the cart.
+     * 						This value indicates that the order is not yet complete. An order in the <code>Active</code> state means that the buyer has not initiated payment for the order. While an order is in this state, it can be combined into a <a href="https://developer.ebay.com/DevZone/guides/features-guide/default.html#development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a>, a buyer can request a cancellation, and/or a seller can update payment details (including a change in order price) or shipping details (including shipping cost and shipping service).
+     * 						<br><br>
+     * 						This value can be used a filter value in the <b>OrderStatus</b> field of the <b>GetOrders</b> request payload, and it can also be returned in any of the order management calls.
      * 					
      * 
      */
@@ -48,7 +50,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the cart is inactive.
+     * 						This value can be used a filter value in the <b>OrderStatus</b> field, and if used, all inactive orders will be returned.
      * 					
      * 
      */
@@ -57,7 +59,9 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the order is completed.
+     * 						This value indicates that the order is paid for and complete. An order in the <code>Completed</code> state means that no other changes to the order can be made.
+     * 						<br><br>
+     * 						This value can be used a filter value in the <b>OrderStatus</b> field of the <b>GetOrders</b> request payload, and it can also be returned in any of the order management calls.
      * 					
      * 
      */
@@ -66,7 +70,9 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the cart was cancelled.
+     * 						This value indicates that the order has been cancelled. Depending on whether payment was made or not, the seller may also need to refund the buyer after an order is cancelled.
+     * 						<br><br>
+     * 						This value can be used a filter value in the <b>OrderStatus</b> field of the <b>GetOrders</b> request payload, and it can also be returned in any of the order management calls.
      * 					
      * 
      */
@@ -75,7 +81,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This enumeration value is no longer applicable since this value is only applicable for Half.com listings, and API support for Half.com listings is being deprecated.
+     * 						This enumeration value was only used for the deprecated Half.com site, so is no longer applicable and should not be used as an <b>OrderStatus</b> value in the <b>GetOrders</b> request payload.
      * 					
      * 
      */
@@ -84,7 +90,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the order is in default status.
+     * 						This value is not used.
      * 					
      * 
      */
@@ -93,7 +99,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the cart was authenticated.
+     * 						This enumeration value is no longer applicable and should not be used as an <b>OrderStatus</b> value in the <b>GetOrders</b> request payload.
      * 					
      * 
      */
@@ -102,7 +108,9 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that processing of the buyer's cart has been initiated, but is not yet complete.
+     * 						This enumeration value indicates that the order is currently in the state of being processed, but is not yet complete.
+     * 						<br><br>
+     * 						This value is not supported by the <b>OrderStatus</b> field of the <b>GetOrders</b> request payload, but it can be returned in any of the order management calls.
      * 					
      * 
      */
@@ -111,7 +119,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the cart is invalid, or no longer exists.
+     * 						This enumeration value is no longer applicable and should not be used as an <b>OrderStatus</b> value in the <b>GetOrders</b> request payload.
      * 					
      * 
      */
@@ -129,7 +137,7 @@ public enum OrderStatusCodeType {
 
     /**
      * 
-     * 						This value is passed into the <b>OrderStatus</b> of <b>GetOrders</b> to retrieve order in all states. This is the default value.
+     * 						This enumeration value is passed into the <b>OrderStatus</b> of <b>GetOrders</b> to retrieve orders in all states. This is the default value. This value is not applicable to the response payloads of the order management calls.
      * 					
      * 
      */
@@ -140,7 +148,7 @@ public enum OrderStatusCodeType {
      * 
      * 						This value indicates that a buyer has initiated a cancellation request on the order. If a seller sees an order in this state, that seller must either approve or reject the cancellation request through My eBay Web flows or through the Post-Order API cancellation calls.
      * 						<br/><br/>
-     * 						This <code>CancelPending</code> value can be used as a filter in the <b>GetOrders</b> call request to discover recent buyer-initiated cancellations.
+     * 						This enumeration value cannot be used as an <b>OrderStatus</b> value in the <b>GetOrders</b> request payload.
      * 					
      * 
      */

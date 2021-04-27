@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Container for a list of categories.
+ * 				Type used by the <b>CategoryArray</b> container that is returned in <b>GetCategories</b>. All categories that match the input criteria of the <b>GetCategories</b> request payload are returned under the <b>CategoryArray</b> container
  * 			
  * 
  * <p>Java class for CategoryArrayType complex type.

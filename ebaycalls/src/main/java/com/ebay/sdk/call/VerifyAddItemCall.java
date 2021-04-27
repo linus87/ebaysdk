@@ -23,19 +23,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Company: eBay Inc.</p>
  * <br> <B>Input property:</B> <code>Item</code> - Root container holding all values that define a new
  * listing.
- * <br> <B>Output property:</B> <code>ReturnedItemID</code> - Represents the item ID for the new listing. VerifyAddItem does not
- * actually list an item, so 0 is returned instead of a normal item ID.
- * <br><br>
- * <span class="tablenote"><b>Note:</b>
- * Although we represent item IDs as strings in the schema, we recommend you store
- * them as 64-bit signed integers. If you choose to store item IDs as strings,
- * allocate at least 19 characters (assuming decimal digits are used) to hold them.
- * eBay will increase the size of IDs over time. Your code should be prepared to
- * handle IDs of up to 19 digits. For more information about item IDs, see
- * <a href=
- * "http://ebay.custhelp.com/cgi-bin/ebay.cfg/php/enduser/std_adp.php?p_faqid=468">
- * Common FAQs on eBay Item IDs and other eBay IDs</a> in the Knowledge Base.
- * </span>
+ * <br> <B>Output property:</B> <code>ReturnedItemID</code> - With a successful <b>VerifyAddItem</b> call, this field is always returned, but the returned value is always <code>0</code>, since this call only validates the data passed in through the request payload and does not actually create an active listing.
  * <br> <B>Output property:</B> <code>ReturnedFees</code> - Child Fee containers provide the listing feature names, fees, and possible discounts for the new item listing. The fees do not include the Final Value Fee (FVF), which cannot be determined until an item is sold. <br /> <br /> There is no guarantee that a PromotionalDiscount returned with VerifyAddItem will be realized when the seller uses AddItem to list the same item. This is the result of the timing of certain promotions.
  * <br> <B>Output property:</B> <code>ReturnedExpressListing</code> - This field is deprecated.
  * <br> <B>Output property:</B> <code>ReturnedExpressItemRequirements</code> - This field is deprecated.

@@ -19,13 +19,9 @@ import org.w3c.dom.Element;
 
 /**
  * 
- *         Contains information about a single order line item (transaction). An order
- *         line item contains information about the sale of one or multiple
- *         items from a single listing to a single buyer. The eBay system creates an order
- *         line item when a buyer has committed to make a purchase in an
- *         auction or fixed-price listing. A fixed-priced listing (with multiple identical
- *         items or a similar item with variations) can spawn one or more order line items. Auction listings and single-quantity, fixed-price listings can only spawn one order line item.
- *       
+ * 				Contains information about a sales transaction from an eBay listing. This identifier is automatically created by the eBay system once a buyer has committed to make a purchase in an
+ * 				auction or fixed-price listing. A fixed-priced listing (single or multiple-variation) with multiple quantity can spawn one or more sales transactions.
+ * 			
  * 
  * <p>Java class for TransactionType complex type.
  * 
@@ -108,6 +104,8 @@ import org.w3c.dom.Element;
  *         &lt;element name="Gift" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="GuaranteedShipping" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="GuaranteedDelivery" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="eBayCollectAndRemitTax" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="eBayCollectAndRemitTaxes" type="{urn:ebay:apis:eBLBaseComponents}TaxesType" minOccurs="0"/>
  *         &lt;any/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -191,6 +189,8 @@ import org.w3c.dom.Element;
     "gift",
     "guaranteedShipping",
     "guaranteedDelivery",
+    "eBayCollectAndRemitTax",
+    "eBayCollectAndRemitTaxes",
     "any"
 })
 public class TransactionType
@@ -350,6 +350,8 @@ public class TransactionType
     protected Boolean guaranteedShipping;
     @XmlElement(name = "GuaranteedDelivery")
     protected Boolean guaranteedDelivery;
+    protected Boolean eBayCollectAndRemitTax;
+    protected TaxesType eBayCollectAndRemitTaxes;
     @XmlAnyElement(lax = true)
     protected List<Object> any;
 
@@ -2127,6 +2129,54 @@ public class TransactionType
      */
     public void setGuaranteedDelivery(Boolean value) {
         this.guaranteedDelivery = value;
+    }
+
+    /**
+     * Gets the value of the eBayCollectAndRemitTax property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isEBayCollectAndRemitTax() {
+        return eBayCollectAndRemitTax;
+    }
+
+    /**
+     * Sets the value of the eBayCollectAndRemitTax property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setEBayCollectAndRemitTax(Boolean value) {
+        this.eBayCollectAndRemitTax = value;
+    }
+
+    /**
+     * Gets the value of the eBayCollectAndRemitTaxes property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TaxesType }
+     *     
+     */
+    public TaxesType getEBayCollectAndRemitTaxes() {
+        return eBayCollectAndRemitTaxes;
+    }
+
+    /**
+     * Sets the value of the eBayCollectAndRemitTaxes property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TaxesType }
+     *     
+     */
+    public void setEBayCollectAndRemitTaxes(TaxesType value) {
+        this.eBayCollectAndRemitTaxes = value;
     }
 
     /**

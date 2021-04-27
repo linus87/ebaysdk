@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="SalesTax"/>
  *     &lt;enumeration value="ElectronicWasteRecyclingFee"/>
  *     &lt;enumeration value="TireRecyclingFee"/>
+ *     &lt;enumeration value="GST"/>
  *     &lt;enumeration value="CustomCode"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
@@ -31,7 +32,7 @@ public enum TaxDescriptionCodeType {
 
     /**
      * 
-     *             A standard sales tax charge.
+     *            This enumeration value indicates that standard sales tax was charged to the buyer against the order line item.
      *           
      * 
      */
@@ -40,7 +41,7 @@ public enum TaxDescriptionCodeType {
 
     /**
      * 
-     *             A charge for an electronic waste recycling fee.
+     *             This enumeration value indicates that an electronic waste recycling fee was charged to the buyer against the order line item.
      *           
      * 
      */
@@ -49,12 +50,23 @@ public enum TaxDescriptionCodeType {
 
     /**
      * 
-     *             A charge for a tire recycling fee.
+     *             This enumeration value indicates that a tire recycling fee was charged to the buyer against the order line item.
      *           
      * 
      */
     @XmlEnumValue("TireRecyclingFee")
     TIRE_RECYCLING_FEE("TireRecyclingFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a Goods and Services import tax was charged to the buyer against the order line item.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b> At this time, this tax type is only applicable to the Australia site.
+     * 						</span>
+     * 					
+     * 
+     */
+    GST("GST"),
 
     /**
      * 

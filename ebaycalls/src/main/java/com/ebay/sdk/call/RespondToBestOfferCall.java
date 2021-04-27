@@ -21,7 +21,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - The unique identifier of the listing to which the seller is responding about a Best Offer.
+ * <br> <B>Input property:</B> <code>ItemID</code> - The unique identifier of the listing to which the seller is responding to a Best Offer.
  * <br> <B>Input property:</B> <code>BestOfferIDs</code> - The unique identifier of a buyer's Best Offer for the order line item. This ID is created once the buyer makes a Best Offer. It is possible that a seller will get multiple Best Offers for an order line item, and if that seller would like to decline multiple/all of the Best Offers with one <b>RespondToBestOffer</b> call, the seller would pass in each of these identifiers in a separate <b>BestOfferID</b> field. However, the seller can only accept or counter offer one Best Offer at a time.
  * <br> <B>Input property:</B> <code>BestOfferAction</code> - The enumeration value that the seller passes in to this field will control whether the seller accepts or make a counter offer to a single buyer's Best Offer, or declines one or more buyers' Best Offers. A seller can decline multiple Best Offers with one call, but the seller cannot accept or counter offer multiple Best Offers with one call.
  * <br> <B>Input property:</B> <code>SellerResponse</code> - This optional text field allows the seller to provide more details to the buyer about the action being taken against the buyer's Best Offer.

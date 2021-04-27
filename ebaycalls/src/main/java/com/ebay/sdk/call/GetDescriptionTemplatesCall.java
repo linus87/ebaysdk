@@ -28,6 +28,11 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br/><br/>
  * Typically, you will pass in the timestamp value that was returned the last time you refreshed the list of Listing Designer templates.
  * <br> <B>Input property:</B> <code>MotorVehicles</code> - This boolean field should be included and set to <code>true</code> if the user would only like to see the Listing Designer templates that are available for motor vehicle categories. This field will override any <b>CategoryID</b> value that is specified in the call request.
+ * <br>
+ * <br>
+ * <span class="tablenote"><b>Note:</b>
+ * Motor vehicle-related Listing Designer templates are only available for eBay Motors on the US and Canada (English) marketplaces. To retrieve eBay US Motors Listing Designer templates, the <b>SITEID</b> HTTP header value must be set to <code>100</code>, which is the identifier of the eBay US Motors vertical (ebay.com/motors).
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedDescriptionTemplate</code> - A <b>DescriptionTemplate</b> container is retrieved for each available Listing Designer template. Each <b>DescriptionTemplate</b> container includes the unique identifier of the template, the Listing Designer Theme Group that it belongs to, the CDATA representation of the Listing Designer template, and the URL to an image that serves as an example of the Listing Designer template.
  * <br> <B>Output property:</B> <code>ReturnedLayoutTotal</code> - This integer value indicates the total number of Listing Designer Layout templates that were retrieved. This field is always returned, even if it is <code>0</code>
  * <br> <B>Output property:</B> <code>ReturnedObsoleteLayoutID</code> - The unique identifier of a Listing Designer Layout template that is now obsolete. An <b>ObsoleteLayoutID</b> field is returned for each obsolete Listing Designer Layout template.

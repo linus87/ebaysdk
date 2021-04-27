@@ -43,6 +43,9 @@ import com.ebay.soap.eBLBaseComponents.*;
  * filters are used in the request.
  * </span>
  * <br> <B>Output property:</B> <code>ReturnedPaymentOptionDetails</code> - Although the supported payment methods for the specified eBay site are returned, it is recommended that the seller use <b>GetCategoryFeatures</b> instead, and pass in <b>PaymentMethods</b> as a <b>FeatureID</b> value in the request.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b> This container is only returned if <b>PaymentOptionDetails</b> is included as a <b>DetailName</b> filter in the request, or if no <b>DetailName</b> filters are used in the request.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedRegionDetails</code> - Lists the cities and other domestic regions for the specified site's country.
  * <br/><br/>
  * <span class="tablenote"><b>Note: </b>
@@ -72,7 +75,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * filters are used in the request.
  * </span>
  * <br> <B>Output property:</B> <code>ReturnedTaxJurisdiction</code> - Details the different tax jurisdictions or tax regions applicable to the
- * site specified in the request. Note that tax jurisdictions are only applicable to the following eBay sites: eBay US (Site ID 0), eBay US Motors (Site ID 100), eBay Canada (Site ID 2), eBay Canada (French) (Site ID 210), and eBay India (Site ID 203). An empty response will be returned for any other Site ID that is passed in the HTTP header.
+ * site specified in the request. Note that tax jurisdictions are only applicable to the following eBay sites: eBay US (Site ID 0), eBay Canada (Site ID 2), eBay Canada (French) (Site ID 210), and eBay India (Site ID 203). An empty response will be returned for any other Site ID that is passed in the HTTP header.
  * <br/><br/>
  * <span class="tablenote"><b>Note: </b>
  * This container is only returned if <b>TaxJurisdiction</b> is included as a
@@ -129,7 +132,12 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <b>DetailName</b> filter in the request, or if no <b>DetailName</b>
  * filters are used in the request.
  * </span>
- * <br> <B>Output property:</B> <code>ReturnedInternationalReturnPolicyDetails</code> - Lists the international return policies supported by the eBay marketplace specified in the request, such as the return periods supported by the marketplace.
+ * <span class="tablenote"><b>Note: </b>
+ * This container has been staged for deprecation. Although domestic return policy metadata is still getting returned at the moment, it is recommended that users start making plans to use the <b>GetCategoryFeatures</b> call instead to retrieve category-level, domestic return policy metadata.
+ * </span>
+ * <br> <B>Output property:</B> <code>ReturnedInternationalReturnPolicyDetails</code> - <span class="tablenote"><b>Note: </b>
+ * This container has been deprecated. The <b>GetCategoryFeatures</b> call must be used instead to retrieve category-level, international return policy metadata.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedListingStartPriceDetails</code> - Lists the minimum starting prices for the supported types of eBay listings.
  * <br/><br/>
  * <span class="tablenote"><b>Note: </b>
@@ -164,6 +172,12 @@ import com.ebay.soap.eBLBaseComponents.*;
  * </span>
  * <br> <B>Output property:</B> <code>ReturnedExcludeShippingLocationDetails</code> - Lists the locations supported by the <b>ExcludeShipToLocation</b> feature. These are
  * locations that a seller can list as areas where they will not ship an item.
+ * <br/><br/>
+ * <span class="tablenote"><b>Note: </b>
+ * This container is only returned if <b>ExcludeShippingLocationDetails</b> is included as a
+ * <b>DetailName</b> filter in the request, or if no <b>DetailName</b>
+ * filters are used in the request.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedUpdateTime</code> - The time of the most recent modification to any feature detail. If specific
  * feature details are passed in the request, gives the most recent modification time
  * of those feature details.

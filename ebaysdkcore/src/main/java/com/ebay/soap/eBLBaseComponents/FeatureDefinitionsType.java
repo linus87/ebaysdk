@@ -162,6 +162,15 @@ import org.w3c.dom.Element;
  *         &lt;element name="EpidSupported" type="{urn:ebay:apis:eBLBaseComponents}EpidSupportedDefinitionType" minOccurs="0"/>
  *         &lt;element name="KTypeSupported" type="{urn:ebay:apis:eBLBaseComponents}KTypeSupportedDefinitionType" minOccurs="0"/>
  *         &lt;element name="ProductRequiredEnabled" type="{urn:ebay:apis:eBLBaseComponents}ProductRequiredEnabledDefinitionType" minOccurs="0"/>
+ *         &lt;element name="DomesticReturnsAcceptedValues" type="{urn:ebay:apis:eBLBaseComponents}DomesticReturnsAcceptedDefinitionType" minOccurs="0"/>
+ *         &lt;element name="InternationalReturnsAcceptedValues" type="{urn:ebay:apis:eBLBaseComponents}InternationalReturnsAcceptedDefinitionType" minOccurs="0"/>
+ *         &lt;element name="DomesticReturnsDurationValues" type="{urn:ebay:apis:eBLBaseComponents}DomesticReturnsDurationDefinitionType" minOccurs="0"/>
+ *         &lt;element name="InternationalReturnsDurationValues" type="{urn:ebay:apis:eBLBaseComponents}InternationalReturnsDurationDefinitionType" minOccurs="0"/>
+ *         &lt;element name="DomesticReturnsShipmentPayeeValues" type="{urn:ebay:apis:eBLBaseComponents}DomesticReturnsShipmentPayeeDefinitionType" minOccurs="0"/>
+ *         &lt;element name="InternationalReturnsShipmentPayeeValues" type="{urn:ebay:apis:eBLBaseComponents}InternationalReturnsShipmentPayeeDefinitionType" minOccurs="0"/>
+ *         &lt;element name="DomesticRefundMethodValues" type="{urn:ebay:apis:eBLBaseComponents}DomesticRefundMethodCodeType" minOccurs="0"/>
+ *         &lt;element name="InternationalRefundMethodValues" type="{urn:ebay:apis:eBLBaseComponents}InternationalRefundMethodCodeType" minOccurs="0"/>
+ *         &lt;element name="ReturnPolicyDescriptionEnabled" type="{urn:ebay:apis:eBLBaseComponents}ReturnPolicyDescriptionEnabledDefinitionType" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -307,7 +316,16 @@ import org.w3c.dom.Element;
     "digitalGoodDeliveryEnabled",
     "epidSupported",
     "kTypeSupported",
-    "productRequiredEnabled"
+    "productRequiredEnabled",
+    "domesticReturnsAcceptedValues",
+    "internationalReturnsAcceptedValues",
+    "domesticReturnsDurationValues",
+    "internationalReturnsDurationValues",
+    "domesticReturnsShipmentPayeeValues",
+    "internationalReturnsShipmentPayeeValues",
+    "domesticRefundMethodValues",
+    "internationalRefundMethodValues",
+    "returnPolicyDescriptionEnabled"
 })
 public class FeatureDefinitionsType
     implements Serializable
@@ -572,6 +590,24 @@ public class FeatureDefinitionsType
     protected KTypeSupportedDefinitionType kTypeSupported;
     @XmlElement(name = "ProductRequiredEnabled")
     protected ProductRequiredEnabledDefinitionType productRequiredEnabled;
+    @XmlElement(name = "DomesticReturnsAcceptedValues")
+    protected DomesticReturnsAcceptedDefinitionType domesticReturnsAcceptedValues;
+    @XmlElement(name = "InternationalReturnsAcceptedValues")
+    protected InternationalReturnsAcceptedDefinitionType internationalReturnsAcceptedValues;
+    @XmlElement(name = "DomesticReturnsDurationValues")
+    protected DomesticReturnsDurationDefinitionType domesticReturnsDurationValues;
+    @XmlElement(name = "InternationalReturnsDurationValues")
+    protected InternationalReturnsDurationDefinitionType internationalReturnsDurationValues;
+    @XmlElement(name = "DomesticReturnsShipmentPayeeValues")
+    protected DomesticReturnsShipmentPayeeDefinitionType domesticReturnsShipmentPayeeValues;
+    @XmlElement(name = "InternationalReturnsShipmentPayeeValues")
+    protected InternationalReturnsShipmentPayeeDefinitionType internationalReturnsShipmentPayeeValues;
+    @XmlElement(name = "DomesticRefundMethodValues")
+    protected DomesticRefundMethodCodeType domesticRefundMethodValues;
+    @XmlElement(name = "InternationalRefundMethodValues")
+    protected InternationalRefundMethodCodeType internationalRefundMethodValues;
+    @XmlElement(name = "ReturnPolicyDescriptionEnabled")
+    protected ReturnPolicyDescriptionEnabledDefinitionType returnPolicyDescriptionEnabled;
 
     /**
      * Gets the value of the listingDurations property.
@@ -3887,6 +3923,222 @@ public class FeatureDefinitionsType
      */
     public void setProductRequiredEnabled(ProductRequiredEnabledDefinitionType value) {
         this.productRequiredEnabled = value;
+    }
+
+    /**
+     * Gets the value of the domesticReturnsAcceptedValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DomesticReturnsAcceptedDefinitionType }
+     *     
+     */
+    public DomesticReturnsAcceptedDefinitionType getDomesticReturnsAcceptedValues() {
+        return domesticReturnsAcceptedValues;
+    }
+
+    /**
+     * Sets the value of the domesticReturnsAcceptedValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DomesticReturnsAcceptedDefinitionType }
+     *     
+     */
+    public void setDomesticReturnsAcceptedValues(DomesticReturnsAcceptedDefinitionType value) {
+        this.domesticReturnsAcceptedValues = value;
+    }
+
+    /**
+     * Gets the value of the internationalReturnsAcceptedValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link InternationalReturnsAcceptedDefinitionType }
+     *     
+     */
+    public InternationalReturnsAcceptedDefinitionType getInternationalReturnsAcceptedValues() {
+        return internationalReturnsAcceptedValues;
+    }
+
+    /**
+     * Sets the value of the internationalReturnsAcceptedValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link InternationalReturnsAcceptedDefinitionType }
+     *     
+     */
+    public void setInternationalReturnsAcceptedValues(InternationalReturnsAcceptedDefinitionType value) {
+        this.internationalReturnsAcceptedValues = value;
+    }
+
+    /**
+     * Gets the value of the domesticReturnsDurationValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DomesticReturnsDurationDefinitionType }
+     *     
+     */
+    public DomesticReturnsDurationDefinitionType getDomesticReturnsDurationValues() {
+        return domesticReturnsDurationValues;
+    }
+
+    /**
+     * Sets the value of the domesticReturnsDurationValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DomesticReturnsDurationDefinitionType }
+     *     
+     */
+    public void setDomesticReturnsDurationValues(DomesticReturnsDurationDefinitionType value) {
+        this.domesticReturnsDurationValues = value;
+    }
+
+    /**
+     * Gets the value of the internationalReturnsDurationValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link InternationalReturnsDurationDefinitionType }
+     *     
+     */
+    public InternationalReturnsDurationDefinitionType getInternationalReturnsDurationValues() {
+        return internationalReturnsDurationValues;
+    }
+
+    /**
+     * Sets the value of the internationalReturnsDurationValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link InternationalReturnsDurationDefinitionType }
+     *     
+     */
+    public void setInternationalReturnsDurationValues(InternationalReturnsDurationDefinitionType value) {
+        this.internationalReturnsDurationValues = value;
+    }
+
+    /**
+     * Gets the value of the domesticReturnsShipmentPayeeValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DomesticReturnsShipmentPayeeDefinitionType }
+     *     
+     */
+    public DomesticReturnsShipmentPayeeDefinitionType getDomesticReturnsShipmentPayeeValues() {
+        return domesticReturnsShipmentPayeeValues;
+    }
+
+    /**
+     * Sets the value of the domesticReturnsShipmentPayeeValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DomesticReturnsShipmentPayeeDefinitionType }
+     *     
+     */
+    public void setDomesticReturnsShipmentPayeeValues(DomesticReturnsShipmentPayeeDefinitionType value) {
+        this.domesticReturnsShipmentPayeeValues = value;
+    }
+
+    /**
+     * Gets the value of the internationalReturnsShipmentPayeeValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link InternationalReturnsShipmentPayeeDefinitionType }
+     *     
+     */
+    public InternationalReturnsShipmentPayeeDefinitionType getInternationalReturnsShipmentPayeeValues() {
+        return internationalReturnsShipmentPayeeValues;
+    }
+
+    /**
+     * Sets the value of the internationalReturnsShipmentPayeeValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link InternationalReturnsShipmentPayeeDefinitionType }
+     *     
+     */
+    public void setInternationalReturnsShipmentPayeeValues(InternationalReturnsShipmentPayeeDefinitionType value) {
+        this.internationalReturnsShipmentPayeeValues = value;
+    }
+
+    /**
+     * Gets the value of the domesticRefundMethodValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DomesticRefundMethodCodeType }
+     *     
+     */
+    public DomesticRefundMethodCodeType getDomesticRefundMethodValues() {
+        return domesticRefundMethodValues;
+    }
+
+    /**
+     * Sets the value of the domesticRefundMethodValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DomesticRefundMethodCodeType }
+     *     
+     */
+    public void setDomesticRefundMethodValues(DomesticRefundMethodCodeType value) {
+        this.domesticRefundMethodValues = value;
+    }
+
+    /**
+     * Gets the value of the internationalRefundMethodValues property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link InternationalRefundMethodCodeType }
+     *     
+     */
+    public InternationalRefundMethodCodeType getInternationalRefundMethodValues() {
+        return internationalRefundMethodValues;
+    }
+
+    /**
+     * Sets the value of the internationalRefundMethodValues property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link InternationalRefundMethodCodeType }
+     *     
+     */
+    public void setInternationalRefundMethodValues(InternationalRefundMethodCodeType value) {
+        this.internationalRefundMethodValues = value;
+    }
+
+    /**
+     * Gets the value of the returnPolicyDescriptionEnabled property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReturnPolicyDescriptionEnabledDefinitionType }
+     *     
+     */
+    public ReturnPolicyDescriptionEnabledDefinitionType getReturnPolicyDescriptionEnabled() {
+        return returnPolicyDescriptionEnabled;
+    }
+
+    /**
+     * Sets the value of the returnPolicyDescriptionEnabled property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ReturnPolicyDescriptionEnabledDefinitionType }
+     *     
+     */
+    public void setReturnPolicyDescriptionEnabled(ReturnPolicyDescriptionEnabledDefinitionType value) {
+        this.returnPolicyDescriptionEnabled = value;
     }
 
 }

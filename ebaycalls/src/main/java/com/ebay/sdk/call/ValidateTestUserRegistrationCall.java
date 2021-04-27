@@ -26,12 +26,8 @@ import com.ebay.soap.eBLBaseComponents.*;
  * or if the value is zero, the feedback score is unchanged. This element is not intended
  * for regularly testing feedback because the feedback value can change after the request.
  * <br> <B>Input property:</B> <code>RegistrationDate</code> - Value for the date and time that a user's registration begins.
- * <br> <B>Input property:</B> <code>SubscribeSA</code> - Indicates if a user subscribes to Seller's Assistant. You cannot
- * request to subscribe a user to both Seller's Assistant and
- * Seller's Assistant Pro. You cannot request to unsubscribe a user.
- * <br> <B>Input property:</B> <code>SubscribeSAPro</code> - Indicates if a user subscribes to Seller's Assistant Pro. You cannot
- * request to subscribe a user to both Seller's Assistant and
- * Seller's Assistant Pro. You cannot request to unsubscribe a user.
+ * <br> <B>Input property:</B> <code>SubscribeSA</code> - This field is no longer applicable since the Seller Assistant feature is no longer available.
+ * <br> <B>Input property:</B> <code>SubscribeSAPro</code> - This field is no longer applicable since the Seller Assistant Pro feature is no longer available.
  * <br> <B>Input property:</B> <code>SubscribeSM</code> - Indicates if a user subscribes to Selling Manager. You cannot
  * request to subscribe a user to both Selling Manager and
  * Selling Manager Pro. You cannot request to unsubscribe a user.

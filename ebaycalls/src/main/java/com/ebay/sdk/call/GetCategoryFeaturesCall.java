@@ -39,9 +39,10 @@ import com.ebay.soap.eBLBaseComponents.*;
  * the properties they inherit, set DetailLevel to ReturnAll, and set
  * ViewAllNodes to true. If you also set AllFeaturesForCategory to true,
  * eBay returns only the site defaults with no child category information.
- * <br> <B>Input property:</B> <code>LevelLimit</code> - A level of depth in the category hierarchy. Retrieves all category
- * nodes with a CategoryLevel less than or equal to the LevelLimit
- * value.
+ * <br> <B>Input property:</B> <code>LevelLimit</code> - This field is used if the user wants to control the maximum depth of the category hierarchy to retrieve, or in other words, how many levels of eBay categories that are returned in the response. If this field is omitted, and no <b>CategoryID</b> is specified, eBay feature metadata for every eBay category from the root on down will be returned. If this field is omitted, but a <b>CategoryID</b> is specified, the specified category and all of its children (down to the leaf categories) are returned.
+ * <br>
+ * <br>
+ * If the <b>CategoryID</b> field is not used, but the <b>LevelLimit</b> field is used and set to <code>1</code>, eBay feature metadata is only returned for the top-level categories (also known as L1 categories).
  * <br> <B>Input property:</B> <code>ViewAllNodes</code> - You must set <b>DetailLevel</b> to <code>ReturnAll</code> in order to correctly populate the
  * response when you set <b>ViewAllNodes</b> to true. In this case, eBay returns the
  * site defaults along with all the categories that override the feature

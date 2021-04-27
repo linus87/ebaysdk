@@ -35,7 +35,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by the time the dispute was created, in descending order.
+     * 						This is the default value. If this value is used in the <b>DisputeSortType</b> field, or if the <b>DisputeSortType</b> field is omitted from the <b>GetUserDisputes</b> request, retrieved disputes are sorted according to dispute creation time, in descending order.
      * 					
      * 
      */
@@ -44,7 +44,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by the time the dispute was created, in ascending order.
+     * 						If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to dispute creation time, in ascending order.
      * 					
      * 
      */
@@ -53,7 +53,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by the time the dispute was created, in descending order.
+     * 					If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to dispute creation time, in descending order.
      * 					
      * 
      */
@@ -62,7 +62,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by the dispute status, in ascending order.
+     * 					If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to dispute status, in ascending order.
      * 					
      * 
      */
@@ -71,7 +71,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by the dispute status, in descending order.
+     * 					If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to dispute status, in descending order.
      * 					
      * 
      */
@@ -80,9 +80,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by whether the dispute is eligible for
-     * 					Final Value Fee credit, in ascending
-     * 					order. Ineligible disputes are listed before eligible disputes.
+     * 					If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to whether the disputes are eligible for a Final Value Fee credit to the seller, in ascending order. In other words, disputes ineligible for a FVF credit are listed before disputes that are eligible for a FVF credit.
      * 					
      * 
      */
@@ -91,9 +89,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 					(in) Sort by whether the dispute is eligible for
-     * 					Final Value Fee credit, in descending
-     * 					order. Eligible disputes are listed before ineligible disputes.
+     * 					If this value is used in the <b>DisputeSortType</b> field,  retrieved disputes are sorted according to whether the disputes are eligible for a Final Value Fee credit to the seller, in descending order. In other words, disputes eligible for a FVF credit are listed before disputes that are not eligible for a FVF credit.
      * 					
      * 
      */
@@ -102,7 +98,7 @@ public enum DisputeSortTypeCodeType {
 
     /**
      * 
-     * 											(out) Reserved for internal or future use.
+     * 						Reserved for internal or future use.
      * 					
      * 
      */

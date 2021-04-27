@@ -33,8 +33,8 @@ import com.ebay.soap.eBLBaseComponents.*;
  * Since Feedback is always linked to a unique order line item, an
  * <b>ItemID</b>/<b>TransactionID</b> pair or an <b>OrderLineItemID</b> can also be used to
  * respond to a Feedback comment.
- * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for an eBay listing. A listing can have multiple
- * order line items, but only one <b>ItemID</b>. An <b>ItemID</b> can be
+ * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for the eBay listing to which the user will be responding to Feedback. A listing can have multiple
+ * order line items, but only one <b>ItemID</b> value. An <b>ItemID</b> can be
  * paired up with a corresponding <b>TransactionID</b> and used as an input filter
  * to respond to a Feedback comment in the <b>RespondToFeedback</b> call. Unless
  * the specific Feedback record is identified by a <b>FeedbackID</b> or an
@@ -55,9 +55,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <b>ResponseType</b> is <b>FollowUp</b>, this value contains the text of the follow-up
  * comment.
  * <br>
- * <br> <B>Input property:</B> <code>OrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item and
- * is based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a
- * hyphen in between these two IDs. Since Feedback is always linked to a
+ * <br> <B>Input property:</B> <code>OrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item. Since Feedback is always linked to a
  * unique order line item, an <b>OrderLineItemID</b> can be used to respond
  * to a Feedback comment.
  * <br><br>

@@ -39,7 +39,7 @@ public enum TransactionReferenceCodeType {
 
     /**
      * 
-     * 						This value is the unique identifier of an eBay Now payment transaction.
+     * 						No longer applicable as the eBay Now service is no longer available to buyers and sellers.
      * 					
      * 
      */

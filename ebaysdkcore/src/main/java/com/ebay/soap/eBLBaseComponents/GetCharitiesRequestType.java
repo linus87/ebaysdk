@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				This is the base request type for the <b>GetCharities</b> call. This call is used to search for eBay for Charity nonprofit organizations. This call allows users to search for a specific nonprofit organization, or to search for multiple nonprofit organizations from a particular category and/or geographical region, or by using a search string.
+ * 				The <b>GetCharities</b> call is used to search for nonprofit organizations that are registered with the eBay for Charity program. This call allows users to search for a specific nonprofit organization, or to search for multiple nonprofit organizations from a particular charitable domain, and/or geographical region, or by using a search string.
  * 			
  * 
  * <p>Java class for GetCharitiesRequestType complex type.

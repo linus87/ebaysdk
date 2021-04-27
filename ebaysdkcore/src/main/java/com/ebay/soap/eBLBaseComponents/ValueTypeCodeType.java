@@ -46,12 +46,7 @@ public enum ValueTypeCodeType {
 
     /**
      * 
-     * 						This value indicates that the recommended Item Specific is a non-integer number with a decimal point, like 3.14159.
-     * 						Item Specifics are not expressed as float or double types.
-     * 						<br><br>
-     * 						<span class="tablenote"><b>Note:</b>
-     * 						Starting with Version 945 and going forward, the <code>Numeric</code> data type will be returned for whole integer values (no decimal), and the <code>Decimal</code> data type will be returned for numbers with decimal points. For the Version 943 WSDL and older, <Code>Decimal</Code> will continue being returned for all numeric values (with or without decimal points).
-     * 						</span>
+     * 						This value indicates that the recommended Item Specific should have numeric values with a decimal point, like 3.14159. Item Specific values cannot be  expressed as float or double types.
      * 					
      * 
      */
@@ -60,12 +55,7 @@ public enum ValueTypeCodeType {
 
     /**
      * 
-     * 						This value indicates that the recommended Item Specific is a whole integer with no decimal point, like 3.
-     * 						Item Specifics are not expressed as float or double types.
-     * 						<br><br>
-     * 						<span class="tablenote"><b>Note:</b>
-     * 						Starting with Version 945 and going forward, the <code>Numeric</code> data type will be returned for whole integer values (no decimal), and the <code>Decimal</code> data type will be returned for numbers with decimal points. For the Version 943 WSDL and older, <Code>Decimal</Code> will continue being returned for all numeric values (with or without decimal points).
-     * 						</span>
+     * 						This value indicates that the recommended Item Specific should have integer values (no decimal point), like 3. Item Specific values cannot be expressed as float or double types.
      * 					
      * 
      */
@@ -74,7 +64,7 @@ public enum ValueTypeCodeType {
 
     /**
      * 
-     * 						This value indicates that the recommended Item Specific is free-form text. This is the default value. The maximum length of a text-based Item Specific is 50 characters.
+     * 						This value indicates that the value(s) of the recommended Item Specific should be free-form text. This is the default value. The maximum length of a text-based Item Specific is general 65 characters, but instance aspects (like 'Bundle Description' or 'California Prop 65 Warning') are allowed longer lengths.
      * 					
      * 
      */
@@ -107,7 +97,7 @@ public enum ValueTypeCodeType {
 
     /**
      * 
-     * 						This value indicates that the recommended Item Specific is a date value, which will should use the date format specified in the <b>ValueFormat</b> field.
+     * 						This value indicates that the value(s) of the recommended Item Specific is a date value, which will should use the date format specified in the <b>ValueFormat</b> field.
      * 					
      * 
      */

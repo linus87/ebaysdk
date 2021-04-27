@@ -14,10 +14,11 @@ import org.w3c.dom.Element;
 /**
  * 
  * 				Type defining the <b>ProductRequiredEnabled</b> field that is returned under the <b>FeatureDefinitions</b> container of the <b>GetCategoryFeatures</b> response (as long as <b>ProductRequiredEnabled</b> is included as a <a href="types/FeatureIDCodeType.html">FeatureID</a> value in the call request or no <b>FeatureID</b> values are passed into the call request). The <b>ProductRequiredEnabled</b> field is returned as an empty element (a boolean value is not returned) if one or more eBay API-enabled sites support the Product-Based Shopping Experience.
- * 				<br><br>
- * 				To verify if a specific eBay site supports Product-Based Shopping Experience, look for a <code>Enabled</code> value in the <b>SiteDefaults.ProductRequiredEnabled</b> field.
- * 				<br><br>
- * 				To verify if a specific category on a specific eBay site requires listings to be associated with an eBay Catalog product, pass in a <b>ProductRequiredEnabled</b> value in the request, and then look for a <code>Enabled</code> value in the <b>ProductRequiredEnabled</b> field of the corresponding <b>Category</b> node (match up the <b>CategoryID</b> values if more than one category ID was passed in the request).
+ * 				<br>
+ * 				<br>
+ * 				<span class="tablenote"><b>Note:</b>
+ * 				Due to the rollback of the Product-Based Shopping Experience mandate for all eBay categories, the <b>FeatureDefinitions.ProductRequiredEnabled</b> field no longer has any practical use. Due to this fact, the <b>ProductRequiredEnabledDefinitionType</b> is currently not applicable.
+ * 				</span>
  * 			
  * 
  * <p>Java class for ProductRequiredEnabledDefinitionType complex type.

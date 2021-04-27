@@ -23,13 +23,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for an eBay listing. A listing can have multiple
- * order line items, but only one <b>ItemID</b>. When you use
- * <b>ItemID</b> alone, eBay returns all order line items that are associated with
- * the <b>ItemID</b>. If you pair <b>ItemID</b> with a specific <b>TransactionID</b>,
- * data on a specific order line item is returned. If <b>OrderLineItemID</b> is
- * specified in the request, any <b>ItemID</b>/<b>TransactionID</b> pair specified in the
- * same request will be ignored.
+ * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for an eBay listing. A listing can have multiple order line items, but only one <b>ItemID</b>. When you use <b>ItemID</b> alone, eBay returns all order line items that are associated with the <b>ItemID</b>. If you pair <b>ItemID</b> with a specific <b>TransactionID</b>, data on a specific order line item is returned. An <b>OrderLineItemID</b> value can be used instead of an <b>ItemID</b>/<b>TransactionID</b> pair to identify an order line item, and if an <b>OrderLineItemID</b> is specified in the request, any <b>ItemID</b>/<b>TransactionID</b> pair specified in the same request is ignored.
  * <br>
  * <br>
  * <span class="tablenote"><b>Note:</b>
@@ -42,48 +36,25 @@ import com.ebay.soap.eBLBaseComponents.*;
  * </span>
  * <br> <B>Input property:</B> <code>ModifiedTimeFilter</code> - Helper wrapper to set GetItemTransactionsRequestType ModTimeFrom, ModTimeTo:
  * TimeFrom sets GetItemTransactionsRequestType.ModTimeFrom: 
- * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving order line items associated with the specified <b>ItemID</b>. The <b>ModTimeFrom</b> field is the starting date range. All of the listing's order line items that were last modified within this date range are returned in the output.  The maximum date range that may be specified is 30 days. This value cannot be set back more than 90 days in the past, as this call cannot retrieve sales older than 90 days old. The maximum date range that may be specified is 30 days. This field is not applicable if a specific <b>TransactionID</b> or <b>OrderLineItemID</b> is included in the request or if the <b>NumberOfDays</b> date filter is used.
- * <br><br>
- * If you don't specify a <b>ModTimeFrom</b>/<b>ModTimeTo</b> filter, the <b>NumberOfDays</b> time filter is used and it defaults to 30 (days).
+ * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving order line items associated with the specified <b>ItemID</b> value.  The <b>ModTimeFrom</b> field is the starting date range. All of the listing's order line items that were generated (or last modified)within this date range are returned in the output.  The maximum date range that may be specified is 30 days. This value cannot be set back more than 90 days in the past, as this call cannot retrieve sales older than 90 days old. The maximum date range that may be specified is 30 days. This field is not applicable (and is ignored) if the user is looking for a specific order line item by either using an <b>ItemID</b>/<b>TransactionID</b> pair, or an <b>OrderLineItemID</b> value.
  * TimeTo sets GetItemTransactionsRequestType.ModTimeTo: 
- * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving order line items associated with the specified <b>ItemID</b>. The <b>ModTimeTo</b> field is the ending date range. All eBay order line items that were last modified within this date range are returned in the output. The maximum date range that may be specified is 30 days. If the <b>ModTimeFrom</b> field is used and the <b>ModTimeTo</b> field is omitted, the <b>ModTimeTo</b> value defaults to the present time or to 30 days past the <b>ModTimeFrom</b> value (if <b>ModTimeFrom</b> value is more than 30 days in the past). This field is not applicable if a specific <b>TransactionID</b> or <b>OrderLineItemID</b> is included in the request or if the <b>NumberOfDays</b> date filter is used.
+ * The <b>ModTimeFrom</b> and <b>ModTimeTo</b> fields specify a date range for retrieving order line items associated with the specified <b>ItemID</b> value. The <b>ModTimeTo</b> field is the ending date range. All eBay order line items that were generated (or last modified) within this date range are returned in the output. The maximum date range that may be specified is 30 days. If the <b>ModTimeFrom</b> field is used and the <b>ModTimeTo</b> field is omitted, the <b>ModTimeTo</b> value defaults to the present time or to 30 days after the date specified with the <b>ModTimeFrom</b> value (if <b>ModTimeFrom</b> value is more than 30 days in the past). This field is not applicable (and is ignored) if the user is looking for a specific order line item by either using an <b>ItemID</b>/<b>TransactionID</b> pair, or an <b>OrderLineItemID</b> value.
+ * <br> <B>Input property:</B> <code>TransactionID</code> - Include a <b>TransactionID</b> field in the request if you want to retrieve the data for a specific order line item for the listing specified in the <b>ItemID</b> field. This field is really only applicable for a multiple-quantity or multiple-variation, fixed-price listing that may have multiple sales. An auction listing or a single-quantity, fixed-price listing will only result in one order line item, so this field is not needed in these two cases. If an <b>OrderLineItemID</b> value is used instead to identify an order line item, this field is ignored.
  * <br><br>
- * If you don't specify a <b>ModTimeFrom</b>/<b>ModTimeTo</b> filter, the <b>NumberOfDays</b> time filter is used and it defaults to 30 (days).
- * <br> <B>Input property:</B> <code>TransactionID</code> - Include a <b>TransactionID</b> field in the request if you want to retrieve the
- * data for a specific order line item. If a <b>TransactionID</b> is
- * provided, any specified time filter is ignored.
- * <br> <B>Input property:</B> <code>Pagination</code> - Child elements control pagination of the output. Use the <b>EntriesPerPage</b> property to control the number of order line items to return per call and the <b>PageNumber</b> property to specify the specific page of data to return. If multiple pages of order line items are returned based on input criteria and Pagination properties, <b>GetItemTransactions</b> will need to be called multiple times (with the <b>PageNumber</b> value being increased by 1 each time) to scroll through all results.
- * <br> <B>Input property:</B> <code>IncludeFinalValueFee</code> - Indicates whether to include the Final Value Fee (FVF) for all order line items in the response. The Final Value Fee is returned in the <b>Transaction.FinalValueFee</b> field. The Final Value Fee is assessed right after the creation of an order line item.
- * <br> <B>Input property:</B> <code>IncludeContainingOrder</code> - Include this field and set it to True if you want the <b>ContainingOrder</b>
- * container to be returned in the response under each <b>Transaction</b> node.
- * For single line item orders, the <b>ContainingOrder.OrderID</b> value takes the
- * value of the <b>OrderLineItemID</b> value for the order line item. For
- * <a href="http://developer.ebay.com/DevZone/guides/ebayfeatures/Development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a> orders,
- * the <b>ContainingOrder.OrderID</b> value will be shared by at
- * least two order line items that are part of the same order.
- * <br> <B>Input property:</B> <code>Platform</code> - <span class="tablenote"><b>Note: </b> This field's purpose is to allow the seller to retrieve only eBay listings or only Half.com listings instead of both order types. Since API support for Half.com listings is being deprecated, this field is no longer necessary to use since eBay orders will be the only orders that are retrieved.
+ * If this field is used, any specified date filter is ignored.
+ * <br> <B>Input property:</B> <code>Pagination</code> - This container controls how many order line items should be returned per page of data, as well as which page of data to return (if there are multiple pages of order line items).  Use the <b>EntriesPerPage</b> property to control the number of order line items to return per call and the <b>PageNumber</b> property to specify the specific page of data to return. If multiple pages of order line items are returned based on input criteria and <b>Pagination</b> properties, <b>GetItemTransactions</b> will need to be called multiple times (with the <b>PageNumber</b> value being increased by 1 each time) to scroll through all results.
+ * <br> <B>Input property:</B> <code>IncludeFinalValueFee</code> - This field is included and set to <code>true</code> if the user wants to view the Final Value Fee (FVF) for all order line items in the response. The Final Value Fee is returned in the <b>Transaction.FinalValueFee</b> field. The Final Value Fee is assessed right after the creation of an order line item.
+ * <br/><br/>
+ * <br> <B>Input property:</B> <code>IncludeContainingOrder</code> - This field is included and set to <code>true</code> if the user wants to view order-level details, including the unique identifier of the order and the status of the order. The order-level details will be shown in the <b>ContainingOrder</b> container in the response.
+ * <br/>
+ * <br> <B>Input property:</B> <code>Platform</code> - <span class="tablenote"><b>Note: </b> This field is should no longer be used, as its purpose in the past was to give the user the ability to retrieve only eBay marketplace order line items or only Half.com listings, and since the Half.com site no longer exists, this field is no longer relevant.
  * </span>
- * The default behavior of <b>GetItemTransactions</b> is to retrieve all order line items originating from eBay.com and Half.com. If the user wants to retrieve only eBay.com order line items or only Half.com order line items, this filter can be used to perform that function. Inserting <code>eBay</code> into this field will restrict retrieved order line items to those originating on eBay.com, and inserting <code>Half</code> into this field will restrict retrieved order line items to those originating on Half.com.
- * <br> <B>Input property:</B> <code>NumberOfDays</code> - This time filter specifies the number of days (24-hour periods) in the
- * past to search for order line items. All eBay order line items that were
- * either created or modified within this period are returned in the
- * response. If specified, <b>NumberOfDays</b> will override any date range
- * specified with the <b>ModTimeFrom</b>/<b>ModTimeTo</b> time filters. This field is not
- * applicable if a specific <b>TransactionID</b> or <b>OrderLineItemID</b> is included in
- * the request.
- * <br> <B>Input property:</B> <code>IncludeVariations</code> - If included in the request and set to True, all variations defined for
- * the item are returned at the root level, including variations
- * that have no sales. If not included in the request or set to false, the
- * variations with sales are still returned in separate <b>Transaction</b> nodes. This information is intended to help sellers to reconcile their
- * local inventory with eBay's records, while processing order line items
- * (without requiring a separate call to <b>GetItem</b>).
- * <br> <B>Input property:</B> <code>OrderLineItemID</code> - A unique identifier for an eBay order line item. This field is created
- * as soon as there is a commitment to buy from the seller, and its value
- * is based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a
- * hyphen in between these two IDs. If you want to retrieve data on a
+ * <br> <B>Input property:</B> <code>NumberOfDays</code> - This date range filter specifies the number of days (24-hour periods) in the past to search for order line items. All eBay order line items that were either created or modified within this period are returned in the response. If specified, <b>NumberOfDays</b> will override any date range specified with the <b>ModTimeFrom</b>/<b>ModTimeTo</b> date range filters. This field is not applicable if a specific order line item is specified either through an <b>ItemID</b><b>TransactionID</b> pair or an <b>OrderLineItemID</b> value.
+ * <br> <B>Input property:</B> <code>IncludeVariations</code> - If this field is included in the request and set to <code>true</code>, details on all variations defined in the specified multiple-variation listing are returned, including variations that have no sales. If this field is not included in the request or set to <code>false</code>, the variations with sales are still returned in separate <b>Transaction</b> nodes. This information is intended to help sellers to reconcile their local inventory with eBay's records, while processing order line items (without requiring a separate call to <b>GetItem</b>).
+ * <br> <B>Input property:</B> <code>OrderLineItemID</code> - A unique identifier for an eBay order line item. This identifier is created once there is a commitment to buy (bidder wins the auction, buyer clicks buy button, or buyer purchases item through <b>PlaceOffer</b> call). If you want to retrieve data on a
  * specific order line item, you can use an <b>OrderLineItemID</b> value in the
- * request instead of the <b>ItemID</b>/<b>TransactionID</b> pair. If an <b>OrderLineItemID</b> is
- * provided, any specified time filter is ignored.
+ * request instead of an <b>ItemID</b>/<b>TransactionID</b> pair. If an <b>OrderLineItemID</b> is
+ * provided, any specified date range filter is ignored.
  * <br> <B>Output property:</B> <code>PaginationResult</code> - Contains the total number of pages (<b>TotalNumberOfPages</b>) and the total number
  * of entries (<b>TotalNumberOfEntries</b>) that could be returned given repeated calls
  * that use the same selection criteria as the call that returned this response.
@@ -155,7 +126,13 @@ public class GetItemTransactionsCall extends com.ebay.sdk.ApiCall
   }
 
   /**
-   * Retrieves order line item information for a specified <b>ItemID</b>. The call returns zero, one, or multiple order line items, depending on the number of items sold from the listing. <br><br> You can retrieve order line item data for a specific time range or number of days. If you don't specify a range or number of days, order line item data will be returned for the past 30 days. This call cannot retrieve sales older than 90 days old.
+   * This  call retrieves details on one or more order line items for a specified eBay listing. Auctions and single-quantity, fixed-price listings can only have one order line item, but a multiple-quantity and/or multiple-variation, fixed-priced listing can have numerous order line items.
+   * <br><br>
+   * To find one or more order line items for an eBay listing, an <b>ItemID</b> value can be passed in. If a user wanted to retrieve a specific order line item, an <b>ItemID</b> value and a an <b>TransactionID</b> value can be passed in, or an <b>OrderLineItemID</b> value can be passed in instead of an <b>ItemID</b>/<b>TransactionID</b> pair.
+   * <br><br>
+   * The <b>NumberOfDays</b> or the <b>ModTimeFrom</b> and <b>ModTimeTo</b> date range filters can be used to retrieve order line items generated (or last modified) within a specific range of time. The maximum date range that can be set is 30 days, and the <b>ModTimeFrom</b> date value cannot be set any further back than 90 days in the past. If no date range filters are used, all order line items (associated with the specified listing) generated (or last  modified) in the last 30 days are retrieved. Date ranges are generally only used for multiple-quantity or multiple-variation, fixed-price listings that can have multiple order line items.
+   * <br><br>
+   * There are also pagination filters available that allow the user to control how many and which order line items are returned on each page of a results set.
    * 
    * <br>
    * @throws ApiException

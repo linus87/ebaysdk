@@ -22,7 +22,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
  * <br> <B>Input property:</B> <code>DisputeFilterType</code> - An inclusive filter that isolates the returned disputes to a certain type such as Item Not Received or Unpaid Item disputes. eBay Money Back Guarantee cases are not retrieved with this call, even if the <b>ItemNotReceivedDisputes</b> filter is included in the request.
- * <br> <B>Input property:</B> <code>DisputeSortType</code> - The value and sequence to use to sort the returned disputes.
+ * <br> <B>Input property:</B> <code>DisputeSortType</code> - One of the values defined in <b>DisputeSortTypeCodeType</b> is used here to control the order of disputes that are returned.
  * <br> <B>Input property:</B> <code>TimeFilter</code> - Helper wrapper to set GetUserDisputesRequestType ModTimeFrom, ModTimeTo:
  * TimeFrom sets GetUserDisputesRequestType.ModTimeFrom: 
  * A filter that retrieves disputes whose <b>DisputeModifiedTime</b> is later than or equal to this value. Specify the time value in GMT. See the eBay Features Guide for information about specifying time values. For more precise control of the date range filter, it is a good practice to also specify <b>ModTimeTo</b>. Otherwise, the end of the date range is the present time. Filtering by date range is optional. You can use date range filters in combination with other filters like <b>DisputeFilterType</b> to control the amount of data returned.

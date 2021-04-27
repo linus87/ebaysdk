@@ -14,7 +14,8 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Details about insurance for <a href="http://developer.ebay.com/DevZone/guides/ebayfeatures/Development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a> 
+ * 				This type is deprecated, as Shipping Insurance can no longer be offered by the seller to the buyer in the APIs.
+ * 				
  *       orders.
  * 			
  * 

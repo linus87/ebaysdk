@@ -59,9 +59,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * with an <b>ItemID</b>/<b>TransactionID</b> pair or an <b>OrderLineItemID</b> value, any
  * specified <b>SKU</b> is ignored by the call.
  * <br> <B>Input property:</B> <code>OrderLineItemID</code> - A unique identifier for an eBay order line item. This field is created as
- * soon as there is a commitment to buy from the seller, and its value is
- * based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a hyphen in
- * between these two IDs. <b>OrderLineItemID</b> can be used in the input instead of
+ * soon as there is a commitment to buy from the seller. <b>OrderLineItemID</b> can be used in the input instead of
  * an <b>ItemID</b>/<b>TransactionID</b> pair to identify an order line item.
  * <br>
  * <br>

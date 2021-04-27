@@ -339,9 +339,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 					This value is a 3-digit code for an Indian rupee, a currency used in India. This is
-     * 					the value that should be passed in the <b>Item.Currency</b> field by the
-     * 					seller when listing an item on the eBay India site (Site ID 203).
+     * 					This value is a 3-digit code for an Indian rupee, a currency used in India.
      * 					
      * 
      */
@@ -390,7 +388,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Brunei dollar, a currency used in Brunei and 
+     * 						This value is a 3-digit code for a Brunei dollar, a currency used in Brunei and
      * 						Singapore.
      * 					
      * 
@@ -436,8 +434,7 @@ public enum CurrencyCodeType {
      * 
      * 					This value is a 3-digit code for a Canadian dollar, a currency used in Canada. This is
      * 					the value that should be passed in the <b>Item.Currency</b> field by the
-     * 					seller when listing an item on the eBay Canada site (Site ID 2). Note that items
-     * 					listed on the Canada site can also specify 'USD'.
+     * 					seller when listing an item on the eBay Canada site (Site ID 2).
      * 					
      * 
      */
@@ -445,7 +442,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Cape Verde escudo, a currency used in Cape 
+     * 						This value is a 3-digit code for a Cape Verde escudo, a currency used in Cape
      * 						Verde.
      * 					
      * 
@@ -464,7 +461,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is a 3-digit code for a Central African CFA franc, a currency used in
-     * 						Cameroon, Central African Republic, Republic of the Congo, Chad, Equatorial 
+     * 						Cameroon, Central African Republic, Republic of the Congo, Chad, Equatorial
      * 						Guinea, and Gabon.
      * 					
      * 
@@ -514,7 +511,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Congolese franc, a currency used in Democratic 
+     * 						This value is a 3-digit code for a Congolese franc, a currency used in Democratic
      * 						Republic of Congo.
      * 					
      * 
@@ -557,7 +554,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Czech koruna, a currency used in the Czech 
+     * 						This value is a 3-digit code for a Czech koruna, a currency used in the Czech
      * 						Republic.
      * 					
      * 
@@ -566,7 +563,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Danish krone, a currency used in Denmark, 
+     * 						This value is a 3-digit code for a Danish krone, a currency used in Denmark,
      * 						the Faroe Islands, and Greenland.
      * 					
      * 
@@ -730,7 +727,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is a 3-digit code for a Guinea-Bissau peso, a currency previously used
-     * 						in Guinea-Bissau. This currency has been replaced by the West African CFA franc 
+     * 						in Guinea-Bissau. This currency has been replaced by the West African CFA franc
      * 						(3-digit code: XOF).
      * 					
      * 
@@ -876,7 +873,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a North Korean won, a currency used in North 
+     * 						This value is a 3-digit code for a North Korean won, a currency used in North
      * 						Korea.
      * 					
      * 
@@ -885,7 +882,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a South Korean won, a currency used in South 
+     * 						This value is a 3-digit code for a South Korean won, a currency used in South
      * 						Korea.
      * 					
      * 
@@ -993,7 +990,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is a 3-digit code for a Malagay franc, a currency previously used
-     * 						in Madagascar. This currency has been replaced by the Malagasy ariary 
+     * 						in Madagascar. This currency has been replaced by the Malagasy ariary
      * 						(3-digit code: MGA).
      * 					
      * 
@@ -1021,7 +1018,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Maldivian rufiyaaa, a currency used in the 
+     * 						This value is a 3-digit code for a Maldivian rufiyaaa, a currency used in the
      * 						Maldives.
      * 					
      * 
@@ -1054,7 +1051,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Mauritanian ouguiya, a currency used in  
+     * 						This value is a 3-digit code for a Mauritanian ouguiya, a currency used in
      * 						Mauritania.
      * 					
      * 
@@ -1063,7 +1060,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Mauritian rupee, a currency used in  
+     * 						This value is a 3-digit code for a Mauritian rupee, a currency used in
      * 						Mauritius.
      * 					
      * 
@@ -1072,7 +1069,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Mexican peso, a currency used in 
+     * 						This value is a 3-digit code for a Mexican peso, a currency used in
      * 						Mexico.
      * 					
      * 
@@ -1081,7 +1078,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit funds code for a Mexican peso, a currency used in 
+     * 						This value is a 3-digit funds code for a Mexican peso, a currency used in
      * 						Mexico.
      * 					
      * 
@@ -1090,7 +1087,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Moldovan leu, a currency used in  
+     * 						This value is a 3-digit code for a Moldovan leu, a currency used in
      * 						Moldova.
      * 					
      * 
@@ -1099,7 +1096,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Mongolian tugrik, a currency used in  
+     * 						This value is a 3-digit code for a Mongolian tugrik, a currency used in
      * 						Mongolia.
      * 					
      * 
@@ -1108,8 +1105,8 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for an Easy Caribbean dollar, a currency used in  
-     * 						Anguilla, Antigua and Barbuda, Dominica, Grenada, Montserrat, Saint Kitts and 
+     * 						This value is a 3-digit code for an Easy Caribbean dollar, a currency used in
+     * 						Anguilla, Antigua and Barbuda, Dominica, Grenada, Montserrat, Saint Kitts and
      * 						Nevis, Saint Lucia, and Saint Vincent and the Grenadines.
      * 					
      * 
@@ -1127,7 +1124,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Myanma kyat, a currency used in  
+     * 						This value is a 3-digit code for a Myanma kyat, a currency used in
      * 						Myanmar.
      * 					
      * 
@@ -1136,7 +1133,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a South African rand, a currency used in  
+     * 						This value is a 3-digit code for a South African rand, a currency used in
      * 						South Africa.
      * 					
      * 
@@ -1145,7 +1142,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Namibian dollar, a currency used in  
+     * 						This value is a 3-digit code for a Namibian dollar, a currency used in
      * 						Namibia.
      * 					
      * 
@@ -1171,7 +1168,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a CFP franc, a currency used in French Polynesia, 
+     * 						This value is a 3-digit code for a CFP franc, a currency used in French Polynesia,
      * 						New Caledonia, and Wallis and Futuna.
      * 					
      * 
@@ -1180,7 +1177,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a New Zealand dollar, a currency used in the 
+     * 						This value is a 3-digit code for a New Zealand dollar, a currency used in the
      * 						Cook Islands, New Zealand, Niue, Pitcairn, and Tokelau, Ross Dependency.
      * 					
      * 
@@ -1206,7 +1203,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Norwegian kron, a currency used in Norway, 
+     * 						This value is a 3-digit code for a Norwegian kron, a currency used in Norway,
      * 						Svalbard, Jan Mayen, Bouvet Island, Queen Maud Land, and Peter I Island.
      * 					
      * 
@@ -1265,7 +1262,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Philippine peso, a currency used in the 
+     * 						This value is a 3-digit code for a Philippine peso, a currency used in the
      * 						Philippines. This is the value that should be passed in the
      * 						<b>Item.Currency</b> field by the seller when listing an item on the
      * 						eBay Philippines site (Site ID 211).
@@ -1293,9 +1290,7 @@ public enum CurrencyCodeType {
      * 						Puerto Rico, Timor-Leste, Turks and Caicos Islands, US Virgin Islands, and
      * 						Zimbabwe. This is the value that should be passed in the
      * 						<b>Item.Currency</b> field by the seller when listing an item on the
-     * 						eBay US or US eBay Motors site (Site ID 0). 'USD' can also 
-     * 						be specified as the <b>Item.Currency</b> on the eBay Canada site 
-     * 						(Site ID 2).
+     * 						eBay US or US eBay Motors site (Site ID 0).
      * 					
      * 
      */
@@ -1321,8 +1316,8 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Russian rouble, a currency used in Russia, 
-     * 						Abkhazia, and South Ossetia. This value replace the old 3-digit code for the 
+     * 						This value is a 3-digit code for a Russian rouble, a currency used in Russia,
+     * 						Abkhazia, and South Ossetia. This value replace the old 3-digit code for the
      * 						Russian rouble, 'RUR'.
      * 					
      * 
@@ -1349,7 +1344,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Saint Helena pound, a currency used in Saint 
+     * 						This value is a 3-digit code for a Saint Helena pound, a currency used in Saint
      * 						Helena.
      * 					
      * 
@@ -1391,7 +1386,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Sierra Leonean leone, a currency used in Sierra 
+     * 						This value is a 3-digit code for a Sierra Leonean leone, a currency used in Sierra
      * 						Leone.
      * 					
      * 
@@ -1400,7 +1395,7 @@ public enum CurrencyCodeType {
 
     /**
      * 
-     * 						This value is a 3-digit code for a Singapore dollar, a currency used in Singapore 
+     * 						This value is a 3-digit code for a Singapore dollar, a currency used in Singapore
      * 						and Brunei. This is the value that should be passed in the
      * 						<b>Item.Currency</b> field by the seller when listing an item on the
      * 						eBay Singapore site (Site ID 216).
@@ -1535,7 +1530,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is a 3-digit code for a West African CFA franc, a currency used in
-     * 						Benin, Burkina Faso, Cote d'Ivoire, Guinea-Bissau, Mali, Niger, Senegal, and 
+     * 						Benin, Burkina Faso, Cote d'Ivoire, Guinea-Bissau, Mali, Niger, Senegal, and
      * 						Togo.
      * 					
      * 
@@ -1618,7 +1613,7 @@ public enum CurrencyCodeType {
      * 						This value is a 3-digit code for a Pound sterling, a currency used in the United
      * 						Kingdom and British Crown dependencies. This is the value that should be passed in
      * 						the <b>Item.Currency</b> field by the seller when listing an item on
-     * 						the eBay UK site (Site ID 3). 
+     * 						the eBay UK site (Site ID 3).
      * 					
      * 
      */
@@ -1668,7 +1663,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is a 3-digit code for a Venezuelan bolivar, a currency previously used
-     * 						in Venezuela. The Venezuela bolivar was replaced by the Venezuelan bolivar 
+     * 						in Venezuela. The Venezuela bolivar was replaced by the Venezuelan bolivar
      * 						fuerte, which has a 3-digit code of 'VEF'.
      * 					
      * 
@@ -1721,7 +1716,7 @@ public enum CurrencyCodeType {
     /**
      * 
      * 						This value is the old 3-digit code for a Zimbabwean dollar, a currency previously
-     * 						used in Zimbabwe. The US dollar replaced the Zimbabwean dollar as the official 
+     * 						used in Zimbabwe. The US dollar replaced the Zimbabwean dollar as the official
      * 						currency in Zimbabwe.
      * 					
      * 

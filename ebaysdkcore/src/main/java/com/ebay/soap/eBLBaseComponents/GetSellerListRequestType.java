@@ -13,8 +13,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
- * 				Retrieves a list of the items posted by the authenticated user, including
- * 				the related item data.
+ * 				This call is used to retrieve an array of listings for the seller. The seller must be associated with the user/application token being used to make the call.
+ * 				<br/><br/>
+ * 				This call requires that either the 'Start Time' or 'End Time' date range filters be used. The date range specified by either of these filters can not exceed 120 days or an error will occur.
+ * 				<br/><br/>
+ * 				This call also requires that pagination be used.
  * 			
  * 
  * <p>Java class for GetSellerListRequestType complex type.

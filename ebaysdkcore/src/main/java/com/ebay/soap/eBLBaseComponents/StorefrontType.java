@@ -21,7 +21,7 @@ import org.w3c.dom.Element;
  * 				<br/><br/>
  * 				<span class="tablenote"><b>Note: </b>
  * 				This type is applicable only for eBay Store sellers.
- * 				</span>  <br/><br/>
+ * 				</span>
  *  			
  * 
  * <p>Java class for StorefrontType complex type.

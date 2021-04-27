@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
  * 				Complex type defining the <b>PickupInStoreDetails</b> container, that is used in Add/Revise/Relist calls to enable the listing for In-Store Pickup or Click and Collect.
  * 				<br/><br/>
  * 				<span class="tablenote">
- * 				<strong>Note:</strong> At this time, the In-Store Pickup feature is generally only available to large retail merchants in US, and can only be applied to multi-quantity, fixed-price listings. The Click and Collect feature is only available to large merchants on the UK (site ID - 3), eBay Australia (Site ID - 15), and eBay Germany (Site ID - 77) sites.
+ * 				<strong>Note:</strong> At this time, In-Store Pickup as a fulfillment method is only available to a limited number of large retail merchants in the US, Canada, UK, Germany, and Australia marketplaces, and can only be applied to multiple-quantity, fixed-price listings. The Click and Collect feature is only available to large merchants on the UK, Australia, and Germany marketplaces.
  * 				</span>
  * 			
  * 

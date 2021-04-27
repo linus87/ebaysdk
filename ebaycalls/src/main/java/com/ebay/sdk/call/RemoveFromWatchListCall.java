@@ -26,7 +26,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br/><br/>
  * <br> <B>Input property:</B> <code>RemoveAllItems</code> - If this field is included and set to <code>true</code>, then all the items in the user's
  * Watch List are removed. Note that if the <b>RemoveAllItems</b> field is specified, one or more <b>ItemID</b> fields or the <b>VariationKey</b> cannot be used.
- * <br> <B>Input property:</B> <code>VariationKey</code> - This container is used if the user want to remove one or more product variations within a multiple-variation listing. Note that if the <b>VariationKey</b> container is used, one or more <b>ItemID</b> fields or the <b>RemoveAllItems</b> field cannot be used.
+ * <br> <B>Input property:</B> <code>VariationKey</code> - This container is used if the user want to remove one or more product variations (within a multiple-variation listing) from the Watch List. Note that if the <b>VariationKey</b> container is used, one or more <b>ItemID</b> fields or the <b>RemoveAllItems</b> field cannot be used.
  * <br> <B>Output property:</B> <code>ReturnedWatchListCount</code> - The current number of items in the user's Watch List (considering that the items specified in the call request were successfully removed).
  * <br> <B>Output property:</B> <code>ReturnedWatchListMaximum</code> - The maximum number of items allowed in the user's Watch List. Currently this value is 300, and is the same for all sites and all users.
  * 

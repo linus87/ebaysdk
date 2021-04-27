@@ -15,9 +15,12 @@ import org.w3c.dom.Element;
 /**
  * 
  * 			  Type defining the <b>SellerPaymentPreferences</b> container, which
- * 				consists of the seller's payment preferences. Payment preferences specified in a 
- * 				<b>SetUserPreferences</b> call override the settings in My eBay payment 
- * 				preferences.
+ * 				consists of the seller's payment preferences. Payment preferences specified in a
+ * 				<b>SetUserPreferences</b> call override the settings in My eBay payment preferences.
+ * 				<br><br>
+ * 					<span class="tablenote"><b>Note:</b> Sellers opted in to the new eBay Managed Payments program cannot control some of the settings under the <b>SellerPaymentPreferences</b> container, and although some of these fields can still be set in <b>SetUserPreferences</b> and returned in <b>GetUserPreferences</b>, the settings will not have any affect on any current or future listings for the seller. eBay Managed Payments is currently only available to a limited number of sellers on the US site. The rollout to more sellers in more countries will be a multi-year journey, but eBay expects to transition a majority of sellers Worldwide to Managed Payments by 2021.
+ * 					</span>
+ * 				<br>
  * 			
  * 
  * <p>Java class for SellerPaymentPreferencesType complex type.

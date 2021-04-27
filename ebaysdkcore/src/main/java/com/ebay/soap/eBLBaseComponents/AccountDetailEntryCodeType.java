@@ -307,6 +307,43 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="CreditUBIShippingLabel"/>
  *     &lt;enumeration value="FeeeBayPlusSubscription"/>
  *     &lt;enumeration value="CrediteBayPlusSubscription"/>
+ *     &lt;enumeration value="PaymentIntermediationFee"/>
+ *     &lt;enumeration value="PaymentIntermediationFeeCredit"/>
+ *     &lt;enumeration value="FeePaymentIntermediationRVI"/>
+ *     &lt;enumeration value="FeePaymentIntermediationChargeback"/>
+ *     &lt;enumeration value="FeePaymentIntermediationChargebackRVI"/>
+ *     &lt;enumeration value="SnadOutlierFinalValueFee"/>
+ *     &lt;enumeration value="SnadOutlierFinalValueFeeOnShipping"/>
+ *     &lt;enumeration value="HighlineSearchFee"/>
+ *     &lt;enumeration value="HighlineSearchFeeCredit"/>
+ *     &lt;enumeration value="SnadOutlierFinalValueFeeCredit"/>
+ *     &lt;enumeration value="SnadOutlierFinalValueFeeOnShippingCredit"/>
+ *     &lt;enumeration value="AdFeePremium"/>
+ *     &lt;enumeration value="AdFeePremiumCredit"/>
+ *     &lt;enumeration value="PerListingPaymentsFee"/>
+ *     &lt;enumeration value="PerListingPaymentsFeeCredit"/>
+ *     &lt;enumeration value="VehiclesListingBasicPackageFee"/>
+ *     &lt;enumeration value="VehiclesListingBasicPackageCredit"/>
+ *     &lt;enumeration value="VehiclesListingPlusPackageFee"/>
+ *     &lt;enumeration value="VehiclesListingPlusPackageCredit"/>
+ *     &lt;enumeration value="VehiclesListingPremiumPackageFee"/>
+ *     &lt;enumeration value="VehiclesListingPremiumPackageCredit"/>
+ *     &lt;enumeration value="SendLabelFee"/>
+ *     &lt;enumeration value="SendLabelFeeCredit"/>
+ *     &lt;enumeration value="UpsLabelFee"/>
+ *     &lt;enumeration value="UpsLabelFeeCredit"/>
+ *     &lt;enumeration value="CanadaPostLabelFee"/>
+ *     &lt;enumeration value="CanadaPostLabelFeeCredit"/>
+ *     &lt;enumeration value="EbaySendLabelFee"/>
+ *     &lt;enumeration value="EbaySendLabelFeeCredit"/>
+ *     &lt;enumeration value="USInternetSalesTax"/>
+ *     &lt;enumeration value="USInternetSalesTaxCredit"/>
+ *     &lt;enumeration value="NewZealandGST"/>
+ *     &lt;enumeration value="NewZealandGSTCredit"/>
+ *     &lt;enumeration value="AustraliaGST"/>
+ *     &lt;enumeration value="AustraliaGSTCredit"/>
+ *     &lt;enumeration value="CoFundingCharge"/>
+ *     &lt;enumeration value="CoFundingChargeCredit"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -320,7 +357,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The reason for the charge is unknown.
+     * 					 This enumeration value indicates that the account transaction type is unknown. Sometimes this value will get returned, but the corresponding <b>Description</b> field may provide more details, and the corresponding <b>GrossDetailAmount</b> field will indicate whether the transaction was a charge or a credit (indicated with a negative dollar value).
      * 					
      * 
      */
@@ -329,7 +366,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  The fee for listing an item for sale on eBay.
+     * 					 This enumeration value indicates that the account entry is an insertion fee for a listing.
      * 					
      * 
      */
@@ -338,7 +375,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee for a listing title in boldface font.
+     * 					 This enumeration value indicates that the account entry is a listing upgrade fee for a listing title in boldface font.
      * 					
      * 
      */
@@ -347,20 +384,35 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  The fee for adding an optional feature to a listing,
-     * 					  such as a reserve fee or a listing upgrade fee.
+     * 					  This enumeration value indicates that the account entry is a listing upgrade fee for featuring the listing on an eBay marketplace's home page.
+     * 					  <br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
      * 					
      * 
      */
     @XmlEnumValue("FeeFeatured")
     FEE_FEATURED("FeeFeatured"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a listing upgrade fee for featuring the listing on an eBay category page relevant to the item.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
+     * 					
+     * 
+     */
     @XmlEnumValue("FeeCategoryFeatured")
     FEE_CATEGORY_FEATURED("FeeCategoryFeatured"),
 
     /**
      * 
-     * 					 The fee charged when a listed item sells. The fee
-     * 					 is a percentage of the final sale price.
+     * 					 This enumeration value indicates that the account entry is a final value fee for a sale on the listing. This fee is charged when a listed item sells, and is a percentage of the final sale price. This fee does not take in account any shipping costs. The final value fee associated with shipping costs is returned in <b>FeeFinalValueShipping</b> entry.
      * 					
      * 
      */
@@ -369,7 +421,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A payment by check made by a seller to eBay.
+     * 						This enumeration value indicates that the account entry is a payment by check made by a user to eBay.
      * 					
      * 
      */
@@ -378,22 +430,43 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A payment by credit card made by a seller to eBay.
+     * 						This enumeration value indicates that the account entry is a payment by credit card made by a user to eBay.
      * 					
      * 
      */
     @XmlEnumValue("PaymentCC")
     PAYMENT_CC("PaymentCC"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a courtesy credit issued by eBay to the user.
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditCourtesy")
     CREDIT_COURTESY("CreditCourtesy"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the user due to no sale.
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditNoSale")
     CREDIT_NO_SALE("CreditNoSale"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the user due to a partial sale.
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditPartialSale")
     CREDIT_PARTIAL_SALE("CreditPartialSale"),
 
     /**
      * 
-     * 					 A refund made by eBay to the seller's credit card.
+     * 					 This enumeration value indicates that the account entry is a refund to a user's credit card issued by eBay.
      * 					
      * 
      */
@@ -402,7 +475,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A refund made by eBay to the seller by check.
+     * 						This enumeration value indicates that the account entry is a refund check to a user issued by eBay.
      * 					
      * 
      */
@@ -411,24 +484,43 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A finance charge made to the seller's account, for example,
-     * 					the monthly finance charge added to an account whose balance has not been
-     * 					paid.
+     * 						This enumeration value indicates that the account entry is a finance charge to the user's account. A finance charge may be applicable if the user's monthly invoice balance is not paid in full by the due date.
      * 					
      * 
      */
     @XmlEnumValue("FinanceCharge")
     FINANCE_CHARGE("FinanceCharge"),
+
+    /**
+     * 
+     * 						This value is no longer applicable, and should not be returned.
+     * 					
+     * 
+     */
     @XmlEnumValue("AWDebit")
     AW_DEBIT("AWDebit"),
+
+    /**
+     * 
+     * 						This value is no longer applicable, and should not be returned.
+     * 					
+     * 
+     */
     @XmlEnumValue("AWCredit")
     AW_CREDIT("AWCredit"),
+
+    /**
+     * 
+     * 						This value is no longer applicable, and should not be returned.
+     * 					
+     * 
+     */
     @XmlEnumValue("AWMemo")
     AW_MEMO("AWMemo"),
 
     /**
      * 
-     * 					A credit issued by eBay for a duplicate listing.
+     * 						This enumeration value indicates that the account entry is a credit issued to the seller for any listing fees for a duplicate listing that was removed by eBay.
      * 					
      * 
      */
@@ -437,7 +529,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for a partial sale.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for a partial sale.
      * 					
      * 
      */
@@ -446,7 +538,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reversal of an electronic transfer payment.
+     * 						This enumeration value indicates that the account entry is a reversal of an electronic transfer payment.
      * 					
      * 
      */
@@ -455,8 +547,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time payment to the account made by
-     * 					credit card.
+     * 						This enumeration value indicates that the account entry is a one-time payment made by a credit card.
      * 					
      * 
      */
@@ -465,7 +556,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for a returned check.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for a returned check.
      * 					
      * 
      */
@@ -474,8 +565,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay when a check must be redeposited
-     * 					to collect funds.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay when a check must be redeposited to collect funds.
      * 					
      * 
      */
@@ -484,7 +574,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A cash payment made on the seller's account.
+     * 						This enumeration value indicates that the account entry is a cash payment made on the user's account.
      * 					
      * 
      */
@@ -493,11 +583,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for an insertion fee.
-     * 					If a listed item does not sell or results in an
-     * 					Unpaid Item (UPI) dispute, the seller can relist
-     * 					the item. If the item sells the second time, eBay
-     * 					credits the insertion fee.
+     * 					This enumeration value indicates that the account entry is an insertion fee credit issued by eBay to the seller. If a listed item does not sell or results in an Unpaid Item case/dispute, the seller can relist the item with no additional charge.
      * 					
      * 
      */
@@ -506,7 +592,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the Bold listing fee.
+     * 						This enumeration value indicates that the account entry is a credit for a Bold title listing upgrade.
      * 					
      * 
      */
@@ -515,20 +601,35 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the Featured listing fee.
+     * 						This enumeration value indicates that the account entry is a credit for a  listing upgrade fee for featuring the listing on an eBay marketplace's home page.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
      * 					
      * 
      */
     @XmlEnumValue("CreditFeatured")
     CREDIT_FEATURED("CreditFeatured"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit for a  listing upgrade fee for featuring the listing on an eBay category page relevant to the item.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditCategoryFeatured")
     CREDIT_CATEGORY_FEATURED("CreditCategoryFeatured"),
 
     /**
      * 
-     * 					A credit issued by eBay for the Final Value Fee.
-     * 					Issued as a result of an Unpaid Item dispute, under
-     * 					some circumstances.
+     * 					This enumeration value indicates that the account entry is a credit for a final value fee for a sale on the listing. A final value fee may be credited back to a seller's account if the buyer never pays for the line item, or if the buyer cancels the order.
      * 					
      * 
      */
@@ -537,8 +638,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay when the seller's check does not clear
-     * 					due to insufficient funds.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay when the seller's check does not clear due to insufficient funds.
      * 					
      * 
      */
@@ -547,19 +647,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay when the seller's check does not clear
-     * 					because the account has been closed.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay when the seller's check does not clear because the account has been closed.
      * 					
      * 
      */
     @XmlEnumValue("FeeReturnCheckClose")
     FEE_RETURN_CHECK_CLOSE("FeeReturnCheckClose"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned if the account entry is just a memo/note, or if the account entry cannot be properly classified. The corresponding <b>Description</b> field may provide more details, and the corresponding <b>GrossDetailAmount</b> field will indicate whether the transaction was a charge or a credit (indicate with a negative dollar value).
+     * 					
+     * 
+     */
     @XmlEnumValue("Memo")
     MEMO("Memo"),
 
     /**
      * 
-     * 					A payment made to the account by money order.
+     * 						This enumeration value may be returned if the account entry is a payment made to the account by money order.
      * 					
      * 
      */
@@ -568,9 +674,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					An automatic monthly charge of the seller's invoice
-     * 					amount made by eBay to a credit card the seller has placed
-     * 					on file.
+     * 						This enumeration value may be returned if the account entry is an automatic monthly charge of the seller's invoice amount made by eBay to a credit card the seller has placed on file.
      * 					
      * 
      */
@@ -579,22 +683,34 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time payment made by a credit card
-     * 					that is not on file with eBay for automatic monthly
-     * 					payments.
+     * 						This enumeration value may be returned if the account entry is a one-time payment made with a user's credit card that is not on file with eBay for automatic monthly payments.
      * 					
      * 
      */
     @XmlEnumValue("CreditCardNotOnFile")
     CREDIT_CARD_NOT_ON_FILE("CreditCardNotOnFile"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the user has been invoiced.
+     * 					
+     * 
+     */
     @XmlEnumValue("Invoiced")
     INVOICED("Invoiced"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the user has been invoiced and that the balance will be charged to the credit card on file on the due date.
+     * 					
+     * 
+     */
     @XmlEnumValue("InvoicedCreditCard")
     INVOICED_CREDIT_CARD("InvoicedCreditCard"),
 
     /**
      * 
-     * 					A credit transferred from another account to this account.
+     * 						This enumeration value may be returned if the account entry is a credit transferred from another account to this account.
      * 					
      * 
      */
@@ -603,7 +719,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A debit transferred from this account to another account.
+     * 						This enumeration value indicates that the account entry is a debit transferred from this account to another account.
      * 					
      * 
      */
@@ -612,8 +728,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit balance for an account's invoice period,
-     * 					meaning that the seller should not pay.
+     * 						This enumeration value indicates that the account entry is a credit balance for an account's invoice period, meaning that the seller should not pay.
      * 					
      * 
      */
@@ -622,8 +737,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					An all-purpose code for debits issued by eBay that are manually applied to auctions,
-     * 					for example, when the credit cannot be applied to an item number
+     * 						This enumeration value may be returned for debits issued by eBay that are manually applied to the user's account, and not necessarily tied to a specific listing/line item.
      * 					
      * 
      */
@@ -632,20 +746,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					An all-purpose code for credits issued by eBay that are manually applied to auctions,
-     * 					for example, when the credit cannot be applied to an item number
+     * 						This enumeration value may be returned for credits issued by eBay that are manually applied to the user's account, and not necessarily tied to a specific listing/line item.
      * 					
      * 
      */
     @XmlEnumValue("eBayCredit")
     E_BAY_CREDIT("eBayCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a promotional credit issued by eBay.
+     * 					
+     * 
+     */
     @XmlEnumValue("PromotionalCredit")
     PROMOTIONAL_CREDIT("PromotionalCredit"),
 
     /**
      * 
-     * 					A note that the credit card is not
-     * 					on file at the customer's request.
+     * 						This enumeration value may be returned as a note that the user's credit card is not with eBay.
      * 					
      * 
      */
@@ -654,22 +773,26 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for an insertion
-     * 					fee when an item is relisted.
+     * 						This enumeration value indicates that the account entry is an insertion
+     * 						fee credit. If a listed item does not sell or results in an Unpaid Item case/dispute, the seller can relist the item with no additional charge.
      * 					
      * 
      */
     @XmlEnumValue("CreditInsertionFee")
     CREDIT_INSERTION_FEE("CreditInsertionFee"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned as a note if a user's credit card payment is rejected.
+     * 					
+     * 
+     */
     @XmlEnumValue("CCPaymentRejected")
     CC_PAYMENT_REJECTED("CCPaymentRejected"),
 
     /**
      * 
-     * 					A fee charged by eBay for adding a gift icon to
-     * 					a listing. The gift icon highlights the item as a good
-     * 					gift and might offer gift services, such as wrapping
-     * 					or shipping.
+     * 						This enumeration value is no longer applicable and should not be returned since gift services and the gift icon are no longer supported in any eBay marketplaces.
      * 					
      * 
      */
@@ -678,8 +801,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the gift item
-     * 					fee.
+     * 						This enumeration value is no longer applicable and should not be returned since gift services and the gift icon are no longer supported in any eBay marketplaces.
      * 					
      * 
      */
@@ -688,10 +810,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for listing an item
-     * 					in the Picture Gallery. A buyer sees a picture of
-     * 					the item when browsing a category, before moving to
-     * 					the item's listing page.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for listing an item in the Picture Gallery. A buyer sees a picture of the item when browsing a category, before moving to the item's listing page.
      * 					
      * 
      */
@@ -700,9 +819,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for listing an item
-     * 					in the Featured section at the top of the Picture Gallery
-     * 					page.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for listing an item in the Featured section at the top of the Picture Gallery page.
      * 					
      * 
      */
@@ -711,8 +828,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the Gallery fee
-     * 					charged when the item was listed.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay for the Gallery fee charged when the item was listed.
      * 					
      * 
      */
@@ -721,36 +837,52 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the Featured Gallery
-     * 					fee charged when the item was listed.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay for the Featured Gallery fee charged when the item was listed.
      * 					
      * 
      */
     @XmlEnumValue("CreditFeaturedGallery")
     CREDIT_FEATURED_GALLERY("CreditFeaturedGallery"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a fee for moving the item.
+     * 					
+     * 
+     */
     @XmlEnumValue("ItemMoveFee")
     ITEM_MOVE_FEE("ItemMoveFee"),
 
     /**
      * 
-     * 					A credit issued by eBay when listings are not available
-     * 					due to system downtime. The downtime can be a title search
-     * 					outage or a hard outage. See the online help for details.
+     * 						This enumeration value indicates that the account entry is a credit that may be issued by eBay when listings are not available due to system downtime. The downtime can be a title search outage or a hard outage.
      * 					
      * 
      */
     @XmlEnumValue("OutageCredit")
     OUTAGE_CREDIT("OutageCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit for a PSA payment.
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditPSA")
     CREDIT_PSA("CreditPSA"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit for a PCGS fee.
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditPCGS")
     CREDIT_PCGS("CreditPCGS"),
 
     /**
      * 
-     * 					A fee charged by eBay when an item is listed with
-     * 					a reserve price. The fee is credited when the auction
-     * 					completes successfully.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay when the seller sets a reserve price for an auction listing.
      * 					
      * 
      */
@@ -759,37 +891,61 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for a reserve price auction
-     * 					when the auction completes successfully.
+     * 						This enumeration value indicates that the account entry is a credit refunded to the seller for a reserve price that was set for an auction listing.
      * 					
      * 
      */
     @XmlEnumValue("CreditReserve")
     CREDIT_RESERVE("CreditReserve"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the user's Visa credit card.
+     * 					
+     * 
+     */
     @XmlEnumValue("eBayVISACredit")
     E_BAY_VISA_CREDIT("eBayVISACredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued administratively.
+     * 					
+     * 
+     */
     @XmlEnumValue("BBAdminCredit")
     BB_ADMIN_CREDIT("BBAdminCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a charge issued administratively.
+     * 					
+     * 
+     */
     @XmlEnumValue("BBAdminDebit")
     BB_ADMIN_DEBIT("BBAdminDebit"),
 
     /**
      * 
-     * 					A credit issued by eBay to a Store owner
-     * 					who has promoted items outside of eBay.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to a Store owner who has promoted items outside of eBay.
      * 					
      * 
      */
     @XmlEnumValue("ReferrerCredit")
     REFERRER_CREDIT("ReferrerCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a charge issued by eBay to a Store owner who has promoted items outside of eBay.
+     * 					
+     * 
+     */
     @XmlEnumValue("ReferrerDebit")
     REFERRER_DEBIT("ReferrerDebit"),
 
     /**
      * 
-     * 					A switch from one billing currency to another.
-     * 					The billing currency can be USD, EUR, CAD, GBP, AUD,
-     * 					JPY, or TWD.
+     * 						This enumeration value may be returned as a note about switching from one billing currency to another.
      * 					
      * 
      */
@@ -798,7 +954,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A payment made to the account by gift certificate.
+     * 						This enumeration value indicates that the account entry is a payment made to the account by a gift certificate.
      * 					
      * 
      */
@@ -807,19 +963,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A payment made to the account by wire transfer.
+     * 						This enumeration value indicates that the account entry is a payment made to the account by wire transfer.
      * 					
      * 
      */
     @XmlEnumValue("PaymentWireTransfer")
     PAYMENT_WIRE_TRANSFER("PaymentWireTransfer"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a payment made to the account through home bank.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaymentHomeBanking")
     PAYMENT_HOME_BANKING("PaymentHomeBanking"),
 
     /**
      * 
-     * 					A one-time payment made to the account by electronic
-     * 					transfer.
+     * 						This enumeration value indicates that the account entry is a one-time payment made to the account by electronic transfer.
      * 					
      * 
      */
@@ -828,8 +990,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit (addition) made by eBay to the seller's account
-     * 					when a payment needs to be adjusted.
+     * 						This enumeration value indicates that the account entry is a credit made by eBay to the seller's account when a payment needs to be adjusted.
      * 					
      * 
      */
@@ -838,49 +999,79 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A debit (deduction) made by eBay to the seller's account
-     * 					when a payment needs to be adjusted.
+     * 						This enumeration value indicates that the account entry is a debit (deduction) made by eBay to the seller's account when a payment needs to be adjusted.
      * 					
      * 
      */
     @XmlEnumValue("PaymentAdjustmentDebit")
     PAYMENT_ADJUSTMENT_DEBIT("PaymentAdjustmentDebit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is an eBay write-off of an account charge.
+     * 					
+     * 
+     */
     @XmlEnumValue("Chargeoff")
     CHARGEOFF("Chargeoff"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is the recovery of an  eBay write-off of an acccount charge.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeoffRecovery")
     CHARGEOFF_RECOVERY("ChargeoffRecovery"),
 
     /**
      * 
-     * 					A writeoff of the account charges by eBay
-     * 					because the seller has declared bankruptcy.
+     * 						This enumeration value indicates that the account entry is an eBay write-off of the account charges by eBay due to the seller declaring bankruptcy.
      * 					
      * 
      */
     @XmlEnumValue("ChargeoffBankruptcy")
     CHARGEOFF_BANKRUPTCY("ChargeoffBankruptcy"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned as a note that the eBay write-off of an account charge has been suspended.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeoffSuspended")
     CHARGEOFF_SUSPENDED("ChargeoffSuspended"),
 
     /**
      * 
-     * 					A writeoff of the account charges by eBay
-     * 					because the seller is deceased.
+     * 						This enumeration value indicates that the account entry is an eBay write-off of the account charges by eBay due to the decease of the seller.
      * 					
      * 
      */
     @XmlEnumValue("ChargeoffDeceased")
     CHARGEOFF_DECEASED("ChargeoffDeceased"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is an eBay write-off of the account charges by eBay due to the decease of the seller.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeoffOther")
     CHARGEOFF_OTHER("ChargeoffOther"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is an eBay write-off of the account charges by eBay due to the wackiness of the seller.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeoffWacko")
     CHARGEOFF_WACKO("ChargeoffWacko"),
 
     /**
      * 
-     * 					A reversal of a finance charge, made by eBay.
-     * 					The finance charge is added if the seller does not pay
-     * 					the monthly account balance on time.
+     * 						This enumeration value indicates that the account entry is a reversal of the finance charge to the user's account. A finance charge may be applicable if the user's monthly invoice balance is not paid in full by the due date.
      * 					
      * 
      */
@@ -889,10 +1080,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reversal of a Final Value Fee credit, resulting
-     * 					in the fee being charged to the seller. The Final Value
-     * 					Fee can be credited as a result of an Unpaid Item Dispute.
-     * 					If the buyer later pays, the seller can request a reversal.
+     * 						This enumeration value indicates that the account entry is a reversal of a Final Value Fee credit, resulting in the fee again being charged to the seller. The Final Value Fee can be credited as a result of an Unpaid Item Dispute, but if the buyer ultimately pays for the line item, the Final Value Fee will apply once again.
      * 					
      * 
      */
@@ -901,28 +1089,61 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for currency conversion.
+     * 						This enumeration value indicates that the account entry is a fee charged for currency conversion.
      * 					
      * 
      */
     @XmlEnumValue("ForeignFundsConvert")
     FOREIGN_FUNDS_CONVERT("ForeignFundsConvert"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a reversal of a check payment made with foreign funds.
+     * 					
+     * 
+     */
     @XmlEnumValue("ForeignFundsCheckReversal")
     FOREIGN_FUNDS_CHECK_REVERSAL("ForeignFundsCheckReversal"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned to act as a note that there is an 'End of the Month' restriction for account activity.
+     * 					
+     * 
+     */
     @XmlEnumValue("EOMRestriction")
     EOM_RESTRICTION("EOMRestriction"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned if eBay is issuing a credit to the seller for multiple listing fees.
+     * 					
+     * 
+     */
     @XmlEnumValue("AllFeesCredit")
     ALL_FEES_CREDIT("AllFeesCredit"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned to act as a note that the user's account is on hold.
+     * 					
+     * 
+     */
     @XmlEnumValue("SetOnHold")
     SET_ON_HOLD("SetOnHold"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned to act as a note to indicate that the state of the user's account has been reverted.
+     * 					
+     * 
+     */
     @XmlEnumValue("RevertUserState")
     REVERT_USER_STATE("RevertUserState"),
 
     /**
      * 
-     * 					A monthly payment made by automatic direct debit to the
-     * 					seller's checking account, when the account information
-     * 					is on file.
+     * 						This enumeration value indicates that the account entry is a monthly payment made by automatic direct debit to the seller's checking account, when the account information is on file.
      * 					
      * 
      */
@@ -931,9 +1152,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time payment made by direct debit to the seller's
-     * 					checking account, when the account information is not on file,
-     * 					but is provided for this payment.
+     * 						This enumeration value indicates that the account entry is a one-time payment made by direct debit to the seller's checking account, when the account information is not on file, but is provided for this payment.
      * 					
      * 
      */
@@ -942,9 +1161,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A payment made by direct debit from the seller's
-     * 					checking account when the seller has requested automatic
-     * 					monthly invoice payments.
+     * 						This enumeration value indicates that the account entry is a payment made by direct debit from the seller's checking account when the seller has requested automatic monthly invoice payments.
      * 					
      * 
      */
@@ -953,8 +1170,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reversal of a payment made by direct debit
-     * 					from the seller's checking account.
+     * 						This enumeration value indicates that the account entry is a reversal of a payment made by direct debit from the seller's checking account.
      * 					
      * 
      */
@@ -963,9 +1179,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reversal of a payment made by direct debit
-     * 					from a seller's checking account when an item is returned
-     * 					by the buyer.
+     * 						This enumeration value indicates that the account entry is a reversal of a payment made by direct debit from a seller's checking account when an item is returned by the buyer.
      * 					
      * 
      */
@@ -974,8 +1188,12 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A fee charged by eBay for adding a colored band to
-     * 					 emphasize a listing.
+     * 					 This enumeration value indicates that the account entry is a fee charged by eBay for adding a colored band to emphasize a listing.
+     * 					 <br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
      * 					
      * 
      */
@@ -984,18 +1202,30 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for a listing highlight fee.
+     * 						 This enumeration value indicates that the account entry is a credit issued to the seller by eBay for adding a colored band to emphasize a listing.
+     * 						 <br>
+     * 							<br>
+     * 							<span class="tablenote"><b>Note:</b>
+     * 							This feature is no longer available to most marketplaces and sellers.
+     * 						</span>
      * 					
      * 
      */
     @XmlEnumValue("CreditHighlight")
     CREDIT_HIGHLIGHT("CreditHighlight"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned to act as a note to indicate that the user's account has been suspended as part of a bulk suspension initiated by eBay.
+     * 					
+     * 
+     */
     @XmlEnumValue("BulkUserSuspension")
     BULK_USER_SUSPENSION("BulkUserSuspension"),
 
     /**
      * 
-     * 					A fee charged for a 30-day real estate listing.
+     * 						This enumeration value indicates that the account entry is a fee charged for a 30-day classified ad listing in a Real Estate category.
      * 					
      * 
      */
@@ -1004,21 +1234,34 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued  by eBay for a 30-day real estate listing.
+     * 						This enumeration value indicates that the account entry is a credit issue to a seller for a 30-day classified ad listing in a Real Estate category.
      * 					
      * 
      */
     @XmlEnumValue("CreditRealEstate30DaysListing")
     CREDIT_REAL_ESTATE_30_DAYS_LISTING("CreditRealEstate30DaysListing"),
+
+    /**
+     * 
+     * 						This enumeration value is only used internally.
+     * 					
+     * 
+     */
     @XmlEnumValue("TradingLimitOverrideOn")
     TRADING_LIMIT_OVERRIDE_ON("TradingLimitOverrideOn"),
+
+    /**
+     * 
+     * 						This enumeration value is only used internally.
+     * 					
+     * 
+     */
     @XmlEnumValue("TradingLimitOverrideOff")
     TRADING_LIMIT_OVERRIDE_OFF("TradingLimitOverrideOff"),
 
     /**
      * 
-     * 					A fee charged to sellers who do not provide a credit card
-     * 					or checking account number to verify identify.
+     * 						This enumeration value indicates that the account entry is a fee charged to a seller who did not provide a credit card or checking account number to verify identify.
      * 					
      * 
      */
@@ -1027,35 +1270,61 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for an EquifaxRealtimeFee.
+     * 						This enumeration value indicates that the account entry is a credit issued to a seller who was charged an Equifax fee.
      * 					
      * 
      */
     @XmlEnumValue("CreditEquifaxRealtimeFee")
     CREDIT_EQUIFAX_REALTIME_FEE("CreditEquifaxRealtimeFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a payment made by the seller for an Equifax fee.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaymentEquifaxDebit")
     PAYMENT_EQUIFAX_DEBIT("PaymentEquifaxDebit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller for a payment made on an Equifax fee.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaymentEquifaxCredit")
     PAYMENT_EQUIFAX_CREDIT("PaymentEquifaxCredit"),
 
     /**
      * 
-     * 					Two accounts with the same owner but different user IDs
-     * 					have been merged into one.
+     * 						This enumeration value may be returned to act as a note to indicate that the user's two accounts (same owner, but different user IDs) have been merged into one account.
      * 					
      * 
      */
     @XmlEnumValue("Merged")
     MERGED("Merged"),
+
+    /**
+     * 
+     * 						The Auto Trader feature is no longer available for motor vehicle listings.
+     * 					
+     * 
+     */
     @XmlEnumValue("AutoTraderOn")
     AUTO_TRADER_ON("AutoTraderOn"),
+
+    /**
+     * 
+     * 						The Auto Trader feature is no longer available for motor vehicle listings.
+     * 					
+     * 
+     */
     @XmlEnumValue("AutoTraderOff")
     AUTO_TRADER_OFF("AutoTraderOff"),
 
     /**
      * 
-     * 					The option to send the seller paper invoices
-     * 					has been turned on.
+     * 						This enumeration value is no longer applicable as paper invoices are no longer available. Users must download their invoices from My eBay.
      * 					
      * 
      */
@@ -1064,20 +1333,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The option to send the seller paper invoices
-     * 					has been turned off.
+     * 						This enumeration value is no longer applicable as paper invoices are no longer available. Users must download their invoices from My eBay.
      * 					
      * 
      */
     @XmlEnumValue("PaperInvoiceOff")
     PAPER_INVOICE_OFF("PaperInvoiceOff"),
+
+    /**
+     * 
+     * 						This enumeration value may be returned to act as a note to indicate that there has been a change in the status of the user's account.
+     * 					
+     * 
+     */
     @XmlEnumValue("AccountStateSwitch")
     ACCOUNT_STATE_SWITCH("AccountStateSwitch"),
 
     /**
      * 
-     * 					An automatic reversal of a Final Value Fee
-     * 					credit.
+     * 						This enumeration value indicates that the account entry is an automatic reversal of a Final Value Fee credit.
      * 					
      * 
      */
@@ -1086,8 +1360,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted by eBay when a title search
-     * 					outage of one hour or longer occurs on the site.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller if a title search outage of one hour or longer occurs on the site.
      * 					
      * 
      */
@@ -1096,8 +1369,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for listing a lot (one or more items) in a
-     * 					Live Auction catalog.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1106,18 +1378,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for listing an extra item in a Live Auction.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
     @XmlEnumValue("LAExtraItem")
     LA_EXTRA_ITEM("LAExtraItem"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
+     * 					
+     * 
+     */
     @XmlEnumValue("LACatalogItemFeeRefund")
     LA_CATALOG_ITEM_FEE_REFUND("LACatalogItemFeeRefund"),
 
     /**
      * 
-     * 					A credit for listing an item in a Live Auction catalog.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1126,8 +1405,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A Final Value Fee charged by eBay when a lot listed
-     * 					on a Live Auction is sold.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1136,8 +1414,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A refund of a Final Value Fee that was charged
-     * 					when a Live Auction lot was sold.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1146,8 +1423,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee paid by the buyer to the auction house for
-     * 					a purchase in a Live Auction.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1156,8 +1432,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A refund of the fee paid by a buyer to the auction
-     * 					house for a purchase in a Live Auction.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1166,8 +1441,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for audio or video services provided
-     * 					during the sale of lots at a Live Auction.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1176,8 +1450,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A refund for audio or video services provided at
-     * 					a Live Auction.
+     * 						This enumeration value is no longer applicable as Live Auction listings are no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1186,8 +1459,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for a panoramic 360-degree photo
-     * 					in a listing.
+     * 						This enumeration value is no longer applicable as the iPix photo feature is  no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1196,8 +1468,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for a slide show of panoramic 360-degree
-     * 					photos.
+     * 						This enumeration value is no longer applicable as the iPix photo feature is  no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1206,7 +1477,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted to reverse an IPIX photo fee.
+     * 						This enumeration value is no longer applicable as the iPix photo feature is  no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1215,7 +1486,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted to reverse an IPIX slideshow fee.
+     * 						This enumeration value is no longer applicable as the iPix photo feature is  no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1234,21 +1505,34 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted to reverse a 10-day auction
-     * 					fee.
+     * 						This enumeration value indicates that the account entry is a credit issued to a seller for a 10-day auction listing.
      * 					
      * 
      */
     @XmlEnumValue("CreditTenDayAuction")
     CREDIT_TEN_DAY_AUCTION("CreditTenDayAuction"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a temporary credit from eBay to the user.
+     * 					
+     * 
+     */
     @XmlEnumValue("TemporaryCredit")
     TEMPORARY_CREDIT("TemporaryCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is the reversal of a temporary credit from eBay to the user.
+     * 					
+     * 
+     */
     @XmlEnumValue("TemporaryCreditReversal")
     TEMPORARY_CREDIT_REVERSAL("TemporaryCreditReversal"),
 
     /**
      * 
-     * 				      A fee charged for a subscription to Auction Assistant Basic.
+     * 				     This enumeration value is no longer applicable as the Auction Assistant feature is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1257,7 +1541,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 				      A fee charged for a subscription to Auction Assistant Pro.
+     * 				    This enumeration value is no longer applicable as the Auction Assistant feature is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1266,7 +1550,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 				     A credit granted for a subscription fee charged for Auction Assistant Basic.
+     * 				     This enumeration value is no longer applicable as the Auction Assistant feature is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1275,7 +1559,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for a subscription fee charged for Auction Assistant Pro.
+     * 						This enumeration value is no longer applicable as the Auction Assistant feature is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -1284,8 +1568,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for a supersized picture
-     * 					in a listing.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for a super-sized picture in a listing.
      * 					
      * 
      */
@@ -1294,7 +1577,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for a supersized picture.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller for a super-sized picture in a listing.
      * 					
      * 
      */
@@ -1303,9 +1586,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for the Picture Pack feature.
-     * 					The fee differs according to the number of pictures you
-     * 					use. See the online help for details.
+     * 						This enumeration value is no longer applicable as eBay no longer charges a fee for adding photos to listings.
      * 					
      * 
      */
@@ -1314,7 +1595,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A partial credit issued by eBay for the Picture Pack fee.
+     * 					 This enumeration value is no longer applicable as eBay no longer charges a fee for adding photos to listings.
      * 					
      * 
      */
@@ -1323,7 +1604,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A full credit issued by eBay for the Picture Pack fee.
+     * 					 This enumeration value is no longer applicable as eBay no longer charges a fee for adding photos to listings.
      * 					
      * 
      */
@@ -1332,8 +1613,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A monthly subscription fee charged for an eBay Store.
-     * 					  The fee can be Basic, Featured, or Anchor.
+     * 					 This enumeration value indicates that the account entry is a monthly subscription fee charged for the user's eBay Store.
      * 					
      * 
      */
@@ -1342,8 +1622,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay for the monthly fee charged
-     * 					 for an eBay store.
+     * 					 This enumeration value indicates that the account entry is a credit toward the user's eBay Store subscription fee.
      * 					
      * 
      */
@@ -1352,7 +1631,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged by eBay for listing a Fixed Price item.
+     * 						This enumeration value indicates that the account entry is an insertion fee for a fixed-price listing.
      * 					
      * 
      */
@@ -1361,7 +1640,8 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for listing a Fixed Price item.
+     * 						This enumeration value indicates that the account entry is an insertion
+     * 						fee credit for a fixed-price listing. If a listed item does not sell or results in an Unpaid Item case/dispute, the seller can relist the item with no additional charge.
      * 					
      * 
      */
@@ -1370,8 +1650,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The Final Value Fee credit charged by eBay when
-     * 					 a fixed price item sells.
+     * 					 This enumeration value indicates that the account entry is a final value fee for a sale on the fixed-price listing. This fee is charged when a listed item sells, and is a percentage of the final sale price.
      * 					
      * 
      */
@@ -1380,27 +1659,57 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the Final Value Fee
-     * 					for a fixed price item.
+     * 						This enumeration value indicates that the account entry is a credit for a final value fee for a sale on the fixed-price listing. A final value fee may be credited back to a seller's account if the buyer never pays for the line item, or if the buyer cancels the order.
      * 					
      * 
      */
     @XmlEnumValue("CreditFinalValueFixedPrice")
     CREDIT_FINAL_VALUE_FIXED_PRICE("CreditFinalValueFixedPrice"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable since paper invoices are no longer available, so electronic invoices are the only option. Users must download their invoices from My eBay.
+     * 					
+     * 
+     */
     @XmlEnumValue("ElectronicInvoiceOn")
     ELECTRONIC_INVOICE_ON("ElectronicInvoiceOn"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable since paper invoices are no longer available, so electronic invoices are the only option. Users must download their invoices from My eBay.
+     * 					
+     * 
+     */
     @XmlEnumValue("ElectronicInvoiceOff")
     ELECTRONIC_INVOICE_OFF("ElectronicInvoiceOff"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a direct debit payment is pending.
+     * 					
+     * 
+     */
     @XmlEnumValue("FlagDDDDPending")
     FLAG_DDDD_PENDING("FlagDDDDPending"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a direct debit payment is confirmed.
+     * 					
+     * 
+     */
     @XmlEnumValue("FlagDDPaymentConfirmed")
     FLAG_DD_PAYMENT_CONFIRMED("FlagDDPaymentConfirmed"),
 
     /**
      * 
-     * 					The fee charged by eBay for creating a Fixed Price
-     * 					listing with a 10-day duration. Fixed Price listings
-     * 					of 1, 3, 5, and 7 days are not charged this fee.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for creating a fixed-price listing with a 10-day duration.
+     * 						 <br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 							This charge may only be applicable to motor vehicle listings on eBay Motors, eBay Canada (English and French versions), eBay UK, and eBay Italy. For all non-motor vehicle categories, the only available listing duration is 'GTC', or 'Good 'til Cancelled'.
+     * 						</span>
      * 					
      * 
      */
@@ -1409,8 +1718,12 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for a Fixed Price listing
-     * 					with a 10-day duration.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller for creating a fixed-price listing with a 10-day duration.
+     * 						 <br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 							The 10-day duration fee is only applicable to motor vehicle listings on eBay Motors, eBay Canada (English and French versions), eBay UK, and eBay Italy. For all non-motor vehicle categories, the only available listing duration is 'GTC', or 'Good 'til Cancelled'.
+     * 						</span>
      * 					
      * 
      */
@@ -1419,7 +1732,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for listing a Buy It Now item.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay if the seller uses the 'Buy It Now' feature on an auction listing.
      * 					
      * 
      */
@@ -1428,8 +1741,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for the fee charged for a
-     * 					Buy It Now listing.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay if the seller uses the 'Buy It Now' feature on an auction listing.
      * 					
      * 
      */
@@ -1438,8 +1750,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee for scheduling a listing to start at some
-     * 					later time, up to 3 weeks after the listing is created.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay if the seller uses the scheduled listing feature for a listing. With scheduled listings, the seller schedules a listing to start at some later time (up to 3 weeks after) instead of immediately.
      * 					
      * 
      */
@@ -1448,8 +1759,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit made by eBay for the fee charged for
-     * 					scheduling a listing to start after the listing is created.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller if the seller needs to be refunded for a scheduled listing. With scheduled listings, the seller schedules a listing to start at some later time (up to 3 weeks after) instead of immediately.
      * 					
      * 
      */
@@ -1458,9 +1768,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The monthly subscription fee charged for
-     * 					 Selling Manager Basic. The monthly charge is billed
-     * 					 in advance.
+     * 					 	This enumeration value indicates that the account entry is the monthly subscription fee charged for the basic version of Selling Manager. For most eBay marketplaces and sellers, there is no subscription charge to use the basic version of Selling Manager.
      * 					
      * 
      */
@@ -1469,9 +1777,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The monthly subscription fee charged for
-     * 					Selling Manager Pro. The monthly charge is billed
-     * 					in advance.
+     * 						This enumeration value indicates that the account entry is the monthly subscription fee charged for using the Selling Manager Pro product.
      * 					
      * 
      */
@@ -1480,8 +1786,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time credit for a free one-month
-     * 					trial of Selling Manager Basic.
+     * 						This enumeration value indicates that the account entry is a credit for the monthly subscription fee charged for the basic version of Selling Manager. For most eBay marketplaces and sellers, there is no subscription charge to use the basic version of Selling Manager.
      * 					
      * 
      */
@@ -1490,8 +1795,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time credit for a free one-month
-     * 					trial of Selling Manager Pro.
+     * 						This enumeration value indicates that the account entry is a credit for the monthly subscription fee charged for using the Selling Manager Pro product.
      * 					
      * 
      */
@@ -1500,9 +1804,12 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged for a Good-Til-Cancelled
-     * 					listing in an eBay Store. The charge is made once
-     * 					each 30 days, until the listing ends.
+     * 						This enumeration value indicates that the account entry is a fee charged to the seller when a 'Good 'til Cancelled', fixed-price listing automatically renews after 30 days (as long as inventory is still available). This fee is similar to an insertion fee when a listing is first created. 'GTC' listings automatically renew every 30 days, and these renewed listings may incur insertion fees unless the seller has 'zero insertion fee' credits. eBay sellers with stores get more 'zero insertion fee' credits than other sellers.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							As of July 1, 2019, the Good 'Til Cancelled renewal schedule has been modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+     * 							<a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+     * 						</span>
      * 					
      * 
      */
@@ -1511,8 +1818,12 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit for the fee charged for a Good-Til-Cancelled
-     * 					listing in an eBay Store.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to refund the seller for a 'Good 'til Cancelled' listing renewal/insertion fee. 'GTC' listings automatically renew every 30 days, and these renewed listings may incur insertion fees unless the seller has 'zero insertion fee' credits. eBay sellers with stores get more 'zero insertion fee' credits than other sellers.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							As of July 1, 2019, the Good 'Til Cancelled renewal schedule has been modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+     * 							<a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+     * 						</span>
      * 					
      * 
      */
@@ -1521,9 +1832,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged for using a Listing Designer theme and layout
-     * 					template for a listing. The fee is displayed to the seller during
-     * 					the listing process.
+     * 						This enumeration value indicates that the account entry is a fee for the seller using a Listing Designer theme and layout template for a listing.
      * 					
      * 
      */
@@ -1532,7 +1841,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay for a Listing Designer fee.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to refund the seller using a Listing Designer theme and layout template for a listing.
      * 					
      * 
      */
@@ -1541,8 +1850,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged for listing an auction item
-     * 					for 10 days.
+     * 						This enumeration value is no longer applicable as there is no additional fee charged to the seller for creating a 10-day auction listing.
      * 					
      * 
      */
@@ -1551,33 +1859,79 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit for the fee charged for listing an
-     * 					auction item for 10 days.
+     * 						This enumeration value is no longer applicable as there is no additional fee charged to the seller for creating a 10-day auction listing.
      * 					
      * 
      */
     @XmlEnumValue("ExtendedAcutionCredit")
     EXTENDED_ACUTION_CREDIT("ExtendedAcutionCredit"),
+
+    /**
+     * 
+     * 						This enumeration value is only for internal use, and indicates that the login attempt to PayPal using OTP ('One-Time Pin' or two-factor authentication) was successful.
+     * 					
+     * 
+     */
     @XmlEnumValue("PayPalOTPSucc")
     PAY_PAL_OTP_SUCC("PayPalOTPSucc"),
+
+    /**
+     * 
+     * 						This enumeration value is only for internal use, and indicates that the login attempt to PayPal using OTP ('One-Time Pin' or two-factor authentication) is pending.
+     * 					
+     * 
+     */
     @XmlEnumValue("PayPalOTPPend")
     PAY_PAL_OTP_PEND("PayPalOTPPend"),
+
+    /**
+     * 
+     * 						This enumeration value is only for internal use, and indicates that the login attempt to PayPal failed.
+     * 					
+     * 
+     */
     @XmlEnumValue("PayPalFailed")
     PAY_PAL_FAILED("PayPalFailed"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a charge back using PayPal as the payment method.
+     * 					
+     * 
+     */
     @XmlEnumValue("PayPalChargeBack")
     PAY_PAL_CHARGE_BACK("PayPalChargeBack"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a charge back.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeBack")
     CHARGE_BACK("ChargeBack"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is the reversal of a charge back.
+     * 					
+     * 
+     */
     @XmlEnumValue("ChargeBackReversal")
     CHARGE_BACK_REVERSAL("ChargeBackReversal"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a refund using PayPal as the payment method.
+     * 					
+     * 
+     */
     @XmlEnumValue("PayPalRefund")
     PAY_PAL_REFUND("PayPalRefund"),
 
     /**
      * 
-     * 					An addition to the seller's eBay
-     * 					Anything Points account. Each point is
-     * 					equivalent to $0.01.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1586,9 +1940,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reduction to the seller's eBay
-     * 					Anything Points account. Each point is
-     * 					equivalent to $0.01.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1597,8 +1949,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					An automatic payment of seller fees
-     * 					from the seller's eBay Anything Points account.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1607,8 +1958,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A one-time payment of seller fees from
-     * 					the seller's eBay Anything Points account.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1617,8 +1967,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A reversal of a seller fee payment made
-     * 					from the seller's eBay Anything Points account.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1627,9 +1976,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A cash payment made from the seller's eBay
-     * 					Anything Points account and credited to the seller's
-     * 					account.
+     * 						This enumeration value is no longer applicable as the 'Anything Points' program is no longer available.
      * 					
      * 
      */
@@ -1638,8 +1985,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit (return) to your account of Value-Added Tax
-     * 					previously paid.
+     * 						This enumeration value indicates that the account entry is a credit to the seller's account for Value-Added Tax (VAT) previously paid by the seller.
      * 					
      * 
      */
@@ -1648,30 +1994,79 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A debit to your account for a Value-Added Tax charge.
+     * 					 This enumeration value indicates that the account entry is a debit to the seller's account for a Value-Added Tax (VAT) charge.
      * 					
      * 
      */
     @XmlEnumValue("VATDebit")
     VAT_DEBIT("VATDebit"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a VAT status change to the seller's account is pending.
+     * 					
+     * 
+     */
     @XmlEnumValue("VATStatusChangePending")
     VAT_STATUS_CHANGE_PENDING("VATStatusChangePending"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a VAT status change to the seller's account is approved.
+     * 					
+     * 
+     */
     @XmlEnumValue("VATStatusChangeApproved")
     VAT_STATUS_CHANGE_APPROVED("VATStatusChangeApproved"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a VAT status change to the seller's account was denied.
+     * 					
+     * 
+     */
     @XmlEnumValue("VATStatusChange_Denied")
     VAT_STATUS_CHANGE_DENIED("VATStatusChange_Denied"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a VAT status change to the seller's account was cancelled by an eBay customer support representative.
+     * 					
+     * 
+     */
     @XmlEnumValue("VATStatusDeletedByCSR")
     VAT_STATUS_DELETED_BY_CSR("VATStatusDeletedByCSR"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that a VAT status change to the seller's account was cancelled by the user.
+     * 					
+     * 
+     */
     @XmlEnumValue("VATStatusDeletedByUser")
     VAT_STATUS_DELETED_BY_USER("VATStatusDeletedByUser"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a fee for the seller using a Listing Designer theme and layout template through the Selling Manager Pro UI, or through a Selling Manager Pro API call.
+     * 					
+     * 
+     */
     @XmlEnumValue("SMProListingDesignerFee")
     SM_PRO_LISTING_DESIGNER_FEE("SMProListingDesignerFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller for a fee that was charged to the seller for using a Listing Designer theme and layout template through the Selling Manager Pro UI, or through a Selling Manager Pro API call.
+     * 					
+     * 
+     */
     @XmlEnumValue("SMProListingDesignerCredit")
     SM_PRO_LISTING_DESIGNER_CREDIT("SMProListingDesignerCredit"),
 
     /**
      * 
-     * 					Used for Store Inventory listings, which are no longer supported on any eBay site.
+     * 						This enumeration value is no longer applicable as <code>StoresFixedPrice</code> is no longer a valid listing type.
      * 					
      * 
      */
@@ -1680,21 +2075,25 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit for a StoresSuccessfulListingFee.
+     * 						This enumeration value is no longer applicable as <code>StoresFixedPrice</code> is no longer a valid listing type.
      * 					
      * 
      */
     @XmlEnumValue("StoresSuccessfulListingFeeCredit")
     STORES_SUCCESSFUL_LISTING_FEE_CREDIT("StoresSuccessfulListingFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable as there is no longer a referral fee charged to sellers when buyers are routed to their store through printed materials or emails.
+     * 					
+     * 
+     */
     @XmlEnumValue("StoresReferralFee")
     STORES_REFERRAL_FEE("StoresReferralFee"),
 
     /**
      * 
-     * 					A credit posted to a seller's account
-     * 					for sale of Stores Inventory items by buyers
-     * 					referred to the seller's Store by printed materials
-     * 					and emails outside eBay.
+     * 						This enumeration value is no longer applicable as there is no longer a referral fee charged to sellers when buyers are routed to their store through printed materials or emails.
      * 					
      * 
      */
@@ -1703,9 +2102,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged for adding a subtitle
-     * 					to a listing. The subtitle adds information
-     * 					to the title.
+     * 						This enumeration value indicates the account entry is a fee charged to the seller for adding a subtitle to a listing. Subtitles allow sellers to provide more keywords and/or descriptive information, and may increase buyers' interest.
      * 					
      * 
      */
@@ -1714,23 +2111,43 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit of the fee charged for adding a
-     * 					subtitle to a listing.
+     * 						This enumeration value indicates the account entry is a credit issued from eBay to compensate the seller for a subtitle fee charged to their account.
      * 					
      * 
      */
     @XmlEnumValue("SubtitleFeeCredit")
     SUBTITLE_FEE_CREDIT("SubtitleFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable as <code>StoresFixedPrice</code> is no longer a valid listing type.
+     * 					
+     * 
+     */
     @XmlEnumValue("eBayStoreInventorySubscriptionCredit")
     E_BAY_STORE_INVENTORY_SUBSCRIPTION_CREDIT("eBayStoreInventorySubscriptionCredit"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable.
+     * 					
+     * 
+     */
     @XmlEnumValue("AutoPmntReqExempt")
     AUTO_PMNT_REQ_EXEMPT("AutoPmntReqExempt"),
+
+    /**
+     * 
+     * 						This enumeration value is no longer applicable.
+     * 					
+     * 
+     */
     @XmlEnumValue("AutoPmntReqRein")
     AUTO_PMNT_REQ_REIN("AutoPmntReqRein"),
 
     /**
      * 
-     * 					This value is deprecated.
+     * 						This enumeration value is no longer applicable as the Picture Manager feature is no longer available.
      * 					
      * 
      */
@@ -1739,7 +2156,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					This value is deprecated.
+     * 						This enumeration value is no longer applicable as the Picture Manager feature is no longer available.
      * 					
      * 
      */
@@ -1748,7 +2165,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for a basic subscription to Seller Reports.
+     * 						This enumeration value is no longer applicable as the Seller Reports feature is no longer available.
      * 					
      * 
      */
@@ -1757,7 +2174,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for a basic subscription to Seller Reports.
+     * 						This enumeration value is no longer applicable as the Seller Reports feature is no longer available.
      * 					
      * 
      */
@@ -1766,7 +2183,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for a subscription to Seller Reports Plus.
+     * 						This enumeration value is no longer applicable as the Seller Reports feature is no longer available.
      * 					
      * 
      */
@@ -1775,22 +2192,43 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for a subscription to Seller Reports Plus.
+     * 						This enumeration value is no longer applicable as the Seller Reports feature is no longer available.
      * 					
      * 
      */
     @XmlEnumValue("SellerReportsPlusCredit")
     SELLER_REPORTS_PLUS_CREDIT("SellerReportsPlusCredit"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that the user's PayPal account information is linked with their eBay account.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaypalOnFile")
     PAYPAL_ON_FILE("PaypalOnFile"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that the user's PayPal account information was linked with their eBay account by an eBay customer support represenative.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaypalOnFileByCSR")
     PAYPAL_ON_FILE_BY_CSR("PaypalOnFileByCSR"),
+
+    /**
+     * 
+     * 						This enumeration value acts as a note to indicate that the user's PayPal account information is not linked with their eBay account.
+     * 					
+     * 
+     */
     @XmlEnumValue("PaypalOffFile")
     PAYPAL_OFF_FILE("PaypalOffFile"),
 
     /**
      * 
-     * 					The fee for adding a border that outlines a listing with a frame.
+     * 					 This enumeration value is no longer applicable as borders around listing photos are no longer supported on any eBay marketplace.
      * 					
      * 
      */
@@ -1799,7 +2237,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit for the border fee charged for a listing.
+     * 						This enumeration value is no longer applicable as borders around listing photos are no longer supported on any eBay marketplace.
      * 					
      * 
      */
@@ -1808,10 +2246,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged to a seller for upgrading
-     * 					a listing from eBay Germany's Car, Motorcycle,
-     * 					and Special Vehicle categories so that it is also
-     * 					searchable on the mobile.de classifieds site.
+     * 						This enumeration value is no longer applicable since placing eBay Germany motor vehicle listings on the mobile.de site is no longer supported.
      * 					
      * 
      */
@@ -1820,8 +2255,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A monthly subscription fee charged for
-     * 					Sales Reports Plus.
+     * 						This enumeration value indicates the account entry is a monthly subscription fee charged for Sales Reports Plus.
      * 					
      * 
      */
@@ -1830,8 +2264,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for a Sales Reports Plus
-     * 					monthly subscription fee.
+     * 						This enumeration value indicates the account entry is a credit to the seller applied towards the monthly subscription fee charged for Sales Reports Plus.
      * 					
      * 
      */
@@ -1840,8 +2273,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for upgrading a listing
-     * 					to make it searchable on the mobile.de platform.
+     * 						This enumeration value is no longer applicable since placing eBay Germany motor vehicle listings on the mobile.de site is no longer supported.
      * 					
      * 
      */
@@ -1850,12 +2282,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged to owners of eBay Stores
-     * 					who have a sent a marketing email to buyers,
-     * 					for the number of email recipients over
-     * 					the Store's monthly free allocation. The
-     * 					monthly allocation varies according to the type
-     * 					of Store.
+     * 						This enumeration value is no longer applicable since this eBay Stores marketing feature is no longer supported.
      * 					
      * 
      */
@@ -1864,7 +2291,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for an email marketing fee.
+     * 						This enumeration value is no longer applicable since this eBay Stores marketing feature is no longer supported.
      * 					
      * 
      */
@@ -1873,10 +2300,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for the Picture Show
-     * 					service, which lets buyers browse or see a slide
-     * 					show of 2 or more pictures at the top of the
-     * 					item page.
+     * 						This enumeration value is no longer applicable since the picture slide show feature is no longer available.
      * 					
      * 
      */
@@ -1885,7 +2309,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted for a Picture Show fee.
+     * 						This enumeration value is no longer applicable since the picture slide show feature is no longer available.
      * 					
      * 
      */
@@ -1894,7 +2318,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged for the ProPackBundle feature pack (currently available to US and Canada eBay motor vehicle sellers).
+     * 						This enumeration value indicates the account entry is a fee charged to the seller for using the Pro Pack Bundle feature pack (currently available to US and Canada eBay motor vehicle sellers).
      * 					
      * 
      */
@@ -1903,7 +2327,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted by eBay for the ProPackBundle feature pack (currently available to US and Canada eBay motor vehicle sellers).
+     * 						This enumeration value indicates the account entry is a credit towards the fee charged to the seller for using the Pro Pack Bundle feature pack (currently available to US and Canada eBay motor vehicle sellers).
      * 					
      * 
      */
@@ -1912,9 +2336,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for the BasicUpgradePackBundle feature pack.
-     * 					No longer applicable to any sites (but formerly applicable to the
-     * 					Australia site, site ID 15).
+     * 						This enumeration value is no longer applicable since this bundle pack is no longer available on any eBay marketplaces.
      * 					
      * 
      */
@@ -1923,9 +2345,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted by eBay for the BasicUpgradePackBundle feature pack.
-     * 					No longer applicable to any sites (but formerly applicable to the
-     * 					Australia site, site ID 15).
+     * 						This enumeration value is no longer applicable since this bundle pack is no longer available on any eBay marketplaces.
      * 					
      * 
      */
@@ -1934,7 +2354,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for the ValuePackBundle feature pack.
+     * 						This enumeration value indicates the account entry is a fee charged by eBay to the seller for using the Value Pack Bundle feature pack.
      * 					
      * 
      */
@@ -1943,7 +2363,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted by eBay for the ValuePackBundle feature pack.
+     * 						This enumeration value indicates the account entry is a credit towards the fee charged to the seller for using the Value Pack Bundle feature pack.
      * 					
      * 
      */
@@ -1952,7 +2372,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged by eBay for the ProPackPlusBundle feature pack.
+     * 						This enumeration value indicates the account entry is a fee charged by eBay to the seller for using the Pro Pack Plus Bundle feature pack.
      * 					
      * 
      */
@@ -1961,7 +2381,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit granted by eBay for the ProPackPlusBundle feature pack.
+     * 						This enumeration value indicates the account entry is a credit towards the fee charged by eBay to the seller for using the Pro Pack Plus Bundle feature pack.
      * 					
      * 
      */
@@ -1970,8 +2390,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The final entry in an account before it is closed
-     * 					or merged with another account.
+     * 						This enumeration value indicates the account entry is the final entry in a user's account before it is closed or merged with another account.
      * 					
      * 
      */
@@ -1980,7 +2399,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					Reserved for future use.
+     * 						This enumeration value is Reserved for future use.
      * 					
      * 
      */
@@ -1989,7 +2408,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						A fee charged for extended listing duration.
+     * 						This enumeration value indicates that the account entry is a fee charged to the seller for using an extended listing duration.
      * 					
      * 
      */
@@ -1998,7 +2417,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						A credit granted by eBay for extended listing duration.
+     * 						This enumeration value indicates that the account entry is a credit towards a fee charged to the seller for using an extended listing duration.
      * 					
      * 
      */
@@ -2007,7 +2426,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  The fee for an international listing.
+     * 					  This enumeration value indicates that the account entry is a 'cross-border trade' fee, where the seller pays an additional listing fee to have his/her listing surface in the search on another eBay marketplace.
      * 					
      * 
      */
@@ -2016,7 +2435,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A credit issued by eBay for an international listing.
+     * 					  This enumeration value indicates that the account entry is a credit towards a 'cross-border trade' fee, where the seller pays an additional listing fee to have his/her listing surface in the search on another eBay marketplace.
      * 					
      * 
      */
@@ -2025,7 +2444,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research fee for expired subscriptions.
+     * 					  This enumeration value indicates that the account entry is a fee for an expired Terapeak Research subscription.
      * 					
      * 
      */
@@ -2034,7 +2453,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research credit for expired subscriptions.
+     * 					  This enumeration value indicates that the account entry is a credit towards a fee for an expired Terapeak Research subscription.
      * 					
      * 
      */
@@ -2043,7 +2462,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research basic subscription fee.
+     * 					  This enumeration value indicates that the account entry is a fee for a Terapeak Research basic subscription.
      * 					
      * 
      */
@@ -2052,7 +2471,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research basic subscription credit.
+     * 					  This enumeration value indicates that the account entry is a credit towards a  fee for a Terapeak Research basic subscription.
      * 					
      * 
      */
@@ -2061,7 +2480,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research pro subscription fee.
+     * 					 This enumeration value indicates that the account entry is a fee for a Terapeak Research pro subscription.
      * 					
      * 
      */
@@ -2070,7 +2489,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  Basic bundle fee.
+     * 					  This enumeration value is no longer applicable since a basic bundle pack is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -2079,7 +2498,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  Basic bundle fee credit.
+     * 					  This enumeration value is no longer applicable since a basic bundle pack is no longer available on any eBay marketplace.
      * 					
      * 
      */
@@ -2088,7 +2507,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A MarketPlace Research pro subscription fee credit.
+     * 					  This enumeration value indicates that the account entry is a credit towards a  fee for a Terapeak Research pro subscription.
      * 					
      * 
      */
@@ -2097,7 +2516,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local subscription fee.
+     * 					  This enumeration value is no longer applicable as there are no longer any subscription fees to sell motor vehicles through Motors local listings.
      * 					
      * 
      */
@@ -2106,7 +2525,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local subscription fee credit.
+     * 					  This enumeration value is no longer applicable as there are no longer any subscription fees to sell motor vehicles through Motors local listings.
      * 					
      * 
      */
@@ -2115,7 +2534,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local insertion fee.
+     * 					  This enumeration value indicates that the account entry is an insertion fee for a Motors local listing.
      * 					
      * 
      */
@@ -2124,7 +2543,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local insertion fee credit.
+     * 					  This enumeration value indicates that the account entry is a credit towards an insertion fee for a Motors local listing.
      * 					
      * 
      */
@@ -2133,7 +2552,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local final value fee.
+     * 					  This enumeration value indicates that the account entry is a final value fee for the sale of a motor vehicle through a Motors local listing.
      * 					
      * 
      */
@@ -2142,7 +2561,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local final value fee credit.
+     * 					  This enumeration value indicates that the account entry is credit towards a final value fee for the sale of a motor vehicle through a Motors local listing.
      * 					
      * 
      */
@@ -2151,7 +2570,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local GTC fee.
+     * 					  This enumeration value indicates that the account entry is a 30-day duration listing fee for a Motors local listing.
      * 					
      * 
      */
@@ -2160,7 +2579,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A Vehicle Local GTC fee credit issued by eBay.
+     * 					   This enumeration value indicates that the account entry is a credit towards a 30-day duration listing fee for a Motors local listing.
      * 					
      * 
      */
@@ -2169,8 +2588,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Motors Pro fee. Applies to eBay Motors Pro registered dealer
-     * 						applications only.
+     * 						This enumeration value indicates that the account entry is an eBay Motors Pro fee. Applies to eBay Motors Pro registered dealers only.
      * 					
      * 
      */
@@ -2179,8 +2597,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Motors Pro fee credit. Applies to eBay Motors Pro registered
-     * 						dealer applications only.
+     * 						This enumeration value indicates that the account entry is a credit towards an eBay Motors Pro fee. Applies to eBay Motors Pro registered dealers only.
      * 					
      * 
      */
@@ -2189,8 +2606,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Motors Pro feature fee. Applies to eBay Motors Pro registered
-     * 						dealer applications only.
+     * 						This enumeration value indicates that the account entry is an eBay Motors Pro fee for a Feature pack. Applies to eBay Motors Pro registered dealers only.
      * 					
      * 
      */
@@ -2199,8 +2615,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Motors Pro feature fee credit. Applies to eBay Motors Pro
-     * 						registered dealer applications only.
+     * 						This enumeration value indicates that the account entry is a credit towards an eBay Motors Pro fee for a Feature pack. Applies to eBay Motors Pro registered dealers only.
      * 					
      * 
      */
@@ -2209,12 +2624,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						A fee charged by eBay for listing an item with the
-     * 						Gallery Plus feature enabled. This feature cannot be removed
-     * 						with ReviseItem or RelistItem. However, if the feature is
-     * 						upgraded, for example, to Gallery Featured, the fee for
-     * 						Gallery Plus is refunded and a fee for Gallery Feature is
-     * 						charged instead.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay for listing an item with the Gallery Plus feature.
      * 					
      * 
      */
@@ -2223,25 +2633,34 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						A credit issued by eBay when refunding the fee for
-     * 						enabling the Gallery Plus feature. A Gallery Plus credit may
-     * 						be issued if, for example, a user upgrades their feature
-     * 						with ReviseItem or RelistItem to Gallery Featured. In this
-     * 						case, the original Gallery Plus fee is refunded and a
-     * 						Gallery Featured fee is charged instead.
+     * 						This enumeration value indicates that the account entry is a credit towards a fee charged by eBay for listing an item with the Gallery Plus feature.
      * 					
      * 
      */
     @XmlEnumValue("CreditGalleryPlus")
     CREDIT_GALLERY_PLUS("CreditGalleryPlus"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a fee for a private listing. With a private listing, bidders/buyers remain anonymous to other eBay users (besides the seller).
+     * 					
+     * 
+     */
     @XmlEnumValue("PrivateListing")
     PRIVATE_LISTING("PrivateListing"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that the account entry is a fee for a private listing. With a private listing, bidders/buyers remain anonymous to other eBay users (besides the seller).
+     * 					
+     * 
+     */
     @XmlEnumValue("CreditPrivateListing")
     CREDIT_PRIVATE_LISTING("CreditPrivateListing"),
 
     /**
      * 
-     * 						ImmoPro Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2250,7 +2669,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						Credit from eBay for a ImmoPro Fee.
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2259,7 +2678,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						ImmoPro Feature Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2268,7 +2687,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						Credit eBay ImmoPro Feature Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2277,7 +2696,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Real Estate Pro Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2286,7 +2705,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						Credit eBay Real Estate Pro Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2295,7 +2714,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						eBay Real Estate Pro Feature Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2304,7 +2723,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						Credit eBay Real Estate Pro Feature Fee
+     * 						This enumeration value is no longer applicable, and should not be returned.
      * 					
      * 
      */
@@ -2313,11 +2732,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						PowerSeller, PowerSeller shipping, Top-rated seller,
-     * 						eBay Stores subscription, or other subscription discount against the
-     * 						final value fee, insertion fee, subscription fee, late payment fee,
-     * 						or other fee. See AccountEntry.Title for an explanation of the
-     * 						discount and the percentage that was applied.
+     * 						This enumeration value indicates that the account entry is a seller discount against a final value fee, an insertion fee, a subscription fee, or other fee. See the corresponding <b>Description</b> and/or <b>Memo</b> fields for more information on the type of discount.
      * 					
      * 
      */
@@ -2326,8 +2741,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					
-     * 					Reserved for future use.
+     * 						 This enumeration value indicates that the account entry is a credit towards a  final value fee for the shipping cost of an order. This fee is charged when a listed item sells, and is a percentage of the shipping cost. The final value fee associated with the final sale price is returned in a <b>FeeFinalValue</b> entry.
      * 					
      * 
      */
@@ -2336,8 +2750,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 
-     * 					 Reserved for future use.
+     * 					 This enumeration value indicates that the account entry is a final value fee for the shipping cost of an order. This fee is charged when a listed item sells, and is a percentage of the shipping cost. The final value fee associated with the final sale price is returned in a <b>FeeFinalValue</b> entry.
      * 					
      * 
      */
@@ -2346,7 +2759,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged for Return Shipping.
+     * 						This enumeration value indicates that the account entry is a return shipping fee if an item is returned by the buyer.
      * 					
      * 
      */
@@ -2355,9 +2768,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay against a Return Shipping charge.
-     * 					Issued as a result of an Unpaid Item dispute, under
-     * 					some circumstances.
+     * 						This enumeration value indicates that the account entry is a credit toward a return shipping fee if an item is returned by the buyer.
      * 					
      * 
      */
@@ -2366,7 +2777,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged by eBay for the Global Shipping Program.
+     * 						This enumeration value indicates that the account entry is a fee charged by eBay if the seller is using the Global Shipping Program to ship an item internationally.
      * 					
      * 
      */
@@ -2375,7 +2786,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					Credit issued by eBay for charged Global Shipping Program Fee
+     * 						This enumeration value indicates that the account entry is a credit towards a fee charged by eBay if the seller is using the Global Shipping Program to ship an item internationally.
      * 					
      * 
      */
@@ -2384,8 +2795,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A fee charged to the seller's account if the seller ends an auction (with bids)
-     * 					early.
+     * 						This enumeration value indicates that the account entry is a fee charged to the seller's account if the seller ends an auction (with bids) early.
      * 					
      * 
      */
@@ -2394,9 +2804,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay to the seller's account if a duplicate auction
-     * 					listing is ended administratively by eBay. A seller is only eligible for this
-     * 					credit if the auction listing had zero bids and was never surfaced in Search.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to the seller's account if a duplicate auction listing is ended administratively by eBay. A seller is only eligible for this credit if the auction listing had zero bids and was never surfaced in Search.
      * 					
      * 
      */
@@ -2405,8 +2813,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					The fee charged to the seller for printing out and using a FedEx shipping
-     * 					label from eBay.
+     * 						This enumeration value indicates that the account entry is a fee charged to the seller for printing out and using a FedEx shipping label from eBay.
      * 					
      * 
      */
@@ -2415,9 +2822,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					A credit issued by eBay to reimburse the seller for a FedEx shipping label. In
-     * 					some cases, this credit may be issued to the seller as a result of an Unpaid Item
-     * 					case that the seller has won against a buyer.
+     * 						This enumeration value indicates that the account entry is a credit issued by eBay to reimburse the seller for a FedEx shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
      * 					
      * 
      */
@@ -2426,12 +2831,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						This fee is charged to the seller's account if eBay is forced to refund the buyer
-     * 						in a case where the buyer has used the eBay US Managed Returns process and return
-     * 						shipped the item to the seller, but the seller has not issued a refund to the buyer
-     * 						within seven business days after receiving the returned item.
-     * 						<br/><br/>
-     * 						This value is equal to the refund ("CreditReturnRefund") issued to the buyer.
+     * 						This enumeration value indicates that the account entry is a fee charged to the seller's account if eBay is forced to refund the buyer in a case where the buyer has used the eBay US Managed Returns process and return shipped the item to the seller, but the seller has not issued a refund to the buyer within seven business days after receiving the returned item. <br/><br/> This value is equal to the refund ("CreditReturnRefund") issued to the buyer.
      * 					
      * 
      */
@@ -2440,15 +2840,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 						A credit issued to the buyer's account by eBay in a case where the buyer has used the eBay US
-     * 						Managed Returns process and return shipped the item to the seller, but the seller
-     * 						has not issued a refund to the buyer within seven business days after receiving the
-     * 						returned item. The buyer credit amounts to the total purchase price (plus any
-     * 						shipping costs if the item was "not as described") minus the seller's restocking
-     * 						fee if one was specified under the return policy of the listing.
-     * 						<br/><br/>
-     * 						eBay then charges this expense to the seller's account, and this charge is
-     * 						attached to the "FeeReturnRefund" value.
+     * 						This enumeration value indicates that the account entry is a credit issued to the buyer's account by eBay in a case where the buyer has used the eBay US Managed Returns process and return shipped the item to the seller, but the seller has not issued a refund to the buyer within seven business days after receiving the returned item. The buyer credit amounts to the total purchase price plus any shipping costs if the item was "not as described". <br/><br/> eBay then charges this expense to the seller's account, and this charge is attached to the "FeeReturnRefund" value.
      * 					
      * 
      */
@@ -2457,7 +2849,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged for early termination of an eBay Stores subscription.
+     * 					 This enumeration value indicates that the account entry is a fee charged for early termination of an eBay Stores subscription.
      * 					
      * 
      */
@@ -2466,7 +2858,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay for early termination of an eBay Stores subscription.
+     * 					 This enumeration value indicates that the account entry is a credit toward a fee charged for early termination of an eBay Stores subscription.
      * 					
      * 
      */
@@ -2475,7 +2867,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged for early termination of a National Vehicle subscription.
+     * 					 This enumeration value indicates that the account entry is a fee charged for early termination of a National Vehicle subscription.
      * 					
      * 
      */
@@ -2484,7 +2876,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay for early termination of a National Vehicle subscription.
+     * 					  This enumeration value indicates that the account entry is a credit toward a fee charged for early termination of a National Vehicle subscription.
      * 					
      * 
      */
@@ -2493,7 +2885,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A monthly subscription fee charged for a National Vehicle subscription.
+     * 					  This enumeration value indicates that the account entry is a monthly subscription fee charged for a National Vehicle subscription.
      * 					
      * 
      */
@@ -2502,7 +2894,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					  A credit issued by eBay for the monthly fee charged for a National Vehicle subscription.
+     * 					  This enumeration value indicates that the account entry is a credit toward a monthly subscription fee charged for a National Vehicle subscription.
      * 					
      * 
      */
@@ -2511,7 +2903,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged to the seller for printing out and using an AU Post shipping label from eBay.
+     * 					 This enumeration value indicates that the account entry is a fee charged to the seller for printing out and using an Australia Post shipping label from eBay.
      * 					
      * 
      */
@@ -2520,7 +2912,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay to reimburse the seller for an AU Post shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
+     * 					 This enumeration value indicates that the account entry is a credit toward a fee charged to the seller for printing out and using an Australia Post shipping label from eBay. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
      * 					
      * 
      */
@@ -2529,7 +2921,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged to the seller for printing out and using an APAC FedEx shipping label from eBay.
+     * 					 This enumeration value indicates that the account entry is a fee charged to the seller for printing out and using an FedEx shipping label from eBay in the Asia-Pacific geographical region.
      * 					
      * 
      */
@@ -2538,7 +2930,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay to reimburse the seller for an APAC FedEx shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
+     * 					  This enumeration value indicates that the account entry is a credit toward a fee charged to the seller for printing out and using an FedEx shipping label from eBay in the Asia-Pacific geographical region. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
      * 					
      * 
      */
@@ -2547,7 +2939,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged to the seller for printing out and using an APAC TNT shipping label from eBay.
+     * 					  This enumeration value indicates that the account entry is a fee charged to the seller for printing out and using an Track & Trace (TNT) shipping label from eBay in the Asia-Pacific geographical region.
      * 					
      * 
      */
@@ -2556,7 +2948,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay to reimburse the seller for an APAC TNT shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
+     * 					 This enumeration value indicates that the account entry is a credit toward a fee charged to the seller for printing out and using an Track & Trace (TNT) shipping label from eBay in the Asia-Pacific geographical region.In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
      * 					
      * 
      */
@@ -2565,7 +2957,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged for eBay Money Back Guarantee reimbursement.
+     * 					 This enumeration value indicates that the account entry is a fee charged for eBay Money Back Guarantee reimbursement.
      * 					
      * 
      */
@@ -2574,7 +2966,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay for eBay Money Back Guarantee reimbursement.
+     * 					 This enumeration value indicates that the account entry is a credit toward a fee charged for eBay Money Back Guarantee reimbursement.
      * 					
      * 
      */
@@ -2601,7 +2993,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged for Ad on eBay. This Ad fee is charged only for sellers who sign up to create Promoted Listings campaigns. When sellers advertise their listings the listings are displayed on the search results pages based on buyer search query. When a buyer clicks on an ad and then goes on to purchase that same item within 30 days of click, the seller is charged an Ad fee. The Ad fee that is charged is at the rate set by seller themselves. They choose the bid percentage for each item listing.
+     * 					  This enumeration value indicates that the account entry is a fee charged for an Ad on eBay. This Ad fee is charged only for sellers who sign up to create Promoted Listings campaigns. When sellers advertise their listings, the listings are displayed on the search results pages based on buyer search query. When a buyer clicks on an ad and then goes on to purchase that same item within 30 days of click, the seller is charged an Ad fee. The Ad fee that is charged is at the rate set by seller themselves. They choose the bid percentage for each item listing.
      * 					
      * 
      */
@@ -2610,7 +3002,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay for an Ad charge.
+     * 					 This enumeration value indicates that the account entry is a credit issued by eBay for an Ad charge.
      * 					
      * 
      */
@@ -2619,7 +3011,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 The fee charged to the seller for printing out and using a Universal Business Integration (UBI) shipping label from eBay.
+     * 					 This enumeration value indicates that the account entry is a fee charged to the seller for printing out and using a Universal Business Integration (UBI) shipping label from eBay.
      * 					
      * 
      */
@@ -2628,7 +3020,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued by eBay to reimburse the seller for a Universal Business Integration (UBI) shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
+     * 					 This enumeration value indicates that the account entry is a credit issued by eBay to reimburse the seller for a Universal Business Integration (UBI) shipping label. In some cases, this credit may be issued to the seller as a result of an Unpaid Item case that the seller has won against a buyer.
      * 					
      * 
      */
@@ -2637,7 +3029,7 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 Annual subscription fee charged for eBay Plus subscription
+     * 					 This enumeration value indicates that the account entry is an annual subscription fee charged for an eBay Plus subscription.
      * 					
      * 
      */
@@ -2646,12 +3038,369 @@ public enum AccountDetailEntryCodeType {
 
     /**
      * 
-     * 					 A credit issued for eBay Plus subscription
+     * 					 This enumeration value indicates that the account entry is a credit toward an annual subscription fee charged for an eBay Plus subscription.
      * 					
      * 
      */
     @XmlEnumValue("CrediteBayPlusSubscription")
-    CREDITE_BAY_PLUS_SUBSCRIPTION("CrediteBayPlusSubscription");
+    CREDITE_BAY_PLUS_SUBSCRIPTION("CrediteBayPlusSubscription"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the charge is an eBay payment intermediation fee. This fee is only applicable for sellers in the eBay Managed Payments program, currently only available to a select number of sellers on the US site.
+     * 					
+     * 
+     */
+    @XmlEnumValue("PaymentIntermediationFee")
+    PAYMENT_INTERMEDIATION_FEE("PaymentIntermediationFee"),
+
+    /**
+     * 
+     * 						(out) Payment Intermediation Fee Credit
+     * 					
+     * 
+     */
+    @XmlEnumValue("PaymentIntermediationFeeCredit")
+    PAYMENT_INTERMEDIATION_FEE_CREDIT("PaymentIntermediationFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is an eBay payment intermediation fee. This fee is only applicable for sellers in the eBay Managed Payments program, currently only available to a select number of sellers on the US site.
+     * 					
+     * 
+     */
+    @XmlEnumValue("FeePaymentIntermediationRVI")
+    FEE_PAYMENT_INTERMEDIATION_RVI("FeePaymentIntermediationRVI"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the credit is a seller reimbursement for an eBay payment intermediation fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("FeePaymentIntermediationChargeback")
+    FEE_PAYMENT_INTERMEDIATION_CHARGEBACK("FeePaymentIntermediationChargeback"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice credit is a seller reimbursement for an eBay payment intermediation fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("FeePaymentIntermediationChargebackRVI")
+    FEE_PAYMENT_INTERMEDIATION_CHARGEBACK_RVI("FeePaymentIntermediationChargebackRVI"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is a Final Value Fee (for item cost) charged to the seller's account after a buyer creates and wins a 'significantly not as described' (SNAD) case against the seller.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SnadOutlierFinalValueFee")
+    SNAD_OUTLIER_FINAL_VALUE_FEE("SnadOutlierFinalValueFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is a Final Value Fee (for shipping cost) charged to the seller's account after a buyer creates and wins a 'significantly not as described' (SNAD) case against the seller.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SnadOutlierFinalValueFeeOnShipping")
+    SNAD_OUTLIER_FINAL_VALUE_FEE_ON_SHIPPING("SnadOutlierFinalValueFeeOnShipping"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a 'Highline Search' fee, which is a capability that allows sellers to advertise multiple products at the same time, with ads appearing prominently on top of eBay's search results.
+     * 					
+     * 
+     */
+    @XmlEnumValue("HighlineSearchFee")
+    HIGHLINE_SEARCH_FEE("HighlineSearchFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice credit is for a 'Highline Search' fee that was charged to the seller's account. The 'Highline Search' capability allows sellers to advertise multiple products at the same time, with ads appearing prominently on top of eBay's search results.
+     * 					
+     * 
+     */
+    @XmlEnumValue("HighlineSearchFeeCredit")
+    HIGHLINE_SEARCH_FEE_CREDIT("HighlineSearchFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice credit is for a Final Value Fee (for item cost) that was charged to the seller's account after a buyer created a 'significantly not as described' (SNAD) case against the seller, but the seller won the dispute.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SnadOutlierFinalValueFeeCredit")
+    SNAD_OUTLIER_FINAL_VALUE_FEE_CREDIT("SnadOutlierFinalValueFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice credit is for a Final Value Fee (for shipping cost) that was charged to the seller's account after a buyer created a 'significantly not as described' (SNAD) case against the seller, but the seller won the dispute.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SnadOutlierFinalValueFeeOnShippingCredit")
+    SNAD_OUTLIER_FINAL_VALUE_FEE_ON_SHIPPING_CREDIT("SnadOutlierFinalValueFeeOnShippingCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Premium Ad Fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("AdFeePremium")
+    AD_FEE_PREMIUM("AdFeePremium"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Premium Ad Fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("AdFeePremiumCredit")
+    AD_FEE_PREMIUM_CREDIT("AdFeePremiumCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Per Listing Payments fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("PerListingPaymentsFee")
+    PER_LISTING_PAYMENTS_FEE("PerListingPaymentsFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Per Listing Payments Fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("PerListingPaymentsFeeCredit")
+    PER_LISTING_PAYMENTS_FEE_CREDIT("PerListingPaymentsFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Vehicles Listing Basic Package fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingBasicPackageFee")
+    VEHICLES_LISTING_BASIC_PACKAGE_FEE("VehiclesListingBasicPackageFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Vehicles Listing Basic Package fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingBasicPackageCredit")
+    VEHICLES_LISTING_BASIC_PACKAGE_CREDIT("VehiclesListingBasicPackageCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Vehicles Listing Plus Package fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingPlusPackageFee")
+    VEHICLES_LISTING_PLUS_PACKAGE_FEE("VehiclesListingPlusPackageFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Vehicles Listing Plus Package fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingPlusPackageCredit")
+    VEHICLES_LISTING_PLUS_PACKAGE_CREDIT("VehiclesListingPlusPackageCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Vehicles Listing Premium Package fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingPremiumPackageFee")
+    VEHICLES_LISTING_PREMIUM_PACKAGE_FEE("VehiclesListingPremiumPackageFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Vehicles Listing Premium Package fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("VehiclesListingPremiumPackageCredit")
+    VEHICLES_LISTING_PREMIUM_PACKAGE_CREDIT("VehiclesListingPremiumPackageCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Send Label fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SendLabelFee")
+    SEND_LABEL_FEE("SendLabelFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Send Label fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("SendLabelFeeCredit")
+    SEND_LABEL_FEE_CREDIT("SendLabelFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a UPS Label fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("UpsLabelFee")
+    UPS_LABEL_FEE("UpsLabelFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a UPS Label fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("UpsLabelFeeCredit")
+    UPS_LABEL_FEE_CREDIT("UpsLabelFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for a Canada Post Label fee.
+     * 					
+     * 
+     */
+    @XmlEnumValue("CanadaPostLabelFee")
+    CANADA_POST_LABEL_FEE("CanadaPostLabelFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for a Canada Post Label fee charge.
+     * 					
+     * 
+     */
+    @XmlEnumValue("CanadaPostLabelFeeCredit")
+    CANADA_POST_LABEL_FEE_CREDIT("CanadaPostLabelFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates the invoice charge is for eBay having to resend/regenerate a shipping label for a seller. Sellers typically have 24 hours to reprint a shipping label 24 hours after the purchase of the shipping label. If a seller tries to reprint a purchased shipping label after this time, a small fee may apply.
+     * 					
+     * 
+     */
+    @XmlEnumValue("EbaySendLabelFee")
+    EBAY_SEND_LABEL_FEE("EbaySendLabelFee"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that a credit was issued for the fee charged by eBay to resend/regenerate a shipping label for the seller.
+     * 					
+     * 
+     */
+    @XmlEnumValue("EbaySendLabelFeeCredit")
+    EBAY_SEND_LABEL_FEE_CREDIT("EbaySendLabelFeeCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has pulled out the 'Collect and Remit' sales tax amount that was originally deposited to the seller's account. This enumeration value is only applicable to US sellers not opted in to eBay managed payments, and for orders that are subject to eBay 'Collect and Remit' sales tax. See the corresponding <b>OrderId</b> value to determine which eBay order this sales tax pertains to.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							For US sellers not opted in to eBay managed payments, PayPal will now deposit the entire order amount, including the 'Collect and Remit' sales tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Collect and Remit' sales tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("USInternetSalesTax")
+    US_INTERNET_SALES_TAX("USInternetSalesTax"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has deposited the 'Collect and Remit' sales tax amount (for the order identified by the corresponding <b>OrderId</b> field) to the seller's account. This enumeration value is only applicable to US sellers not opted in to eBay managed payments, and for orders that are subject to eBay 'Collect and Remit' sales tax. This sales tax will actually get pulled from the seller's account shortly after the order funds clear, and the seller should then see a <b>USInternetSalesTax</b> account entry with a matching amount.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							For US sellers not opted in to eBay managed payments, PayPal will now deposit the entire order amount, including the 'Collect and Remit' sales tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Collect and Remit' sales tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("USInternetSalesTaxCredit")
+    US_INTERNET_SALES_TAX_CREDIT("USInternetSalesTaxCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has pulled out the 'Goods and Services' tax amount that was originally deposited to the seller's account. This enumeration value is only applicable to New Zealand sellers for orders that are subject to 'Goods and Services' tax. See the corresponding <b>OrderId</b> value to determine which eBay order this tax pertains to.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							PayPal will now deposit the entire order amount, including the 'Goods and Services' tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Goods and Services' tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("NewZealandGST")
+    NEW_ZEALAND_GST("NewZealandGST"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has deposited the 'Goods and Services' tax amount (for the order identified by the corresponding <b>OrderId</b> field) to the seller's account. This enumeration value is only applicable to New Zealand sellers for orders that are subject to 'Goods and Services' tax. This tax will actually get pulled from the seller's account shortly after the order funds clear, and the seller should then see a <b>NewZealandGST</b> account entry with a matching amount.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							PayPal will now deposit the entire order amount, including the 'Goods and Services' tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Goods and Services' tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("NewZealandGSTCredit")
+    NEW_ZEALAND_GST_CREDIT("NewZealandGSTCredit"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has pulled out the 'Goods and Services' tax amount that was originally deposited to the seller's account. This enumeration value is only applicable to Australian sellers for orders that are subject to 'Goods and Services' tax. See the corresponding <b>OrderId</b> value to determine which eBay order this tax pertains to.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							PayPal will now deposit the entire order amount, including the 'Goods and Services' tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Goods and Services' tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("AustraliaGST")
+    AUSTRALIA_GST("AustraliaGST"),
+
+    /**
+     * 
+     * 						This enumeration value indicates that PayPal has deposited the 'Goods and Services' tax amount (for the order identified by the corresponding <b>OrderId</b> field) to the seller's account. This enumeration value is only applicable to Australia sellers for orders that are subject to 'Goods and Services' tax. This tax will actually get pulled from the seller's account shortly after the order funds clear, and the seller should then see a <b>AustraliaGST</b> account entry with a matching amount.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 							PayPal will now deposit the entire order amount, including the 'Goods and Services' tax, into the seller's account, and once the order funds clear, this sales tax will be pulled from the seller's account and submitted to the proper tax authority. This change just went into effect on October 24, 2019. Previous to this date, PayPal pulled out the 'Goods and Services' tax before distributing order funds to the seller.
+     * 						</span>
+     * 					
+     * 
+     */
+    @XmlEnumValue("AustraliaGSTCredit")
+    AUSTRALIA_GST_CREDIT("AustraliaGSTCredit"),
+
+    /**
+     * 
+     * 						(out) Co-Funding Charge
+     * 					
+     * 
+     */
+    @XmlEnumValue("CoFundingCharge")
+    CO_FUNDING_CHARGE("CoFundingCharge"),
+
+    /**
+     * 
+     * 						(out) Co-Funding Charge Credit
+     * 					
+     * 
+     */
+    @XmlEnumValue("CoFundingChargeCredit")
+    CO_FUNDING_CHARGE_CREDIT("CoFundingChargeCredit");
     private final String value;
 
     AccountDetailEntryCodeType(String v) {

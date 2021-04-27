@@ -19,7 +19,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Output property:</B> <code>ReturnedAlert</code> - Container consisting of details related to a Selling Manager alert. Alert types include listing automation, inventory, PaisaPay (India only), item sold, and a general alert.
+ * <br> <B>Output property:</B> <code>ReturnedAlert</code> - Container consisting of details related to a Selling Manager alert. Alert types include listing automation, inventory, item sold, and a general alert.
  * 
  * @author Ron Murphy
  * @version 1.0

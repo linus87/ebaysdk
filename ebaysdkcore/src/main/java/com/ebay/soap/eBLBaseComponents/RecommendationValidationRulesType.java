@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type is used by the <b>ValidationRules</b> containers returned in the <b>GetCategorySpecifics</b> response, which contains some rules and limits for the recommended Item Specific name (specified in the <b>NameRecommendation.Name</b> field) and corresponding value(s) (specified in the <b>ValueRecommendation.Value</b> field). These rules and limits will apply when the recommended Item Specific is subsequently used in Add/Revise/Relist call.
+ * 				This type is used by the <b>ValidationRules</b> containers returned in the <b>GetCategorySpecifics</b> response, which contains some rules and limits for the recommended Item Specific name (specified in the <b>NameRecommendation.Name</b> field) and corresponding value(s) (specified in the <b>ValueRecommendation.Value</b> field). These rules and limits will apply when the recommended Item Specific is subsequently used in an Add/Revise/Relist call.
  * 			
  * 
  * <p>Java class for RecommendationValidationRulesType complex type.
@@ -33,6 +33,7 @@ import org.w3c.dom.Element;
  *         &lt;element name="AspectUsage" type="{urn:ebay:apis:eBLBaseComponents}AspectUsageCodeType" minOccurs="0"/>
  *         &lt;element name="MaxValueLength" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="ProductRequired" type="{urn:ebay:apis:eBLBaseComponents}ProductRequiredCodeType" minOccurs="0"/>
+ *         &lt;element name="UsageConstraint" type="{urn:ebay:apis:eBLBaseComponents}UsageConstraintCodeType" minOccurs="0"/>
  *         &lt;element name="Confidence" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="Relationship" type="{urn:ebay:apis:eBLBaseComponents}NameValueRelationshipType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="VariationPicture" type="{urn:ebay:apis:eBLBaseComponents}VariationPictureRuleCodeType" minOccurs="0"/>
@@ -56,6 +57,7 @@ import org.w3c.dom.Element;
     "aspectUsage",
     "maxValueLength",
     "productRequired",
+    "usageConstraint",
     "confidence",
     "relationship",
     "variationPicture",
@@ -82,6 +84,8 @@ public class RecommendationValidationRulesType
     protected Integer maxValueLength;
     @XmlElement(name = "ProductRequired")
     protected ProductRequiredCodeType productRequired;
+    @XmlElement(name = "UsageConstraint")
+    protected UsageConstraintCodeType usageConstraint;
     @XmlElement(name = "Confidence")
     protected Integer confidence;
     @XmlElement(name = "Relationship")
@@ -261,6 +265,30 @@ public class RecommendationValidationRulesType
      */
     public void setProductRequired(ProductRequiredCodeType value) {
         this.productRequired = value;
+    }
+
+    /**
+     * Gets the value of the usageConstraint property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link UsageConstraintCodeType }
+     *     
+     */
+    public UsageConstraintCodeType getUsageConstraint() {
+        return usageConstraint;
+    }
+
+    /**
+     * Sets the value of the usageConstraint property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link UsageConstraintCodeType }
+     *     
+     */
+    public void setUsageConstraint(UsageConstraintCodeType value) {
+        this.usageConstraint = value;
     }
 
     /**

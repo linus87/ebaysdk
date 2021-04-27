@@ -21,7 +21,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>Offer</code> - This container is used to specifies the type of offer being made for the listing specified in the <b>ItemID</b> field. The <b>Offer.Action</b> is used to set the action that is being taken on the listing.
+ * <br> <B>Input property:</B> <code>Offer</code> - This container specifies the type of offer being made for the listing specified in the <b>ItemID</b> field. The <b>Offer.Action</b> is used to set the action that is being taken on the listing.
  * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier that identifies the listing for which the action is being submitted.
  * <br><br>
  * For a multiple-variation listing, you must also identify the specific variation within that listing using the <b>VariationSpecifics</b> container.
@@ -46,9 +46,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br> <B>Output property:</B> <code>ReturnedBestOffer</code> - Container consisting of the status for a Best Offer. This container is
  * only returned if applicable based on the listing and the value set for
  * <b>Offer.Action</b> field in the request.
- * <br> <B>Output property:</B> <code>ReturnedOrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item and
- * is based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a
- * hyphen in between these two IDs. The <b>OrderLineItemID</b> field is only
+ * <br> <B>Output property:</B> <code>ReturnedOrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item. The <b>OrderLineItemID</b> field is only
  * returned if the <b>Offer.Action</b> field is set to <b>Purchase</b> in the input and
  * the purchase is successful. A Purchase action in <b>PlaceOffer</b> can be used
  * for a fixed-price listing, or for an auction listing where the Buy It

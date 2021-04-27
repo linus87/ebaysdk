@@ -175,7 +175,7 @@ public enum NotificationEventTypeCodeType {
      * 						This notification is sent to the subscribed seller when the winning bidder
      * 						or buyer has paid for the auction or fixed-price item and completed the checkout process.
      * 						<br><br>
-     * 						For multiple line item orders, an <b>AuctionCheckoutComplete</b> notification is only generated for one of the line items in the order. In this case, the seller would look for the containing order number for the line item in the <b>Transaction.ContainingOrder.OrderID</b> field, and then make a <b>GetOrders</b> call (using the container order ID as an input filter) to retrieve complete information for the order.
+     * 						For multiple line item orders, an <b>AuctionCheckoutComplete</b> notification is only generated for one of the line items in the order.
      * 					
      * 
      */
@@ -314,7 +314,7 @@ public enum NotificationEventTypeCodeType {
      * 						If subscribed to by a seller and when applicable, this notification will appear in the <b>GetBestOffers</b> call response.
      * 						<br/><br/>
      * 						<span class="tablenote"><b>Note: </b>
-     * 						Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
+     * 						The Best Offer feature can be set for auction listings on the US, Canada, UK, Germany, Australia, France, Italy, and Spain marketplaces, but keep in mind that Best Offer and Buy It Now cannot be used simultaneously in a listing. Also, once a qualifying bid is made on an auction listing, the Best Offer feature is disabled, and any pending offer or counteroffers are no longer valid.
      * 						</span>
      * 					
      * 

@@ -18,13 +18,15 @@ import org.w3c.dom.Element;
 
 /**
  * 
- *         There are single line item and multiple line item orders. A single
- *         payment is made for both order types.
- *         <br>
- *         <br>
- *         We strongly recommend that you avoid mixing digital and non-digital listings in
- *         the same <a href="http://developer.ebay.com/DevZone/guides/ebayfeatures/Development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a>
- *         order.
+ *         This type is used to express the details of an order. An order may contain one or more line items (purchases) from the same buyer. Regardless of how many line items an order has, only one payment is made for the order.
+ *         <br><br>
+ *         The <b>GetOrders</b> and <b>GetOrderTransactions</b> calls return many of the fields of this type.
+ *         <br><br>
+ *         The <b>GetItemTransactions</b> and <b>GetSellerTransactions</b> calls will only return order-level details if the <b>IncludeContainingOrder</b> boolean field is included in the call request and set to <code>true</code>.
+ *         <br><br>
+ *         The <b>AddOrder</b> call is used to combine two or more unpaid order line items (between the same seller and buyer) into a 'Combined Invoice' order. While combining these order line items into one 'Combined Invoice' order, the seller can make adjustments to accepted payment methods, shipping details (including costs), and the total cost of the order. Sometimes, sellers will reduce the cost of shipping if one or more order line items can be shipped together in the same package.
+ *         <br><br>
+ *         The <b>GetMyeBaySelling</b> call returns order details if the seller wishes to view listings that have sold, and the <b>GetMyeBayBuying</b> call returns order details if the buyer wishes to view items they have won or purchased.
  *       
  * 
  * <p>Java class for OrderType complex type.
@@ -82,6 +84,8 @@ import org.w3c.dom.Element;
  *         &lt;element name="BuyerPackageEnclosures" type="{urn:ebay:apis:eBLBaseComponents}BuyerPackageEnclosuresType" minOccurs="0"/>
  *         &lt;element name="ExtendedOrderID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ContainseBayPlusTransaction" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="eBayCollectAndRemitTax" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="OrderLineItemCount" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;any/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -139,6 +143,8 @@ import org.w3c.dom.Element;
     "buyerPackageEnclosures",
     "extendedOrderID",
     "containseBayPlusTransaction",
+    "eBayCollectAndRemitTax",
+    "orderLineItemCount",
     "any"
 })
 public class OrderType
@@ -248,6 +254,9 @@ public class OrderType
     protected String extendedOrderID;
     @XmlElement(name = "ContainseBayPlusTransaction")
     protected Boolean containseBayPlusTransaction;
+    protected Boolean eBayCollectAndRemitTax;
+    @XmlElement(name = "OrderLineItemCount")
+    protected Long orderLineItemCount;
     @XmlAnyElement(lax = true)
     protected List<Object> any;
 
@@ -1545,6 +1554,54 @@ public class OrderType
      */
     public void setContainseBayPlusTransaction(Boolean value) {
         this.containseBayPlusTransaction = value;
+    }
+
+    /**
+     * Gets the value of the eBayCollectAndRemitTax property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isEBayCollectAndRemitTax() {
+        return eBayCollectAndRemitTax;
+    }
+
+    /**
+     * Sets the value of the eBayCollectAndRemitTax property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setEBayCollectAndRemitTax(Boolean value) {
+        this.eBayCollectAndRemitTax = value;
+    }
+
+    /**
+     * Gets the value of the orderLineItemCount property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getOrderLineItemCount() {
+        return orderLineItemCount;
+    }
+
+    /**
+     * Sets the value of the orderLineItemCount property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setOrderLineItemCount(Long value) {
+        this.orderLineItemCount = value;
     }
 
     /**

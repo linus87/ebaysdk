@@ -13,13 +13,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
- * 				Retrieves all items the user is currently bidding on, and the ones they have won
+ * 				Retrieves all items that the user is currently bidding on, and the ones they have won
  * 				or purchased.
  * 			
  * 
  * 
- * 					Retrieves all items the user is currently bidding on, and the ones they have won
- * 					or purchased.
+ * 					Retrieves all items that the user is currently bidding on, and the ones they have won or purchased.
  * 				
  * 
  * <p>Java class for GetBidderListRequestType complex type.

@@ -13,10 +13,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Defines the payment options group feature. If a field of this type is present, the corresponding feature applies to the site. The field is returned as an integer. The below are the integer values returned and its meanings.
- * 				0 - Ebay Payment Process Enabled
- * 				1 - Non Standard Payments Enabled
- * 				2 - Ebay Payment Process Excluded
+ * 				This type is deprecated.
  * 			
  * 
  * <p>Java class for PaymentOptionsGroupEnabledDefinitionType complex type.

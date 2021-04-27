@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Tax-related details for a region or jurisdiction.
+ * 				This type is used to show sales tax-related details for a tax jurisdiction. The concept of 'sales tax' is only applicable to eBay US and Canada (English and French) sites.
  * 			
  * 
  * <p>Java class for TaxJurisdictionType complex type.

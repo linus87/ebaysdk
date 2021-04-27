@@ -36,9 +36,7 @@ import org.w3c.dom.Element;
  *         &lt;element name="AttributeArray" type="{urn:ebay:apis:eBLBaseComponents}AttributeArrayType" minOccurs="0"/>
  *         &lt;element name="LookupAttributeArray" type="{urn:ebay:apis:eBLBaseComponents}LookupAttributeArrayType" minOccurs="0"/>
  *         &lt;element name="AutoPay" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="PaymentDetails" type="{urn:ebay:apis:eBLBaseComponents}PaymentDetailsType" minOccurs="0"/>
  *         &lt;element name="BiddingDetails" type="{urn:ebay:apis:eBLBaseComponents}BiddingDetailsType" minOccurs="0"/>
- *         &lt;element name="MotorsGermanySearchable" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="BuyerProtection" type="{urn:ebay:apis:eBLBaseComponents}BuyerProtectionCodeType" minOccurs="0"/>
  *         &lt;element name="BuyItNowPrice" type="{urn:ebay:apis:eBLBaseComponents}AmountType" minOccurs="0"/>
  *         &lt;element name="CategoryMappingAllowed" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
@@ -60,9 +58,11 @@ import org.w3c.dom.Element;
  *         &lt;element name="LotSize" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="PartnerCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PartnerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="PaymentDetails" type="{urn:ebay:apis:eBLBaseComponents}PaymentDetailsType" minOccurs="0"/>
  *         &lt;element name="PaymentMethods" type="{urn:ebay:apis:eBLBaseComponents}BuyerPaymentMethodCodeType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="PayPalEmailAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PrimaryCategory" type="{urn:ebay:apis:eBLBaseComponents}CategoryType" minOccurs="0"/>
+ *         &lt;element name="PrivateListing" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="ProductListingDetails" type="{urn:ebay:apis:eBLBaseComponents}ProductListingDetailsType" minOccurs="0"/>
  *         &lt;element name="Quantity" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="PrivateNotes" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -100,11 +100,8 @@ import org.w3c.dom.Element;
  *         &lt;element name="Relisted" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="QuantityAvailable" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="SKU" type="{urn:ebay:apis:eBLBaseComponents}SKUType" minOccurs="0"/>
- *         &lt;element name="CategoryBasedAttributesPrefill" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="SearchDetails" type="{urn:ebay:apis:eBLBaseComponents}SearchDetailsType" minOccurs="0"/>
  *         &lt;element name="PostalCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="ShippingTermsInDescription" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="SellerInventoryID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="PictureDetails" type="{urn:ebay:apis:eBLBaseComponents}PictureDetailsType" minOccurs="0"/>
  *         &lt;element name="DispatchTimeMax" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="BestOfferEnabled" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
@@ -165,8 +162,7 @@ import org.w3c.dom.Element;
  *         &lt;element name="ReasonHideFromSearch" type="{urn:ebay:apis:eBLBaseComponents}ReasonHideFromSearchCodeType" minOccurs="0"/>
  *         &lt;element name="IncludeRecommendations" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="PickupInStoreDetails" type="{urn:ebay:apis:eBLBaseComponents}PickupInStoreDetailsType" minOccurs="0"/>
- *         &lt;element name="eBayNowEligible" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="eBayNowAvailable" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="SiteId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="IgnoreQuantity" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="AvailableForPickupDropOff" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="EligibleForPickupDropOff" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
@@ -192,9 +188,7 @@ import org.w3c.dom.Element;
     "attributeArray",
     "lookupAttributeArray",
     "autoPay",
-    "paymentDetails",
     "biddingDetails",
-    "motorsGermanySearchable",
     "buyerProtection",
     "buyItNowPrice",
     "categoryMappingAllowed",
@@ -216,9 +210,11 @@ import org.w3c.dom.Element;
     "lotSize",
     "partnerCode",
     "partnerName",
+    "paymentDetails",
     "paymentMethods",
     "payPalEmailAddress",
     "primaryCategory",
+    "privateListing",
     "productListingDetails",
     "quantity",
     "privateNotes",
@@ -256,11 +252,8 @@ import org.w3c.dom.Element;
     "relisted",
     "quantityAvailable",
     "sku",
-    "categoryBasedAttributesPrefill",
     "searchDetails",
     "postalCode",
-    "shippingTermsInDescription",
-    "sellerInventoryID",
     "pictureDetails",
     "dispatchTimeMax",
     "bestOfferEnabled",
@@ -321,8 +314,7 @@ import org.w3c.dom.Element;
     "reasonHideFromSearch",
     "includeRecommendations",
     "pickupInStoreDetails",
-    "eBayNowEligible",
-    "eBayNowAvailable",
+    "siteId",
     "ignoreQuantity",
     "availableForPickupDropOff",
     "eligibleForPickupDropOff",
@@ -349,12 +341,8 @@ public class ItemType
     protected LookupAttributeArrayType lookupAttributeArray;
     @XmlElement(name = "AutoPay")
     protected Boolean autoPay;
-    @XmlElement(name = "PaymentDetails")
-    protected PaymentDetailsType paymentDetails;
     @XmlElement(name = "BiddingDetails")
     protected BiddingDetailsType biddingDetails;
-    @XmlElement(name = "MotorsGermanySearchable")
-    protected Boolean motorsGermanySearchable;
     @XmlElement(name = "BuyerProtection")
     protected BuyerProtectionCodeType buyerProtection;
     @XmlElement(name = "BuyItNowPrice")
@@ -399,12 +387,16 @@ public class ItemType
     protected String partnerCode;
     @XmlElement(name = "PartnerName")
     protected String partnerName;
+    @XmlElement(name = "PaymentDetails")
+    protected PaymentDetailsType paymentDetails;
     @XmlElement(name = "PaymentMethods")
     protected List<BuyerPaymentMethodCodeType> paymentMethods;
     @XmlElement(name = "PayPalEmailAddress")
     protected String payPalEmailAddress;
     @XmlElement(name = "PrimaryCategory")
     protected CategoryType primaryCategory;
+    @XmlElement(name = "PrivateListing")
+    protected Boolean privateListing;
     @XmlElement(name = "ProductListingDetails")
     protected ProductListingDetailsType productListingDetails;
     @XmlElement(name = "Quantity")
@@ -480,16 +472,10 @@ public class ItemType
     protected Integer quantityAvailable;
     @XmlElement(name = "SKU")
     protected String sku;
-    @XmlElement(name = "CategoryBasedAttributesPrefill", defaultValue = "false")
-    protected Boolean categoryBasedAttributesPrefill;
     @XmlElement(name = "SearchDetails")
     protected SearchDetailsType searchDetails;
     @XmlElement(name = "PostalCode")
     protected String postalCode;
-    @XmlElement(name = "ShippingTermsInDescription")
-    protected Boolean shippingTermsInDescription;
-    @XmlElement(name = "SellerInventoryID")
-    protected String sellerInventoryID;
     @XmlElement(name = "PictureDetails")
     protected PictureDetailsType pictureDetails;
     @XmlElement(name = "DispatchTimeMax")
@@ -610,8 +596,8 @@ public class ItemType
     protected Boolean includeRecommendations;
     @XmlElement(name = "PickupInStoreDetails")
     protected PickupInStoreDetailsType pickupInStoreDetails;
-    protected Boolean eBayNowEligible;
-    protected Boolean eBayNowAvailable;
+    @XmlElement(name = "SiteId")
+    protected Integer siteId;
     @XmlElement(name = "IgnoreQuantity")
     protected Boolean ignoreQuantity;
     @XmlElement(name = "AvailableForPickupDropOff")
@@ -751,30 +737,6 @@ public class ItemType
     }
 
     /**
-     * Gets the value of the paymentDetails property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PaymentDetailsType }
-     *     
-     */
-    public PaymentDetailsType getPaymentDetails() {
-        return paymentDetails;
-    }
-
-    /**
-     * Sets the value of the paymentDetails property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PaymentDetailsType }
-     *     
-     */
-    public void setPaymentDetails(PaymentDetailsType value) {
-        this.paymentDetails = value;
-    }
-
-    /**
      * Gets the value of the biddingDetails property.
      * 
      * @return
@@ -796,30 +758,6 @@ public class ItemType
      */
     public void setBiddingDetails(BiddingDetailsType value) {
         this.biddingDetails = value;
-    }
-
-    /**
-     * Gets the value of the motorsGermanySearchable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isMotorsGermanySearchable() {
-        return motorsGermanySearchable;
-    }
-
-    /**
-     * Sets the value of the motorsGermanySearchable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setMotorsGermanySearchable(Boolean value) {
-        this.motorsGermanySearchable = value;
     }
 
     /**
@@ -1375,6 +1313,30 @@ public class ItemType
     }
 
     /**
+     * Gets the value of the paymentDetails property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PaymentDetailsType }
+     *     
+     */
+    public PaymentDetailsType getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    /**
+     * Sets the value of the paymentDetails property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PaymentDetailsType }
+     *     
+     */
+    public void setPaymentDetails(PaymentDetailsType value) {
+        this.paymentDetails = value;
+    }
+
+    /**
      * 
      * 
      * @return
@@ -1492,6 +1454,30 @@ public class ItemType
      */
     public void setPrimaryCategory(CategoryType value) {
         this.primaryCategory = value;
+    }
+
+    /**
+     * Gets the value of the privateListing property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isPrivateListing() {
+        return privateListing;
+    }
+
+    /**
+     * Sets the value of the privateListing property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setPrivateListing(Boolean value) {
+        this.privateListing = value;
     }
 
     /**
@@ -2431,30 +2417,6 @@ public class ItemType
     }
 
     /**
-     * Gets the value of the categoryBasedAttributesPrefill property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isCategoryBasedAttributesPrefill() {
-        return categoryBasedAttributesPrefill;
-    }
-
-    /**
-     * Sets the value of the categoryBasedAttributesPrefill property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setCategoryBasedAttributesPrefill(Boolean value) {
-        this.categoryBasedAttributesPrefill = value;
-    }
-
-    /**
      * Gets the value of the searchDetails property.
      * 
      * @return
@@ -2500,54 +2462,6 @@ public class ItemType
      */
     public void setPostalCode(String value) {
         this.postalCode = value;
-    }
-
-    /**
-     * Gets the value of the shippingTermsInDescription property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isShippingTermsInDescription() {
-        return shippingTermsInDescription;
-    }
-
-    /**
-     * Sets the value of the shippingTermsInDescription property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setShippingTermsInDescription(Boolean value) {
-        this.shippingTermsInDescription = value;
-    }
-
-    /**
-     * Gets the value of the sellerInventoryID property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSellerInventoryID() {
-        return sellerInventoryID;
-    }
-
-    /**
-     * Sets the value of the sellerInventoryID property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSellerInventoryID(String value) {
-        this.sellerInventoryID = value;
     }
 
     /**
@@ -4087,51 +4001,27 @@ public class ItemType
     }
 
     /**
-     * Gets the value of the eBayNowEligible property.
+     * Gets the value of the siteId property.
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link Integer }
      *     
      */
-    public Boolean isEBayNowEligible() {
-        return eBayNowEligible;
+    public Integer getSiteId() {
+        return siteId;
     }
 
     /**
-     * Sets the value of the eBayNowEligible property.
+     * Sets the value of the siteId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link Integer }
      *     
      */
-    public void setEBayNowEligible(Boolean value) {
-        this.eBayNowEligible = value;
-    }
-
-    /**
-     * Gets the value of the eBayNowAvailable property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public Boolean isEBayNowAvailable() {
-        return eBayNowAvailable;
-    }
-
-    /**
-     * Sets the value of the eBayNowAvailable property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setEBayNowAvailable(Boolean value) {
-        this.eBayNowAvailable = value;
+    public void setSiteId(Integer value) {
+        this.siteId = value;
     }
 
     /**

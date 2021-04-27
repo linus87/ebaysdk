@@ -45,6 +45,7 @@ import org.w3c.dom.Element;
  *         &lt;element name="OrderLineItemID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="TransactionID" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ReceivedTopRatedDiscount" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="OrderId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;any/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -71,6 +72,7 @@ import org.w3c.dom.Element;
     "orderLineItemID",
     "transactionID",
     "receivedTopRatedDiscount",
+    "orderId",
     "any"
 })
 public class AccountEntryType
@@ -110,6 +112,8 @@ public class AccountEntryType
     protected String transactionID;
     @XmlElement(name = "ReceivedTopRatedDiscount")
     protected Boolean receivedTopRatedDiscount;
+    @XmlElement(name = "OrderId")
+    protected String orderId;
     @XmlAnyElement(lax = true)
     protected List<Object> any;
 
@@ -471,6 +475,30 @@ public class AccountEntryType
      */
     public void setReceivedTopRatedDiscount(Boolean value) {
         this.receivedTopRatedDiscount = value;
+    }
+
+    /**
+     * Gets the value of the orderId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOrderId() {
+        return orderId;
+    }
+
+    /**
+     * Sets the value of the orderId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOrderId(String value) {
+        this.orderId = value;
     }
 
     /**

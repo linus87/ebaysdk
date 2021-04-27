@@ -17,10 +17,10 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>ReturnPolicyDetails.ReturnsWithin</b> container that
- * 				is returned in <b>GeteBayDetails</b>. This container contains the values
- * 				that may be used in the <b>ReturnPolicy.ReturnsWithinOption</b> field of
- * 				Add/Revise/Relist API calls.
+ * 				Type defining the <b>ReturnPolicyDetails.ReturnsWithin</b> container that is returned in <b>GeteBayDetails</b>. This container contains the values that may be used in the <b>ReturnPolicy.ReturnsWithinOption</b> field of Add/Revise/Relist API calls.
+ * 				<br><br>
+ * 				<span class="tablenote"><b>Note:</b> The <b>GeteBayDetails</b> call returns site-default Return Policy settings. For most categories within a given eBay site, the supported Return Policy options/values are the same, but there a few exceptions. To discover what return durations that a particular category supports, call <b>GetCategoryFeatures</b> and include <code>DomesticReturnsDurationValues</code> and/or <code>InternationalReturnsDurationValues</code> as <b>FeatureID</b> values to see the return durations available for domestic and international returns, respectively.
+ * 				</span>
  * 			
  * 
  * <p>Java class for ReturnsWithinDetailsType complex type.

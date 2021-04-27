@@ -12,8 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				This call can rename, remove, or restore My Messages folders for
- * 				a given user.
+ * 				This call can be used to add, remove, or rename a custom folder in <b>My eBay Messages</b>. Note that the Inbox and Sent folders cannot be removed or renamed in <b>My eBay Messages</b>.
+ * 				<br/><br/>
+ * 				A user can have up to 10 custom folders in <b>My eBay Messages</b>, and it is possible to add, remove, or rename up to 10 custom folders with one <b>ReviseMyMessagesFolders</b> call
  * 			
  * 
  * <p>Java class for ReviseMyMessagesFoldersRequestType complex type.

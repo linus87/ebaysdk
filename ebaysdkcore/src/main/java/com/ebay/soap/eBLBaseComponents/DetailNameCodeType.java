@@ -53,7 +53,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the country codes and associated name of each country. The two-digit country codes can be used when a seller is creating a 'ship-to' and/or an 'exclude ship-to' location list.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the two-digit country codes for all countries of the world. Among other things, the two-digit country codes can be used when a seller is creating a 'ship-to' and/or an 'exclude ship-to' location list.
+     * 						<br/><br/>
+     * 						The same <b>CountryDetails</b> metadata will be returned regardless of the value that is passed into the <b>X-EBAY-API-SITEID</b> request header.
      * 					
      * 
      */
@@ -62,7 +64,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the primary currencies of each country. The three-digit currency codes are used when a seller is expressing a dollar value in API calls. For example, the <b>currencyID</b> attribute value in the <b>StartPrice</b> field of an <b>AddItem</b> call.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the three-digit currency codes for each country where the Trading API is supported. These three-digit currency codes are used when a seller is expressing a dollar value in Trading API calls. For example, the <b>currencyID</b> attribute value in the <b>StartPrice</b> field of an <b>AddItem</b> call.
+     * 						<br/><br/>
+     * 						The same <b>CurrencyDetails</b> metadata will be returned regardless of the value that is passed into the <b>X-EBAY-API-SITEID</b> request header.
      * 					
      * 
      */
@@ -71,7 +75,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to view all payment methods that are accepted on the specified eBay site. Note that the accepted payment methods can vary by category and/or by listing format, so the seller may also want to make a <b>GetCategoryFeatures</b> call, passing in the listing category ID, and setting the <b>FeatureID</b> value to <code>PaymentMethods</code>.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve all payment methods that are accepted on the specified eBay site. Note that the accepted payment methods within an eBay site can vary by category and/or by listing format, so a user may also want to make a <b>GetCategoryFeatures</b> call to retrieve category-level payment method metadata. To retrieve the accepted payment methods for a specific category on a specific site with <b>GetCategoryFeatures</b>, the user specifies the listing category ID through the <b>CategoryID</b>, and sets the <b>FeatureID</b> value to <code>PaymentMethods</code>.
      * 					
      * 
      */
@@ -80,7 +84,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the local regions within the specified country.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the local regions within the specified country.
      * 					
      * 
      */
@@ -89,7 +93,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the geographical regions and country codes.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the geographical regions and country codes that can be used when creating a 'ship-to' location list.
      * 					
      * 
      */
@@ -98,7 +102,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the shipping service options available on the specified eBay site to ship domestic and international orders. The returned data on each available shipping service will include the shipping carrier name and service, the actual shipping service enumeration value that will be used in an <b>AddItem</b> call, the expected shipping time range, the package types that can be used for that shipping service, and whether the shipping service is for domestic or international shipping. In addition to this information, the seller will have to look for a value of <code>true</code> in the <b>ValidForSellingFlow</b> field. If the value in this field is <code>false</code>, it indicates that the shipping service is no longer available for shipping.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the domestic and international shipping service options available on the specified eBay site. The returned metadata on each available shipping service will include the full name of the shipping service option (including carrier name), the actual shipping service enumeration value that will be used in an <b>AddItem</b> call, the expected shipping time range, the package types that can be used for that shipping service, and whether the shipping service is for domestic or international shipping. In addition to this information, the seller will have to look for a value of <code>true</code> in the <b>ValidForSellingFlow</b> field. If the value in this field is <code>false</code>, it indicates that the shipping service is no longer available for shipping.
      * 					
      * 
      */
@@ -107,7 +111,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the eBay sites that are supported in Trading API calls. The <b>SiteID</b> values that are returned for each country are specified as an HTTP header if the seller wants to see site metadata returned for that particular country.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the eBay sites that are supported in Trading API calls. The <b>SiteID</b> values that are returned for each country are specified as an HTTP header if the seller wants to see site metadata returned for that particular site.
+     * 						<br/><br/>
+     * 						The same <b>SiteDetails</b> metadata will be returned regardless of the value that is passed into the <b>X-EBAY-API-SITEID</b> request header.
      * 					
      * 
      */
@@ -116,7 +122,15 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the different tax jurisdictions (such as states or provinces) within the specified eBay site. The two-digit <b>JurisdictionID</b> codes that are returned are used when a seller is setting/configuring sales tax rates in a Sales Tax Table or when creating a listing. For example, the <b>SalesTax.SalesTaxState</b> field of an <b>AddItem</b> call.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the different tax jurisdictions (such as states or provinces) within the specified eBay site. The two-digit <b>JurisdictionID</b> codes that are returned are used when a seller is setting/configuring sales tax rates in a Sales Tax Table, or when creating a listing. For example, the <b>SalesTax.SalesTaxState</b> field of an <b>AddItem</b> call.
+     * 						<br/><br/>
+     * 						Sales tax jurisdictions are only applicable to the US and Canada, so the <b>TaxJurisdiction</b> metadata will only be returned for these sites:
+     * 						<ul>
+     * 						<li><b>eBay US<b>: <b>SiteID</b> <code>0</code></li>
+     * 						<li><b>eBay Motors (US)<b>: <b>SiteID</b> <code>100</code></li>
+     * 						<li><b>eBay Canada (English language)<b>: <b>SiteID</b> <code>2</code></li>
+     * 						<li><b>eBay Canada (French language)<b>: <b>SiteID</b> <code>210</code></li>
+     * 						</ul>
      * 					
      * 
      */
@@ -125,7 +139,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the different eBay URLs associated with the specified eBay site.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the different eBay URLs associated with the specified eBay site.
      * 					
      * 
      */
@@ -134,7 +148,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the names of the different global time zones. The returned information includes the number of hours that each time zone is either ahead or behind UTC time, and it also indicates if the time zone participates in 'Daylight Savings'.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the names of the different global time zones. The returned information includes the number of hours that each time zone is either ahead or behind UTC time, and it also indicates if the time zone participates in 'Daylight Savings'.
+     * 						<br/><br/>
+     * 						The same <b>TimeZoneDetails</b> metadata will be returned regardless of the value that is passed into the <b>X-EBAY-API-SITEID</b> request header, although the metadata text will be localized for that site's language.
      * 					
      * 
      */
@@ -143,7 +159,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list all international regions and individual countries.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the international regions and individual countries.
+     * 						<br/><br/>
+     * 						The same <b>RegionOfOriginDetails</b> metadata will be returned regardless of the value that is passed into the <b>X-EBAY-API-SITEID</b> request header.
      * 					
      * 
      */
@@ -152,7 +170,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the handling time values (in number of business days) that the seller can set on a listing. The seller must ship an order line item within this time or risk getting a seller defect. For the US, the supported handling times are 0-3 days. Some listing categories supported 'extended handling' time, and if this is the case, the handling times will be longer, and the <b>ExtendedHandling</b> field will be returned as <code>true</code>.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the handling time values (in number of business days) that the seller can set on a listing. The seller must ship an order line item within this time or risk getting a seller defect. For the US, the supported handling times are 0-3 days. Some listing categories support 'extended handling' time, and if this is the case, the handling times will be longer, and the <b>ExtendedHandling</b> field will be returned as <code>true</code>.
      * 					
      * 
      */
@@ -161,7 +179,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the maximum thresholds for Item Specifics in listings. These thresholds include the maximum number of item specifics that can be used for an item (or item variation), as well as the maximum number of characters that can be used for Item Specific names and values.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the maximum thresholds for Item Specifics in listings. These thresholds include the maximum number of item specifics that can be used for an item (or item variation), as well as the maximum number of characters that can be used for Item Specific names and values.
      * 					
      * 
      */
@@ -180,7 +198,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the shipping package types that are supported by the specified eBay site. A seller can also just use the <b>ShippingServiceDetails</b> filter, and the supported shipping package types for each shipping service option will be returned.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the shipping package types that are supported by the specified eBay site. A seller can also just use the <b>ShippingServiceDetails</b> filter, and the supported shipping package types for each shipping service option will be returned.
      * 					
      * 
      */
@@ -198,7 +216,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the shipping carriers supported by the specified eBay site for domestic and international shipping.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the shipping carriers supported by the specified eBay site for domestic and international shipping.
      * 					
      * 
      */
@@ -207,7 +225,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the minimum starting prices for each applicable listing format for the specified eBay site. The price input into the <b>StartPrice</b> field of an <b>AddItem</b> call must be at or above this minimum threshold value or the listing will be blocked.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the minimum starting prices for each applicable listing format for the specified eBay site. The price input into the <b>StartPrice</b> field of an <b>AddItem</b> call must be at or above this minimum threshold value or the listing will be blocked.
      * 					
      * 
      */
@@ -216,7 +234,9 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This enumeration value is specified to list the return policy values that can be passed in through the <b>ReturnPolicy</b> container of an Add/Revise/Relist API call. These value include the 'Money back' options that the seller can make available to the buyers, the return period, and the restocking fee percentage (if the seller decides to charge a restocking fee.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the return policy values that can be passed in through the <b>ReturnPolicy</b> container of an Add/Revise/Relist API call (or in a Return business policy). These values include the return period, the 'Money back' options that the seller can make available to the buyers, and who pays for return shipping (Buyer or Seller).
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note:</b> As of September 2018, the <b>GetCategoryFeatures</b> call started returning category-level metadata for both domestic and international return policies. Due to this update, developers may want to consider using that call for return policy metadata instead, as the <b>GeteBayDetails</b> call only retrieves site-level metadata, and does not distinguish between domestic and international metadata.</span>
      * 					
      * 
      */
@@ -225,7 +245,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list the Buyer Requirement values that can be passed in through the <b>BuyerRequirementDetails</b> container of an Add/Revise/Relist API call.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the Buyer Requirement values that can be passed in through the <b>BuyerRequirementDetails</b> container of an Add/Revise/Relist API call.
      * 					
      * 
      */
@@ -234,7 +254,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list the listing features/upgrades that are enabled or disabled for the specified site.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the listing features/upgrades that are enabled or disabled for the specified site.
      * 					
      * 
      */
@@ -243,7 +263,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list the maximum thresholds when using multi-variation listings.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the maximum thresholds when using multiple-variation listings.
      * 					
      * 
      */
@@ -252,7 +272,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list the geographical regions and individual countries that can be passed in to the <b>ShippingDetails.ExcludeShipToLocation</b> field in an Add/Revise/Relist API call. Multiple <b>ShippingDetails.ExcludeShipToLocation</b> can be used, and any region or country value that is passed in to one of these fields will exclude that region or country as a "ship-to" location.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the geographical regions and individual countries that can be passed in to the <b>ShippingDetails.ExcludeShipToLocation</b> field in an Add/Revise/Relist API call. Multiple <b>ShippingDetails.ExcludeShipToLocation</b> can be used, and any region or country value that is passed in to one of these fields will exclude that region or country as a "ship-to" location.
      * 					
      * 
      */
@@ -261,7 +281,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list whether or not a recoupment policy is enforced on either the listing site or the seller's registration site.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve details on a site's recoupment policy.
      * 					
      * 
      */
@@ -270,7 +290,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						This value is specified to list the shipping service categories (Standard, Expedited, Economy) supported for the site.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the shipping service categories (Standard, Expedited, Economy, etc.) supported for the site.
      * 					
      * 
      */
@@ -279,13 +299,7 @@ public enum DetailNameCodeType {
 
     /**
      * 
-     * 						Specify this value to get the appropriate text to insert into a product
-     * 						identifier field (EAN, ISBN, UPC, MPN/Brand) if eBay is prompting/expecting
-     * 						one of these fields in the call request, but the identifiers do not
-     * 						exist/apply for the product. The
-     * 						<b>ProductDetails.ProductIdentifierUnavailableText</b> field that
-     * 						is returned in the response will contain the actual text that should be passed
-     * 						into the relevant product identification fields when creating a listing.
+     * 						This enumeration value can be included in a <b>DetailName</b> field if the user wishes to retrieve the appropriate text to insert into a product identifier field (EAN, ISBN, UPC, MPN/Brand) if eBay is prompting/expecting one of these fields in the call request, but the identifiers do not exist/apply for the product. The <b>ProductDetails.ProductIdentifierUnavailableText</b> field that is returned in the response will contain the actual text that should be passed into the relevant product identification fields when creating a listing.
      * 					
      * 
      */

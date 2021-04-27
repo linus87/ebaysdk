@@ -15,11 +15,11 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type used by the <b>ProductListingDetails</b> container, which is used by a seller in an add/revise/relist call to identify a product through a Global Trade Item Number (EAN, ISBN, or UPC) or an eBay Product ID (e.g. 'ePID'). If a specified product identifier is matched to a product in the eBay catalog, some of the details for the product listing, such as product title, product description, item specifics, and stock photo are prefilled for the listing.
+ * 				Type used by the <b>ProductListingDetails</b> container, which is used by a seller in an add/revise/relist call to identify a product through a Global Trade Item Number (EAN, ISBN, or UPC) or an eBay Product ID (e.g. 'ePID'). If a specified product identifier is matched to a product in the eBay catalog, some of the details for the product listing, such as listing category, product title, product description, product aspects, and stock photo are prefilled for the listing.
  * 				<br>
  * 				<br>
  * 				<span class="tablenote"><b>Note:</b>
- * 				If a Brand/MPN pair is required for the product, these values must still be input through the <b>BrandMPN</b> container, but a catalog product match is only possible with an ePID or one of the GTINs.
+ * 				If a Brand/MPN pair is required for the product, these values must still be input through the <b>BrandMPN</b> container.
  * 				</span>
  * 			
  * 

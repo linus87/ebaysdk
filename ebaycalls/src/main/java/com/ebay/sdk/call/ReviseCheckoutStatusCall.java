@@ -21,97 +21,66 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for an eBay listing. A listing can have multiple order line items, but only one <b>ItemID</b>. An <b>ItemID</b> can be paired up with a corresponding <b>TransactionID</b> and used as an input filter for <b>ReviseCheckoutStatus</b>. <br><br> Unless an <b>OrderLineItemID</b> is used to identify a single line item order, or the <b>OrderID</b> is used to identify a single or multiple line item (Combined Invoice) order, the <b>ItemID</b>/<b>TransactionID</b> pair must be specified. For a multiple line item (Combined Invoice) order, <b>OrderID</b> should be used. If <b>OrderID</b> or <b>OrderLineItemID</b> are specified, the <b>ItemID</b>/<b>TransactionID</b> pair is ignored if present in the same request.
+ * <br> <B>Input property:</B> <code>ItemID</code> - Unique identifier for an eBay listing. A listing can have multiple order line items, but only one <b>ItemID</b> value. An <b>ItemID</b> value can be paired up with a corresponding <b>TransactionID</b> value to identify and order line item in a <b>ReviseCheckoutStatus</b> call.
+ * <br><br>
+ * Unless an <b>OrderLineItemID</b> value is used to identify a an order line item, or an <b>OrderID</b> value is used to identify an order, the <b>ItemID</b>/<b>TransactionID</b> pair must be specified.
+ * <br><br>
+ * If an <b>OrderID</b> or an <b>OrderLineItemID</b> value is specified, the <b>ItemID</b>/<b>TransactionID</b> pair is ignored if present in the same request.
  * <br/>
  * <br/>
- * It is also possible to identify a single line item order with a
+ * It is also possible to identify an order line item with a
  * <b>ItemID</b>/<b>BuyerID</b> combination, but this is not the most ideal approach since an error is returned if there are multiple order line items for that combination.
  * <br/>
- * <br> <B>Input property:</B> <code>TransactionID</code> - Unique identifier for an eBay order line item. An order
- * line item is created once there is a commitment from a buyer to purchase
- * an item. Since an auction listing can only have one order line item
- * during the duration of the listing, the <b>TransactionID</b> for
- * auction listings is always <code>0</code>. Along with its corresponding <b>ItemID</b>, a
- * <b>TransactionID</b> is used and referenced during an order checkout flow and
- * after checkout has been completed. The <b>ItemID</b>/<b>TransactionID</b> pair can be
- * used as an input filter for <b>ReviseCheckoutStatus</b>.
+ * <br> <B>Input property:</B> <code>TransactionID</code> - Unique identifier for a sales transaction. This identifier is created as soon as there is a commitment to buy (bidder wins the auction, buyer clicks buy button, or buyer purchases item through <b>PlaceOffer</b> call). Since an auction listing can only have one sale/winning bidder during the duration of the listing, the <b>TransactionID</b> value for auction listings is always <code>0</code>. An  <b>ItemID</b>/<b>TransactionID</b> pair can be  used to identify an order line item in a <b>ReviseCheckoutStatus</b> call.
  * <br><br>
- * Unless an <b>OrderLineItemID</b> is used to identify a single line item order,
- * or the <b>OrderID</b> is used to identify a single or multiple line item
- * (Combined Invoice) order, the <b>ItemID</b>/<b>TransactionID</b> pair must be
- * specified. For a multiple line item (Combined Invoice) order, <b>OrderID</b>
- * must be used. If <b>OrderID</b> or <b>OrderLineItemID</b> are specified, the
+ * Unless an <b>OrderLineItemID</b> is used to identify an order line item,
+ * or an <b>OrderID</b> value is used to identify an order, the <b>ItemID</b>/<b>TransactionID</b> pair must be
+ * specified. For a multiple line item order, <b>OrderID</b>
+ * should be used. If <b>OrderID</b> or <b>OrderLineItemID</b> are specified, the
  * <b>ItemID</b>/<b>TransactionID</b> pair is ignored if present in the same request.
  * <br>
- * <br> <B>Input property:</B> <code>OrderId</code> - A unique identifier that identifies a single line item or multiple line
- * item (Combined Invoice) order.
+ * <br> <B>Input property:</B> <code>OrderId</code> - A unique identifier that identifies a single line item or multiple line item order.
  * <br><br>
- * For a single line item order, the <b>OrderID</b> value is identical to the
- * <b>OrderLineItemID</b> value that is generated upon creation of the order line
- * item. For a Combined Invoice order, the <b>OrderID</b> value is created by eBay
- * when the buyer or seller (sharing multiple, common order line items)
- * combines multiple order line items into a Combined Invoice order through
- * the eBay site. A Combined Invoice order can also be created by the
- * seller through the <b>AddOrder</b> call. The <b>OrderID</b> can be used as an input
- * filter for <b>ReviseCheckoutStatus</b>.
+ * If an <b>OrderID</b> is used in the request, the <b>OrderLineItemID</b> and
+ * <b>ItemID</b>/<b>TransactionID</b> pair are ignored if they are specified in the same request.
  * <br><br>
- * <b>OrderID</b> overrides an <b>OrderLineItemID</b> or <b>ItemID</b>/<b>TransactionID</b> pair if
- * these fields are also specified in the same request.
- * <br> <B>Input property:</B> <code>AmountPaid</code> - The total amount paid by the buyer. For a US eBay Motors item,
- * <b>AmountPaid</b> is the total amount paid by the buyer for the deposit.
- * <b>AmountPaid</b> is optional if <b>CheckoutStatus</b> is Incomplete and required if it
- * is Complete.
- * <br> <B>Input property:</B> <code>PaymentMethodUsed</code> - Payment method used by the buyer. This field is required if <b>
- * CheckoutStatus</b> is Complete and the payment method is a trusted
- * payment method other than PayPal. See eBay's
- * <a href="http://pages.ebay.com/help/policies/accepted-payments-policy.html">Accepted Payments Policy</a>.
- * If the payment method is PayPal, this field should not be used since only PayPal can set this field's
- * value to "PayPal". ReviseCheckoutStatus cannot be used for a non-trusted
- * payment method.
- * <b>Note:</b>Required or allowed payment methods vary by site and category.
+ * <span class="tablenote"><b>Note: </b> As of June 2019, eBay has changed the format of order identifier values. The new format is a non-parsable string, globally unique across all eBay marketplaces, and consistent for both single line item and multiple line item orders. Unlike in the past, instead of just being known and exposed to the seller, these unique order identifiers will also be known and used/referenced by the buyer and eBay customer support.
+ * <br><br>
+ * For developers and sellers who are already integrated with the Trading API's order management calls, this change shouldn't impact your integration unless you parse the existing order identifiers (e.g., <b>OrderID</b> or <b>OrderLineItemID</b>), or otherwise infer meaning from the format (e.g., differentiating between a single line item order versus a multiple line item order). Because we realize that some integrations may have logic that is dependent upon the old identifier format, eBay is rolling out this Trading API change with version control to support a transition period of approximately 9 months before applications must switch to the new format completely.
+ * <br><br>
+ * During the transition period, for developers/sellers using a Trading WSDL older than Version 1113, they can use the <b>X-EBAY-API-COMPATIBILITY-LEVEL</b> HTTP header in API calls to control whether the new or old <b>OrderID</b> format is returned in call response payloads. To get the new <b>OrderID</b> format, the value of the <b>X-EBAY-API-COMPATIBILITY-LEVEL</b> HTTP header must be set to <code>1113</code>. During the transition period and even after, the new and old <b>OrderID</b> formats will still be supported/accepted in all Trading API call request payloads. After the transition period (which will be announced), only the new <b>OrderID</b> format will be returned in all Trading API call response payloads, regardless of the Trading WSDL version used or specified compatibility level.
+ * </span>
+ * <br>
+ * <span class="tablenote"><b>Note: </b> For sellers integrated with the new order ID format, please note that the identifier for an order will change as it goes from unpaid to paid status. Sellers can check to see if an order has been paid by looking for a value of 'Complete' in the <b>CheckoutStatus.Status</b> field in the response of <b>GetOrders</b> or <b>GetOrderTransactions</b> call, or in the <b>Status.CompleteStatus</b> field in the response of <b>GetItemTransactions</b> or <b>GetSellerTransactions</b> call. Sellers should  not fulfill orders until buyer has made payment. When using a <b>ReviseCheckoutStatus</b> call, either of these order IDs (paid or unpaid status) can be used to update an order. Similarly, either of these order IDs (paid or unpaid status) can be used in <b>GetOrders</b> or <b>GetOrderTransactions</b> call to retrieve specific order(s).
+ * </span>
+ * <br> <B>Input property:</B> <code>AmountPaid</code> - The total amount paid by the buyer. For a motor vehicle listing that requires a deposit, the <b>AmountPaid</b> value is the total amount paid by the buyer for the deposit. <b>AmountPaid</b> is optional if <b>CheckoutStatus</b> is <code>Incomplete</code> and required if it is <code>Complete</code>.
+ * <br> <B>Input property:</B> <code>PaymentMethodUsed</code> - Payment method used by the buyer. This field may be needed if the order payment between the buyer and seller happens off of eBay's platform. If the payment happens on eBay's platform, this field will not be necessary.
+ * <br><br>
+ * See eBay's
+ * <a href="https://www.ebay.com/help/policies/payment-policies/accepted-payments-policy?id=4269" target="_blank">Accepted Payments Policy</a> for more information about safe offline payment methods. Accepted payment methods will vary by category and by country.
  * <br> <B>Input property:</B> <code>CheckoutStatus</code> - This field is included and its value is set to <code>Complete</code> if the seller is using the <b>ReviseCheckoutStatus</b> call to mark the order as 'Paid' by including the <b>PaymentStatus</b> field and setting its value to <code>Paid</code>.
- * <br> <B>Input property:</B> <code>ShippingService</code> - The shipping service selected by the buyer from among the shipping services offered by the seller (such as UPS Ground). For a list of valid values, call GeteBayDetails with DetailName set to ShippingServiceDetails. The ShippingServiceDetails.ValidForSellingFlow flag must also be present. Otherwise, that particular shipping service option is no longer valid and cannot be offered to buyers through a listing. <br/><br/> <span class="tablenote"> <strong>Note:</strong> <strong>ReviseCheckoutStatus</strong> is not available for the Global Shipping program; specifying <code>InternationalPriorityShipping</code> as a value for this field will produce an error. </span>
- * <br> <B>Input property:</B> <code>ShippingIncludedInTax</code> - An indicator of whether shipping costs were included in the
- * taxable amount.
+ * <br> <B>Input property:</B> <code>ShippingService</code> - The shipping service selected by the buyer from among the shipping services offered by the seller (such as UPS Ground). For a list of valid values, call <b>GeteBayDetails</b> with the <b>DetailName</b> field set to <code>ShippingServiceDetails</code>. The <b>ShippingServiceDetails.ValidForSellingFlow</b> flag must also be present in the response. Otherwise, that particular shipping service option is no longer valid and cannot be offered to buyers through a listing.
+ * <br/><br/>
+ * <span class="tablenote"> <strong>Note:</strong> This field should not be used for orders being shipping through the  Global Shipping program; specifying <code>InternationalPriorityShipping</code> as a value for this field will produce an error. </span>
+ * <br> <B>Input property:</B> <code>ShippingIncludedInTax</code> - This field is included and set to <code>true</code> if sales tax for the order is applied against shipping costs (in addition to the item cost).
  * <br> <B>Input property:</B> <code>CheckoutMethod</code> - This field is deprecated.
  * <br> <B>Input property:</B> <code>InsuranceType</code> - This field is no longer applicable as it is not longer possible for a seller to offer a buyer shipping insurance.
- * <br> <B>Input property:</B> <code>PaymentStatus</code> - This field is used to mark the order as paid or awaiting payment in My eBay. If you specify 'Paid', My eBay displays an icon for each line item in the order to indicate that the order status is Paid. If you specify 'Pending', this indicates that the order is awaiting payment (some applications may use 'Pending' when the buyer has paid, but the funds have not yet been sent to the seller's financial institution).
- * <br>
- * <br>
- * <b>ReviseCheckoutStatus</b> cannot be used to update payment and checkout
- * status for a non-trusted payment method. See eBay's <a href="
- * http://pages.ebay.com/help/policies/accepted-payments-policy.html">
- * Accepted Payments Policy</a> for more information on trusted
- * payment methods. If the payment method is PayPal, this field should not
- * be used since PayPal automatically set this field's value to "Paid" upon
- * receiving the buyer's payment.
- * <br> <B>Input property:</B> <code>AdjustmentAmount</code> - Discount or charge agreed to by the buyer and seller. A positive value
- * indicates that the amount is an extra charge being paid to the seller by
- * the buyer. A negative value indicates that the amount is a discount given
- * to the buyer by the seller.
+ * <br> <B>Input property:</B> <code>PaymentStatus</code> - This field is used to mark the order as paid or awaiting payment in eBay's system. This field may be needed if the order payment between the buyer and seller happens off of eBay's platform. If the payment happens on eBay's platform, this field will not be necessary. A user specifies <code>Pending</code> to indicate that the order is awaiting payment or if the the buyer has initiated payment, but the funds have not yet been sent to the seller's financial institution.
+ * <br> <B>Input property:</B> <code>AdjustmentAmount</code> - This field may be used if the buyer and seller have agreed on making an adjustment to the order total. A positive value indicates that the amount is an extra charge being paid to the seller by the buyer. A negative value indicates that the amount is a discount given to the buyer by the seller.
  * <br> <B>Input property:</B> <code>ShippingAddress</code> - For internal use only. Do not use.
- * <br> <B>Input property:</B> <code>BuyerID</code> - eBay user ID for the order's buyer. A single line item order can
- * actually be identified by a <b>BuyerID</b>/<b>ItemID</b> pair, but this approach is
- * not recommended since an error is returned if there are multiple
- * order line items for that combination. <b>BuyerID</b> is ignored if any other valid
- * filter or filter combination is used in the same request.
+ * <br> <B>Input property:</B> <code>BuyerID</code> - The eBay user ID for the order's buyer. A single line item order can actually be identified by a <b>BuyerID</b>/<b>ItemID</b> pair, but this approach is not recommended since an error may occur if there are multiple order line items between the buyer and seller. <b>BuyerID</b> is ignored if any other valid filter or filter combination is used in the same request.
  * <br> <B>Input property:</B> <code>ShippingInsuranceCost</code> - This field is no longer applicable as it is not longer possible for a seller to offer a buyer shipping insurance.
- * <br> <B>Input property:</B> <code>SalesTax</code> - The sales tax amount for the order. This field should be used if sales tax
- * was applied to the order.
- * <br> <B>Input property:</B> <code>ShippingCost</code> - Amount of money paid for shipping.
+ * <br> <B>Input property:</B> <code>SalesTax</code> - This field is used if sales tax is being applied to the order. If the  sales tax amount is also being applied to the shipping charges (in addition to the item cost), the <b>ShippingIncludedInTax</b> boolean field should be included in the call request and set to <code>true</code>.
+ * <br> <B>Input property:</B> <code>ShippingCost</code> - This field is used to show the cost of shipping being applied to the order.
  * <br> <B>Input property:</B> <code>EncryptedID</code> - Not supported.
  * <br> <B>Input property:</B> <code>ExternalTransaction</code> - This container is used if payment for the order occurred off of eBay, and the seller wants to pass in the external payment reference ID.
  * <br> <B>Input property:</B> <code>MultipleSellerPaymentID</code> - Not supported.
  * <br> <B>Input property:</B> <code>CODCost</code> - This dollar value indicates the money due from the buyer upon delivery of the item.
  * <br><br>
  * This field should only be specified in the <b>ReviseCheckoutStatus</b> request if 'COD' (cash-on-delivery) was the payment method selected by the buyer and it is included as the <b>PaymentMethodUsed</b> value in the same request.
- * <br> <B>Input property:</B> <code>OrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item and
- * is based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a
- * hyphen in between these two IDs. For a single line item order, the
- * <b>OrderLineItemID</b> value can be passed into the <b>OrderID</b> field to revise the
- * checkout status of the order.
+ * <br> <B>Input property:</B> <code>OrderLineItemID</code> - A unique identifier for an eBay order line item. This identifier is created once there is a commitment to buy (bidder wins the auction, buyer clicks buy button, or buyer purchases item through <b>PlaceOffer</b> call).
  * <br><br>
- * Unless an <b>ItemID</b>/<b>TransactionID</b> pair is used to identify a single line item order, or the <b>OrderID</b> is used to identify a single or multiple line item (Combined Invoice) order, the <b>OrderLineItemID</b> must be specified. For a multiple line item (Combined Invoice) order, <b>OrderID</b> should be used. If <b>OrderLineItemID</b> is specified, the <b>ItemID</b>/<b>TransactionID</b> pair are ignored if present in the same request.
+ * Unless an <b>ItemID</b>/<b>TransactionID</b> pair is used to identify an order line item, or the <b>OrderID</b> is used to identify an order, the <b>OrderLineItemID</b> must be specified. For a multiple line item order, <b>OrderID</b> should be used. If <b>OrderLineItemID</b> is specified, the <b>ItemID</b>/<b>TransactionID</b> pair are ignored if present in the same request.
  * 
  * @author Ron Murphy
  * @version 1.0

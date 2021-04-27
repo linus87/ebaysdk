@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type for expressing sales tax data.
+ * 				This type is used to show sales tax-related details for a tax jurisdiction. The concept of 'sales tax' is only applicable to eBay US and Canada (English and French) sites.
  * 			
  * 
  * <p>Java class for SalesTaxType complex type.

@@ -111,7 +111,7 @@ public enum CancelStatusCodeType {
 
     /**
      * 
-     * 						This value indicates that the order cancellation request has been closed because the buyer has already committed to buying the item(s).
+     * 						This value indicates that since the buyer committed to buying the item but did not pay for it, the cancellation succeeded and no refund is needed.
      * 					
      * 
      */

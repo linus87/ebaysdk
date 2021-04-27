@@ -25,6 +25,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * CommentText sets LeaveFeedbackRequestType.CommentText: 
  * Textual comment that explains, clarifies, or justifies the feedback
  * score specified in <b>CommentType</b>.
+ * <br>
  * CommentType sets LeaveFeedbackRequestType.CommentType: 
  * Score for the Feedback being left. May be Positive, Neutral, or Negative.
  * <br><br>
@@ -32,7 +33,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * Sellers can not leave neutral or negative feedback for buyers. In addition, buyers can not leave neutral or negative feedback within 7 days from the completion of the order for active Power Sellers who have been on eBay for 12 months.
  * </span>
  * ItemID sets LeaveFeedbackRequestType.ItemID: 
- * Unique identifier for an eBay item listing. A listing can have multiple
+ * Unique identifier for an eBay listing. A listing can have multiple
  * order line items, but only one <b>ItemID</b>. Unless an
  * <b>OrderLineItemID</b> is specified in the <b>LeaveFeedback</b> request, the <b>ItemID</b> is
  * required along with the <b>TargetUser</b> to identify an order line item
@@ -52,9 +53,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * line items with creation dates more than 60 days in the past.
  * <br> <B>Input property:</B> <code>TargetUser</code> - Specifies the recipient user about whom the Feedback is being left.
  * <br> <B>Input property:</B> <code>SellerItemRatingDetailArray</code> - Container for detailed seller ratings (DSRs). If a buyer is providing DSRs, they are specified in this container. Sellers have access to the number of ratings they've received, as well as to the averages of the DSRs they've received in each DSR area (i.e., to the average of ratings in the item-description area, etc.).
- * <br> <B>Input property:</B> <code>OrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item and
- * is based upon the concatenation of <b>ItemID</b> and <b>TransactionID</b>, with a
- * hyphen in between these two IDs. If an <b>OrderLineItemID</b> is included in
+ * <br> <B>Input property:</B> <code>OrderLineItemID</code> - <b>OrderLineItemID</b> is a unique identifier for an eBay order line item. If an <b>OrderLineItemID</b> is included in
  * the request, the <b>ItemID</b>, <b>TransactionID</b>, and <b>TargetUser</b> fields are not
  * required. Feedback cannot be left for order line items with creation
  * dates more than 60 days in the past.

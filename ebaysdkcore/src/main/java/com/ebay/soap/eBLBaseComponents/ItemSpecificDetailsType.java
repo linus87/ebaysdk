@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Details about custom Item Specifics validation rules.
+ * 				This type is used by the <b>ItemSpecificDetails</b> container that is returned in the <b>GeteBayDetails</b> call. The <b>ItemSpecificDetails</b> container consists of maximum threshold values that must be adhered to when creating, revising, or relisting items with Item Specifics. Item Specifics are used to provide descriptive details of an item in a structured manner.
  * 			
  * 
  * <p>Java class for ItemSpecificDetailsType complex type.

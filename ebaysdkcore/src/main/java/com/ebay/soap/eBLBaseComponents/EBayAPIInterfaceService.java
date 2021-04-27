@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "eBayAPIInterfaceService", targetNamespace = "urn:ebay:apis:eBLBaseComponents", wsdlLocation = "file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/eBaySvc.wsdl")
+@WebServiceClient(name = "eBayAPIInterfaceService", targetNamespace = "urn:ebay:apis:eBLBaseComponents", wsdlLocation = "file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/ebaysvc.wsdl")
 public class EBayAPIInterfaceService
     extends Service
 {
@@ -30,9 +30,9 @@ public class EBayAPIInterfaceService
         try {
             URL baseUrl;
             baseUrl = com.ebay.soap.eBLBaseComponents.EBayAPIInterfaceService.class.getResource(".");
-            url = new URL(baseUrl, "file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/eBaySvc.wsdl");
+            url = new URL(baseUrl, "file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/ebaysvc.wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/eBaySvc.wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'file:/C:/git_repository/TradingSDK/Java/V1055/source/wsdl/ebaysvc.wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         EBAYAPIINTERFACESERVICE_WSDL_LOCATION = url;

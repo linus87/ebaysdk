@@ -15,7 +15,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 			This type provides details about recommended names and values for custom Item Specifics and/or Product Identifier types.
+ * 			This type is used by the <b>NameRecommendation</b> container that is returned in <b>GetCategorySpecifics</b>. A <b>NameRecommendation</b> container is returned for every mandatory and recommended Item Specific for a category, and provides the recommended/most popular values for the Item Specific, as well as details, instructions, and constraint information for each Item Specific name-value pairs.
  * 		
  * 
  * <p>Java class for NameRecommendationType complex type.

@@ -124,6 +124,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="ConditionEnabled"/>
  *     &lt;enumeration value="ConditionValues"/>
  *     &lt;enumeration value="ValueCategory"/>
+ *     &lt;enumeration value="ProductCreationEnabled"/>
  *     &lt;enumeration value="EANEnabled"/>
  *     &lt;enumeration value="ISBNEnabled"/>
  *     &lt;enumeration value="UPCEnabled"/>
@@ -144,6 +145,15 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="EpidSupported"/>
  *     &lt;enumeration value="KTypeSupported"/>
  *     &lt;enumeration value="ProductRequiredEnabled"/>
+ *     &lt;enumeration value="DomesticReturnsAcceptedValues"/>
+ *     &lt;enumeration value="InternationalReturnsAcceptedValues"/>
+ *     &lt;enumeration value="DomesticReturnsDurationValues"/>
+ *     &lt;enumeration value="InternationalReturnsDurationValues"/>
+ *     &lt;enumeration value="DomesticReturnsShipmentPayeeValues"/>
+ *     &lt;enumeration value="InternationalReturnsShipmentPayeeValues"/>
+ *     &lt;enumeration value="DomesticRefundMethodValues"/>
+ *     &lt;enumeration value="InternationalRefundMethodValues"/>
+ *     &lt;enumeration value="ReturnPolicyDescriptionEnabled"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
@@ -157,12 +167,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, supported site-default and category-specific listing durations values for each listing type are returned in the <b>SiteDefaults.ListingDuration</b> and <b>Category.ListingDuration</b> fields of the <b>GetCategoryFeatures</b> response.
-     *             <br><br>
-     *             <bold>Note:</bold> Listing durations for Local Market listings are not
-     *             supported by <b>GetCategoryFeatures</b>. See to the <a href="http://developer.ebay.com/devzone/guides/ebayfeatures/Development/Sites-eBayMotors.html#LocalMarketListings">Local Market Listing</a>
-     *             documentation in the Features Guide for valid listing durations for Local Market listings.
-     *           
+     * 						If this value is specified, supported site-default and category-specific listing durations values for each listing type are returned in the <b>SiteDefaults.ListingDuration</b> and <b>Category.ListingDuration</b> fields of the <b>GetCategoryFeatures</b> response.
+     * 					
      * 
      */
     @XmlEnumValue("ListingDurations")
@@ -170,12 +176,12 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.BestOfferEnabled</b> and <b>Category.BestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the Best Offer feature, and which categories allow the Best Offer feature.  Best Offers are not available for auction listings.
-     *             <br/><br/>
-     *             <span class="tablenote"><b>Note: </b>
-     *             Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
-     *             </span>
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.BestOfferEnabled</b> and <b>Category.BestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the Best Offer feature, and which categories allow the Best Offer feature.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 						The Best Offer feature can be set for auction listings on the US, Canada, UK, Germany, Australia, France, Italy, and Spain marketplaces, but keep in mind that Best Offer and Buy It Now cannot be used simultaneously in a listing. Also, once a qualifying bid is made on an auction listing, the Best Offer feature is disabled, and any pending offer or counteroffers are no longer valid.
+     * 						</span>
+     * 					
      * 
      */
     @XmlEnumValue("BestOfferEnabled")
@@ -183,8 +189,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b>, as Dutch-style auctions are no longer available on any eBay sites.
-     *           
+     * 						This value is <b>deprecated</b>, as Dutch-style auctions are no longer available on any eBay sites.
+     * 					
      * 
      */
     @XmlEnumValue("DutchBINEnabled")
@@ -192,8 +198,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ShippingTermsRequired</b> and <b>Category.ShippingTermsRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site, and individual categories on that site, require at least one domestic shipping service option (with cost) to be specified before an item is listed.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ShippingTermsRequired</b> and <b>Category.ShippingTermsRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site, and individual categories on that site, require at least one domestic shipping service option (with cost) to be specified before an item is listed.
+     * 					
      * 
      */
     @XmlEnumValue("ShippingTermsRequired")
@@ -201,8 +207,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.UserConsentRequired</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site requires a prospective bidder of an auction item to read and agree to the terms in eBay's privacy policy before bidding on the item.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.UserConsentRequired</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site requires a prospective bidder of an auction item to read and agree to the terms in eBay's privacy policy before bidding on the item.
+     * 					
      * 
      */
     @XmlEnumValue("UserConsentRequired")
@@ -210,8 +216,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.HomePageFeaturedEnabled</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the featuring of items within a special area of eBay's home page. This is a listing enhancement that requires a fee, and support for this feature varies by site.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.HomePageFeaturedEnabled</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the featuring of items within a special area of eBay's home page. This is a listing enhancement that requires a fee, and support for this feature varies by site.
+     * 					
      * 
      */
     @XmlEnumValue("HomePageFeaturedEnabled")
@@ -219,8 +225,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.AdFormatEnabled</b> and <b>Category.AdFormatEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.AdFormatEnabled</b> and <b>Category.AdFormatEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("AdFormatEnabled")
@@ -228,8 +234,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("DigitalDeliveryEnabled")
@@ -237,12 +243,12 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.BestOfferCounterEnabled</b> and <b>Category.BestOfferCounterEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the Best Offer counter offers, and which categories allow the Best Offer counter offers.  Best Offers are not available for auction listings.
-     *             <br/><br/>
-     *             <span class="tablenote"><b>Note: </b>
-     *             Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
-     *             </span>
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.BestOfferCounterEnabled</b> and <b>Category.BestOfferCounterEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports the Best Offer counter offers, and which categories allow the Best Offer counter offers.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 						The Best Offer feature can be set for auction listings on the US, Canada, UK, Germany, Australia, France, Italy, and Spain marketplaces, but keep in mind that Best Offer and Buy It Now cannot be used simultaneously in a listing. Also, once a qualifying bid is made on an auction listing, the Best Offer feature is disabled, and any pending offer or counteroffers are no longer valid.
+     * 						</span>
+     * 					
      * 
      */
     @XmlEnumValue("BestOfferCounterEnabled")
@@ -250,12 +256,12 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.BestOfferAutoDeclineEnabled</b> and <b>Category.BestOfferAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. Best Offers are not available for auction listings.
-     *             <br/><br/>
-     *             <span class="tablenote"><b>Note: </b>
-     *             Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
-     *             </span>
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.BestOfferAutoDeclineEnabled</b> and <b>Category.BestOfferAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 						The Best Offer feature can be set for auction listings on the US, Canada, UK, Germany, Australia, France, Italy, and Spain marketplaces, but keep in mind that Best Offer and Buy It Now cannot be used simultaneously in a listing. Also, once a qualifying bid is made on an auction listing, the Best Offer feature is disabled, and any pending offer or counteroffers are no longer valid.
+     * 						</span>
+     * 					
      * 
      */
     @XmlEnumValue("BestOfferAutoDeclineEnabled")
@@ -263,8 +269,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *               If this value is specified, the <b>SiteDefaults.ProPackEnabled</b> and <b>Category.ProPackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Pro Pack listing enhancement bundle.
-     *           
+     * 							If this value is specified, the <b>SiteDefaults.ProPackEnabled</b> and <b>Category.ProPackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Pro Pack listing enhancement bundle.
+     * 					
      * 
      */
     @XmlEnumValue("ProPack")
@@ -272,8 +278,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("BasicUpgradePack")
@@ -281,8 +287,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ValuePackEnabled</b> and <b>Category.ValuePackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Value Pack listing enhancement bundle. The Value Pack bundle includes the Gallery Plus feature, a listing subtitle, and use of a Listing Designer template.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ValuePackEnabled</b> and <b>Category.ValuePackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Value Pack listing enhancement bundle. The Value Pack bundle includes the Gallery Plus feature, a listing subtitle, and use of a Listing Designer template.
+     * 					
      * 
      */
     @XmlEnumValue("ValuePack")
@@ -290,8 +296,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ProPackPlusEnabled</b> and <b>Category.ProPackPlusEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Pro Pack Plus listing enhancement bundle. The Pro Pack Plus bundle includes the Bold Title, Border, Highlight, Featured, and Gallery features for a discounted price.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ProPackPlusEnabled</b> and <b>Category.ProPackPlusEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Pro Pack Plus listing enhancement bundle. The Pro Pack Plus bundle includes the Bold Title, Border, Highlight, Featured, and Gallery features for a discounted price.
+     * 					
      * 
      */
     @XmlEnumValue("ProPackPlus")
@@ -299,8 +305,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketSpecialitySubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a specialty subscription to Local Market for Vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketSpecialitySubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a specialty subscription to Local Market for Vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketSpecialitySubscription")
@@ -308,8 +314,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketRegularSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a regular subscription to Local Market for Vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketRegularSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a regular subscription to Local Market for Vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketRegularSubscription")
@@ -317,8 +323,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketPremiumSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a premium subscription to Local Market for Vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketPremiumSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers with a premium subscription to Local Market for Vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketPremiumSubscription")
@@ -326,8 +332,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketNonSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers without a subscription to Local Market for Vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketNonSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Local Market listings for sellers without a subscription to Local Market for Vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketNonSubscription")
@@ -335,8 +341,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("ExpressEnabled")
@@ -344,8 +350,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("ExpressPicturesRequired")
@@ -353,8 +359,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("ExpressConditionRequired")
@@ -362,8 +368,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.SellerContactDetailsEnabled</b> and <b>Category.SellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.SellerContactDetailsEnabled</b> and <b>Category.SellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("SellerContactDetailsEnabled")
@@ -371,8 +377,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             Reserved for internal or future use.
-     *           
+     * 						Reserved for internal or future use.
+     * 					
      * 
      */
     @XmlEnumValue("CustomCode")
@@ -380,8 +386,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.MinimumReservePrice</b> and <b>Category.MinimumReservePrice</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require a minimum Reserve Price for auction listings. This feature is only applicable to Auction listings and only if the seller decides to set a Reserve Price for the auction.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.MinimumReservePrice</b> and <b>Category.MinimumReservePrice</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require a minimum Reserve Price for auction listings. This feature is only applicable to Auction listings and only if the seller decides to set a Reserve Price for the auction.
+     * 					
      * 
      */
     @XmlEnumValue("MinimumReservePrice")
@@ -389,8 +395,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("TransactionConfirmationRequestEnabled")
@@ -398,8 +404,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *           This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 					This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("StoreInventoryEnabled")
@@ -407,8 +413,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the integer values in the <b>LocalListingDistancesRegular</b>, <b>LocalListingDistancesSpecialty</b>, and <b>LocalListingDistancesNonSubscription</b> fields in the <b>GetCategoryFeatures</b> response will indicate the radius (in miles) of the selling area for Local Market Vehicle listings, based on Local Market subscription status of the motor vehicle seller (specialty subscription, regular subscription, or no subscription).
-     *           
+     * 						If this value is specified, the integer values in the <b>LocalListingDistancesRegular</b>, <b>LocalListingDistancesSpecialty</b>, and <b>LocalListingDistancesNonSubscription</b> fields in the <b>GetCategoryFeatures</b> response will indicate the radius (in miles) of the selling area for Local Market Vehicle listings, based on Local Market subscription status of the motor vehicle seller (specialty subscription, regular subscription, or no subscription).
+     * 					
      * 
      */
     @XmlEnumValue("LocalListingDistances")
@@ -416,8 +422,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.SkypeMeTransactionalEnabled</b> and <b>Category.SkypeMeTransactionalEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Skype communication between eBay transactional partners (buyer and seller).
-     *           
+     * 						This enumeration value is no longer applicable, as Skype communication between eBay members is no longer supported.
+     * 					
      * 
      */
     @XmlEnumValue("SkypeMeTransactionalEnabled")
@@ -425,8 +431,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.SkypeMeNonTransactionalEnabled</b> and <b>Category.SkypeMeNonTransactionalEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Skype communication between eBay members (buyer and seller) with no transactional relationship.
-     *           
+     * 						This enumeration value is no longer applicable, as Skype communication between eBay members is no longer supported.
+     * 					
      * 
      */
     @XmlEnumValue("SkypeMeNonTransactionalEnabled")
@@ -434,8 +440,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdPaymentMethodEnabled</b> and <b>Category.ClassifiedAdPaymentMethodEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdPaymentMethodEnabled</b> and <b>Category.ClassifiedAdPaymentMethodEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdPaymentMethodEnabled")
@@ -443,8 +449,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdShippingMethodEnabled</b> and <b>Category.ClassifiedAdShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdShippingMethodEnabled</b> and <b>Category.ClassifiedAdShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdShippingMethodEnabled")
@@ -452,8 +458,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdBestOfferEnabled</b> and <b>Category.ClassifiedAdBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Classified Ad listings. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdBestOfferEnabled</b> and <b>Category.ClassifiedAdBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdBestOfferEnabled")
@@ -461,8 +467,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdCounterOfferEnabled</b> and <b>Category.ClassifiedAdCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Classified Ad listings. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdCounterOfferEnabled</b> and <b>Category.ClassifiedAdCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Classified Ad listings. This feature is only applicable for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdCounterOfferEnabled")
@@ -470,8 +476,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdAutoDeclineEnabled</b> and <b>Category.ClassifiedAdAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Classified Ad listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdAutoDeclineEnabled</b> and <b>Category.ClassifiedAdAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Classified Ad listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdAutoDeclineEnabled")
@@ -479,8 +485,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByEmailEnabled</b> and <b>Category.ClassifiedAdContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide a contact email address within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByEmailEnabled</b> and <b>Category.ClassifiedAdContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide a contact email address within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdContactByEmailEnabled")
@@ -488,8 +494,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByPhoneEnabled</b> and <b>Category.ClassifiedAdContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide a contact phone number within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByPhoneEnabled</b> and <b>Category.ClassifiedAdContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide a contact phone number within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdContactByPhoneEnabled")
@@ -497,8 +503,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.SafePaymentRequired</b> and <b>Category.SafePaymentRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site, and individual categories on that site, require that the seller set at least one accepted payment method in the listing that is certified by eBay to be a "safe payment method".
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.SafePaymentRequired</b> and <b>Category.SafePaymentRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site, and individual categories on that site, require that the seller set at least one accepted payment method in the listing that is certified by eBay to be a "safe payment method".
+     * 					
      * 
      */
     @XmlEnumValue("SafePaymentRequired")
@@ -506,8 +512,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("MaximumBestOffersAllowed")
@@ -515,8 +521,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdMaximumBestOffersAllowed")
@@ -524,8 +530,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used. To verify if the seller's contact information can be shared with prospective buyers in the listing, use the <b>SellerContactDetailsEnabled</b> enumeration value instead.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used. To verify if the seller's contact information can be shared with prospective buyers in the listing, use the <b>SellerContactDetailsEnabled</b> enumeration value instead.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdContactByEmailAvailable")
@@ -533,8 +539,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdPayPerLeadEnabled")
@@ -542,8 +548,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ItemSpecificsEnabled</b> and <b>Category.ItemSpecificsEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate if the eBay site and individual categories support custom Item Specifics in listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ItemSpecificsEnabled</b> and <b>Category.ItemSpecificsEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate if the eBay site and individual categories support the use of Item Specifics in listings.
+     * 					
      * 
      */
     @XmlEnumValue("ItemSpecificsEnabled")
@@ -551,8 +557,10 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.PaisaPayFullEscrowEnabled</b> and <b>Category.PaisaPayFullEscrowEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories on that site support Paisa Pay Full Escrow as an accepted payment method. This field is only relevant to listings on the eBay India site, which is the only site where Paisa Pay is available.
-     *           
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This value is deprecated since it is only applicable to the eBay India site, and this marketplace is no longer available.</span>
+     * 						If this value is specified, the <b>SiteDefaults.PaisaPayFullEscrowEnabled</b> and <b>Category.PaisaPayFullEscrowEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories on that site support Paisa Pay Full Escrow as an accepted payment method. This field is only relevant to listings on the eBay India site, which is the only site where Paisa Pay is available.
+     * 					
      * 
      */
     @XmlEnumValue("PaisaPayFullEscrowEnabled")
@@ -560,9 +568,9 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is deprecated and should no longer be used. Use <b>ISBNEnabled</b> instead.
-     *             
-     *           
+     * 						This value is deprecated and should no longer be used. Use <b>ISBNEnabled</b> instead.
+     * 						
+     * 					
      * 
      */
     @XmlEnumValue("ISBNIdentifierEnabled")
@@ -570,9 +578,9 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is deprecated and should no longer be used. Use <b>UPCEnabled</b> instead.
-     *             
-     *           
+     * 						This value is deprecated and should no longer be used. Use <b>UPCEnabled</b> instead.
+     * 						
+     * 					
      * 
      */
     @XmlEnumValue("UPCIdentifierEnabled")
@@ -580,9 +588,9 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is deprecated and should no longer be used. Use <b>EANEnabled</b> instead.
-     *             
-     *           
+     * 						This value is deprecated and should no longer be used. Use <b>EANEnabled</b> instead.
+     * 						
+     * 					
      * 
      */
     @XmlEnumValue("EANIdentifierEnabled")
@@ -590,8 +598,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.BrandMPNIdentifierEnabled</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not individual categories on the specified site support the ability of a seller to identify a product through a Brand/Manufacturer Part Number (MPN) combination.
-     *           
+     * 						If this value is specified, the <b>Category.BrandMPNIdentifierEnabled</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not individual categories on the specified site support the ability of a seller to identify a product through a Brand/Manufacturer Part Number (MPN) combination.
+     * 					
      * 
      */
     @XmlEnumValue("BrandMPNIdentifierEnabled")
@@ -599,8 +607,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdAutoAcceptEnabled</b> and <b>Category.ClassifiedAdAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Classified Ad listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdAutoAcceptEnabled</b> and <b>Category.ClassifiedAdAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Classified Ad listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdAutoAcceptEnabled")
@@ -608,12 +616,12 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.BestOfferAutoAcceptEnabled</b> and <b>Category.BestOfferAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. Best Offers are not available for auction listings.
-     *             <br/><br/>
-     *             <span class="tablenote"><b>Note: </b>
-     *             Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
-     *             </span>
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.BestOfferAutoAcceptEnabled</b> and <b>Category.BestOfferAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action.
+     * 						<br/><br/>
+     * 						<span class="tablenote"><b>Note: </b>
+     * 						The Best Offer feature can be set for auction listings on the US, Canada, UK, Germany, Australia, France, Italy, and Spain marketplaces, but keep in mind that Best Offer and Buy It Now cannot be used simultaneously in a listing. Also, once a qualifying bid is made on an auction listing, the Best Offer feature is disabled, and any pending offer or counteroffers are no longer valid.
+     * 						</span>
+     * 					
      * 
      */
     @XmlEnumValue("BestOfferAutoAcceptEnabled")
@@ -621,8 +629,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *               If this value is specified, the <b>CrossBorderTradeNorthAmericaEnabled</b>, <b>CrossBorderTradeGBEnabled</b>, and <b>CrossBorderTradeAustraliaEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the International Site Visibility (Cross-Border Trade) feature, and on which sites. With the International Site Visibility feature, the seller is able to create a listing and make this listing available on multiple eBay sites (not just their domestic eBay site). The International Site Visibility feature is discussed more on the <a href="http://pages.ebay.com/help/sell/globalexposure.html">Getting exposure on international sites</a> help topic.
-     *             
+     * 							If this value is specified, the <b>CrossBorderTradeNorthAmericaEnabled</b>, <b>CrossBorderTradeGBEnabled</b>, and <b>CrossBorderTradeAustraliaEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the International Site Visibility (Cross-Border Trade) feature, and on which sites. With the International Site Visibility feature, the seller is able to create a listing and make this listing available on multiple eBay sites (not just their domestic eBay site).
+     * 						
      * 
      */
     @XmlEnumValue("CrossBorderTradeEnabled")
@@ -630,8 +638,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *               If this value is specified, the <b>SiteDefaults.PayPalBuyerProtectionEnabled</b> and <b>Category.PayPalBuyerProtectionEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories are enabled with PayPal Purchase Protection. Of course, an eligible item must be purchased with PayPal to be eligible for PayPal Purchase Protection.
-     *           
+     * 							If this value is specified, the <b>SiteDefaults.PayPalBuyerProtectionEnabled</b> and <b>Category.PayPalBuyerProtectionEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories are enabled with PayPal Purchase Protection. Of course, an eligible item must be purchased with PayPal to be eligible for PayPal Purchase Protection.
+     * 					
      * 
      */
     @XmlEnumValue("PayPalBuyerProtectionEnabled")
@@ -639,8 +647,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.BuyerGuaranteeEnabled</b> and <b>Category.BuyerGuaranteeEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories are enabled with the Australian version of the Buyer Protection program. This enumeration value is only applicable to the eBay Australia site.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.BuyerGuaranteeEnabled</b> and <b>Category.BuyerGuaranteeEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories are enabled with the Australian version of the Buyer Protection program. This enumeration value is only applicable to the eBay Australia site.
+     * 					
      * 
      */
     @XmlEnumValue("BuyerGuaranteeEnabled")
@@ -648,8 +656,10 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.INEscrowWorkflowTimeline</b> fields in the <b>GetCategoryFeatures</b> response will indicate the escrow workflows that will be used for individual categories on the eBay India site. This enumeration value is only applicable to the eBay India site, and only if Paisa Pay Full Escrow is an accepted payment method.
-     *           
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						This value is deprecated since it is only applicable to the eBay India site, and this marketplace is no longer available.</span>
+     * 						If this value is specified, the <b>Category.INEscrowWorkflowTimeline</b> fields in the <b>GetCategoryFeatures</b> response will indicate the escrow workflows that will be used for individual categories on the eBay India site. This enumeration value is only applicable to the eBay India site, and only if Paisa Pay Full Escrow is an accepted payment method.
+     * 					
      * 
      */
     @XmlEnumValue("INEscrowWorkflowTimeline")
@@ -657,8 +667,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("CombinedFixedPriceTreatment")
@@ -666,8 +676,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.GalleryFeaturedDurations</b> container in the <b>GetCategoryFeatures</b> response will indicate the listing duration times that the Featured Gallery feature may be enabled for a listing.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.GalleryFeaturedDurations</b> container in the <b>GetCategoryFeatures</b> response will indicate the listing duration times that the Featured Gallery feature may be enabled for a listing.
+     * 					
      * 
      */
     @XmlEnumValue("GalleryFeaturedDurations")
@@ -675,8 +685,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.PayPalRequired</b> and <b>Category.PayPalRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require PayPal as one of the accepted payment methods in a listing. This value is not applicable in countries where PayPal is not available.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.PayPalRequired</b> and <b>Category.PayPalRequired</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require PayPal as one of the accepted payment methods in a listing. This value is not applicable in countries where PayPal is not available.
+     * 					
      * 
      */
     @XmlEnumValue("PayPalRequired")
@@ -684,8 +694,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProAdFormatEnabled</b> and <b>Category.eBayMotorsProAdFormatEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow motor vehicles to be sold through Classified Ads. This value is only applicable for eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProAdFormatEnabled</b> and <b>Category.eBayMotorsProAdFormatEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow motor vehicles to be sold through Classified Ads. This value is only applicable for eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProAdFormatEnabled")
@@ -693,8 +703,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByPhoneEnabled</b> and <b>Category.eBayMotorsProContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide contact phone numbers within a Motor Vehicles Classified Ad listing. The <b>Category.eBayMotorsProPhoneCount</b> field indicates how many contact phone numbers are supported in each listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByPhoneEnabled</b> and <b>Category.eBayMotorsProContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide contact phone numbers within a Motor Vehicles Classified Ad listing. The <b>Category.eBayMotorsProPhoneCount</b> field indicates how many contact phone numbers are supported in each listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProContactByPhoneEnabled")
@@ -702,8 +712,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByAddressEnabled</b> and <b>Category.eBayMotorsProContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide contact street addresses within a Motor Vehicles Classified Ad listing. The <b>Category.eBayMotorsProStreetCount</b> field indicates how many contact street addresses are supported in each listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByAddressEnabled</b> and <b>Category.eBayMotorsProContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide contact street addresses within a Motor Vehicles Classified Ad listing. The <b>Category.eBayMotorsProStreetCount</b> field indicates how many contact street addresses are supported in each listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProContactByAddressEnabled")
@@ -711,8 +721,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProCompanyNameEnabled</b> and <b>Category.eBayMotorsProCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide a company name within a Motor Vehicles Classified Ad listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProCompanyNameEnabled</b> and <b>Category.eBayMotorsProCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide a company name within a Motor Vehicles Classified Ad listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProCompanyNameEnabled")
@@ -720,8 +730,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByEmailEnabled</b> and <b>Category.eBayMotorsProContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide a contact email address within a Motor Vehicles Classified Ad listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProContactByEmailEnabled</b> and <b>Category.eBayMotorsProContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Motors Pro users to provide a contact email address within a Motor Vehicles Classified Ad listing. This feature is only applicable to Motor Vehicles Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProContactByEmailEnabled")
@@ -729,8 +739,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProBestOfferEnabled</b> and <b>Category.eBayMotorsProBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Motor Vehicles Classified Ad listings. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProBestOfferEnabled</b> and <b>Category.eBayMotorsProBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Motor Vehicles Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProBestOfferEnabled")
@@ -738,8 +748,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProAutoAcceptEnabled</b> and <b>Category.eBayMotorsProAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Motor Vehicles Classified Ad listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProAutoAcceptEnabled</b> and <b>Category.eBayMotorsProAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Motor Vehicles Classified Ad listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProAutoAcceptEnabled")
@@ -747,8 +757,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProAutoDeclineEnabled</b> and <b>Category.eBayMotorsProAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Motor Vehicles Classified Ad listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProAutoDeclineEnabled</b> and <b>Category.eBayMotorsProAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Motor Vehicles Classified Ad listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProAutoDeclineEnabled")
@@ -756,8 +766,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProPaymentMethodCheckOutEnabled</b> and <b>Category.eBayMotorsProPaymentMethodCheckOutEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProPaymentMethodCheckOutEnabled</b> and <b>Category.eBayMotorsProPaymentMethodCheckOutEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProPaymentMethodCheckOutEnabled")
@@ -765,8 +775,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProShippingMethodEnabled</b> and <b>Category.eBayMotorsProShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProShippingMethodEnabled</b> and <b>Category.eBayMotorsProShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProShippingMethodEnabled")
@@ -774,8 +784,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProCounterOfferEnabled</b> and <b>Category.eBayMotorsProCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Motor Vehicles Classified Ad listings. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProCounterOfferEnabled</b> and <b>Category.eBayMotorsProCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Motor Vehicles Classified Ad listings. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProCounterOfferEnabled")
@@ -783,8 +793,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.eBayMotorsProSellerContactDetailsEnabled</b> and <b>Category.eBayMotorsProSellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Motor Vehicles Classified Ad listing. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.eBayMotorsProSellerContactDetailsEnabled</b> and <b>Category.eBayMotorsProSellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Motor Vehicles Classified Ad listing. This feature is only applicable for Motor Vehicles Classified Ad listings, and is only available to eBay Motors Pro users.
+     * 					
      * 
      */
     @XmlEnumValue("eBayMotorsProSellerContactDetailsEnabled")
@@ -792,8 +802,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketAdFormatEnabled</b> and <b>Category.LocalMarketAdFormatEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow motor vehicles to be sold through Local Market Classified Ads. Motors Local Market listings are only available to eBay sellers who are Licensed Vehicle Dealers on eBay.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketAdFormatEnabled</b> and <b>Category.LocalMarketAdFormatEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow motor vehicles to be sold through Local Market Classified Ads. Motors Local Market listings are only available to eBay sellers who are Licensed Vehicle Dealers on eBay.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketAdFormatEnabled")
@@ -801,8 +811,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketContactByPhoneEnabled</b> and <b>Category.LocalMarketContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact phone numbers within a Motors Local Market listing. The <b>Category.LocalMarketPhoneCount</b> field indicates how many contact phone numbers are supported in each listing. This feature is only applicable to Motors Local Market listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketContactByPhoneEnabled</b> and <b>Category.LocalMarketContactByPhoneEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact phone numbers within a Motors Local Market listing. The <b>Category.LocalMarketPhoneCount</b> field indicates how many contact phone numbers are supported in each listing. This feature is only applicable to Motors Local Market listings.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketContactByPhoneEnabled")
@@ -810,8 +820,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketContactByAddressEnabled</b> and <b>Category.LocalMarketContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact street addresses within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketContactByAddressEnabled</b> and <b>Category.LocalMarketContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact street addresses within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketContactByAddressEnabled")
@@ -819,8 +829,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketCompanyNameEnabled</b> and <b>Category.LocalMarketCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide a company name within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketCompanyNameEnabled</b> and <b>Category.LocalMarketCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide a company name within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketCompanyNameEnabled")
@@ -828,8 +838,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketContactByEmailEnabled</b> and <b>Category.LocalMarketContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact email addresses within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketContactByEmailEnabled</b> and <b>Category.LocalMarketContactByEmailEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Licensed Vehicle Dealers to provide contact email addresses within a Motors Local Market listing. This feature is only applicable to Motors Local Market listings.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketContactByEmailEnabled")
@@ -837,8 +847,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketBestOfferEnabled</b> and <b>Category.LocalMarketBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Motors Local Market listings. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketBestOfferEnabled</b> and <b>Category.LocalMarketBestOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer feature for Motors Local Market listings.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketBestOfferEnabled")
@@ -846,8 +856,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketAutoAcceptEnabled</b> and <b>Category.LocalMarketAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Motors Local Market listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketAutoAcceptEnabled</b> and <b>Category.LocalMarketAutoAcceptEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto accept feature for Motors Local Market listings. With the Best Offer auto accept feature, the seller sets a price threshold, and all Best Offers and counter offers at or above this price value are automatically accepted without any seller action. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketAutoAcceptEnabled")
@@ -855,8 +865,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketAutoDeclineEnabled</b> and <b>Category.LocalMarketAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Motors Local Market listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketAutoDeclineEnabled</b> and <b>Category.LocalMarketAutoDeclineEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Best Offer auto decline feature for Motors Local Market listings. With the Best Offer auto decline feature, the seller sets a price threshold, and all Best Offers and counter offers below this price value are automatically declined without any seller action. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketAutoDeclineEnabled")
@@ -864,8 +874,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketPaymentMethodCheckOutEnabled</b> and <b>Category.LocalMarketPaymentMethodCheckOutEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketPaymentMethodCheckOutEnabled</b> and <b>Category.LocalMarketPaymentMethodCheckOutEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not (and when) accepted payment methods are displayed to buyers for the specified eBay site and for individual categories. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketPaymentMethodCheckOutEnabled")
@@ -873,8 +883,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketShippingMethodEnabled</b> and <b>Category.LocalMarketShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketShippingMethodEnabled</b> and <b>Category.LocalMarketShippingMethodEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the display of available shipping methods to buyers. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketShippingMethodEnabled")
@@ -882,8 +892,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketCounterOfferEnabled</b> and <b>Category.LocalMarketCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Motors Local Market listings. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketCounterOfferEnabled</b> and <b>Category.LocalMarketCounterOfferEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support Best Offer counter offers for Motors Local Market listings. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketCounterOfferEnabled")
@@ -891,8 +901,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.LocalMarketSellerContactDetailsEnabled</b> and <b>Category.LocalMarketSellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Motors Local Market listing. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.LocalMarketSellerContactDetailsEnabled</b> and <b>Category.LocalMarketSellerContactDetailsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow the seller to provide contact information within a Motors Local Market listing. This feature is only applicable for Motors Local Market listings, and is only available to eBay Licensed Vehicle Dealers.
+     * 					
      * 
      */
     @XmlEnumValue("LocalMarketSellerContactDetailsEnabled")
@@ -900,8 +910,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByAddressEnabled</b> and <b>Category.ClassifiedAdContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to provide contact street addresses within a Classified Ad listing. The <b>Category.ClassifiedAdStreetCount</b> field indicates how many street addresses are allowed in each listing. This feature is only applicable to Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdContactByAddressEnabled</b> and <b>Category.ClassifiedAdContactByAddressEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to provide contact street addresses within a Classified Ad listing. The <b>Category.ClassifiedAdStreetCount</b> field indicates how many street addresses are allowed in each listing. This feature is only applicable to Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdContactByAddressEnabled")
@@ -909,8 +919,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ClassifiedAdCompanyNameEnabled</b> and <b>Category.ClassifiedAdCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to provide a company name within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ClassifiedAdCompanyNameEnabled</b> and <b>Category.ClassifiedAdCompanyNameEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to provide a company name within a Classified Ad listing. This feature is only applicable to Classified Ad listings.
+     * 					
      * 
      */
     @XmlEnumValue("ClassifiedAdCompanyNameEnabled")
@@ -918,8 +928,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.SpecialitySubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a specialty dealer subscription for selling motor vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.SpecialitySubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a specialty dealer subscription for selling motor vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("SpecialitySubscription")
@@ -927,8 +937,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.RegularSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a regular dealer subscription for selling motor vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.RegularSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a regular dealer subscription for selling motor vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("RegularSubscription")
@@ -936,8 +946,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.PremiumSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a premium dealer subscription for selling motor vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.PremiumSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers with a premium dealer subscription for selling motor vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("PremiumSubscription")
@@ -945,8 +955,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.NonSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers without a dealer subscription for selling motor vehicles.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.NonSubscription</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site supports Motors National listings for sellers without a dealer subscription for selling motor vehicles.
+     * 					
      * 
      */
     @XmlEnumValue("NonSubscription")
@@ -954,8 +964,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.IntangibleEnabled</b> and <b>Category.IntangibleEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to sell intangible items.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.IntangibleEnabled</b> and <b>Category.IntangibleEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to sell intangible items.
+     * 					
      * 
      */
     @XmlEnumValue("IntangibleEnabled")
@@ -963,8 +973,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("PayPalRequiredForStoreOwner")
@@ -972,8 +982,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ReviseQuantityAllowed</b> and <b>Category.ReviseQuantityAllowed</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to revise quantity in a multi-quantity, fixed-price listing while the listing is in a semi- or fully-restricted mode (such as when the listing already has sales or when the listing is scheduled to end within 12 hours). This value is only applicable to fixed-price listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ReviseQuantityAllowed</b> and <b>Category.ReviseQuantityAllowed</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to revise quantity in a multi-quantity, fixed-price listing while the listing is in a semi- or fully-restricted mode (such as when the listing already has sales or when the listing is scheduled to end within 12 hours). This value is only applicable to fixed-price listings.
+     * 					
      * 
      */
     @XmlEnumValue("ReviseQuantityAllowed")
@@ -981,8 +991,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.RevisePriceAllowed</b> and <b>Category.RevisePriceAllowed</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to revise the price in a fixed-price listing while the listing is in a semi- or fully-restricted mode (such as when the listing already has sales or when the listing is scheduled to end within 12 hours). This value is only applicable to fixed-price listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.RevisePriceAllowed</b> and <b>Category.RevisePriceAllowed</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow sellers to revise the price in a fixed-price listing while the listing is in a semi- or fully-restricted mode (such as when the listing already has sales or when the listing is scheduled to end within 12 hours). This value is only applicable to fixed-price listings.
+     * 					
      * 
      */
     @XmlEnumValue("RevisePriceAllowed")
@@ -990,8 +1000,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.StoreOwnerExtendedListingDurationsEnabled</b> and <b>Category.StoreOwnerExtendedListingDurationsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Store sellers to create fixed-price listings with longer listing durations than sellers without eBay Stores. This value is only applicable to fixed-price listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.StoreOwnerExtendedListingDurationsEnabled</b> and <b>Category.StoreOwnerExtendedListingDurationsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay Store sellers to create fixed-price listings with longer listing durations than sellers without eBay Stores. This value is only applicable to fixed-price listings.
+     * 					
      * 
      */
     @XmlEnumValue("StoreOwnerExtendedListingDurationsEnabled")
@@ -999,8 +1009,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.StoreOwnerExtendedListingDurations</b> container in the <b>GetCategoryFeatures</b> response will indicate the extended listing duration times that eBay Store sellers may set when creating a fixed-price listing.  This value is only applicable to fixed-price listings. The site and category must support extended listing durations (<b>StoreOwnerExtendedListingDurationsEnabled</b>=true).
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.StoreOwnerExtendedListingDurations</b> container in the <b>GetCategoryFeatures</b> response will indicate the extended listing duration times that eBay Store sellers may set when creating a fixed-price listing.  This value is only applicable to fixed-price listings. The site and category must support extended listing durations (<b>StoreOwnerExtendedListingDurationsEnabled</b>=true).
+     * 					
      * 
      */
     @XmlEnumValue("StoreOwnerExtendedListingDurations")
@@ -1008,8 +1018,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ReturnPolicyEnabled</b> and <b>Category.ReturnPolicyEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay sellers to create a return policy for the listing.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ReturnPolicyEnabled</b> and <b>Category.ReturnPolicyEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories allow eBay sellers to create a return policy for the listing.
+     * 					
      * 
      */
     @XmlEnumValue("ReturnPolicyEnabled")
@@ -1017,8 +1027,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.HandlingTimeEnabled</b> and <b>Category.HandlingTimeEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require eBay sellers to set a handling time for products sold within the listing. The handling time is the maximum number of business days the seller commits to for preparing an item to be shipped after receiving a cleared payment. The seller's handling time does not include the shipping time (the carrier's transit time).
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.HandlingTimeEnabled</b> and <b>Category.HandlingTimeEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories require eBay sellers to set a handling time for products sold within the listing. The handling time is the maximum number of business days the seller commits to for preparing an item to be shipped after receiving a cleared payment. The seller's handling time does not include the shipping time (the carrier's transit time).
+     * 					
      * 
      */
     @XmlEnumValue("HandlingTimeEnabled")
@@ -1026,8 +1036,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.PaymentMethod</b> and <b>SiteDefaults.PaymentMethod</b> fields in the <b>GetCategoryFeatures</b> response will indicate the accepted payment methods at the eBay site level and within the individual categories.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.PaymentMethod</b> and <b>SiteDefaults.PaymentMethod</b> fields in the <b>GetCategoryFeatures</b> response will indicate the accepted payment methods at the eBay site level and within the individual categories.
+     * 					
      * 
      */
     @XmlEnumValue("PaymentMethods")
@@ -1035,8 +1045,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically. At least one available shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
-     *           
+     * 						If this value is specified, the <b>Category.MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically. At least one available shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
+     * 					
      * 
      */
     @XmlEnumValue("MaxFlatShippingCost")
@@ -1044,8 +1054,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.MaxFlatShippingCostCBTExempt</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not sellers, who sell items to domestic buyers, but are shipping the item from another country, are exempt from the <b>MaxFlatShippingCost</b> threshold.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.MaxFlatShippingCostCBTExempt</b> boolean field in the <b>GetCategoryFeatures</b> response will indicate whether or not sellers, who sell items to domestic buyers, but are shipping the item from another country, are exempt from the <b>MaxFlatShippingCost</b> threshold.
+     * 					
      * 
      */
     @XmlEnumValue("MaxFlatShippingCostCBTExempt")
@@ -1053,8 +1063,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.Group1MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 1 shipping service. At least one available Group 1 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
-     *           
+     * 						If this value is specified, the <b>Category.Group1MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 1 shipping service. At least one available Group 1 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
+     * 					
      * 
      */
     @XmlEnumValue("Group1MaxFlatShippingCost")
@@ -1062,8 +1072,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.Group2MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 2 shipping service. At least one available Group 2 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
-     *            
+     * 						If this value is specified, the <b>Category.Group2MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 2 shipping service. At least one available Group 2 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
+     * 					 
      * 
      */
     @XmlEnumValue("Group2MaxFlatShippingCost")
@@ -1071,8 +1081,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.Group3MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 3 shipping service. At least one available Group 3 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
-     *           
+     * 						If this value is specified, the <b>Category.Group3MaxFlatShippingCost</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum flat-rate shipping costs that the seller may charge the buyer to ship one item domestically using a Group 3 shipping service. At least one available Group 3 shipping service option has to be under this value. Handling cost (if any) goes toward this maximum cost threshold.
+     * 					
      * 
      */
     @XmlEnumValue("Group3MaxFlatShippingCost")
@@ -1080,8 +1090,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.VariationsEnabled</b> and <b>Category.VariationsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support multi-variation listings. Variations are items within the same listing that are logically the same product, but differ slightly in size, color, or other aspect.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.VariationsEnabled</b> and <b>Category.VariationsEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support multi-variation listings. Variations are items within the same listing that are logically the same product, but differ slightly in size, color, or other aspect.
+     * 					
      * 
      */
     @XmlEnumValue("VariationsEnabled")
@@ -1089,8 +1099,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("AttributeConversionEnabled")
@@ -1098,8 +1108,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.FreeGalleryPlusEnabled</b> and <b>Category.FreeGalleryPlusEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support a free Gallery Plus upgrade. The Gallery Plus feature includes the picture zoom-in option (when you hover the mouse over the picture) and the ability to enlarge the photo by clicking a link.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.FreeGalleryPlusEnabled</b> and <b>Category.FreeGalleryPlusEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support a free Gallery Plus upgrade. The Gallery Plus feature includes the picture zoom-in option (when you hover the mouse over the picture) and the ability to enlarge the photo by clicking a link.
+     * 					
      * 
      */
     @XmlEnumValue("FreeGalleryPlusEnabled")
@@ -1107,8 +1117,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.FreePicturePackEnabled</b> and <b>Category.FreePicturePackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support a free Picture Pack upgrade. The Picture Pack feature is only available for eBay Motors vehicle listings. The Picture Pack feature includes up to 12 supersized photos with the zoom-in feature enabled for each one.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.FreePicturePackEnabled</b> and <b>Category.FreePicturePackEnabled</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support a free Picture Pack upgrade. The Picture Pack feature is only available for eBay Motors vehicle listings. The Picture Pack feature includes up to 12 supersized photos with the zoom-in feature enabled for each one.
+     * 					
      * 
      */
     @XmlEnumValue("FreePicturePackEnabled")
@@ -1116,8 +1126,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.ItemCompatibilityEnabled</b> and <b>Category.ItemCompatibilityEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Parts Compatibility feature, and if so, the mode of compatibility that is used (by application or by specification). The Parts Compatibility feature allows sellers to list their motor vehicles parts and accessories items with parts compatibility name-value pairs specific to motor vehicles, and allows potential buyers to search for these items using parts compatibility search fields.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.ItemCompatibilityEnabled</b> and <b>Category.ItemCompatibilityEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the Parts Compatibility feature, and if so, the mode of compatibility that is used (by application or by specification). The Parts Compatibility feature allows sellers to list their motor vehicles parts and accessories items with parts compatibility name-value pairs specific to motor vehicles, and allows potential buyers to search for these items using parts compatibility search fields.
+     * 					
      * 
      */
     @XmlEnumValue("CompatibilityEnabled")
@@ -1125,8 +1135,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the  <b>Category.MinCompatibleApplications</b> fields in the <b>GetCategoryFeatures</b> response will indicate the minimum number of compatible applications that must be specified when listing a motor vehicle part or accessory in the given category.
-     *           
+     * 						If this value is specified, the  <b>Category.MinCompatibleApplications</b> fields in the <b>GetCategoryFeatures</b> response will indicate the minimum number of compatible applications that must be specified when listing a motor vehicle part or accessory in the given category.
+     * 					
      * 
      */
     @XmlEnumValue("MinCompatibleApplications")
@@ -1134,8 +1144,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the  <b>Category.MaxCompatibleApplications</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum number of compatible applications that can be specified when listing a motor vehicle part or accessory in the given category.
-     *           
+     * 						If this value is specified, the  <b>Category.MaxCompatibleApplications</b> fields in the <b>GetCategoryFeatures</b> response will indicate the maximum number of compatible applications that can be specified when listing a motor vehicle part or accessory in the given category.
+     * 					
      * 
      */
     @XmlEnumValue("MaxCompatibleApplications")
@@ -1143,8 +1153,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.ConditionEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate which individual categories support (and even require) the use of <b>ConditionID</b> values to specify the condition of an item within a listing.
-     *           
+     * 						If this value is specified, the <b>Category.ConditionEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate which individual categories support (and even require) the use of <b>ConditionID</b> values to specify the condition of an item within a listing.
+     * 					
      * 
      */
     @XmlEnumValue("ConditionEnabled")
@@ -1152,8 +1162,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the  <b>Category.Condition</b> containers in the <b>GetCategoryFeatures</b> response will include Condition ID values and item conditions like 'Very Good', 'Acceptable', 'Used', etc. for all categories that support the use of Condition ID values.
-     *           
+     * 						If this value is specified, the  <b>Category.Condition</b> containers in the <b>GetCategoryFeatures</b> response will include Condition ID values and item conditions like 'Very Good', 'Acceptable', 'Used', etc. for all categories that support the use of Condition ID values.
+     * 					
      * 
      */
     @XmlEnumValue("ConditionValues")
@@ -1161,8 +1171,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the  <b>Category.ValueCategory</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate the categories that are considered by eBay to be 'Value Categories'. 'Value Categories' are generally categories where buyers can find good deals on items. If sellers decide to list within a value category, only this category may be used, and a secondary category is not supported.
-     *           
+     * 						If this value is specified, the  <b>Category.ValueCategory</b> boolean fields in the <b>GetCategoryFeatures</b> response will indicate the categories that are considered by eBay to be 'Value Categories'. 'Value Categories' are generally categories where buyers can find good deals on items. If sellers decide to list within a value category, only this category may be used, and a secondary category is not supported.
+     * 					
      * 
      */
     @XmlEnumValue("ValueCategory")
@@ -1170,8 +1180,17 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.EANEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize EANs to identify a product. A value of <code>Disabled</code> indicates that EANs cannot be used for the category, a value of <code>Enabled</code> indicates that EANs can be used for the category, and a value of <code>Required</code> indicates that an EAN is required when listing a product in this category.
-     *           
+     * 						This enumeration value is no longer applicable. Use the <code>ProductRequiredEnabled</code> enumeration value instead to see if a category supports listings that are associated with an eBay Catalog product.
+     * 					
+     * 
+     */
+    @XmlEnumValue("ProductCreationEnabled")
+    PRODUCT_CREATION_ENABLED("ProductCreationEnabled"),
+
+    /**
+     * 
+     * 						If this value is specified, the <b>Category.EANEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize EANs to identify a product. A value of <code>Disabled</code> indicates that EANs cannot be used for the category, a value of <code>Enabled</code> indicates that EANs can be used for the category, and a value of <code>Required</code> indicates that an EAN is required when listing a product in this category.
+     * 					
      * 
      */
     @XmlEnumValue("EANEnabled")
@@ -1179,8 +1198,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.ISBNEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize ISBNs to identify a product. A value of <code>Disabled</code> indicates that ISBNs cannot be used for the category, a value of <code>Enabled</code> indicates that ISBNs can be used for the category, and a value of <code>Required</code> indicates that an ISBN is required when listing a product in this category.
-     *           
+     * 						If this value is specified, the <b>Category.ISBNEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize ISBNs to identify a product. A value of <code>Disabled</code> indicates that ISBNs cannot be used for the category, a value of <code>Enabled</code> indicates that ISBNs can be used for the category, and a value of <code>Required</code> indicates that an ISBN is required when listing a product in this category.
+     * 					
      * 
      */
     @XmlEnumValue("ISBNEnabled")
@@ -1188,8 +1207,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.UPCEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize UPCs to identify a product. A value of <code>Disabled</code> indicates that UPCs cannot be used for the category, a value of <code>Enabled</code> indicates that UPCs can be used for the category, and a value of <code>Required</code> indicates that a UPC is required when listing a product in this category.
-     *           
+     * 						If this value is specified, the <b>Category.UPCEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not items listed in the corresponding category may utilize UPCs to identify a product. A value of <code>Disabled</code> indicates that UPCs cannot be used for the category, a value of <code>Enabled</code> indicates that UPCs can be used for the category, and a value of <code>Required</code> indicates that a UPC is required when listing a product in this category.
+     * 					
      * 
      */
     @XmlEnumValue("UPCEnabled")
@@ -1197,8 +1216,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.MaxGranularFitmentCount</b> fields in the <b>GetCategoryFeatures</b> response will indicate how many Parts Compatibility name-value pairs may be passed in for each motor vehicle aspect (Year, Make, and Model) in a motor vehicle parts and accessory listing. granularity. This field is only applicable to motor vehicle parts and accessory listings.
-     *           
+     * 						If this value is specified, the <b>Category.MaxGranularFitmentCount</b> fields in the <b>GetCategoryFeatures</b> response will indicate how many Parts Compatibility name-value pairs may be passed in for each motor vehicle aspect (Year, Make, and Model) in a motor vehicle parts and accessory listing. granularity. This field is only applicable to motor vehicle parts and accessory listings.
+     * 					
      * 
      */
     @XmlEnumValue("MaxGranularFitmentCount")
@@ -1206,8 +1225,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.CompatibleVehicleType</b> fields in the <b>GetCategoryFeatures</b> response will indicate the type of vehicle that parts compatibility name-value pairs in a listing will be referring to, such as 'cars and trucks', 'all-terrain vehicles (ATV)', 'boats', and 'motorcycles'. This field is only applicable to motor vehicle parts and accessory listings.
-     *           
+     * 						If this value is specified, the <b>Category.CompatibleVehicleType</b> fields in the <b>GetCategoryFeatures</b> response will indicate the type of vehicle that parts compatibility name-value pairs in a listing will be referring to, such as 'cars and trucks', 'all-terrain vehicles (ATV)', 'boats', and 'motorcycles'. This field is only applicable to motor vehicle parts and accessory listings.
+     * 					
      * 
      */
     @XmlEnumValue("CompatibleVehicleType")
@@ -1215,8 +1234,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("PaymentOptionsGroup")
@@ -1224,8 +1243,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.ShippingProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which shipping business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
-     *           
+     * 						If this value is specified, the <b>Category.ShippingProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which shipping business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
+     * 					
      * 
      */
     @XmlEnumValue("ShippingProfileCategoryGroup")
@@ -1233,8 +1252,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.PaymentProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which payment business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
-     *           
+     * 						If this value is specified, the <b>Category.PaymentProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which payment business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
+     * 					
      * 
      */
     @XmlEnumValue("PaymentProfileCategoryGroup")
@@ -1242,8 +1261,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.ReturnPolicyProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which return policy business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
-     *           
+     * 						If this value is specified, the <b>Category.ReturnPolicyProfileCategoryGroup</b> fields in the <b>GetCategoryFeatures</b> response will indicate which return policy business policy category group that each category will inherit as the default category group. Currently, there are only two Business Policies category groups - 'MOTORS_VEHICLE' covers all motor-vehicle related categories, and 'ALL' covers all other categories.
+     * 					
      * 
      */
     @XmlEnumValue("ReturnPolicyProfileCategoryGroup")
@@ -1251,8 +1270,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("VINSupported")
@@ -1260,8 +1279,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("VRMSupported")
@@ -1269,8 +1288,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.SellerProvidedTitleSupported</b> and <b>Category.SellerProvidedTitleSupported</b> fields in the <b>GetCategoryFeatures</b> response will indicate if the eBay site and individual categories support the use of a seller-provided title for a motor vehicle listing on the US or Canada Motors marketplaces. A seller-provided title is a descriptive title, given by the seller, that appears below eBay's pre-filled listing title for the motor vehicle.
+     * 					
      * 
      */
     @XmlEnumValue("SellerProvidedTitleSupported")
@@ -1278,8 +1297,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is <b>deprecated</b> and should no longer be used.
-     *           
+     * 						This value is <b>deprecated</b> and should no longer be used.
+     * 					
      * 
      */
     @XmlEnumValue("DepositSupported")
@@ -1287,8 +1306,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.GlobalShippingEnabled</b> and <b>Category.GlobalShippingEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate if the eBay site and individual categories support the Global Shipping Program (GSP) as a means for shipping items internationally. The GSP feature is only applicable to shipping items internationally.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.GlobalShippingEnabled</b> and <b>Category.GlobalShippingEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate if the eBay site and individual categories support the Global Shipping Program (GSP) as a means for shipping items internationally. The GSP feature is only applicable to shipping items internationally.
+     * 					
      * 
      */
     @XmlEnumValue("GlobalShippingEnabled")
@@ -1296,8 +1315,8 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>SiteDefaults.AdditionalCompatibilityEnabled</b> and <b>Category.AdditionalCompatibilityEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the second-generation Parts Compatibility feature where parts-compatibility name-value pairs can be passed in for boats, motorcycles, and other vehicles instead of just cars and trucks. This feature is only applicable to motor vehicle parts and accessory listings.
-     *           
+     * 						If this value is specified, the <b>SiteDefaults.AdditionalCompatibilityEnabled</b> and <b>Category.AdditionalCompatibilityEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate whether or not the specified eBay site and individual categories support the second-generation Parts Compatibility feature where parts-compatibility name-value pairs can be passed in for boats, motorcycles, and other vehicles instead of just cars and trucks. This feature is only applicable to motor vehicle parts and accessory listings.
+     * 					
      * 
      */
     @XmlEnumValue("AdditionalCompatibilityEnabled")
@@ -1305,10 +1324,10 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.PickupDropOffEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate that items listed in the corresponding category may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on the eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A <code>false</code> value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
-     *             <br/><br/>
-     *             The 'Click and Collect' feature is only available to large merchants on the eBay UK (site ID - 3), eBay Australia (Site ID - 15), and eBay Germany (Site ID - 77) sites.
-     *           
+     * 						If this value is specified, the <b>Category.PickupDropOffEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate that items listed in the corresponding category may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on the eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A <code>false</code> value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
+     * 						<br/><br/>
+     * 						The 'Click and Collect' feature is only available to large merchants on the eBay UK (site ID - 3), eBay Australia (Site ID - 15), and eBay Germany (Site ID - 77) sites.
+     * 					
      * 
      */
     @XmlEnumValue("PickupDropOffEnabled")
@@ -1316,16 +1335,16 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             If this value is specified, the <b>Category.DigitalGoodDeliveryEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate that digital gift cards can be listed in the corresponding category. A <code>false</code> value in this field indicates that digital gift cards may not be listed in the category.
-     *             <br/><br/>
-     *             Digital gift cards are currently only supported on the US site. There are some restrictions when it comes to selling gift cards, including the following:
-     *             
+     * 						If this value is specified, the <b>Category.DigitalGoodDeliveryEnabled</b> fields in the <b>GetCategoryFeatures</b> response will indicate that digital gift cards can be listed in the corresponding category. A <code>false</code> value in this field indicates that digital gift cards may not be listed in the category.
+     * 						<br/><br/>
+     * 						Digital gift cards are currently only supported on the US site. There are some restrictions when it comes to selling gift cards, including the following:
+     * 						
      * <pre>
      * &lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;br xmlns="urn:ebay:apis:eBLBaseComponents" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ns="urn:ebay:apis:eBLBaseComponents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace"/&gt;
      * </pre>
      * <ul><li>Each seller can only have one gift card listing at any given time;</li><li>The maximum dollar value of the gift card may not exceed 500.00; and</li><li>prepaid credit cards from American Express, Discover, MasterCard, or Visa are not allowed.</li></ul>
-     *             For more information on eBay's Gift Card policy, see the <a href="http://pages.ebay.com/help/policies/gift.html">Gift cards policy</a> Help page.
-     *           
+     * 						For more information on eBay's Gift Card policy, see the <a href="http://pages.ebay.com/help/policies/gift.html">Gift cards policy</a> Help page.
+     * 					
      * 
      */
     @XmlEnumValue("DigitalGoodDeliveryEnabled")
@@ -1333,11 +1352,11 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is used to see if an eBay Product ID (e.g. ePID) can be used in an Add/Revise/Relist API call to identify which motorcycles and/or scooters are compatible with a motor vehicle part or accessory is supported. ePIDs can only be used to identify motorcycles and scooters on the Germany and UK sites.
-     *             <br/><br/>
+     * 						This value is used to see if an eBay Product ID (e.g. ePID) can be used in an Add/Revise/Relist API call to identify which motorcycles and/or scooters are compatible with a motor vehicle part or accessory is supported. ePIDs can only be used to identify motorcycles and scooters on the Germany and UK sites.
+     * 						<br/><br/>
      *             For more information on using an ePID to identify a compatible motorcycle or scooter through an Add/Revise/Relist API call on the Germany or UK site, see the documentation for the <a href="
      *             http://developer.ebay.com/Devzone/XML/docs/Reference/eBay/AddItem.html#Request.Item.ItemCompatibilityList.Compatibility.NameValueList">Compatibility.NameValueList</a> container.
-     *           
+     * 					
      * 
      */
     @XmlEnumValue("EpidSupported")
@@ -1345,11 +1364,11 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is used to see if a K Type vehicle number in an Add/Revise/Relist API call to identify which cars and/or trucks are compatible with a motor vehicle part or accessory is supported. K type vehicle numbers can only be used to identify cars and trucks on the Germany site.
-     *             <br/><br/>
+     * 						This value is used to see if a K Type vehicle number in an Add/Revise/Relist API call to identify which cars and/or trucks are compatible with a motor vehicle part or accessory is supported. K type vehicle numbers can only be used to identify cars and trucks on the Germany site.
+     * 						<br/><br/>
      *             For more information on using a K Type vehicle number to identify a compatible car or truck through an Add/Revise/Relist API call on the Germany site, see the documentation for the <a href="
      *             http://developer.ebay.com/Devzone/XML/docs/Reference/eBay/AddItem.html#Request.Item.ItemCompatibilityList.Compatibility.NameValueList">Compatibility.NameValueList</a> container.
-     *           
+     * 					
      * 
      */
     @XmlEnumValue("KTypeSupported")
@@ -1357,15 +1376,116 @@ public enum FeatureIDCodeType {
 
     /**
      * 
-     *             This value is used to see if the site and/or category requires association with an eBay Catalog product when listing/revising/relisting an item.
-     *             <br><br>
-     *             Until Phase 2 of the Product-Based Shopping Experience (PBSE) rolls out later in 2018, the <b>ProductRequiredEnabled</b> fields will only be returned in Sandbox. For more information on PBSE, see the <a href="
-     *             https://developer.ebay.com/pbse/" target="_blank">Product-Based Shopping Experience</a> page.
-     *           
+     * 						This value is used to see if the site supports Product-Based Shopping Experience listings (listings associated with an eBay catalog product).
+     * 						<br><br>
+     * 						The <b>Category.ProductRequiredEnabled</b> field will only be returned if the category requires association with an eBay Catalog product.
+     * 						<br><br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						Due to the rollback of the Product-Based Shopping Experience mandate for all eBay categories, the value for this field should never get returned as <code>Enabled</code> for <b>SiteDefaults</b> or for any categories.</span>
+     * 					
      * 
      */
     @XmlEnumValue("ProductRequiredEnabled")
-    PRODUCT_REQUIRED_ENABLED("ProductRequiredEnabled");
+    PRODUCT_REQUIRED_ENABLED("ProductRequiredEnabled"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for whether or not a seller accepts domestic returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("DomesticReturnsAcceptedValues")
+    DOMESTIC_RETURNS_ACCEPTED_VALUES("DomesticReturnsAcceptedValues"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for whether or not a seller accepts international returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("InternationalReturnsAcceptedValues")
+    INTERNATIONAL_RETURNS_ACCEPTED_VALUES("InternationalReturnsAcceptedValues"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for the return duration for domestic returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("DomesticReturnsDurationValues")
+    DOMESTIC_RETURNS_DURATION_VALUES("DomesticReturnsDurationValues"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for the return duration for international returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("InternationalReturnsDurationValues")
+    INTERNATIONAL_RETURNS_DURATION_VALUES("InternationalReturnsDurationValues"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for who pays any return shipping costs for domestic returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("DomesticReturnsShipmentPayeeValues")
+    DOMESTIC_RETURNS_SHIPMENT_PAYEE_VALUES("DomesticReturnsShipmentPayeeValues"),
+
+    /**
+     * 
+     * 						Use this ID to return the values you can specify for who pays any return shipping costs for international returns.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("InternationalReturnsShipmentPayeeValues")
+    INTERNATIONAL_RETURNS_SHIPMENT_PAYEE_VALUES("InternationalReturnsShipmentPayeeValues"),
+
+    /**
+     * 
+     * 						In US, sellers can offer item replacement in addition to offering a money-back refund for domestic returns. Use this ID to return whether or not the seller can offer <code>MoneyBackorReplacement</code> for the specified category.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("DomesticRefundMethodValues")
+    DOMESTIC_REFUND_METHOD_VALUES("DomesticRefundMethodValues"),
+
+    /**
+     * 
+     * 						In US, sellers can offer item replacement in addition to offering a money-back refund for international returns. Use this ID to return whether or not the seller can offer <code>MoneyBackorReplacement</code> for the specified category.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("InternationalRefundMethodValues")
+    INTERNATIONAL_REFUND_METHOD_VALUES("InternationalRefundMethodValues"),
+
+    /**
+     * 
+     * 						In some EU countries, sellers are legally required to describe the return policy they offer. The value returned by this field indicates if sellers can provide such description within the given marketplace and category.
+     *             <br><br>
+     *             The values returned in this field are pertinent only if <b>ReturnPolicyEnabled</b> in GetCategoryFeatures is set to <code>true</code> for the associated marketplace and category.
+     * 					
+     * 
+     */
+    @XmlEnumValue("ReturnPolicyDescriptionEnabled")
+    RETURN_POLICY_DESCRIPTION_ENABLED("ReturnPolicyDescriptionEnabled");
     private final String value;
 
     FeatureIDCodeType(String v) {

@@ -14,19 +14,10 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>MinimumFeedbackScore</b> container that is returned in 
- * 				<b>GeteBayDetails</b>. The <b>MinimumFeedbackScore</b> container 
- * 				consists of the values that can be used in the 
- * 				<b>BuyerRequirementDetails.MinimumFeedbackScore</b> field when listing an 
- * 				item through an Add/Revise/Relist API call. The Feedback Score for a potential buyer 
- * 				must be greater than or equal to the specified value, or that buyer is blocked from 
- * 				buying the item.
- * 				<br/><br/>
- * 				For the <b>MinimumFeedbackScore</b> 
- * 				container to appear in the <b>GeteBayDetails</b> response,  
- * 				<b>BuyerRequirementDetails</b> must be one of the values passed into the 
- * 				<b>DetailName</b> field in the <b>GeteBayDetails</b> request 
- * 				(or, no  <b>DetailName</b> filters should be used).
+ * 				Type defining the <b>MinimumFeedbackScore</b> container that is returned in <b>GeteBayDetails</b>. The <b>MinimumFeedbackScore</b> container consists of the values that can be used as the threshold value for a buyer's Minimum Feedback Score in Buyer Requirements. The Feedback Score for a potential buyer must be greater than or equal to the specified value, or that buyer is blocked from buying the item. <br/><br/> For the <b>MinimumFeedbackScore</b> container to appear in the <b>GeteBayDetails</b> response, <b>BuyerRequirementDetails</b> must be one of the values passed into the <b>DetailName</b> field in the <b>GeteBayDetails</b> request (or, no  <b>DetailName</b> filters should be used).
+ * 				<br><br>
+ * 				<span class="tablenote"><b>Note:</b> Although the <b>MinimumFeedbackScore</b> container is still returned in <b>GeteBayDetails</b>, sellers can no longer set a buyer's Minimum Feedback Score threshold Buyer Requirement at the listing-level in Add/Revise/Relist calls.
+ * 				</span>
  * 			
  * 
  * <p>Java class for MinimumFeedbackScoreDetailsType complex type.

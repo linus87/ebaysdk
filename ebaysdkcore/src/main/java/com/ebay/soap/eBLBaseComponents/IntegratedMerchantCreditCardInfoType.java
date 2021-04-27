@@ -14,7 +14,11 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Indicates the sites on which a seller is eligible to offer IMCC as a payment method.
+ * 				<span class="tablenote"><b>Note: </b>
+ * 				As of May 1, 2019,  eBay no longer support electronic payments through Integrated Merchant Credit Card accounts. To accept online credit card payments from buyers, a seller must use specify PayPal as an accepted payment method, or opt in to eBay Managed Payments program (if the program is available to that seller).
+ * 				</span>
+ * 				<br/>
+ * 				This type is used by the <b>IntegratedMerchantCreditCardInfo</b> container that is returned in the <b>GetUser</b> response if the seller has a payment gateway account on one or more eBay marketplaces.
  * 			
  * 
  * <p>Java class for IntegratedMerchantCreditCardInfoType complex type.

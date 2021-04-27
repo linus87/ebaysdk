@@ -34,7 +34,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will range from $0.01 to $9.99.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -43,7 +43,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will range from $10.00 to $49.99.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -52,7 +52,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will range from $50.00 to $99.99.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -61,7 +61,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will range from $100.00 to $199.99.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -70,7 +70,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will range from $200.00 to $299.99.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -79,7 +79,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						This enumeration value is used if the cost for flat-rate shipping insurance will be $300.00 or more.
+     * 						Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */
@@ -88,7 +88,7 @@ public enum FlatRateInsuranceRangeCodeType {
 
     /**
      * 
-     * 						 Reserved for internal or future use
+     * 						 Shipping insurance is no longer applicable or supported in eBay APIs.
      * 					
      * 
      */

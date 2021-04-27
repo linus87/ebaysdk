@@ -27,7 +27,7 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br/><br/>
  * If the seller wants to delete one or more optional settings in the listing, the seller should use the <b>DeletedField</b> tag.
  * <br> <B>Input property:</B> <code>DeletedField</code> - Specifies the name of the field to delete from a listing.
- * See <a href="http://developer.ebay.com/Devzone/guides/ebayfeatures/Development/Listings-RelistingItems.html">Relisting Items</a> for rules on deleting values when relisting items.
+ * See <a href="http://developer.ebay.com/Devzone/guides/features-guide/default.html#development/Listings-RelistingItems.html">Relisting Items</a> for rules on deleting values when relisting items.
  * Also see the relevant field descriptions to determine when to use <b>DeletedField</b> (and potential consequences).
  * The request can contain zero, one, or many instances of <b>DeletedField</b> (one for each field to be deleted).
  * <br><br>
@@ -36,11 +36,16 @@ import com.ebay.soap.eBLBaseComponents.*;
  * For example, item.picturedetails.galleryUrl is not allowed.<br><br>
  * To delete a listing enhancement like 'BoldTitle', specify the value you are deleting;
  * for example, Item.ListingEnhancement[BoldTitle].
- * <br> <B>Output property:</B> <code>ReturnedItemID</code> - The unique identifier for the relisted item. Note that the <b>ItemID</b> changes when a listing is relisted, so this will not be the same <b>ItemID</b> value that was passed in the call request.
+ * <br> <B>Output property:</B> <code>ReturnedItemID</code> - The unique identifier for the relisted item. Note that the <b>ItemID</b> value changes when a listing is relisted, so this will not be the same <b>ItemID</b> value that was passed in the call request.
  * <br/><br/>
  * <br> <B>Output property:</B> <code>ListingFees</code> - This container consists of the estimated listing fees for the relisted item. Each type of fee is returned even if it is not appplicable (has a value of <code>0.0</code>. The Final Value Fee (FVF) is not in this container, as this value cannot be determined until a sale is made.
  * <br> <B>Output property:</B> <code>ReturnedStartTime</code> - This timestamp indicates the date and time when the relisted item became active on the eBay site.
  * <br> <B>Output property:</B> <code>ReturnedEndTime</code> - This timestamp indicates the date and time when the relisted item is scheduled to end on the eBay site. This date/time is calculated by using the <b>StartTime</b> and the the listing duration.
+ * <br><br>
+ * <span class="tablenote"><b>Note: </b>
+ * Starting July 1, 2019, the Good 'Til Cancelled renewal schedule will be modified from every 30 days to once per calendar month. For example, if a GTC listing is created July 5, the next monthly renewal date will be August 5. If a GTC listing is created on the 31st of the month, but the following month only has 30 days, the renewal will happen on the 30th in the following month. Finally, if a GTC listing is created on January 29-31, the renewal will happen on February 28th (or 29th during a 'Leap Year'). See the
+ * <a href="https://pages.ebay.com/seller-center/seller-updates/2019-spring/marketplace-updates.html#good-til-cancelled" target="_blank">Good 'Til Cancelled listings update</a> in the <b>Spring 2019 Seller Updates</b> for more information about this change.
+ * </span>
  * <br> <B>Output property:</B> <code>ReturnedCategoryID</code> - Unique identifier of the primary eBay category in which the item was relisted. This field is only returned if the <b>Item.CategoryMappingAllowed</b> field was included and set to <code>true</code> in the request and the category ID passed in the <b>Item.PrimaryCategory</b> field was mapped to a new category ID by eBay. If the primary category has not changed or it has expired with no replacement, this field is not returned.
  * <br/><br/>
  * <br> <B>Output property:</B> <code>ReturnedCategory2ID</code> - Unique identifier of the secondary eBay category (if one was used) in which the item was relisted. This field is only returned if the <b>Item.CategoryMappingAllowed</b> field was included and set to <code>true</code> in the request and the category ID passed in the <b>Item.SecondaryCategory</b> field was mapped to a new category ID by eBay. If the secondary category has not changed or it has expired with no replacement, this field is not returned.

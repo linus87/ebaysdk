@@ -14,14 +14,14 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Contains information about a country where a specified seller is eligible to offer eBay Plus on listings, as well as the seller's opt-in status and listing preference for that country. 
+ * 				Contains information about a country where a specified seller is eligible to offer eBay Plus on listings, as well as the seller's opt-in status and listing preference for that country.
  * 				<br/><br/>
  * 				eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top Rated eBay sellers must opt in to eBay Plus to be able offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.
  * 				<br/><br/>
  * 				<span class="tablenote">
- * 				<strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany (DE).
+ * 				<strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany, Austria, and Australia.
  * 				</span>
- * 				For more details about eBay Plus, see <a href="../../../../guides/ebayfeatures/Development/Feature-eBayPlus.html">Offering eBay Plus</a>.
+ * 				For more details about eBay Plus, see <a href="../../../../guides/features-guide/default.html#development/Feature-eBayPlus.html">Offering eBay Plus</a>.
  * 			
  * 
  * <p>Java class for EBayPLUSPreferenceType complex type.

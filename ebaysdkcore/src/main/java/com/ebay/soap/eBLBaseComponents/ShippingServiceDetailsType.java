@@ -18,7 +18,9 @@ import org.w3c.dom.Element;
 
 /**
  * 
- *         Type used by the ShippingServiceDetails containers that are returned in the GeteBayDetails response. Each ShippingServiceDetails container consists of detailed information about each shipping service option available for the specified country. These details include the shipping service enumeration value to use when specifying shipping service options in an Add/Revise/Relist call, the shipping carrier, the shipping category (e.g. expedited, economy, etc.), the shipping packages that can be used, and the shipping delivery window.
+ *         Type used by the <b>ShippingServiceDetails</b> containers that are returned in the <b>GeteBayDetails</b> response. Each <b>ShippingServiceDetails</b> container consists of detailed information about each shipping service option available for the specified country. These details include the shipping service enumeration value to use when specifying shipping service options in an Add/Revise/Relist call, the shipping carrier, the shipping category (e.g. expedited, economy, etc.), the shipping packages that can be used, and the shipping delivery window.
+ *         <br/><br/>
+ *         <b>ShippingServiceDetails</b> containers are returned if a <b>DetailName</b> field is included in the call request and set to <code>ShippingServiceDetails</code>, or if no <b>DetailName</b> field is included in the call request.
  *       
  * 
  * <p>Java class for ShippingServiceDetailsType complex type.

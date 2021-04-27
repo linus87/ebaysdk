@@ -14,10 +14,11 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 			Type used to define all combined payment preferences, including preferences and
- * 			rules for Calculated and Flat Rate shipping, a flag to allow or disallow <a href="http://developer.ebay.com/DevZone/guides/ebayfeatures/Development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a>
- * 			orders, and the time period in which to allow buyers to combine multiple
- * 			purchases from the seller into a Combined Invoice order.
+ * 			Type used to indicate if the seller supports <a href="http://developer.ebay.com/DevZone/guides/features-guide/default.html#development/Listing-AnItem.html#CombinedInvoice">Combined Invoice</a>
+ * 			orders, and if so, defines whether the seller specifies any shipping discount before or after purchase.
+ * 			<br/><br/>
+ * 			<span class="tablenote"><b>Note:</b> In the past, this type was also used to indicate more settings related to Combined Invoice discounts, including the number of days that buyers have to combine line items into a Combined Invoice, and detailed information on Calculated and Flat-Rate shipping discount profiles. However, these settings are now set through the <b>SetShippingDiscountProfiles</b> call (or through Shipping Preferences in My eBay), and retrieved with the <b>GetShippingDiscountProfiles</b> call.
+ * 			</span>
  * 			
  * 
  * <p>Java class for CombinedPaymentPreferencesType complex type.

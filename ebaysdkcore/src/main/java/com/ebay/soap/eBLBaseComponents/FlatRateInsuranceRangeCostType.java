@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type is used by the <b>FlatRateInsuranceRangeCost</b> container to specify the shipping insurance cost and price range for domestic and international flat-rate shipping.
+ * 				This type is deprecated, as shipping insurance is no longer applicable or supported in eBay APIs.
  * 			
  * 
  * <p>Java class for FlatRateInsuranceRangeCostType complex type.

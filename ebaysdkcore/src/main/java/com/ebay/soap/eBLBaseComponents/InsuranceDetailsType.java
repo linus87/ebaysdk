@@ -13,11 +13,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Contains the cost of shipping insurance and other insurance-related information.
- * 				<br>
- * 				<span class="tablenote"><strong>Note:</strong>
- * 				This type has been deprecated with Version 1031.
- * 				</span>
+ * 				This type is deprecated, as shipping insurance is no longer applicable or supported in eBay APIs.
  * 			
  * 
  * <p>Java class for InsuranceDetailsType complex type.

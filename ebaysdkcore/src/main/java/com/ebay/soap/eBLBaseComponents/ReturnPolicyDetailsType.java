@@ -17,11 +17,11 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>ReturnPolicyDetails</b> container, which is returned in <b>GeteBayDetails</b>, and provides the seller with the Return Policy features (and applicable values) that are supported by the listing site.
+ * 				Type defining the <b>ReturnPolicyDetails</b> container, which is returned in <b>GeteBayDetails</b>, and provides the seller with the Return Policy features (and applicable values) that are supported by the listing site. This container is only returned if <b>ReturnPolicyDetails</b> is included as a <b>DetailName</b>
+ * 				filter in the call request, or if no <b>DetailName</b> filters are used in the request.
  * 				<br/><br/>
  * 				<span class="tablenote"><b>Note: </b>
- * 				This container is only returned if <b>ReturnPolicyDetails</b> is included as a <b>DetailName</b>
- * 				filter in the call request, or if no <b>DetailName</b> filters are used in the request.
+ * 					The <b>GeteBayDetails</b> call returns site-default Return Policy settings. For most categories within a given eBay site, the supported Return Policy options/values are the same, but there a few exceptions. To discover what Return Policy features/settings that a particular category supports, call <b>GetCategoryFeatures</b> and include any or all of the domestic and or international Return Policy-related <b>FeatureID</b> values to see the Return Policy features/settings available for domestic and international returns, respectively.
  * 				</span>
  * 			
  * 

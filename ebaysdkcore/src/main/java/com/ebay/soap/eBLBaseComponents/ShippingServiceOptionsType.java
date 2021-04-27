@@ -19,19 +19,7 @@ import org.w3c.dom.Element;
 /**
  * 
  * 				Container consisting of shipping costs and other details related to a domestic
- * 				shipping service. An exception to the domestic shipping service rule is seen in the
- * 				<b>ShippingServiceSelected</b> container returned under the <b>Order</b> and <b>Transaction</b>
- * 				containers in order and order line item retrieval calls such as <b>GetOrders</b> or
- * 				<b>GetItemTransactions</b>. In this scenario, the <b>SelectedShippingService</b> container
- * 				consists of either domestic or international shipping service data, based on the
- * 				selected service according to the buyer's shipping address.
- * 				<br/><br/>
- * 				If one or more international shipping services are provided, the
- * 				seller must specify at least one domestic shipping service as well.
- * 				<br/><br/>
- * 				<span class="tablenote">
- * 				<strong>Note:</strong> For <b>GetItemTransactions</b> and <b>GetSellerTransactions</b>, this container does not return accurate shipping service and cost information for multiple line item orders. Use <b>GetOrders</b> instead, and provide the order's combined <strong>OrderID</strong> to retrieve this information.
- * 				</span>
+ * 				shipping service. A <b>ShippingServiceOptions</b> container is required for each domestic shipping service option that the seller will make available to buyers in an Add/Revise/Relist call. Up to four domestic shipping service options can be offered per listing.
  * 			
  * 
  * <p>Java class for ShippingServiceOptionsType complex type.
@@ -51,7 +39,6 @@ import org.w3c.dom.Element;
  *         &lt;element name="ExpeditedService" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="ShippingTimeMin" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="ShippingTimeMax" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="ShippingSurcharge" type="{urn:ebay:apis:eBLBaseComponents}AmountType" minOccurs="0"/>
  *         &lt;element name="FreeShipping" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="LocalPickup" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="ImportCharge" type="{urn:ebay:apis:eBLBaseComponents}AmountType" minOccurs="0"/>
@@ -77,7 +64,6 @@ import org.w3c.dom.Element;
     "expeditedService",
     "shippingTimeMin",
     "shippingTimeMax",
-    "shippingSurcharge",
     "freeShipping",
     "localPickup",
     "importCharge",
@@ -109,8 +95,6 @@ public class ShippingServiceOptionsType
     protected Integer shippingTimeMin;
     @XmlElement(name = "ShippingTimeMax")
     protected Integer shippingTimeMax;
-    @XmlElement(name = "ShippingSurcharge")
-    protected AmountType shippingSurcharge;
     @XmlElement(name = "FreeShipping")
     protected Boolean freeShipping;
     @XmlElement(name = "LocalPickup")
@@ -318,30 +302,6 @@ public class ShippingServiceOptionsType
      */
     public void setShippingTimeMax(Integer value) {
         this.shippingTimeMax = value;
-    }
-
-    /**
-     * Gets the value of the shippingSurcharge property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AmountType }
-     *     
-     */
-    public AmountType getShippingSurcharge() {
-        return shippingSurcharge;
-    }
-
-    /**
-     * Sets the value of the shippingSurcharge property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AmountType }
-     *     
-     */
-    public void setShippingSurcharge(AmountType value) {
-        this.shippingSurcharge = value;
     }
 
     /**

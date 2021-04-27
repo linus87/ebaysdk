@@ -28,23 +28,21 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <br>
  * <br>
  * If the user wishes to retrieve category data for the US eBay Motors site, the user must set the Site ID in the <code>X-EBAY-API-SITEID</code> request header to <code>0</code>, and then set this field's value to <code>100</code>.
- * <br> <B>Input property:</B> <code>ParentCategories</code> - Specifies the ID of the highest-level category to return,
- * along with its subcategories.
- * If no parent category is specified, all categories are
- * returned for the specified site. (Please do not pass a value of 0; zero (0) is an invalid value for CategoryParent.)
- * To determine available category IDs, call GetCategories with
- * no filters and use a DetailLevel value of ReturnAll.
- * If you specify multiple parent categories, the hierarchy for
- * each one is returned.
- * <br> <B>Input property:</B> <code>LevelLimit</code> - Specifies the maximum depth of the category hierarchy to retrieve,
- * where the top-level categories (meta-categories) are at level 1.
- * Retrieves all category nodes with a category level less than or
- * equal to this value.
- * If not specified, retrieves categories at all applicable levels.
- * As with all calls, the actual data returned will vary depending
- * on how you configure other fields in the request
- * (including <b>DetailLevel</b>).
- * <br> <B>Input property:</B> <code>ViewAllNodes</code> - This flag controls whether all eBay categories (that satisfy input filters) are returned, or only leaf categories (you can only list items in leaf categories) are returned. The default value is 'true', so if this field is omitted, all eBay categories will be returned. If you only want to retrieve leaf categories, include this flag and set it to 'false'. The actual data returned will vary depending on how you configure other fields in the request.
+ * <br> <B>Input property:</B> <code>ParentCategories</code> - This field is used if the user wishes to retrieve category hierarchy information on one or more specific eBay categories, and optionally, one or more levels of each category's children (if a category has one or more levels of children). For example, if you wanted to view the entire category hierarchy under the <em>Home & Garden</em> L1 category, you would include this field and set its value to <code>11700</code>. As long as the <b>LevelLimit</b> field is omitted, all of  <em>Home & Garden</em>'s child categories are returned. If you only wanted to see the next level (L2s) of <em>Home & Garden</em> categories, you would include the <b>LevelLimit</b> field and set its value to <code>2</code>, allowing the L1 category (<em>Home & Garden</em>) and all of its L2 categories to appear in the response.
+ * <br>
+ * <br>
+ * If you wanted to see all of the Category IDs for the eBay site's L1 categories, you could omit the <b>CategoryParent</b> field but include the  <b>LevelLimit</b> field and set its value to <code>1</code>.
+ * <br>
+ * <br>
+ * <span class="tablenote"><b>Note:</b>
+ * Numerous Category IDs may be specified under multiple <b>CategoryParent</b> fields in a <b>GetCategories</b> request, but if multiple <b>CategoryParent</b> fields are used, the specified Category IDs should all be at the same level (L1, L2, L3, etc.).
+ * </span>
+ * <br> <B>Input property:</B> <code>LevelLimit</code> - This field is used if the user wants to control the maximum depth of the category hierarchy to retrieve, or in other words, how many levels of eBay categories that are returned in the response. If this field is omitted, every eBay category from the root on down will be returned, or, if a <b>CategoryParent</b> category is specified, the specified category and all of its children (down to the leaf categories) are returned.
+ * <br>
+ * <br>
+ * If the <b>CategoryParent</b> is not used, but the <b>LevelLimit</b> field is used and set to <code>1</code>, only the top-level categories (also known as L1 categories) are returned in the response.
+ * <br> <B>Input property:</B> <code>ViewAllNodes</code> - This flag controls whether all eBay categories (that satisfy input filters) are returned, or only leaf categories (you can only list items in leaf categories) are returned. The default value is 'true', so if this field is omitted, all eBay categories will be returned. If you only want to retrieve leaf categories, include this flag and set it to <code>false</code>.
+ * <br>
  * <br> <B>Output property:</B> <code>ReturnedCategoryArray</code> - List of the returned categories. The category array contains one CategoryType
  * object for each returned category. Returns empty if no detail level is specified.
  * <br> <B>Output property:</B> <code>ReturnedCategoryCount</code> - Indicates the number of categories returned (i.e., the number of CategoryType

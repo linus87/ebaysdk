@@ -59,8 +59,7 @@ public enum RefundOptionsCodeType {
     /**
      * 
      * 						<span class="tablenote"><b>Note:</b>
-     * 						This value is deprecated on the US site, and all listings attempting to use this
-     * 						value will be blocked.
+     * 						This value is deprecated on the US site, and all listings attempting to use this value are blocked.
      * 						</span>
      * 						The seller will give the buyer a credit toward the purchase of another item. The seller should use the <b>ReturnPolicy.Description</b> field in the Add API call to explain how the buyer can redeem this credit.
      * 					
@@ -72,7 +71,7 @@ public enum RefundOptionsCodeType {
     /**
      * 
      * 						<span class="tablenote"><b>Note:</b>
-     * 						US sellers that are willing to refund buyers or offer an identical replacement item, should use the <code>MoneyBackOrReplacement</code> value instead of <code>MoneyBackOrExchange</code>.
+     * 						This value has been deprecated and US sellers that are willing to refund buyers or offer an identical replacement item should use the <code>MoneyBackOrReplacement</code> value instead.
      * 						</span>
      * 						This value indicates that the seller will refund the buyer the cost of the item, excluding shipping and handling costs and any restocking fee (US only), or the seller will exchange the returned item for another identical item.
      * 						<br><br>
@@ -86,7 +85,7 @@ public enum RefundOptionsCodeType {
     /**
      * 
      * 						<span class="tablenote"><b>Note:</b>
-     * 						This value is only available on the US site. US sellers should use this value (and not <code>MoneyBackOrExchange</code>) if they are willing to refund buyers or offer an identical replacement item.
+     * 						This value is only available on the US site. US sellers should use this value if they are willing to refund buyers or offer an identical replacement item.
      * 						</span>
      * 						This value indicates that the seller will refund the buyer the cost of the item (excluding shipping and handling costs and any restocking fee) through eBay returns, or the seller will replace the returned item with another identical item.
      * 						<br><br>

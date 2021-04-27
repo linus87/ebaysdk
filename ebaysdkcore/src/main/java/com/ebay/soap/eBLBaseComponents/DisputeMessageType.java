@@ -21,7 +21,7 @@ import org.w3c.dom.Element;
  * 				by the buyer, the seller, or an eBay representative.
  * 				<br/><br/>
  * 				<span class="tablenote"><strong>Note:</strong>
- * 					These are not eBay money back guarantee disputes.
+ * 					'Item Not Received' or 'Significantly Not As Described' cases, initiated by buyers through the eBay Money Back Guarantee program, are not returned with <b>GetDispute</b>  or <b>GetUserDisputes</b>. The <a href="https://developer.ebay.com/Devzone/post-order/post-order_v2_casemanagement-caseId__get.html#overview">getCase</a> method of the <a href="https://developer.ebay.com/Devzone/post-order/concepts/UsageGuide.html">Post-Order API</a> is used to retrieve Money Back Guarantee cases programmatically.
  * 				</span>
  * 			
  * 

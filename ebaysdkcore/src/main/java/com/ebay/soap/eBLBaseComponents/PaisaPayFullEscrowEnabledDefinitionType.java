@@ -12,8 +12,8 @@ import org.w3c.dom.Element;
 
 
 /**
- *  
- * 				This type defines the PaisaPayEscrow payment feature. If the field is present, the PaisaPayEscrow payment feature applies to the category. The field is returned as an empty element, the boolean value is not returned.
+ * 
+ * 				This type is no longer applicable/used, as the the Paisa Pay Escrow payment feature was only applicable to the eBay India site, and this site is no longer a functional eBay marketplace for sellers.
  * 			
  * 
  * <p>Java class for PaisaPayFullEscrowEnabledDefinitionType complex type.

@@ -12,8 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Sales tax details for zero or more jurisdictions (states,
- * 				provinces, etc).
+ * 				This type is used to express sales tax details for one or more tax jurisdictions. The concept of 'sales tax' is only applicable to eBay US and Canada (English and French) sites.
  * 			
  * 
  * <p>Java class for TaxTableType complex type.

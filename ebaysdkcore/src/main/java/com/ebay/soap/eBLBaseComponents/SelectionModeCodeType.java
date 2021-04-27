@@ -51,7 +51,7 @@ public enum SelectionModeCodeType {
 
     /**
      * 
-     * 						Indicates eBay recommended and required item specifics will be pre-filled by eBay if a product ID is provided in the <b>Add</b>/<b>Revise</b>/<b>Relist</b> call.
+     * 						Indicates that mandatory and recommended Item Specifics will be pre-filled after a successful <b>Add</b>/<b>Revise</b>/<b>Relist</b> call if eBay is able to match a provided eBay Product ID (ePID), Global Trade Identification Number (UPC, EAN, ISBN), or Brand/MPN pair to an eBay catalog product.
      * 					
      * 
      */
@@ -60,7 +60,7 @@ public enum SelectionModeCodeType {
 
     /**
      * 
-     * 						Indicates the seller must use eBay's recommended item specifics, and cannot use their own custom item specifics when creating a listing with <b>Add</b>/<b>Revise</b>/<b>Relist</b> calls.
+     * 						Indicates that the seller must use the exact string provided in the corresponding <b>NameRecommendation.Name</b> field when creating, revising, or relisting an item and using that particular Item Specific.
      * 					
      * 
      */
@@ -69,7 +69,7 @@ public enum SelectionModeCodeType {
 
     /**
      * 
-     * 						Indicates the seller can create their own custom item specifics or they can use eBay recommended item specifics for the category when creating a listing with <b>Add</b>/<b>Revise</b>/<b>Relist</b> calls.
+     * 						Indicates that the seller is allowed to specify their own value(s) for the corresponding Item Specific when creating, revising, or relisting an item and using that particular Item Specific.
      * 					
      * 
      */

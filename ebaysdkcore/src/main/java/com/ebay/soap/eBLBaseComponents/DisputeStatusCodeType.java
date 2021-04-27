@@ -48,7 +48,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is closed. For Item Not Received disputes.
+     * 						This enumeration value indicates that the dispute is closed.
      * 					
      * 
      */
@@ -57,8 +57,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is waiting for the seller's response. For both
-     * 						Unpaid Item and Item Not Received disputes.
+     * 						This enumeration value indicates that the dispute is waiting for the seller's response.
      * 					
      * 
      */
@@ -67,8 +66,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is waiting for the buyer's response. For both
-     * 						Unpaid Item and Item Not Received disputes.
+     * 						This enumeration value indicates that the dispute is waiting for the buyer's response.
      * 					
      * 
      */
@@ -77,9 +75,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is closed, the seller received
-     * 						a Final Value Fee credit, and the buyer received a strike.
-     * 						For Unpaid Item disputes.
+     * 						This enumeration value indicates that the Unpaid Item dispute is closed, the seller received a Final Value Fee credit, and the buyer received a strike.
      * 					
      * 
      */
@@ -88,9 +84,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is closed, the seller did not receive
-     * 						a Final Value Fee credit, and the buyer received a strike.
-     * 						For Unpaid Item disputes.
+     * 						This enumeration value indicates that the Unpaid Item dispute is closed, the seller did not receive a Final Value Fee credit, and the buyer received a strike.
      * 					
      * 
      */
@@ -99,9 +93,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is closed, the seller received a
-     * 						Final Value Fee credit, and the buyer did not receive a strike.
-     * 						For Unpaid Item disputes.
+     * 						This enumeration value indicates that the Unpaid Item dispute is closed, the seller received a Final Value Fee credit, and the buyer did not receive a strike.
      * 					
      * 
      */
@@ -110,9 +102,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The dispute is closed, the seller did not receive
-     * 						a Final Value Fee credit, and the buyer did not receive a strike.
-     * 						For Unpaid Item disputes.
+     * 						This enumeration value indicates that the Unpaid Item dispute is closed, the seller did not receive a Final Value Fee credit, and the buyer did not receive a strike.
      * 					
      * 
      */
@@ -121,8 +111,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The buyer's strike was appealed after the dispute was closed.
-     * 						For Unpaid Item disputes.
+     * 						This enumeration value indicates that the Unpaid Item dispute was closed with a buyer's strike, but the buyer has appealed that strike.
      * 					
      * 
      */
@@ -131,8 +120,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						The seller's Final Value Fee credit was reversed after the
-     * 						dispute was closed. For Unpaid Item disputes.
+     * 						This enumeration value indicates that the seller's Final Value Fee credit was reversed after the Unpaid Item dispute was closed.
      * 					
      * 
      */
@@ -141,8 +129,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Both the seller's Final Value Fee credit and the buyer's strike
-     * 						were reversed after the dispute was closed. For Unpaid Item disputes.
+     * 						This enumeration value indicates that the seller's Final Value Fee credit was reversed and the buyer's strike was appealed after the Unpaid Item dispute was closed.
      * 					
      * 
      */
@@ -151,7 +138,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Claim assigned to an adjuster. Also maps for filed claim in Half.com
+     * 						This enumeration value indicates that the claim was assigned to an adjuster.
      * 					
      * 
      */
@@ -160,7 +147,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Buyer contacted and asked to submit paperwork
+     * 						This enumeration value indicates that the buyer was contacted by eBay and asked to submit paperwork.
      * 					
      * 
      */
@@ -169,8 +156,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Buyer did not respond to verification or missing some paperwork. Also maps for
-     * 						filed claim in Half.com
+     * 						This enumeration value indicates that the claim was closed due to the buyer not responding to verification or due to missing paperwork.
      * 					
      * 
      */
@@ -179,7 +165,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Not eligible for reimbursement
+     * 						This enumeration value indicates that the claim was denied.
      * 					
      * 
      */
@@ -188,8 +174,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Paperwork received, claim being investigated. Also maps for filed claim in
-     * 						Half.com
+     * 						This enumeration value indicates that paperwork was received for the claim, and the claim is being investigated.
      * 					
      * 
      */
@@ -198,7 +183,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Claim approved for reimbursement; sent to accounts payable for payment
+     * 						This enumeration value indicates that the claim was approved for reimbursement, and sent to accounts payable for payment.
      * 					
      * 
      */
@@ -207,7 +192,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Reimbursement completed
+     * 						This enumeration value indicates that the claim was paid.
      * 					
      * 
      */
@@ -216,7 +201,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Issue resolved: seller sent Item or Refund
+     * 						This enumeration value indicates that the buyer's dispute against the seller was resolved, due to the seller sending the item or refunding the buyer.
      * 					
      * 
      */
@@ -225,7 +210,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Claim Submitted via Web flow
+     * 						This enumeration value indicates that the claim was submitted via Web.
      * 					
      * 
      */
@@ -234,7 +219,7 @@ public enum DisputeStatusCodeType {
 
     /**
      * 
-     * 						Unpaid Item dispute opened
+     * 						This enumeration value indicates that an Unpaid Item dispute was opened by the seller against the buyer.
      * 					
      * 
      */

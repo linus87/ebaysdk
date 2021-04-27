@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
  * 				<br><br>
  * 				To verify if a specific eBay site supports the UPC product identifying feature (for most categories), look for a 'true' value in the <b>SiteDefaults.UPCEnabled</b> field.
  * 				<br><br>
- * 				To verify if a specific category on a specific eBay site supports the UPC product identifying feature, pass in a <b>CategoryID</b> value in the request, and then look for a 'true' value in the <b>UPCEnabled</b> field of the corresponding <b>Category</b> node (match up the <b>CategoryID<.b> values if more than one Category IDs were passed in the request).
+ * 				To verify if a specific category on a specific eBay site supports the UPC product identifying feature, pass in a <b>CategoryID</b> value in the request, and then look for a 'true' value in the <b>UPCEnabled</b> field of the corresponding <b>Category</b> node (match up the <b>CategoryID</b> values if more than one Category IDs were passed in the request).
  * 			
  * 
  * <p>Java class for UPCEnabledDefinitionType complex type.

@@ -30,7 +30,12 @@ public enum ProductRequiredEnabledCodeType {
 
     /**
      * 
-     * 						This value indicates that the category does not require listings to be associated with an eBay Catalog product.
+     * 						This value indicates that the category does not require product-based listings (associated with an eBay catalog product).
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						Due to the rollback of the Product-Based Shopping Experience mandate for all eBay categories, this value should get returned for <b>SiteDefaults</b> and all <b>Category</b> nodes.
+     * 						</span>
      * 					
      * 
      */
@@ -39,7 +44,12 @@ public enum ProductRequiredEnabledCodeType {
 
     /**
      * 
-     * 						This value indicates that the category require listings to be associated with an eBay Catalog product. For information on finding and associating an eBay Catalog product to a listing, see the <a href="https://developer.ebay.com/api-docs/sell/static/inventory/pbse_playbook_intro.html" target="_blank">Product-Based Shopping Experience Playbook</a>.
+     * 						This value indicates that the category requires listings within the category to be associated with an eBay catalog product.
+     * 						<br>
+     * 						<br>
+     * 						<span class="tablenote"><b>Note:</b>
+     * 						Due to the rollback of the Product-Based Shopping Experience mandate for all eBay categories, this value should never get returned for <b>SiteDefaults</b> or for any <b>Category</b> nodes.
+     * 						</span>
      * 					
      * 
      */

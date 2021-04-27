@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * 
  * 				Returns a seller's Ask Seller a Question (ASQ) subjects, each in
- * 				its own Subject node.
+ * 				its own <b>Subject</b> field.
  * 			
  * 
  * <p>Java class for GetMessagePreferencesRequestType complex type.

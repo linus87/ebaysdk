@@ -32,7 +32,7 @@ public enum PaymentMethodSearchCodeType {
 
     /**
      * 
-     * 					  PayPal payment method.
+     * 					 	This enumeration value indicates that the item may be purchased using PayPal as the payment method.
      * 				  
      * 
      */
@@ -40,8 +40,9 @@ public enum PaymentMethodSearchCodeType {
     PAY_PAL("PayPal"),
 
     /**
-     *  
-     * 					  PaisaPay payment method. The PaisaPay payment method is only for the India site (site ID 203).
+     * 
+     * 					  PaisaPay is no longer a supported payment method, so this value is no longer applicable.
+     * 					  
      * 					
      * 
      */
@@ -50,19 +51,28 @@ public enum PaymentMethodSearchCodeType {
 
     /**
      * 
-     * 					  Either the PayPal or the PaisaPay payment method. The PaisaPay payment method is only for the India site (site ID 203).
+     * 					  PaisaPay is no longer a supported payment method, so this value is no longer applicable.
+     * 					  
      * 					 
      * 
      */
     @XmlEnumValue("PayPalOrPaisaPay")
     PAY_PAL_OR_PAISA_PAY("PayPalOrPaisaPay"),
+
+    /**
+     * 
+     * 						This enumeration value is reserved for future use.
+     * 					
+     * 
+     */
     @XmlEnumValue("CustomCode")
     CUSTOM_CODE("CustomCode"),
 
     /**
      * 
-     * 					  PaisaPayEscrowEMI (Equal Monthly Installments) payment method. The PaisaPayEscrowEMI payment method is only for the India site (site ID 203).
-     * 					 
+     * 					  PaisaPay is no longer a supported payment method, so this value is no longer applicable.
+     * 					  
+     * 					
      * 
      */
     @XmlEnumValue("PaisaPayEscrowEMI")

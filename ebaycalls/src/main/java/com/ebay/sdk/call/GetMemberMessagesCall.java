@@ -22,13 +22,13 @@ import com.ebay.soap.eBLBaseComponents.*;
  * <p>Description: Contains wrapper classes for eBay SOAP APIs.</p>
  * <p>Copyright: Copyright (c) 2009</p>
  * <p>Company: eBay Inc.</p>
- * <br> <B>Input property:</B> <code>ItemID</code> - The ID of the item the message is about.
+ * <br> <B>Input property:</B> <code>ItemID</code> - The unique identifier of the eBay listing for which you wish to retrieve member messages.
  * <br><br>
- * For ASQ messages, either the ItemID, or a date range
- * (specified with StartCreationTime and EndCreationTime),
- * or both must be included. ItemID is otherwise ignored.
- * <br> <B>Input property:</B> <code>MailMessageType</code> - The type of message. Note that <b>GetMemberMessages</b> does not return messages when this field is set to <b>AskSellerQuestion</b>.
- * <br> <B>Input property:</B> <code>MessageStatus</code> - The status of the message.
+ * For <em>Ask Seller Question</em> messages, the <b>ItemID</b> and/or a date range
+ * (specified with <b>StartCreationTime</b> and <b>EndCreationTime</b> fields),
+ * are required, or the call will fail.
+ * <br> <B>Input property:</B> <code>MailMessageType</code> - This required field indicates the type of member message to retrieve. Only the following two enumeration values are allowed. The call will fail if this field is not included in the request.
+ * <br> <B>Input property:</B> <code>MessageStatus</code> - This field allows you to retrieve only unanswered member messages or answered member messages. If this field is omitted, both answered and unanswered member messages are retrieved.
  * <br> <B>Input property:</B> <code>DisplayToPublic</code> - If included in the request and set to <code>true</code>, only public messages (viewable in the Item listing) are returned. If omitted or set to <code>false</code> in the request, all messages (that match other filters in the request) are returned in the response.
  * <br> <B>Input property:</B> <code>StartCreationTime</code> - Used as beginning of date range filter. If specified, filters the returned messages to only those with a creation date greater than or equal to the specified date and time.
  * <br><br>

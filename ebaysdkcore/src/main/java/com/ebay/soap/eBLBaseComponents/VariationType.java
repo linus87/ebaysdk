@@ -15,8 +15,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type defines the <b>Variation</b> container, which provides full
- * 				details on each item variation in a multiple-variation listing.
+ * 				This type is used by the <b>Variation</b> container, which provides full details on each item variation in a multiple-variation listing.
  * 			
  * 
  * <p>Java class for VariationType complex type.

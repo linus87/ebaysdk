@@ -30,7 +30,7 @@ public enum ItemSpecificsEnabledCodeType {
 
     /**
      * 
-     * 						The custom Item Specifics feature is disabled for the category.
+     * 						This enumeration value indicates that the seller may not use Item Specifics for the specified eBay marketplace or corresponding category.
      * 					
      * 
      */
@@ -39,7 +39,7 @@ public enum ItemSpecificsEnabledCodeType {
 
     /**
      * 
-     * 						The custom Item Specifics feature is enabled for the category.
+     * 						This enumeration value indicates that the seller may use Item Specifics for the specified eBay marketplace or corresponding category.
      * 					
      * 
      */

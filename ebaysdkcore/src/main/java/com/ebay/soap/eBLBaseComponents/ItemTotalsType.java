@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 			Details about items involved in the summary for the specified time period.
+ * 			This type is deprecated.
  * 		
  * 
  * <p>Java class for ItemTotalsType complex type.

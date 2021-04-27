@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 	      The base response for the <b>SetStoreCustomPage<b> call. This serves as
+ * 	      The base response for the <b>SetStoreCustomPage</b> call. This serves as
  * 	      confirmation that the custom page was successfully submitted.
  * 	    
  * 

@@ -13,7 +13,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
- * 				Retrieves a seller's order line item information. To retrieve order line items for another seller, the <b>GetItemTransactions</b>) call must be used. This call cannot retrieve sales older than 90 days old.
+ * 				Retrieves a seller's order line item information. To retrieve order line items for another seller, the <b>GetItemTransactions</b>) call should be used. This call cannot retrieve sales older than 90 days old.
+ * 				<br><br>
+ * 				If one or more <b>SKU</b> values or the date range filters (<b>ModTimeFrom</b>/<b>ModTimeTo</b> or <b>NumberOfDays</b>) are not used, the <b>GetItemTransactions</b>) call will retrieve order line items created (or modified) within the last 30 days.
  * 			
  * 
  * <p>Java class for GetSellerTransactionsRequestType complex type.

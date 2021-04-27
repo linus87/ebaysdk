@@ -17,9 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Type defining the <b>BuyerRequirementDetails</b> container, which is returned in
- * 				<b>GeteBayDetails</b>, and provides the seller with the buyer requirement features (and applicable
- * 				values) that are supported by the listing site.
+ * 				Type defining the <b>BuyerRequirementDetails</b> container, which is returned in <b>GeteBayDetails</b>, and provides the seller with the buyer requirement features (and applicable values) that are supported by the listing site.
  * 				<br/><br/>
  * 				<span class="tablenote"><b>Note: </b>
  * 				This container is only returned if <b>BuyerRequirementDetails</b> is included as a <b>DetailName</b>

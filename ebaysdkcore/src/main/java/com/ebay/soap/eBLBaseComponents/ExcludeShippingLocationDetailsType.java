@@ -17,8 +17,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				Container for the list of site-specific locations supported by the Exclude Ship To
- * 				Locations feature.
+ * 				Type used by the <b>ExcludeShippingLocationDetails</b> containers that are returned in the <b>GeteBayDetails</b> response. The values returned in the <b>ExcludeShippingLocationDetails.Location</b> fields are the values that can be specified when specifying excluded shipping locations in an Add/Revise/Relist item call, or in a shipping business policy.
  * 			
  * 
  * <p>Java class for ExcludeShippingLocationDetailsType complex type.

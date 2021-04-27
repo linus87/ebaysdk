@@ -9,9 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 			Indicates the success or failure of the attempt to leave feedback for the buyer, change the paid status in My eBay, and/or change the shipped status in My eBay.
- * 			<br><br>
- * 			When <b>CompleteSale</b> is applied to a specified order (by specifying <b>OrderID</b>), it applies to each line item within the order.
+ * 				This type defines the response of the <b>CompleteSale</b> call. There are no call-specific fields in this response, but the seller should look for an <b>Ack</b> value of <Success>true</code> in the response, as this value will indicate that the action(s) in the <b>CompleteSale</b> call were successful. If any other <b>Ack</b> value besides <Success>true</code> is returned, the seller should look for any returned error messages or warnings.
  * 			
  * 
  * <p>Java class for CompleteSaleResponseType complex type.

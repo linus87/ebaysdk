@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 
 /**
  * 
- * 				This type is used by the <b>CategorySpecific</b> container in the <b>GetCategorySpecifics</b> request. The  <b>CategorySpecific</b> container is used when a seller wants to pass in customized Item Specific name-value(s) pairs for a specific category to discover if eBay has better name or value recommendations for that Item Specific.
+ * 				This type is used by the <b>CategorySpecific</b> container in the <b>GetCategorySpecifics</b> request. The  <b>CategorySpecific</b> container is used when a seller wants to pass in Item Specific name-value(s) pairs for a specific category to discover if eBay has better name or value recommendations for that Item Specific.
  * 			
  * 
  * <p>Java class for CategoryItemSpecificsType complex type.

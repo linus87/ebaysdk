@@ -18,13 +18,13 @@ import org.w3c.dom.Element;
 /**
  * 
  * 				Type defining the <b>ListingStartPriceDetails</b> container returned in
- * 				<b>GeteBayDetails</b>. The <b>ListingStartPriceDetails</b> 
- * 				container lists the minimum start price for auction listings, the minimum sale price 
- * 				for fixed-price listings, and the minimum percentage value that a Buy It Now price for 
+ * 				<b>GeteBayDetails</b>. The <b>ListingStartPriceDetails</b>
+ * 				container lists the minimum start price for auction listings, the minimum sale price
+ * 				for fixed-price listings, and the minimum percentage value that a Buy It Now price for
  * 				an auction listing must be above the minimum start price for that same listing.
  * 				<br><br>
  * 				The <b>ListingStartPriceDetails</b> container is returned if
- * 				<b>ListingStartPriceDetails</b> is included as a <b>DetailName</b> 
+ * 				<b>ListingStartPriceDetails</b> is included as a <b>DetailName</b>
  * 				filter in the request, or if no lt;b>DetailName</b> filters are used in the request.
  * 			
  * 
