@@ -58,7 +58,7 @@
 								<echo message="Starting wsimport" />
 								<wsimport target="2.1" debug="false" verbose="true"
 									xnocompile="true" sourcedestdir="src/main/java"
-									wsdl="src/main/resources/eBaySvc.wsdl" quiet="true"
+									wsdl="src/main/resources/ebaysvc.wsdl" quiet="true"
 									package="com.ebay.soap.eBLBaseComponents">
 									<binding dir="${basedir}" includes="custom-binding.xml,jaxb-binding.xjb" />
 								</wsimport>
