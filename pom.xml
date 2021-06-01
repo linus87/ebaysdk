@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -11,7 +10,7 @@
 
 	<groupId>io.github.linus87</groupId>
 	<artifactId>ebaysdk</artifactId>
-	<version>1131</version>
+	<version>1132</version>
 	<packaging>pom</packaging>
 
 	<name>ebaysdk</name>
@@ -27,6 +26,8 @@
 		<module>helper</module>
 	</modules>
 
+	<!-- <distributionManagement> <snapshotRepository> <id>ossrh</id> <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url> 
+		</snapshotRepository> </distributionManagement> -->
 	<licenses>
 		<license>
 			<name>COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) VERSION 1.0</name>
